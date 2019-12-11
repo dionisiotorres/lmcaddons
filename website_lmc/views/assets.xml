@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="assets_frontend_inherit" inherit_id="web.assets_frontend" name="Auth Signup Password Policy Assets">
+	      	<xpath expr="." position="inside">
+				<script type="text/javascript" src="/website_lmc/static/src/js/custom.js"></script>
+				<link rel="stylesheet" type="text/css" href="/website_lmc/static/src/css/custom.css"/>
+			</xpath>
+		</template>
+	</data>
+</odoo>

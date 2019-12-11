@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook//page[@name='internal_notes']//field[@name='comment']" position="after">
+                    <label for="about_us"/>
+                    <field name="about_us"/>
+                </xpath>
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Vehicle Information" name="vehicle">
+                        <group>
+                            <group>
+                                <field name="x_vehicle_cat"/>
+                                <field name="x_vehicle_manufacturer"/>
+                                <field name="x_vehicle_type"/>
+                                <field name="x_vehicle_ccm"/>
+                                <field name="x_vehicle_year_construction"/>
+                                <field name="x_vehicle_approved"/>
+                                <field name="x_vehicle_cylinder"/>
+                                <field name="x_vehicle_horse_power"/>
+                                <field name="x_vehicle_desc"/>
+                                <field name="x_vehicle_modifications"/>
+                                <field name="x_vehicle_tire_size"/>
+                                <field name="x_vehicle_rim_size"/>
+                                <field name="x_vehicle_doc_number"/>
+                                <field name="x_vehicle_pict_path"/>
+                                <field name="x_race_info_field"/>
+                                <field name="x_race_info_starting_num"/>
+                                <field name="x_gender"/>
+                            </group>
+                            <group>
+                                <field name="x_driver_license_type"/>
+                                <field name="x_driver_license_num"/>
+                                <field name="x_birthdate"/>
+                                <field name="x_vehicle_pict"/>
+                                <field name="x_driver_pict_path"/>
+                                <field name="x_driver_success"/>
+                                <field name="x_driver_year_racing_since"/>
+                                <field name="x_driver_amount_events"/>
+                                <field name="x_driver_year_last_event"/>
+                                <field name="x_vehicle_homologation_num"/>
+                                <field name="x_driver_year_driving_license_issuance"/>
+                                <field name="x_driver_shirt_size"/>
+                                <field name="x_race_info_pit_id"/>
+                                <field name="x_vehicle_number_plate"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

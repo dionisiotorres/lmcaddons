@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="add_profile_shipping_address">
+            <t t-call="portal.portal_layout">
+                <t t-set="additional_title">Contact Details</t>
+                <form action="/account/address" method="post" class="checkout_autoformat address_form">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="hidden" name="submitted" value="1" />
+                    <input type="hidden" name="partner_id" t-att-value="partner and partner.id" />
+                    <input type="hidden" name="type" t-att-value="type" />
+                    <h2>Shipping Address</h2>
+                    <div class="row user_my_account">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="form-group col-xl-6">
+                                    <label class="col-form-label" for="name">Name</label>
+                                    <input type="text" name="name" class="form-control" t-att-value="'name' in partner and partner['name']"/>
+                                </div>
+                                <div class="form-group col-xl-6">
+                                    <label class="col-form-label" for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" t-att-value="'email' in partner and partner['email']" required="true"/>
+                                </div>
+
+                                <div class="clearfix" />
+                                <div class="form-group col-xl-6">
+                                    <label class="col-form-label" for="phone">Phone</label>
+                                    <input type="tel" name="phone" class="form-control" t-att-value="'phone' in partner and partner['phone']" required="true"/>
+                                </div>
+
+                                <div class="clearfix" />
+                                <div class="form-group col-xl-6">
+                                    <label class="col-form-label" for="street">Street</label>
+                                    <input type="text" name="street" class="form-control" t-att-value="'street' in partner and partner['street']" required="true"/>
+                                </div>
+                                <div class="form-group col-xl-6">
+                                    <label class="col-form-label" for="city">City</label>
+                                    <input type="text" name="city" class="form-control" t-att-value="'city' in partner and partner['city']" required="true"/>
+                                </div>
+                                <div class="form-group col-xl-6">
+                                    <label class="col-form-label label-optional" for="zipcode">Zip / Postal Code</label>
+                                    <input type="text" name="zipcode" class="form-control" t-att-value="'zip' in partner and partner['zip']" required="true"/>
+                                </div>
+                                <div class="form-group col-md-6 div_country">
+                                    <label class="control-label" for="country_id">Country*</label>
+                                    <select id="country_id" name="country_id" class="form-control" required="true">
+                                      <option value="">Country...</option>
+                                      <t t-foreach="countries" t-as="c">
+                                        <option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
+                                          <t t-esc="c.name" />
+                                        </option>
+                                      </t>
+                                    </select>
+                                  </div>
+                                  <div class="form-group col-md-6 div_state" t-att-style="(not country or not country.state_ids) and 'display: none'">
+                                    <label class="control-label" for="state_id">State / Province*</label>
+                                    <select name="state_id" class="form-control" data-init="1">
+                                      <option value="">State / Province...</option>
+                                      <t t-foreach="country and country.state_ids or []" t-as="s">
+                                        <option t-att-value="s.id" t-att-selected="s.id == ('state_id' in partner and country and partner['state_id'] != '' and int(partner['state_id']))">
+                                          <t t-esc="s.name" />
+                                        </option>
+                                      </t>
+                                    </select>
+                                  </div>
+                            </div>
+                            <div class="clearfix">
+                                <button type="submit" class="btn btn-primary float-right mb32 ">
+                                    Confirm
+                                    <span class="fa fa-long-arrow-right" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </t>
+        </template>
+
+        <template id="profile_shipping_address" name="Shipping Kanban address">
+            <form action="/account/address" method="POST" class="d-none">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                <input type="hidden" name="partner_id" t-att-value="contact.id" />
+                <input type='submit'/>
+            </form>
+            <div class="card border border-primary">
+                <div class='card-body' style='min-height: 130px;'>
+                    <div class="address_icon mb8">
+                        <a href="#" data-toggle="modal" data-target="#basicModal" class="float-left" title="Delete" aria-label="Delete">
+                            <i class="fa fa-trash-o fa-1g"></i>
+                        </a>
+
+                        <!-- basic modal -->
+                        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <p>Are you sure you want to delete this Address?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <a href="#" t-att-partner_id="contact.id" class="btn btn-primary addresss_delete o_forum_address_delete">
+                                    yes, Delete
+                                </a>
+                                <button type="button" class="btn btn-default address_cancel" data-dismiss="modal">Cancel</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <a t-if="not actual_partner or (ship.id in actual_partner.child_ids.ids)" class="btn btn-link float-right p-0 user_edit_address no-decoration" role="button" title="Edit this address" aria-label="Edit this address"><i class='fa fa-edit'/></a>
+                    </div>
+                    <div class="clearfix"/>
+                    <t t-esc="contact" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)"/>
+                </div>
+            </div>
+        </template>
+
+        <template id="portal.portal_layout" name="Portal Layout">
+            <t t-call="portal.frontend_layout">
+                <t t-set="is_portal" t-value="True"/>
+
+                <div t-if="not no_breadcrumbs and not my_details and not breadcrumbs_searchbar" class="o_portal container mt-3">
+                    <div class="row align-items-center bg-white no-gutters">
+                        <div class="col">
+                            <t t-call="portal.portal_breadcrumbs"></t>
+                        </div>
+                        <div t-if="prev_record or next_record" class="col flex-grow-0">
+                            <t t-call='portal.record_pager'/>
+                        </div>
+                    </div>
+                </div>
+                <div id="wrap" class='o_portal_wrap user_profile'>
+                    <div class="container">
+                        <t t-if="my_details">
+                            <div class="justify-content-between mt-4">
+                                <div class="row flex-lg-nowrap">
+                                  <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+                                    <div class="card p-3">
+                                      <div class="e-navlist e-navlist--active-bg">
+                                        <t t-raw="0"/>
+                                        <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                            <i class="fa fa-sign-out"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="row">
+                                      <div class="col mb-3">
+                                        <form action="/my/account" method="post" role="form" enctype="multipart/form-data">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <div class="card">
+                                              <div class="card-body">
+                                                <div class="e-profile">
+                                                  <div class="row">
+                                                    <div class="col-12 col-sm-auto mb-3 image_change_profile">
+                                                        <div class="mx-auto custom_dp_change" style="width: 140px;">
+                                                            <input type="file" class="d-none o_forum_file_upload" name="ufile" accept="image/*"/>
+                                                            <div class="col-12">
+                                                                <a href="#" class="float-left o_forum_profile_pic_edit" aria-label="Edit">
+                                                                    <i class="fa fa-pencil fa-1g" title="Edit"></i>
+                                                                </a>
+                                                                <a href="#" class="float-right o_forum_profile_pic_clear" title="Clear" aria-label="Clear">
+                                                                    <i class="fa fa-trash-o fa-1g"></i>
+                                                                </a>
+                                                                <img class="img img-fluid o_forum_avatar_img" t-attf-src="/web/image/res.partner/{{request.env.user.partner_id.id}}/image" alt="Avatar"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                                      <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                        <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"><t t-esc="request.env.user.name"/></h4>
+                                                        <p class="mb-0"><t t-esc="request.env.user.login"/></p>
+                                                        <div class="text-muted"><small>Last seen <span t-esc="request.env.user.get_last_seen()"/> ago</small></div>
+                                                      </div>
+                                                      <div class="text-center text-sm-right">
+                                                        <span class="badge badge-secondary"><t t-esc="request.env.user.login"/></span>
+                                                        <div class="text-muted"><small>Joined <span t-field="request.env.user.create_date" t-options='{"format": "dd MMMM y"}'></span></small></div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <ul class="nav nav-tabs" role="tablist">
+                                                    <li class="nav-item"><a href="#setting" class="active nav-link" data-toggle="tab" role="tab">Settings</a></li>
+                                                    <!-- <li class="nav-item"><a href="#password_reset" class="nav-link" data-toggle="tab" role="tab">Password Reset</a></li> -->
+                                                  </ul>
+                                                  <div class="tab-content pt-3">
+                                                    <div class="tab-pane active" id="setting" role="tabpanel">
+                                                      <!-- <form action="/my/account" method="post" class="form"> -->
+                                                        <!-- <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/> -->
+                                                        <div class="row o_portal_details">
+                                                          <div class="col">
+                                                            <div class="row">
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Full Name</label>
+                                                                  <input type="text" name="name" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}" t-att-value="name or partner.name" />
+                                                                </div>
+                                                              </div>
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Email</label>
+                                                                  <input type="email" name="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" t-att-value="email or partner.email" />
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="row">
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Company Name</label>
+                                                                  <p t-if="not partner.can_edit_vat()" t-attf-class="form-control" readonly="1" t-esc="partner.commercial_company_name" title="Changing company name is not allowed once document(s) have been issued for your account. Please contact us directly for this operation."/>
+                                                                    <input t-else="" type="text" name="company_name" t-attf-class="form-control #{error.get('company_name') and 'is-invalid' or ''}" t-att-value="company_name or partner.commercial_company_name"/>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>VAT Number</label>
+                                                                  <input type="text" name="vat" t-attf-class="form-control #{error.get('vat') and 'is-invalid' or ''}" t-att-value="vat or partner.vat" t-att-readonly="None if partner.can_edit_vat() else '1'" t-att-title="None if partner.can_edit_vat() else 'Changing VAT number is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.'" />
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="row">
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Phone</label>
+                                                                  <input type="tel" name="phone" t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}" t-att-value="phone or partner.phone" />
+                                                                </div>
+                                                              </div>
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Street</label>
+                                                                  <input type="text" name="street" t-attf-class="form-control #{error.get('street') and 'is-invalid' or ''}" t-att-value="street or partner.street"/>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="row">
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>City</label>
+                                                                  <input type="text" name="city" t-attf-class="form-control #{error.get('city') and 'is-invalid' or ''}" t-att-value="city or partner.city" />
+                                                                </div>
+                                                              </div>
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Zip / Postal Code</label>
+                                                                  <input type="text" name="zipcode" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="zipcode or partner.zip" />
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="row">
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>Country</label>
+                                                                  <select name="country_id" t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}">
+                                                                    <option value="">Country...</option>
+                                                                    <t t-foreach="countries or []" t-as="country">
+                                                                        <option t-att-value="country.id" t-att-selected="country.id == int(country_id) if country_id else country.id == partner.country_id.id">
+                                                                            <t t-esc="country.name" />
+                                                                        </option>
+                                                                    </t>
+                                                                </select>
+                                                                </div>
+                                                              </div>
+                                                              <div class="col">
+                                                                <div class="form-group">
+                                                                  <label>State / Province</label>
+                                                                    <select name="state_id" t-attf-class="form-control #{error.get('state_id') and 'is-invalid' or ''}">
+                                                                       <option value="">select...</option>
+                                                                        <t t-foreach="states or []" t-as="state">
+                                                                            <option t-att-value="state.id" style="display:none;" t-att-data-country_id="state.country_id.id" t-att-selected="state.id == partner.state_id.id">
+                                                                                <t t-esc="state.name" />
+                                                                            </option>
+                                                                        </t>
+                                                                    </select>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="row">
+                                                              <div class="col mb-3">
+                                                                <div class="form-group">
+                                                                  <label>About</label>
+                                                                  <textarea type="textarea" name="about_us" class="form-control" rows="5"><t t-raw="partner.about_us"/></textarea>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      <!-- </form> -->
+                                                    </div>
+                                                    <input type="hidden" name="redirect" t-att-value="redirect"/>
+                                                  </div>
+                                                  
+                                                  <!-- after added -->
+                                                    <div class="row">
+                                                        <div class="col d-block justify-content-end">
+                                                            <a t-attf-href="/web/reset_password" id="change_password" class="btn btn-primary" target="_blank">
+                                                                <span>Reset Password</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col d-flex justify-content-end">
+                                                            <button class="btn btn-primary" type="submit">Save Changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </form>
+                                      </div>
+                                      <div class="col-12 col-md-3 mb-3 profile_address">
+                                        <div class="card mb-3">
+                                          <div class="card-body">
+                                            <h6 class="card-title font-weight-bold">Billing Address</h6>
+                                            <div class="card border border-primary">
+                                                <div class='card-body' style='min-height: 130px;'>
+                                                    <a t-if="user_id.partner_id" href="/my/account" class="btn btn-link float-right p-0 no-decoration" role="button" title="Edit this address" aria-label="Edit this address"><i class='fa fa-edit'/></a>
+                                                    <div class="clearfix"/>
+                                                    <div t-field="user_id.partner_id" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)"/>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="card mb-3">
+                                          <div class="card-body">
+                                            <h6 class="card-title font-weight-bold">Shipping Address</h6>
+                                            <div class="row all_shipping">
+                                                <div class="col-lg-12">
+                                                    <div class="row mt8">
+                                                        <div class="col-md-12 col-lg-12 one_kanban">
+                                                            <form action="/account/address?type=delivery" method="post" class="d-block">
+                                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                                <a role="button" class='a-submit btn btn-secondary mb16 btn-block user_shipping_address_add'>
+                                                                    <i class="fa fa-plus-square"/>
+                                                                    <span>Add an address</span>
+                                                                </a>
+                                                            </form>
+                                                        </div>
+                                                        <t t-foreach="contacts" t-as="ship">
+                                                            <!-- <t t-if="ship.type == 'delivery'"> -->
+                                                                <div class="col-md-12 col-lg-12 one_kanban mb8">
+                                                                    <t t-call="website_lmc.profile_shipping_address">
+                                                                        <t t-set="actual_partner" t-value="partner" />
+                                                                        <t t-set='contact' t-value="ship" />
+                                                                    </t>
+                                                                </div>
+                                                            <!-- </t> -->
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="o_my_sidebar" class="col-12 col-md col-lg-10 col-xl-3 o_my_sidebar" style="display:none;">
+                                    <div class="o_my_contact" t-if="sales_user">
+                                        <t t-call="sale.portal_my_orders"/>
+                                    </div>
+                                    <div class="o_portal_my_details">
+                                        <h4>Details <a role="button" href="/my/account" class="btn btn-sm btn-link"><i class="fa fa-pencil"/> Edit</a></h4>
+                                        <hr class="mt-1 mb-0"/>
+                                        <div t-field="user_id.partner_id" t-options='{"widget": "contact", "fields": ["email", "phone", "address", "name"]}'/>
+                                    </div>
+                                    <div class="o_my_archives" t-if="archive_groups">
+                                        <t t-call="portal.portal_archive_groups"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <t t-raw="0"/>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="portal.portal_my_home" name="My Portal">
+            <t t-call="portal.portal_layout">
+                <t t-set="my_details" t-value="True"/>
+                <div class="o_portal_my_home">
+                    <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                    <div class="o_portal_docs list-group">
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_portal_my_home_2"/>
+            </t>
+        </template>
+
+        <template id="sale.portal_my_quotations" name="My Quotations">
+            <t t-call="portal.portal_layout">
+                <div class="justify-content-between">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-12 col-lg-auto mt-3 mb-3" style="width: 200px;">
+                           <div class="card p-3">
+                              <div class="e-navlist e-navlist--active-bg">
+                                <a t-attf-href="/my/home" class="btn btn-block btn-default profile_bttn">
+                                    <i class="fa fa-user"></i>
+                                    <span>MY PROFILE</span>
+                                </a>
+                                <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                                <div class="o_portal_docs list-group">
+                                    <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Leads</t>
+                                        <t t-set="url" t-value="'/my/leads'"/>
+                                        <t t-set="count" t-value="lead_count"/>
+                                    </t>
+                                    <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Opportunities</t>
+                                        <t t-set="url" t-value="'/my/opportunities'"/>
+                                        <t t-set="count" t-value="opp_count"/>
+                                    </t>
+                                    <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Quotations</t>
+                                        <t t-set="url" t-value="'/my/quotes'"/>
+                                        <t t-set="count" t-value="quotation_count"/>
+                                    </t>
+                                    <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Sales Orders</t>
+                                        <t t-set="url" t-value="'/my/orders'"/>
+                                        <t t-set="count" t-value="order_count"/>
+                                    </t>
+                                    <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Purchase Orders</t>
+                                        <t t-set="url" t-value="'/my/purchase'"/>
+                                        <t t-set="count" t-value="purchase_count"/>
+                                    </t>
+                                    <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Invoices &amp; Bills</t>
+                                        <t t-set="url" t-value="'/my/invoices'"/>
+                                        <t t-set="count" t-value="invoice_count"/>
+                                    </t>
+                                    <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Projects</t>
+                                        <t t-set="url" t-value="'/my/projects'"/>
+                                        <t t-set="count" t-value="project_count"/>
+                                    </t>
+                                    <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Tasks</t>
+                                        <t t-set="url" t-value="'/my/tasks'"/>
+                                        <t t-set="count" t-value="task_count"/>
+                                    </t>
+                                    <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Timesheets</t>
+                                        <t t-set="url" t-value="'/my/timesheets'"/>
+                                        <t t-set="count" t-value="timesheet_count"/>
+                                    </t>
+                                </div>
+                                <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                                    <t t-call="portal.portal_searchbar">
+                                        <t t-set="title">Quotations</t>
+                                    </t>
+                                    <t t-if="not quotations">
+                                        <p>There are currently no quotations for your account.</p>
+                                    </t>
+                                    <t t-if="quotations" t-call="portal.portal_table">
+                                        <thead>
+                                            <tr class="active">
+                                                <th>Quotation #</th>
+                                                <th class="text-right">Quotation Date</th>
+                                                <th class="text-right">Valid Until</th>
+                                                <th class="text-center"/>
+                                                <th class="text-right">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <t t-foreach="quotations" t-as="quotation">
+                                            <tr>
+                                                <td><a t-att-href="quotation.get_portal_url()"><t t-esc="quotation.name"/></a></td>
+                                                <td class="text-right"><span t-field="quotation.date_order"/></td>
+                                                <td class="text-right"><span t-field="quotation.validity_date"/></td>
+                                                <td class="text-center">
+                                                    <span t-if="quotation.state == 'cancel'" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-remove"/> Cancelled</span>
+                                                    <span t-if="quotation.is_expired" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-clock-o"/> Expired</span>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-field="quotation.amount_total"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="sale.portal_my_orders" name="My Sales Orders">
+            <t t-call="portal.portal_layout">
+                <div class="justify-content-between">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-12 col-lg-auto mt-3 mb-3" style="width: 200px;">
+                           <div class="card p-3">
+                              <div class="e-navlist e-navlist--active-bg">
+                                <a t-attf-href="/my/home" class="btn btn-block btn-default profile_bttn">
+                                    <i class="fa fa-user"></i>
+                                    <span>MY PROFILE</span>
+                                </a>
+                                <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                                <div class="o_portal_docs list-group">
+                                    <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Leads</t>
+                                        <t t-set="url" t-value="'/my/leads'"/>
+                                        <t t-set="count" t-value="lead_count"/>
+                                    </t>
+                                    <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Opportunities</t>
+                                        <t t-set="url" t-value="'/my/opportunities'"/>
+                                        <t t-set="count" t-value="opp_count"/>
+                                    </t>
+                                    <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Quotations</t>
+                                        <t t-set="url" t-value="'/my/quotes'"/>
+                                        <t t-set="count" t-value="quotation_count"/>
+                                    </t>
+                                    <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Sales Orders</t>
+                                        <t t-set="url" t-value="'/my/orders'"/>
+                                        <t t-set="count" t-value="order_count"/>
+                                    </t>
+                                    <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Purchase Orders</t>
+                                        <t t-set="url" t-value="'/my/purchase'"/>
+                                        <t t-set="count" t-value="purchase_count"/>
+                                    </t>
+                                    <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Invoices &amp; Bills</t>
+                                        <t t-set="url" t-value="'/my/invoices'"/>
+                                        <t t-set="count" t-value="invoice_count"/>
+                                    </t>
+                                    <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Projects</t>
+                                        <t t-set="url" t-value="'/my/projects'"/>
+                                        <t t-set="count" t-value="project_count"/>
+                                    </t>
+                                    <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Tasks</t>
+                                        <t t-set="url" t-value="'/my/tasks'"/>
+                                        <t t-set="count" t-value="task_count"/>
+                                    </t>
+                                    <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Timesheets</t>
+                                        <t t-set="url" t-value="'/my/timesheets'"/>
+                                        <t t-set="count" t-value="timesheet_count"/>
+                                    </t>
+                                </div>
+                                <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                                    <t t-call="portal.portal_searchbar">
+                                        <t t-set="title">Sales Orders</t>
+                                    </t>
+                                    <t t-if="not orders">
+                                        <p>There are currently no orders for your account.</p>
+                                    </t>
+                                    <t t-if="orders" t-call="portal.portal_table">
+                                        <thead>
+                                            <tr class="active">
+                                                <th>
+                                                    <span class='d-none d-md-inline'>Sales Order #</span>
+                                                    <span class='d-block d-md-none'>Ref.</span>
+                                                </th>
+                                                <th class="text-right">Order Date</th>
+                                                <th class="text-center"/>
+                                                <th class="text-right">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <t t-foreach="orders" t-as="order">
+                                            <tr>
+                                                <td><a t-att-href="order.get_portal_url()"><t t-esc="order.name"/></a></td>
+                                                <td class="text-right">
+                                                    <span t-field="order.date_order" t-options="{'widget': 'date'}"/>&amp;nbsp;
+                                                    <span class='d-none d-md-inline' t-field="order.date_order" t-options="{'time_only': True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-if="order.state == 'done'"  class="badge badge-pill badge-success">
+                                                        <i class="fa fa-fw fa-check" role="img" aria-label="Done" title="Done"/>Done
+                                                    </span>
+                                                </td>
+                                                <td class="text-right"><span t-field="order.amount_total"/></td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="purchase.portal_my_purchase_orders" name="Portal: My Purchase Orders">
+            <t t-call="portal.portal_layout">
+                <div class="justify-content-between">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-12 col-lg-auto mt-3 mb-3" style="width: 200px;">
+                           <div class="card p-3">
+                              <div class="e-navlist e-navlist--active-bg">
+                                <a t-attf-href="/my/home" class="btn btn-block btn-default profile_bttn">
+                                    <i class="fa fa-user"></i>
+                                    <span>MY PROFILE</span>
+                                </a>
+                                <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                                <div class="o_portal_docs list-group">
+                                    <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Leads</t>
+                                        <t t-set="url" t-value="'/my/leads'"/>
+                                        <t t-set="count" t-value="lead_count"/>
+                                    </t>
+                                    <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Opportunities</t>
+                                        <t t-set="url" t-value="'/my/opportunities'"/>
+                                        <t t-set="count" t-value="opp_count"/>
+                                    </t>
+                                    <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Quotations</t>
+                                        <t t-set="url" t-value="'/my/quotes'"/>
+                                        <t t-set="count" t-value="quotation_count"/>
+                                    </t>
+                                    <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Sales Orders</t>
+                                        <t t-set="url" t-value="'/my/orders'"/>
+                                        <t t-set="count" t-value="order_count"/>
+                                    </t>
+                                    <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Purchase Orders</t>
+                                        <t t-set="url" t-value="'/my/purchase'"/>
+                                        <t t-set="count" t-value="purchase_count"/>
+                                    </t>
+                                    <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Invoices &amp; Bills</t>
+                                        <t t-set="url" t-value="'/my/invoices'"/>
+                                        <t t-set="count" t-value="invoice_count"/>
+                                    </t>
+                                    <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Projects</t>
+                                        <t t-set="url" t-value="'/my/projects'"/>
+                                        <t t-set="count" t-value="project_count"/>
+                                    </t>
+                                    <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Tasks</t>
+                                        <t t-set="url" t-value="'/my/tasks'"/>
+                                        <t t-set="count" t-value="task_count"/>
+                                    </t>
+                                    <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Timesheets</t>
+                                        <t t-set="url" t-value="'/my/timesheets'"/>
+                                        <t t-set="count" t-value="timesheet_count"/>
+                                    </t>
+                                </div>
+                                <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col mb-3">
+                                  <t t-call="portal.portal_searchbar">
+                                    <t t-set="title">Purchase Orders</t>
+                                  </t>
+                                  <t t-if="orders" t-call="portal.portal_table">
+                                    <thead>
+                                      <tr class="active">
+                                        <th>Purchase Orders #</th>
+                                        <th>Order Date</th>
+                                        <th></th>
+                                        <th>Total</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <t t-foreach="orders" t-as="order">
+                                        <tr>
+                                          <td><a t-attf-href="/my/purchase/#{order.id}?#{keep_query()}"><t t-esc="order.name"/></a></td>
+                                          <td><span t-field="order.date_order"/></td>
+                                          <td>
+                                            <t t-if="order.invoice_status == 'to invoice'">
+                                              <span class="badge badge-info"><i class="fa fa-fw fa-file-text"/> Waiting for Bill</span>
+                                            </t>
+                                            <t t-if="order.state == 'cancel'">
+                                              <span class="badge badge-secondary"><i class="fa fa-fw fa-remove"/> Cancelled</span>
+                                            </t>
+                                          </td>
+                                          <td><span t-field="order.amount_total" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/></td>
+                                        </tr>
+                                      </t>
+                                    </tbody>
+                                  </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="account.portal_my_invoices" name="My Invoices and Payments">
+          <t t-call="portal.portal_layout">
+            <div class="justify-content-between">
+                <div class="row flex-lg-nowrap">
+                    <div class="col-12 col-lg-auto mt-3 mb-3" style="width: 200px;">
+                       <div class="card p-3">
+                          <div class="e-navlist e-navlist--active-bg">
+                            <a t-attf-href="/my/home" class="btn btn-block btn-default profile_bttn">
+                                    <i class="fa fa-user"></i>
+                                    <span>MY PROFILE</span>
+                                </a>
+                            <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                            <div class="o_portal_docs list-group">
+                                <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Leads</t>
+                                    <t t-set="url" t-value="'/my/leads'"/>
+                                    <t t-set="count" t-value="lead_count"/>
+                                </t>
+                                <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Opportunities</t>
+                                    <t t-set="url" t-value="'/my/opportunities'"/>
+                                    <t t-set="count" t-value="opp_count"/>
+                                </t>
+                                <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Quotations</t>
+                                    <t t-set="url" t-value="'/my/quotes'"/>
+                                    <t t-set="count" t-value="quotation_count"/>
+                                </t>
+                                <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Sales Orders</t>
+                                    <t t-set="url" t-value="'/my/orders'"/>
+                                    <t t-set="count" t-value="order_count"/>
+                                </t>
+                                <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Purchase Orders</t>
+                                    <t t-set="url" t-value="'/my/purchase'"/>
+                                    <t t-set="count" t-value="purchase_count"/>
+                                </t>
+                                <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Invoices &amp; Bills</t>
+                                    <t t-set="url" t-value="'/my/invoices'"/>
+                                    <t t-set="count" t-value="invoice_count"/>
+                                </t>
+                                <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Projects</t>
+                                    <t t-set="url" t-value="'/my/projects'"/>
+                                    <t t-set="count" t-value="project_count"/>
+                                </t>
+                                <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Tasks</t>
+                                    <t t-set="url" t-value="'/my/tasks'"/>
+                                    <t t-set="count" t-value="task_count"/>
+                                </t>
+                                <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                    <t t-set="title">Timesheets</t>
+                                    <t t-set="url" t-value="'/my/timesheets'"/>
+                                    <t t-set="count" t-value="timesheet_count"/>
+                                </t>
+                            </div>
+                            <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                <i class="fa fa-sign-out"></i>
+                                <span>Logout</span>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                                <t t-call="portal.portal_searchbar">
+                                    <t t-set="title">Invoices</t>
+                                </t>
+                                <t t-if="not invoices">
+                                    <p>There are currently no invoices and payments for your account.</p>
+                                </t>
+                                <t t-if="invoices" t-call="portal.portal_table">
+                                    <thead>
+                                        <tr class="active">
+                                            <th>Invoice #</th>
+                                            <th>Invoice Date</th>
+                                            <th class='d-none d-md-table-cell'>Due Date</th>
+                                            <th/>
+                                            <th class="text-right">Amount Due</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="invoices" t-as="invoice">
+                                            <tr>
+                                                <td>
+                                                    <a t-att-href="invoice.get_portal_url()" t-att-title="invoice.name">
+                                                        <t t-esc="invoice.name" t-if="invoice.name"/>
+                                                        <em t-else="">Draft Invoice</em>
+                                                    </a>
+                                                </td>
+                                                <td><span t-field="invoice.date_invoice"/></td>
+                                                <td class='d-none d-md-table-cell'><span t-field="invoice.date_due"/></td>
+                                                <td class="tx_status">
+                                                    <t t-if="invoice.state == 'open'">
+                                                        <span class="badge badge-pill badge-info"><i class="fa fa-fw fa-clock-o" aria-label="Opened" title="Opened" role="img"></i><span class="d-none d-md-inline"> Waiting for Payment</span></span>
+                                                    </t>
+                                                    <t t-if="invoice.state == 'paid'">
+                                                        <span class="badge badge-pill badge-success"><i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"></i><span class="d-none d-md-inline"> Paid</span></span>
+                                                    </t>
+                                                    <t t-if="invoice.state == 'cancel'">
+                                                        <span class="badge badge-pill badge-warning"><i class="fa fa-fw fa-remove" aria-label="Cancelled" title="Cancelled" role="img"></i><span class="d-none d-md-inline"> Cancelled</span></span>
+                                                    </t>
+                                                </td>
+                                                <td class="text-right"><span t-esc="-invoice.residual if invoice.type == 'out_refund' else invoice.residual" t-options='{"widget": "monetary", "display_currency": invoice.currency_id}'/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </t>
+        </template>
+
+        <template id="project.portal_my_projects" name="My Projects">
+            <t t-call="portal.portal_layout">
+                <div class="justify-content-between">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-12 col-lg-auto mt-3 mb-3" style="width: 200px;">
+                           <div class="card p-3">
+                              <div class="e-navlist e-navlist--active-bg">
+                                <a t-attf-href="/my/home" class="btn btn-block btn-default profile_bttn">
+                                    <i class="fa fa-user"></i>
+                                    <span>MY PROFILE</span>
+                                </a>
+                                <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                                <div class="o_portal_docs list-group">
+                                    <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Leads</t>
+                                        <t t-set="url" t-value="'/my/leads'"/>
+                                        <t t-set="count" t-value="lead_count"/>
+                                    </t>
+                                    <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Opportunities</t>
+                                        <t t-set="url" t-value="'/my/opportunities'"/>
+                                        <t t-set="count" t-value="opp_count"/>
+                                    </t>
+                                    <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Quotations</t>
+                                        <t t-set="url" t-value="'/my/quotes'"/>
+                                        <t t-set="count" t-value="quotation_count"/>
+                                    </t>
+                                    <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Sales Orders</t>
+                                        <t t-set="url" t-value="'/my/orders'"/>
+                                        <t t-set="count" t-value="order_count"/>
+                                    </t>
+                                    <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Purchase Orders</t>
+                                        <t t-set="url" t-value="'/my/purchase'"/>
+                                        <t t-set="count" t-value="purchase_count"/>
+                                    </t>
+                                    <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Invoices &amp; Bills</t>
+                                        <t t-set="url" t-value="'/my/invoices'"/>
+                                        <t t-set="count" t-value="invoice_count"/>
+                                    </t>
+                                    <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Projects</t>
+                                        <t t-set="url" t-value="'/my/projects'"/>
+                                        <t t-set="count" t-value="project_count"/>
+                                    </t>
+                                    <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Tasks</t>
+                                        <t t-set="url" t-value="'/my/tasks'"/>
+                                        <t t-set="count" t-value="task_count"/>
+                                    </t>
+                                    <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Timesheets</t>
+                                        <t t-set="url" t-value="'/my/timesheets'"/>
+                                        <t t-set="count" t-value="timesheet_count"/>
+                                    </t>
+                                </div>
+                                <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                                    <t t-call="portal.portal_searchbar">
+                                        <t t-set="title">Projects</t>
+                                    </t>
+                                    <t t-if="not projects">
+                                        <div class="alert alert-warning mt8" role="alert">
+                                            There are no projects.
+                                        </div>
+                                    </t>
+                                    <t t-if="projects" t-call="portal.portal_table">
+                                        <tbody>
+                                            <tr t-foreach="projects" t-as="project">
+                                                <td>
+                                                    <a t-attf-href="/my/project/#{project.id}?{{ keep_query() }}"><span t-field="project.name"/></a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a t-attf-href="/my/tasks?{{keep_query(filterby=project.id)}}">
+                                                        <t t-esc="project.task_count" />
+                                                        <t t-esc="project.label_tasks" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="project.portal_my_tasks" name="My Tasks">
+            <t t-call="portal.portal_layout">
+                <div class="justify-content-between">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-12 col-lg-auto mt-3 mb-3" style="width: 200px;">
+                           <div class="card p-3">
+                              <div class="e-navlist e-navlist--active-bg">
+                                <a t-attf-href="/my/home" class="btn btn-block btn-default profile_bttn">
+                                    <i class="fa fa-user"></i>
+                                    <span>MY PROFILE</span>
+                                </a>
+                                <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                                <div class="o_portal_docs list-group">
+                                    <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Leads</t>
+                                        <t t-set="url" t-value="'/my/leads'"/>
+                                        <t t-set="count" t-value="lead_count"/>
+                                    </t>
+                                    <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Opportunities</t>
+                                        <t t-set="url" t-value="'/my/opportunities'"/>
+                                        <t t-set="count" t-value="opp_count"/>
+                                    </t>
+                                    <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Quotations</t>
+                                        <t t-set="url" t-value="'/my/quotes'"/>
+                                        <t t-set="count" t-value="quotation_count"/>
+                                    </t>
+                                    <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Sales Orders</t>
+                                        <t t-set="url" t-value="'/my/orders'"/>
+                                        <t t-set="count" t-value="order_count"/>
+                                    </t>
+                                    <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Purchase Orders</t>
+                                        <t t-set="url" t-value="'/my/purchase'"/>
+                                        <t t-set="count" t-value="purchase_count"/>
+                                    </t>
+                                    <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Invoices &amp; Bills</t>
+                                        <t t-set="url" t-value="'/my/invoices'"/>
+                                        <t t-set="count" t-value="invoice_count"/>
+                                    </t>
+                                    <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Projects</t>
+                                        <t t-set="url" t-value="'/my/projects'"/>
+                                        <t t-set="count" t-value="project_count"/>
+                                    </t>
+                                    <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Tasks</t>
+                                        <t t-set="url" t-value="'/my/tasks'"/>
+                                        <t t-set="count" t-value="task_count"/>
+                                    </t>
+                                    <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                        <t t-set="title">Timesheets</t>
+                                        <t t-set="url" t-value="'/my/timesheets'"/>
+                                        <t t-set="count" t-value="timesheet_count"/>
+                                    </t>
+                                </div>
+                                <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-block btn-secondary o_logout" t-if="not user_id._is_public()">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                                    <t t-call="portal.portal_searchbar">
+                                        <t t-set="title">Tasks</t>
+                                    </t>
+                                    <t t-if="not grouped_tasks">
+                                        <div class="alert alert-warning mt8" role="alert">
+                                            There are no tasks.
+                                        </div>
+                                    </t>
+                                    <t t-if="grouped_tasks">
+                                        <t t-call="portal.portal_table">
+                                            <t t-foreach="grouped_tasks" t-as="tasks">
+                                                <thead>
+                                                    <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                                        <th t-if="groupby == 'none'">Name</th>
+                                                        <th t-else="">
+                                                            <em class="font-weight-normal text-muted"><span t-field="tasks[0].sudo().project_id.label_tasks"/> for project:</em>
+                                                            <span t-field="tasks[0].sudo().project_id.name"/></th>
+                                                        <th class="text-center">Stage</th>
+                                                        <th class="text-left">Ref</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <t t-foreach="tasks" t-as="task">
+                                                        <tr>
+                                                            <td>
+                                                                <a t-attf-href="/my/task/#{task.id}?{{ keep_query() }}"><span t-field="task.name"/></a>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <span class="badge badge-pill badge-info" title="Current stage of the task" t-esc="task.stage_id.name" />
+                                                            </td>
+                                                            <td class="text-left">
+                                                                #<span t-esc="task.id"/>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

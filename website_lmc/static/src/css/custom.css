@@ -1,0 +1,84 @@
+.user_profile .list-group-item{
+	padding: 10px 2px;
+	border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.user_profile .list-group-item:first-child {
+  border-top: none;
+}
+
+.user_profile .list-group-item:last-child {
+  border-bottom: none;
+  padding-bottom: 20px;
+}
+
+/*.user_profile .o_form_image_controls {
+    position: absolute;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    right: 0;
+    width: 100%;
+    color: white;
+    transition: opacity ease 400ms;
+}*/
+
+.profile_address .card-body{
+  padding: 10px;
+}
+
+.user_profile .btn:focus, .btn.focus{
+  box-shadow: inherit !important;
+}
+
+.user_profile .profile_bttn{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.profile_address .user_shipping_address_add{
+  color: #fff !important;
+}
+
+.profile_address .modal-content {
+  padding: 30px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-width: 400px;
+  max-width: 450px;
+  min-height: 200px;
+  background: #fff;
+  border-radius: 4px;
+  outline: none;
+}
+
+.profile_address .modal-content p{
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.profile_address .addresss_delete{
+    background: #2874f0;
+    width: 175px;
+    height: 35px;
+    text-transform: uppercase;
+}
+
+.profile_address .address_cancel {
+  width: 175px;
+  height: 35px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #2874f0;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.one_kanban .btn-link{
+  color: #00A09D !important;
+}
