@@ -34,4 +34,4 @@ class Users(models.Model):
 class Menu(models.Model):
 
     _inherit = "website.menu"
-    is_show_menu = fields.Boolean("Is show menu", default=True)
+    # is_show_menu = fields.Boolean("Is show menu", default=True)
