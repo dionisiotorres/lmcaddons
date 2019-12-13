@@ -3,8 +3,9 @@
 	<data>
 		<template id="assets_frontend_inherit" inherit_id="web.assets_frontend" name="Auth Signup Password Policy Assets">
 	      	<xpath expr="." position="inside">
-				<script type="text/javascript" src="/website_lmc/static/src/js/custom.js"></script>
+				<link rel="stylesheet" type="text/scss" href="website_lmc/static/src/scss/login.scss"/>
 				<link rel="stylesheet" type="text/css" href="/website_lmc/static/src/css/custom.css"/>
+				<script type="text/javascript" src="/website_lmc/static/src/js/custom.js"></script>
 			</xpath>
 		</template>
 	</data>

@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'UniversLTStd-Cn';
+    src: url('/website_lmc/static/src/fonts/UniversLTStd-Cn.ttf') format('truetype');
+}
+.oe_login_form
+{
+    max-width: 400px;
+    position: relative;
+    margin: 0px 50px 0px auto;
+    padding: 50px;
+    padding-bottom: 74px;
+    background: #dedede;
+    input
+    {
+        font-size: 1.25rem;
+        padding: 2rem 1rem 1rem 1.25rem;
+    }
+}
+.oe_login_container
+{
+    position: relative;
+}
+// .login_container
+// {
+//     position: absolute;
+//     top: 0;
+//     right: 90px;
+// }
+.login_heading
+{
+    color: #c1a947 !important;
+}
+.oe_login_image
+{
+    height: 300px;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.classiccar-rigistation
+{
+    width: 300px;
+    right: auto;
+    left: 10%;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    font-family: UniversLTStd-BoldCn,sans-serif;
+    font-size: calc(32px + 6 * ((100vw - 768px) / 932));
+    font-family: UniversLTStd-Cn;
+}
+.custom_login_field label{
+    position: relative;
+    pointer-events: none;
+    left: 0;
+    top: -1.3rem;
+    font-size: 1.10rem;
+    transform: translateY(-1.25rem) translateX(1.5rem);
+    transition: transform .2s ease-in-out;
+    transform-origin: left center;
+    font-family: UniversLTStd-Cn;
+    font-weight: normal;
+
+}
+.custom_login_field .form-control.has-value~label, .custom_login_field .form-control:focus~label {
+    transform: translateY(-1.87rem) translateX(1.25rem) scale(0.6);
+
+}
+.background_image_login{
+    background-image: url("/website_lmc/static/src/img/banner.jpg");
+    background-color: #cccccc;
+    background-size: 100% 100%;
+    height: 400px;
+    position: absolute;
+    top: 37px;
+    left: 0;
+    right: 0;
+}
+.custom_login_field{
+    margin-bottom: 0px;
+    line-height: 15px;
+
+}
+.oe_login_form .custom_login_field input{
+    padding: 3rem 1rem 1rem 1.25rem;
+    font-family: UniversLTStd-Cn;
+}
+
+.login_title{
+    text-transform: uppercase;
+    font-family: UniversLTStd-Cn;
+    text-shadow: 2.5px 0px;
+    letter-spacing: 1px;
+    color: #38312d;
+    font-size: 35px;
+}
+.oe_login_form .btn-primary {
+    color: #ffffff !important;
+    border-color: #c1a947 !important;
+    background-color: #c1a947 !important;
+    font-family: UniversLTStd-Cn;
+    font-size: 16px
+}
+.oe_login_form .justify-content-between a{
+    color: #38312d;
+    text-decoration: none;
+    font-family: UniversLTStd-Cn;
+}
+.oe_login_form .oe_login_buttons .btn-link{
+    color: #38312d;
+    text-decoration: none;
+    font-family: UniversLTStd-Cn;
+}
+.oe_website_login_container p.login_heading{
+    font-size: 20px;
+    font-family: UniversLTStd-Cn;
+    margin-bottom: 0px;
+}
+.oe_website_login_container p.login_heading:last-child{
+     margin-bottom: 15px;
+}
+.oe_website_login_container h1.login_heading{
+    font-family: UniversLTStd-Cn;
+    font-size: 41px;
+    text-shadow: 3px 0px;
+    letter-spacing: 1px;
+}
+.classiccar-rigistation .h4{
+    text-transform: uppercase;
+    font-weight:bold;
+    font-family: UniversLTStd-BoldCn,sans-serif;
+    font-size: calc(32px + 6 * ((100vw - 768px) / 932));
+    font-family: UniversLTStd-Cn;
+}
+.classiccar-rigistation a.btn-secondary {
+    color: #38312d;
+    background: #fefefe;
+    border-color: white;
+    text-shadow: 0.5px 0.5px;
+    font-family: UniversLTStd-Cn;
+    padding-top: 12px;
+    text-decoration: none;
+}
+
+//forget password gate
+.oe_reset_password_form{
+    max-width: 450px;
+    position: relative;
+    margin: 0px 50px auto;
+    padding: 120px 47px;
+    background: #dedede;
+    input
+    {
+        font-size: 1.25rem;
+        padding: 2rem 1rem 1rem 1.25rem;
+    }
+}
+.background_image_forget{
+    background-image: url("/website_lmc/static/src/img/banner.jpg");
+    background-color: #cccccc;
+    background-size: 100% 100%;
+    height: 450px;
+    position: absolute;
+    top: 37px;
+    left: 0;
+    right: 0;
+}
+.oe_reset_password_form .custom_login_field input{
+    padding: 3rem 1rem 1rem 1.25rem;
+    font-family: UniversLTStd-Cn;
+}
+.oe_forget_container{
+    position: relative;
+}
+.oe_reset_password_form .btn-primary{
+    color: #ffffff !important;
+    border-color: #c1a947 !important;
+    background-color: #c1a947 !important;
+    font-family: UniversLTStd-Cn;
+    width: 100%;
+    font-size: 16px;
+    padding: 6px;
+}
+h2.resetpwd_title{
+    text-transform: uppercase;
+    font-family: UniversLTStd-Cn;
+    font-size: calc(32px + 6 * ((100vw - 768px) / 932));
+    text-shadow: 2px 0px;
+    letter-spacing: 1px;
+    color: #38312d;
+}
+.oe_reset_password_form .oe_login_buttons{
+    padding-bottom: 116px; 
+}
+.oe_reset_password_form input.form-control:focus{
+    box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.44);
+    border-color: rgba(128, 189, 255, 0.16);
+}
+.oe_login_form input.form-control:focus{
+    box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.44);
+    border-color: rgba(128, 189, 255, 0.16);
+}
+.oe_website_login_container h1.login_heading.rs_tl_mpl{
+    margin-bottom: 25px;
+}
+
+@media(max-width: 768px){
+    .background_image_forget, .background_image_login{
+        height: 224px;
+        position: relative;
+        top: 0px;
+    }
+    .oe_reset_password_form{
+        margin: 0px;
+        margin-top: 5px;
+        max-width: 100%;
+        padding: 24px 34px;
+    }
+    .oe_website_login_container h1.login_heading{
+        font-size: 23px;
+        text-shadow: 1px 0px;
+        letter-spacing: 0px
+    }
+    .oe_reset_password_form .oe_login_buttons{
+        padding-bottom: 17px;
+    }
+    .oe_login_form{
+        margin: 0px;
+        margin-top: 5px;
+        max-width: 100%;
+        padding: 24px 34px;
+    }
+}

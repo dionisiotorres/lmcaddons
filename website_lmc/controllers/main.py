@@ -8,7 +8,10 @@ import base64
 
 class CustomerUserPortal(CustomerPortal):
 
-    OPTIONAL_BILLING_FIELDS = ["zipcode", "state_id", "vat", "company_name", "about_us"]
+    OPTIONAL_BILLING_FIELDS = ["zipcode", "state_id", "vat", "company_name", "about_us", "x_family_name", "x_gender",
+    "x_birthdate", "x_nationality", "x_drive_club", "x_driver_license_type", "x_driver_license_num", "x_driver_pict_path",
+    "x_driver_success", "x_driver_year_racing_since", "x_driver_amount_events", "x_driver_year_last_event",
+    "x_driver_year_driving_license_issuance", "x_driver_shirt_size"]
 
     @route(['/my/account'], type='http', auth='user', website=True)
     def account(self, redirect=None, **post):
@@ -55,9 +58,20 @@ class CustomerUserPortal(CustomerPortal):
         countries = request.env['res.country'].sudo().search([])
         states = request.env['res.country.state'].sudo().search([])
 
-        contacts = partner.mapped('child_ids').filtered(lambda r: r.type == 'delivery')
+        shippings = partner.mapped('child_ids').filtered(lambda r: r.type == 'delivery')
+        others = partner.mapped('child_ids').filtered(lambda r: r.type == 'other')
+        # import pdb
+        # pdb.set_trace()
+        # shippings = request.env['res.partner'].sudo().search([
+        #     ("id", "child_of", partner.commercial_partner_id.ids),
+        #     ("type", "in", ["delivery"])], order='id desc')
+        # others = request.env['res.partner'].sudo().search([
+        #     ("id", "child_of", partner.commercial_partner_id.ids),
+        #     ("type", "in", ["other"]), ("id", "!=", partner.id)], order='id desc')
+
         values.update({
-            'contacts': contacts,
+            'shippings': shippings,
+            'others': others,
             'partner': partner,
             'countries': countries,
             'states': states,
@@ -82,11 +96,10 @@ class CustomerUserPortal(CustomerPortal):
                     'phone': post.get('phone'),
                     'street': post.get('street'),
                     'city': post.get('city'),
-                    'type': 'delivery',
+                    'type': post.get('type'),
                     'zip': post.get('zipcode'),
                 }
 
-                # import pdb;pdb.set_trace()
                 # If country and state come post post data
                 if post.get('country_id') and post.get('country_id') != '':
                     vals.update({
@@ -113,7 +126,7 @@ class CustomerUserPortal(CustomerPortal):
                     'phone': post.get('phone'),
                     'street': post.get('street'),
                     'city': post.get('city'),
-                    'type': 'delivery',
+                    'type': post.get('type'),
                     'zip': post.get('zipcode'),
                 }
 
@@ -149,7 +162,7 @@ class CustomerUserPortal(CustomerPortal):
                     'country': country,
                     'countries': country.get_website_sale_countries(),
                     'states': country.get_website_sale_states(),
-                    'type': 'delivery',
+                    'type': values.type,
                 }
                 return request.render("website_lmc.add_profile_shipping_address", render_values)
             else:
@@ -159,7 +172,7 @@ class CustomerUserPortal(CustomerPortal):
                 'partner': {},
                 'countries': Country.get_website_sale_countries(),
                 'states': Country.get_website_sale_states(),
-                'type': 'delivery',
+                'type': post.get('type'),
             }
             return request.render("website_lmc.add_profile_shipping_address", render_values)
 
@@ -170,3 +183,41 @@ class CustomerUserPortal(CustomerPortal):
             partner = Partner.browse(partner_id)
             partner.write({'active': False})
         return {"success": True}
+
+    # edit vehicle info
+    @route(['/vehicle/info'], type='http', auth='user', website=True)
+    def vehicle_info_form(self, **post):
+        partner = request.env.user.partner_id
+        values = {
+            "partner": partner,
+        }
+        return request.render("website_lmc.edit_vehicle_information", values)
+
+    @route(["/vehicle/info/edit"], type="http", auth="user", website=True)
+    def vehicle_info_edit(self, **post):
+        partner = request.env.user.partner_id
+        vals = {
+            'x_vehicle_pict': post.get('x_vehicle_pict'),
+            'x_vehicle_cat': post.get('x_vehicle_cat'),
+            'x_vehicle_manufacturer': post.get('x_vehicle_manufacturer'),
+            'x_vehicle_type': post.get('x_vehicle_type'),
+            'x_vehicle_ccm': post.get('x_vehicle_ccm'),
+            'x_vehicle_year_construction': post.get('x_vehicle_year_construction'),
+            'x_vehicle_approved': post.get('x_vehicle_approved'),
+            'x_vehicle_cylinder': post.get('x_vehicle_cylinder'),
+            'x_vehicle_horse_power': post.get('x_vehicle_horse_power'),
+            'x_vehicle_desc': post.get('x_vehicle_desc'),
+            'x_vehicle_modifications': post.get('x_vehicle_modifications'),
+            'x_vehicle_tire_size': post.get('x_vehicle_tire_size'),
+            'x_vehicle_rim_size': post.get('x_vehicle_rim_size'),
+            'x_vehicle_doc_number': post.get('x_vehicle_doc_number'),
+            'x_registrasion_number': post.get('x_registrasion_number'),
+            'x_vehicle_pict_path': post.get('x_vehicle_pict_path'),
+            'x_vehicle_homologation_num': post.get('x_vehicle_homologation_num'),
+            'x_race_info_pit_id': post.get('x_race_info_pit_id'),
+            'x_vehicle_number_plate': post.get('x_vehicle_number_plate'),
+        }
+        # Vehicle information update
+
+        partner.write(vals)
+        return request.redirect('/my/home')

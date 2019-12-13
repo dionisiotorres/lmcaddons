@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="login" name="Login" inherit_id="web.login">
+        <xpath expr="//form" position="replace">
+            <div class="mt16">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h1 class="text-center login_heading">LOGIN</h1>
+                        <p class="text-center login_heading">5th - 7th June 2020</p>
+                        <p class="text-center login_heading">9. LENZERHEIDE MOTOR CLASSICS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="oe_login_container container">
+                <div class="background_image_login"/>
+                <div class="login_container">
+                    <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                        <h2 class="login_title">Login</h2>
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                            <label for="db" class="col-form-label">Database</label>
+                            <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                                <input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly" />
+                                <span class="input-group-append">
+                                    <a role="button" href="/web/database/selector" class="btn btn-secondary">Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i></a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group field-login custom_login_field">
+                            <input type="text" name="login" t-att-value="login" id="login" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off" />
+                            <label for="login">E-mail address</label>
+                        </div>
+                        <div class="form-group field-password custom_login_field">
+                            <input type="password" name="password" id="password" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096" />
+                            <label for="password">Password</label>
+                        </div>
+                        <p class="alert alert-danger" t-if="error" role="alert">
+                            <t t-esc="error" />
+                        </p>
+                        <p class="alert alert-success" t-if="message" role="status">
+                            <t t-esc="message" />
+                        </p>
+                        <div class="justify-content-between mt-2 d-flex">
+                            <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>
+                            <a t-if="reset_password_enabled" class="text-right" t-attf-href="/web/reset_password?{{ keep_query() }}">Forgotten Your Password?</a>
+                        </div>
+                        <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
+                            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                            <t t-if="debug">
+                                <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>
+                            </t>
+                            <div class="o_login_auth" />
+                        </div>
+                        <input type="hidden" name="redirect" t-att-value="redirect" />
+                        <br />
+                        <br />
+                    </form>
+                </div>
+                <!-- <div class="classiccar-rigistation text-white">
+                    <div class="h4">
+                        Not yet registered? </div>
+                    <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}" class="mt-4 btn btn-secondary btn-lg">Register now</a>
+                </div> -->
+
+            </div>
+        </xpath>
+    </template>
+
+    <template id="reset_password_custom" inherit_id="auth_signup.reset_password" name="Reset password lmc">
+        <xpath expr="//form" position="replace">
+            <div class="mt16">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h1 class="text-center login_heading rs_tl_mpl">FORGOT YOUR PASSWORD?</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="oe_forget_container container">
+                <div class="background_image_forget"/>
+                <div class="forgetpassword_container">
+                    <form class="oe_reset_password_form" role="form" method="post" t-if="not message">
+                      <h2 class="resetpwd_title">FORGOT PASSWORD?</h2>
+                      <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                        <t t-if="token and not invalid_token">
+                            <t t-call="auth_signup.fields">
+                                <t t-set="only_passwords" t-value="1"/>
+                            </t>
+                        </t>
+
+                        <t t-if="not token">
+                            <div class="form-group field-login custom_login_field">
+                                <input type="text" name="login" t-att-value="login" id="login" class="form-control"
+                                    autofocus="autofocus" required="required" autocapitalize="off"/>
+                                <label for="login">E-mail address</label>
+                            </div>
+                        </t>
+
+                        <p class="alert alert-danger" t-if="error" role="alert">
+                            <t t-esc="error"/>
+                        </p>
+                        <input type="hidden" name="redirect" t-att-value="redirect"/>
+                        <input type="hidden" name="token" t-att-value="token"/>
+                        <div class="clearfix oe_login_buttons">
+                            <div class="d-flex justify-content-between align-items-center small">
+                                <button type="submit" class="btn btn-primary btn-sm">Restore password</button>
+                                <a t-if="not token" class="d-none" t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
+                                <a t-if="invalid_token" class="d-none" href="/web/login">Back to Login</a>
+                            </div>
+                            <div class="o_login_auth"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
