@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models
+from odoo import models, fields
 from datetime import datetime
 
 
@@ -29,3 +29,9 @@ class Users(models.Model):
 
         # hours = datetime.timedelta(hours=time_delta_minutes)
         return time_str
+
+
+class Menu(models.Model):
+
+    _inherit = "website.menu"
+    is_show_menu = fields.Boolean("Is show menu", default=True)

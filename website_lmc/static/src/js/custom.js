@@ -117,4 +117,12 @@ odoo.define('website_lmc.custom', function(require) {
             }
         });
     });
+
+    $(".custom_login_field input").keyup(function(ev){
+        if($(this).val()){
+            $(this).addClass('has-value');
+        }else{
+            $(this).removeClass('has-value');
+        }
+    });
 });
