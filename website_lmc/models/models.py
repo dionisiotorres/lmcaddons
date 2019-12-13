@@ -31,7 +31,8 @@ class Users(models.Model):
         return time_str
 
 
-class Menu(models.Model):
+class WebsiteMenu(models.Model):
 
     _inherit = "website.menu"
+
     is_show_menu = fields.Boolean("Is show menu", default=True)
