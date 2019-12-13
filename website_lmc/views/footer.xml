@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<template id="lcm_footer_custom" inherit_id="website.footer_custom" name="Footer">
+    		<xpath expr="//div[@id='footer']" position="replace">
+    			<div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+		            <section class="s_text_block pt16 pb8">
+		                <div class="container">
+		                    <div class="row">
+		                    	<div class="col-lg-4" id="connect">
+					              <h5>
+					                <font style="font-size: 14px;">
+					                  <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CONTACT</font></font></b>
+					                </font>
+					              </h5>
+					              <h5>
+					                <font style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Club Lenzerheide Motor Classics</font></font></font>
+					              </h5>
+					              <h5>
+					                <font style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">La Schmetta</font></font></font>
+					              </h5>
+					              <h5>
+					                <font style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CH-7078 Lenzerheide</font></font></font>
+					              </h5>
+					              <h5>
+					                <font style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">P +41 81 377 85 85</font></font></font>
+					              </h5>
+					              <ul class="list-unstyled">
+					                <li>
+					                  <a href="/en/" data-original-title="" title="" aria-describedby="tooltip996555">&amp;nbsp;</a>
+					                </li>
+					                <li>
+					                  <span class="text-lightgrey"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© Arosa Lenzerheide 2019</font></font></span>
+					                </li>
+					              </ul>
+					            </div>
+		                        <div class="col-lg-4">
+					              <h5>
+					                <b>
+					                  <font style="font-size: 14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RACE OFFICE</font></font></font>
+					                </b>
+					              </h5>
+					              <h5>
+					                <font style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Brigitte Widmer</font></font></font>
+					                <a href="/en/" data-original-title="" title="" aria-describedby="tooltip996555" style="background-color: rgb(248, 249, 250); font-size: inherit;">
+					                  <font style="font-size: 10px;">&amp;nbsp;</font>
+					                </a>
+					                <br/>
+					              </h5>
+					              <ul class="list-unstyled">
+					                <li>
+					                  <br/>
+					                  <span class="text-lightgrey">
+					                    <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MARKETING &amp; COMMUNICATION</font></font></b>
+					                  </span>
+					                  <br/>
+					                  <span class="text-lightgrey" style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Lenzerheide Marketing &amp; Support AG </font></font></span>
+					                  <br/>
+					                  <span class="text-lightgrey" style="font-size: 12px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sara Bosshard</font></font></span>
+					                  <br/>
+					                  <span class="text-lightgrey">&amp;nbsp;</span>
+					                </li>
+					              </ul>
+					            </div>
+		                        
+		                        <div class="col-lg-4">
+		                            <h5>
+		                                <span t-field="res_company.name"/>
+		                                <small> - <a href="/aboutus">About us</a></small>
+		                            </h5>
+		                            <p>
+		                                
+		                            </p>
+		                            <p>
+		                                
+		                            </p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </section>
+		        </div>
+    		</xpath>
+    	</template>
+    </data>
+</odoo>

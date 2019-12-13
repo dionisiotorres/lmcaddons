@@ -13,9 +13,12 @@
     'data': [
         'views/assets.xml',
         'security/ir.model.access.csv',
+        'data/data.xml',
         'views/my_account.xml',
         'views/partner_view.xml',
+        'views/footer.xml',
         'views/website_login_page.xml',
+        'views/lmc_home_template.xml',
     ],
     'installable': True,
     'license': 'OPL-1',
