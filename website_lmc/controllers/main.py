@@ -27,6 +27,7 @@ class CustomerUserPortal(CustomerPortal):
                 partner.write({'image': base64.b64encode(image), 'about_us': post.get('about_us') or ''})
             post.pop('ufile')
         res = super(CustomerUserPortal, self).account(redirect=redirect, **post)
+        res.qcontext['tabinfo'] = 'personal_data'
         return res
 
     @route(['/my', '/my/home'], type='http', auth="user", website=True)
@@ -53,7 +54,7 @@ class CustomerUserPortal(CustomerPortal):
                 partner.sudo().write(values)
                 if redirect:
                     return request.redirect(redirect)
-                return request.redirect('/my/home')
+                return request.redirect('/my/home?tabinfo=personal_data')
 
         countries = request.env['res.country'].sudo().search([])
         states = request.env['res.country.state'].sudo().search([])
@@ -75,7 +76,10 @@ class CustomerUserPortal(CustomerPortal):
             'partner': partner,
             'countries': countries,
             'states': states,
+            'tabinfo': 'personal_data',
         })
+        if kw.get('tabinfo'):
+            values['tabinfo'] = kw.get('tabinfo')
         return request.render("portal.portal_my_home", values)
 
     # Add new address
@@ -190,14 +194,15 @@ class CustomerUserPortal(CustomerPortal):
         partner = request.env.user.partner_id
         values = {
             "partner": partner,
+            "tabinfo": 'vehicle',
         }
         return request.render("website_lmc.edit_vehicle_information", values)
 
     @route(["/vehicle/info/edit"], type="http", auth="user", website=True)
     def vehicle_info_edit(self, **post):
         partner = request.env.user.partner_id
+        # Vehicle information update
         vals = {
-            'x_vehicle_pict': post.get('x_vehicle_pict'),
             'x_vehicle_cat': post.get('x_vehicle_cat'),
             'x_vehicle_manufacturer': post.get('x_vehicle_manufacturer'),
             'x_vehicle_type': post.get('x_vehicle_type'),
@@ -217,7 +222,47 @@ class CustomerUserPortal(CustomerPortal):
             'x_race_info_pit_id': post.get('x_race_info_pit_id'),
             'x_vehicle_number_plate': post.get('x_vehicle_number_plate'),
         }
-        # Vehicle information update
+        if 'clear_image' in post:
+            vals.update({'x_vehicle_pict': False})
+            post.pop('clear_image')
+            if 'vehicle_img' in post:
+                post.pop('vehicle_img')
+        elif 'vehicle_img' in post:
+            if post.get('vehicle_img'):
+                image = post.get('vehicle_img').read()
+                vals.update({'x_vehicle_pict': base64.b64encode(image)})
+            post.pop('vehicle_img')
+        partner.write(vals)
 
         partner.write(vals)
-        return request.redirect('/my/home')
+        return request.redirect("/my/home?tabinfo=vehicle")
+
+    # edit nomination info
+    @route(['/nomination/info'], type='http', auth='user', website=True)
+    def nomination_info_form(self, **post):
+        partner = request.env.user.partner_id
+        values = {
+            "partner": partner,
+            "tabinfo": 'nomination',
+        }
+        return request.render("website_lmc.edit_nomination_information", values)
+
+    @route(["/nomination/info/edit"], type="http", auth="user", website=True)
+    def nominatio_info_edit(self, **post):
+        partner = request.env.user.partner_id
+        # Vehicle information update
+        vals = {
+            'x_nomination_year': post.get('x_nomination_year'),
+            # 'x_race_info_field': post.get('x_race_info_field'),
+            # 'x_date_enrolement_reveived': post.get('x_date_enrolement_reveived'),
+            'x_nomination_status': post.get('x_nomination_status'),
+            'x_race_info_starting_num': post.get('x_race_info_starting_num'),
+            'x_pit_box_number': post.get('x_pit_box_number'),
+            'x_vehicle_inspection_passed': post.get('x_vehicle_inspection_passed'),
+            'x_autorized': post.get('x_autorized'),
+            'x_vehicle_approved': post.get('x_vehicle_approved'),
+            'x_race_info_pit_id': post.get('x_race_info_pit_id'),
+            'x_vehicle_desc': post.get('x_vehicle_desc'),
+        }
+        partner.write(vals)
+        return request.redirect('/my/home?tabinfo=nomination')

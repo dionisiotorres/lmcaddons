@@ -125,4 +125,32 @@ odoo.define('website_lmc.custom', function(require) {
             $(this).removeClass('has-value');
         }
     });
+
+    // vehicle update js
+    $('.o_forum_vehicle_pic_edit').on('click', function(ev) {
+        ev.preventDefault();
+        $(this).closest('form').find('.o_forum_vehicle_img_upload').trigger('click');
+    });
+
+    $('.o_forum_vehicle_img_upload').on('change', function() {
+        if (this.files.length) {
+            var $form = $(this).closest('form');
+            var reader = new window.FileReader();
+            reader.onload = function(ev) {
+                $form.find('.o_forum_vehicle_img').attr('src', ev.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+            $form.find('#forum_clear_image').remove();
+        }
+    });
+
+    $('.o_forum_vehicle_pic_clear').click(function() {
+        var $form = $(this).closest('form');
+        $form.find('.o_forum_vehicle_img').attr("src", "/web/static/src/img/placeholder.png");
+        $form.append($('<input/>', {
+            name: 'clear_image',
+            id: 'forum_clear_image',
+            type: 'hidden',
+        }));
+    });
 });

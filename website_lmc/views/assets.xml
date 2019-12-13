@@ -5,6 +5,7 @@
 	      	<xpath expr="." position="inside">
 				<link rel="stylesheet" type="text/scss" href="website_lmc/static/src/scss/login.scss"/>
 				<link rel="stylesheet" type="text/css" href="/website_lmc/static/src/css/custom.css"/>
+				<link rel='stylesheet' href='/website_lmc/static/src/css/hm_footer.css'/>
 				<script type="text/javascript" src="/website_lmc/static/src/js/custom.js"></script>
 			</xpath>
 		</template>

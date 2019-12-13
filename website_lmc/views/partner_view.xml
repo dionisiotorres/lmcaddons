@@ -97,15 +97,5 @@
                 </field>
             </field>
         </record>
-        <record model="ir.rule" id="website_menu_public_hide">
-                <field name="name">website menu hide for public user</field>
-                <field name="model_id" ref="website.model_website_menu"/>
-                <field name="domain_force">[('is_show_menu', '=', True)]</field>
-                <field name="groups" eval="[(4, ref('base.group_public'))]"/>
-                <field name="perm_read" eval="True"/>
-                <field name="perm_write" eval="False"/>
-                <field name="perm_create" eval="False"/>
-                <field name="perm_unlink" eval="False"/>
-        </record>
     </data>
 </odoo>

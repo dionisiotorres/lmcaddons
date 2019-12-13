@@ -42,11 +42,11 @@ class ResPartner(models.Model):
     x_registrasion_number = fields.Char(string='Vehicle FIA registrasion number')
     x_vehicle_pict_path = fields.Char(string='Vehicle Bild-Name')
     x_vehicle_homologation_num = fields.Integer(string='Vehicle FIA homologation num')
-    x_race_info_pit_id = fields.Char(string='Pit ID')
     x_vehicle_number_plate = fields.Char(string='Vehicle number plate')
     # nomination
+    x_race_info_pit_id = fields.Char(string='Pit ID')
     x_nomination_year = fields.Char(string='Nomination Year')
-    x_date_enrolement_reveived = fields.Char(string='Date Enrolement Received')
+    x_date_enrolement_reveived = fields.Date(string='Date Enrolement Received')
     x_nomination_status = fields.Char(string='Nomination Status')
     x_race_info_field = fields.Many2one('rennfelder', string='Race field')
     x_race_info_starting_num = fields.Integer(string='Starting Number')
