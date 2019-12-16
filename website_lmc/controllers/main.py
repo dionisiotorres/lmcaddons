@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
+from odoo import http
 from odoo.http import request, route
 from odoo.addons.portal.controllers.portal import CustomerPortal
+from odoo.addons.website.controllers.main import Website
 import base64
 
+
+class CustomWebsiteHome(Website):
+    @http.route('/', type='http', auth="public", website=True)
+    def index(self, **kw):
+        res = super(CustomWebsiteHome, self).index(**kw)
+        boxes = request.env['home.boxes'].sudo().search([])
+        res.qcontext['home_boxes'] = boxes
+        return res
 
 class CustomerUserPortal(CustomerPortal):
 
@@ -28,6 +37,12 @@ class CustomerUserPortal(CustomerPortal):
             post.pop('ufile')
         res = super(CustomerUserPortal, self).account(redirect=redirect, **post)
         res.qcontext['tabinfo'] = 'personal_data'
+        license_type = request.env['driver.license.codes'].sudo().search([])
+        nationalities = request.env['res.country'].sudo().search([])
+        shirt_size_ids = request.env['shirt.size.codes'].sudo().search([])
+        res.qcontext['license_types'] = license_type
+        res.qcontext['nationalities'] = nationalities
+        res.qcontext['shirt_size_ids'] = shirt_size_ids
         return res
 
     @route(['/my', '/my/home'], type='http', auth="user", website=True)
@@ -69,7 +84,6 @@ class CustomerUserPortal(CustomerPortal):
         # others = request.env['res.partner'].sudo().search([
         #     ("id", "child_of", partner.commercial_partner_id.ids),
         #     ("type", "in", ["other"]), ("id", "!=", partner.id)], order='id desc')
-
         values.update({
             'shippings': shippings,
             'others': others,
@@ -192,15 +206,18 @@ class CustomerUserPortal(CustomerPortal):
     @route(['/vehicle/info'], type='http', auth='user', website=True)
     def vehicle_info_form(self, **post):
         partner = request.env.user.partner_id
+        vehicle_code = request.env['vehicle.code'].sudo().search([])
         values = {
-            "partner": partner,
-            "tabinfo": 'vehicle',
+            'partner': partner,
+            'tabinfo': 'vehicle',
+            'vehicle_categories': vehicle_code
         }
         return request.render("website_lmc.edit_vehicle_information", values)
 
     @route(["/vehicle/info/edit"], type="http", auth="user", website=True)
     def vehicle_info_edit(self, **post):
         partner = request.env.user.partner_id
+        # import pdb;pdb.set_trace()
         # Vehicle information update
         vals = {
             'x_vehicle_cat': post.get('x_vehicle_cat'),
@@ -221,6 +238,8 @@ class CustomerUserPortal(CustomerPortal):
             'x_vehicle_homologation_num': post.get('x_vehicle_homologation_num'),
             'x_race_info_pit_id': post.get('x_race_info_pit_id'),
             'x_vehicle_number_plate': post.get('x_vehicle_number_plate'),
+            'chassis_no': post.get('chassis_no'),
+            'vehicle_code': post.get('x_vehicle_cat'),
         }
         if 'clear_image' in post:
             vals.update({'x_vehicle_pict': False})
@@ -266,3 +285,16 @@ class CustomerUserPortal(CustomerPortal):
         }
         partner.write(vals)
         return request.redirect('/my/home?tabinfo=nomination')
+
+    @route(["/profile/image/save"], type="json", auth="user", website=True)
+    def profile_img_save(self, **post):
+        partner_id = request.env.user.partner_id
+        if post.get('data'):
+            partner_id.image = post.get('data')[22:]
+        return {"success": True}
+
+    @route(["/profile/image/delete"], type="json", auth="user", website=True)
+    def profile_img_delete(self, **post):
+        partner_id = request.env.user.partner_id
+        partner_id.image = ''
+        return {"success": True}

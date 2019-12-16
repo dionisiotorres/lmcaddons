@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="common_tabs">
+        <!-- start save mode template -->
+        <template id="personal_tab">
             <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'personal_data' else ''}" id="nav-profile">
-                <!-- <t t-raw="0" /> -->
                 <div class="fz17">
                     <div class="row">
                         <div class="col-md-8">
@@ -11,9 +11,9 @@
                                 <ul class="list list-unstyled">
                                     <li t-if="partner.name"><label>Name:</label> <span t-esc="partner.name" /></li>
                                     <li t-if="partner.x_gender"><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
-                                    <li t-if="partner.x_birthdate"><label>Date of birth:</label> <span t-esc="partner.x_birthdate" /></li>
+                                    <li t-if="partner"><label>Date of birth:</label> <span t-field="partner.x_birthdate" t-options='{"format": "d-MM-YYYY"}'/></li>
                                     <li t-if="partner.x_family_name"><label>Family Name:</label> <span t-esc="partner.x_family_name" /></li>
-                                    <li t-if="partner.x_nationality"><label>Nationality:</label> <span t-esc="partner.x_nationality" /></li>
+                                    <li t-if="partner.x_nationality"><label>Nationality:</label> <span t-esc="partner.x_nationality.name" /></li>
                                     <li t-if="partner.x_driver_license_type"><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
                                     <li t-if="partner.x_driver_license_num"><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
                                     <li t-if="partner.x_driver_year_driving_license_issuance"><label>Year of issuance of driving license:</label> <span t-esc="partner.x_driver_year_driving_license_issuance" /></li>
@@ -33,8 +33,8 @@
                             </div>
                             <p>
                                 <t t-esc="'street' in partner and partner['street']" /><br />
-                                <t t-esc="'city' in partner and partner['city']" />
-                                <t t-esc="'zip' in partner and partner['zip']" /><br />
+                                <t t-esc="'zip' in partner and partner['zip']" />
+                                <t t-esc="'city' in partner and partner['city']" /><br />
                                 <t t-esc="partner.state_id.name" /><br />
                                 <t t-esc="partner.country_id.name" />
                             </p>
@@ -119,7 +119,7 @@
                                                     <t t-call="website_lmc.profile_shipping_address">
                                                         <t t-set="actual_partner" t-value="partner" />
                                                         <t t-set='contact' t-value="other" />
-                                                        <t t-set='hide_address' t-value="True" />
+                                                        <!-- <t t-set='hide_address' t-value="True" /> -->
                                                     </t>
                                                 </div>
                                                 <!-- </t> -->
@@ -132,6 +132,8 @@
                     </div>
                 </div>
             </div>
+        </template>
+        <template id="vehicle_tab">
             <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'vehicle' else ''}" id="nav-vehicle">
                 <section class="content-block-small">
                     <div class="container container--small">
@@ -149,21 +151,23 @@
                                         </div>
                                         <div class="wysiwyg font-light wysiwyg-multicolumn-2">
                                             <ul class="list list-unstyled">
-                                                <li>CCM: <span t-esc="partner.x_vehicle_ccm" /></li>
-                                                <li>Cylinders: <span t-esc="partner.x_vehicle_cylinder" /></li>
-                                                <li>Construction year: <span t-esc="partner.x_vehicle_year_construction" /></li>
-                                                <li>FIA-period: <span t-esc="partner.x_vehicle_homologation_num" /></li>
+                                                <li>Category: <span t-esc="partner.x_vehicle_cat.name" /></li>
                                                 <li>Type: <span t-esc="partner.x_vehicle_type" /></li>
-                                                <li>Approved?: <span t-esc="partner.x_vehicle_approved" /></li>
-                                                <li>horse power: <span t-esc="partner.x_vehicle_horse_power" /></li>
+                                                <li>Construction year: <span t-esc="partner.x_vehicle_year_construction" /></li>
+                                                <li>Cubic: <span t-esc="partner.x_vehicle_ccm" /></li>
+                                                <li>Cylinders: <span t-esc="partner.x_vehicle_cylinder" /></li>
+                                                <li>Horse power: <span t-esc="partner.x_vehicle_horse_power" /></li>
+                                                <li>Number Plate: <span t-esc="partner.x_vehicle_number_plate" /></li>
+                                                <li>Chassis No: <span t-esc="partner.chassis_no" /></li>
+                                                <li>FIA-period: <span t-esc="partner.x_vehicle_homologation_num" /></li>
+                                                <li>Document (FIA): <span t-esc="partner.x_vehicle_doc_number" /></li>
                                                 <li>Description: <span t-esc="partner.x_vehicle_desc" /></li>
                                                 <li>Modifications: <span t-esc="partner.x_vehicle_modifications" /></li>
+                                                <li>FIA registrasion number: <span t-esc="partner.x_registrasion_number" /></li>
+                                                <li>Approved?: <span t-esc="partner.x_vehicle_approved" /></li>
                                                 <li>Tire size: <span t-esc="partner.x_vehicle_tire_size" /></li>
                                                 <li>Rim size: <span t-esc="partner.x_vehicle_rim_size" /></li>
-                                                <li>Document (FIA): <span t-esc="partner.x_vehicle_doc_number" /></li>
-                                                <li>FIA registrasion number: <span t-esc="partner.x_registrasion_number" /></li>
                                                 <li>Bild-Name: <span t-esc="partner.x_vehicle_pict_path" /></li>
-                                                <li>Number Plate: <span t-esc="partner.x_vehicle_number_plate" /></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -176,6 +180,8 @@
                     </div>
                 </section>
             </div>
+        </template>
+        <template id="nomination">
             <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'nomination' else ''}" id="nav-nomination">
                 <section class="content-block-small">
                     <div class="container container--small">
@@ -198,13 +204,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center mt-4">
-                            <a href="/nomination/info" class="btn btn-primary">Edit Data</a>
-                        </div>
                     </div>
                 </section>
             </div>
         </template>
+        <!-- end save mode temlate -->
+        <!-- start address's templates -->
         <template id="add_profile_shipping_address">
             <t t-call="portal.portal_layout">
                 <t t-set="additional_title">Contact Details</t>
@@ -367,6 +372,8 @@
                 </div>
             </t>
         </template>
+        <!-- end address's templates -->
+        <!-- start address delete popup -->
         <template id="profile_shipping_address" name="Shipping Kanban address">
             <form action="/account/address" method="POST" class="d-none">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
@@ -398,17 +405,23 @@
                         <a t-if="not actual_partner or (contact.id in actual_partner.child_ids.ids)" class="btn btn-link float-right p-0 user_edit_address no-decoration" role="button" title="Edit this address" aria-label="Edit this address"><i class='fa fa-edit' /></a>
                     </div>
                     <div class="clearfix" />
-                    <t t-if="not hide_address">
+                    <!-- <t t-if="not hide_address"> -->
+                    <t t-esc="contact" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)" />
+                    <!-- </t> -->
+                    <!-- <t t-if="hide_address">
                         <t t-esc="contact" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)" />
-                    </t>
-                    <t t-if="hide_address">
-                        <t t-esc="contact" t-options="dict(widget='contact', fields=['name', 'phone', 'email'], no_marker=True)" />
-                    </t>
+                    </t> -->
                 </div>
             </div>
         </template>
+        <!-- end address delete popup -->
+        <!-- profile Main page -->
         <template id="portal.portal_layout" name="Portal Layout">
             <t t-call="portal.frontend_layout">
+                <div id="profile_img_save_delete" class="alert d-none alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+                    <strong>Success!</strong> <span id="lmc_msg_datas"></span>
+                </div>
                 <t t-set="is_portal" t-value="True" />
                 <div t-if="o_portal_fullwidth_alert" class="alert alert-info alert-dismissible rounded-0 fade show d-print-none css_editable_mode_hidden">
                     <div class="container">
@@ -421,11 +434,24 @@
                         <section class="classiccar-header">
                             <section class="sub-banner banner container-fluid"></section>
                             <div class="classiccar-header__body">
-                                <h1 class="h3 classiccar-header__hl">Your Profile</h1>
+                                <!-- <h1 class="h3 classiccar-header__hl">Your Profile</h1> -->
                                 <h2 class="content-hl"></h2>
                             </div>
                             <div class="classiccar__user text-center">
-                                <img class="img img-fluid o_forum_avatar_img classiccar__user-img" t-attf-src="/web/image/res.partner/{{request.env.user.partner_id.id}}/image" alt="Avatar" />
+                                <div class="col-12 col-sm-auto mb-3 image_change_profile">
+                                    <div class="mx-auto custom_dp_change" style="width: 150px;">
+                                        <input type="file" class="d-none o_forum_file_upload" name="ufile" accept="image/*" />
+                                        <div class="user_img_icon">
+                                            <a href="#" class="float-left o_forum_profile_pic_edit" aria-label="Edit">
+                                                <i class="fa fa-pencil fa-1g" title="Edit"></i>
+                                            </a>
+                                            <a href="#" class="float-right o_forum_profile_pic_clear" title="Clear" aria-label="Clear">
+                                                <i class="fa fa-trash-o fa-1g"></i>
+                                            </a>
+                                            <img class="img img-fluid o_forum_avatar_img classiccar__user-img" t-attf-src="/web/image/res.partner/{{request.env.user.partner_id.id}}/image" alt="Avatar" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="h4 classiccar__user-hl text-primary">
                                     <t t-esc="'name' in partner and partner['name']" />
                                 </div>
@@ -454,7 +480,9 @@
                         </div>
                         <t t-if="my_details">
                             <div class="content-block-small tab-content">
-                                <t t-call="website_lmc.common_tabs"/>
+                                <t t-call="website_lmc.personal_tab" />
+                                <t t-call="website_lmc.vehicle_tab" />
+                                <t t-call="website_lmc.nomination" />
                                 <div id="o_my_sidebar" class="col-12 col-md col-lg-4 col-xl-3 o_my_sidebar" style="display:none;">
                                     <div class="o_my_contact" t-if="sales_user">
                                         <t t-call="portal.portal_contact" />
@@ -477,6 +505,7 @@
                 </div>
             </t>
         </template>
+        <!-- personal detail edit -->
         <template id="portal.portal_my_details">
             <t t-call="portal.portal_layout">
                 <!-- Tab panes -->
@@ -489,7 +518,7 @@
                                 <div class="row row--gutter-width-24">
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
-                                            <input type="text" name="name" class="form-control has-value" t-att-value="'name' in partner and partner['name']" />
+                                            <input type="text" name="name" t-att-class="'form-control has-value' if partner.name else 'form-control'" t-att-value="'name' in partner and partner['name']" />
                                             <label for="name">Name</label>
                                         </div>
                                     </div>
@@ -549,224 +578,138 @@
                                             <label for="state_id">State / Province*</label>
                                         </div>
                                     </div>
+                                    <!-- extra fields -->
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <select name="x_gender" class="custom-select form-control has-value">
+                                                <option value=""></option>
+                                                <option value="male" t-att-selected="partner.x_gender == 'male'">Male</option>
+                                                <option value="female" t-att-selected="partner.x_gender == 'female'">Female</option>
+                                            </select>
+                                            <label for="x_gender">Gender</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group date form-group--floating" data-provide="datepicker" id="x_birthdate">
+                                            <input type="text"  name="x_birthdate" t-att-value="partner.x_birthdate if partner else ''" class="form-control datepicker has-value"/>
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                            <label for="x_birthdate">Date of birth</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="x_family_name" class="form-control has-value" t-att-value="'x_family_name' in partner and partner['x_family_name']" />
+                                            <label for="x_family_name">Family Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <select id="x_nationality" name="x_nationality" class="custom-select form-control has-value" required="true">
+                                                <option value="">Nationality...</option>
+                                                <t t-foreach="nationalities or []" t-as="nationality">
+                                                    <option t-att-value="nationality.id" t-att-selected="nationality.id == partner.x_nationality.id">
+                                                        <t t-esc="nationality.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <label for="country_id">Nationality*</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <select id="x_driver_license_type" name="x_driver_license_type" class="custom-select form-control has-value" required="true">
+                                                <option value="">License Type...</option>
+                                                <t t-foreach="license_types or []" t-as="l_type">
+                                                    <option t-att-value="l_type.id" t-att-selected="l_type.id == partner.x_driver_license_type.id">
+                                                        <t t-esc="l_type.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <label for="country_id">License Type*</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="x_driver_license_num" class="form-control has-value" t-att-value="'x_driver_license_num' in partner and partner['x_driver_license_num']" />
+                                            <label for="x_driver_license_num">License Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="number" name="x_driver_year_driving_license_issuance" class="form-control has-value" t-att-value="'x_driver_year_driving_license_issuance' in partner and partner['x_driver_year_driving_license_issuance']" />
+                                            <label for="x_driver_year_driving_license_issuance">Year of issuance of driving license</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="x_drive_club" class="form-control has-value" t-att-value="'x_drive_club' in partner and partner['x_drive_club']" />
+                                            <label for="x_drive_club">Drive Club</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="number" name="x_driver_year_racing_since" class="form-control has-value" t-att-value="'x_driver_year_racing_since' in partner and partner['x_driver_year_racing_since']" />
+                                            <label for="x_driver_year_racing_since">Racing since</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="number" name="x_driver_amount_events" class="form-control has-value" t-att-value="'x_driver_amount_events' in partner and partner['x_driver_amount_events']" />
+                                            <label for="x_driver_amount_events"># of races participated</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="number" name="x_driver_year_last_event" class="form-control has-value" t-att-value="'x_driver_year_last_event' in partner and partner['x_driver_year_last_event']" />
+                                            <label for="x_driver_year_last_event">Driver year of last event</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <select id="x_driver_shirt_size" name="x_driver_shirt_size" class="custom-select form-control has-value" required="true">
+                                                <option value="">Drivers shirt size...</option>
+                                                <t t-foreach="shirt_size_ids or []" t-as="s_size">
+                                                    <option t-att-value="s_size.id" t-att-selected="s_size.id == partner.x_driver_shirt_size.id">
+                                                        <t t-esc="s_size.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <label for="country_id">Drivers shirt size*</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <textarea type="textarea" name="x_driver_success" class="form-control has-value" maxlength="500"><t t-esc="partner.x_driver_success"/></textarea>
+                                            <label for="x_driver_success">Successes of the driver</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <input type="hidden" name="redirect" t-att-value="redirect" />
                             </div>
                             <div class="clearfix text-center">
-                                <button type="submit" class="btn btn-primary mb32 ">
+                                <button type="submit" class="btn btn-primary mb32">
                                     Save
                                 </button>
+                                <a href="/my/home?tabinfo=personal_data" class="btn btn-primary mb32">
+                                    Cancel
+                                </a>
                             </div>
                         </form>
                     </div>
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'vehicle' else ''}" id="nav-vehicle">
-                        <section class="content-block-small">
-                            <div class="container container--small">
-                                <div class="classiccar__profile-data fz17">
-                                    <div class="car-teaser">
-                                        <div class="row">
-                                            <div class="col-md-4 text-center">
-                                                <div class="embed-responsive embed-responsive-4by3 mb-4 mb-md-2">
-                                                    <img width="300" height="225" class="embed-responsive-item" t-attf-src="/web/image/res.partner/{{request.env.user.partner_id.id}}/x_vehicle_pict" alt="Avatar" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="font-bold mb-2">
-                                                    <span t-esc="partner.x_vehicle_manufacturer" />
-                                                </div>
-                                                <div class="wysiwyg font-light wysiwyg-multicolumn-2">
-                                                    <ul class="list list-unstyled">
-                                                        <li>CCM: <span t-esc="partner.x_vehicle_ccm" /></li>
-                                                        <li>Cylinders: <span t-esc="partner.x_vehicle_cylinder" /></li>
-                                                        <li>Construction year: <span t-esc="partner.x_vehicle_year_construction" /></li>
-                                                        <li>FIA-period: <span t-esc="partner.x_vehicle_homologation_num" /></li>
-                                                        <li>Type: <span t-esc="partner.x_vehicle_type" /></li>
-                                                        <li>Approved?: <span t-esc="partner.x_vehicle_approved" /></li>
-                                                        <li>horse power: <span t-esc="partner.x_vehicle_horse_power" /></li>
-                                                        <li>Description: <span t-esc="partner.x_vehicle_desc" /></li>
-                                                        <li>Modifications: <span t-esc="partner.x_vehicle_modifications" /></li>
-                                                        <li>Tire size: <span t-esc="partner.x_vehicle_tire_size" /></li>
-                                                        <li>Rim size: <span t-esc="partner.x_vehicle_rim_size" /></li>
-                                                        <li>Document (FIA): <span t-esc="partner.x_vehicle_doc_number" /></li>
-                                                        <li>FIA registrasion number: <span t-esc="partner.x_registrasion_number" /></li>
-                                                        <li>Bild-Name: <span t-esc="partner.x_vehicle_pict_path" /></li>
-                                                        <li>Number Plate: <span t-esc="partner.x_vehicle_number_plate" /></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4">
-                                    <a href="/vehicle/info" class="btn btn-primary">Edit Data</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'nomination' else ''}" id="nav-nomination">
-                        <section class="content-block-small">
-                            <div class="container container--small">
-                                <div class="fz17">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="wysiwyg font-light wysiwyg-multicolumn-2">
-                                                <ul class="list list-unstyled">
-                                                    <li t-if="partner.x_nomination_year"><label>Nomination Year:</label> <span t-esc="partner.x_nomination_year" /></li>
-                                                    <li t-if="partner.x_date_enrolement_reveived"><label>Date Enrolement Received:</label> <span t-esc="partner.x_date_enrolement_reveived" /></li>
-                                                    <li t-if="partner.x_nomination_status"><label>Nomination Status:</label> <span t-esc="partner.x_nomination_status" /></li>
-                                                    <li t-if="partner.x_race_info_field"><label>Race field:</label> <span t-esc="partner.x_race_info_field.name" /></li>
-                                                    <li t-if="partner.x_race_info_starting_num"><label>Starting Number:</label> <span t-esc="partner.x_race_info_starting_num" /></li>
-                                                    <li t-if="partner.x_pit_box_number"><label>Pit Box Number:</label> <span t-esc="partner.x_pit_box_number" /></li>
-                                                    <li t-if="partner.x_vehicle_inspection_passed"><label>Vehicle inspection passed?:</label> <span t-esc="partner.x_vehicle_inspection_passed" /></li>
-                                                    <li t-if="partner.x_autorized"><label>Autorized to start?:</label> <span t-esc="partner.x_autorized" /></li>
-                                                    <li t-if="partner.x_race_info_pit_id"><label>Pit ID:</label> <span t-esc="partner.x_race_info_pit_id" /></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4">
-                                    <a href="/nomination/info" class="btn btn-primary">Edit Data</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    <!-- save mode -->
+                    <t t-call="website_lmc.vehicle_tab" />
+                    <t t-call="website_lmc.nomination" />
                 </div>
             </t>
         </template>
+        <!-- vehicle detail edit -->
         <template id="edit_vehicle_information">
             <t t-call="portal.portal_layout">
                 <t t-set="additional_title">Vehicle Details</t>
                 <div class="content-block-small tab-content">
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'personal_data' else ''} " id="nav-profile">
-                        <div class="fz17">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="wysiwyg font-light wysiwyg-multicolumn-2">
-                                        <ul class="list list-unstyled">
-                                            <li t-if="partner.name"><label>Name:</label> <span t-esc="partner.name" /></li>
-                                            <li t-if="partner.x_gender"><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
-                                            <li t-if="partner.x_birthdate"><label>Date of birth:</label> <span t-esc="partner.x_birthdate" /></li>
-                                            <li t-if="partner.x_family_name"><label>Family Name:</label> <span t-esc="partner.x_family_name" /></li>
-                                            <li t-if="partner.x_nationality"><label>Nationality:</label> <span t-esc="partner.x_nationality" /></li>
-                                            <li t-if="partner.x_driver_license_type"><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
-                                            <li t-if="partner.x_driver_license_num"><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
-                                            <li t-if="partner.x_driver_year_driving_license_issuance"><label>Year of issuance of driving license:</label> <span t-esc="partner.x_driver_year_driving_license_issuance" /></li>
-                                            <li t-if="partner.x_drive_club"><label>Drive Club:</label> <span t-esc="partner.x_drive_club" /></li>
-                                            <li t-if="partner.x_driver_year_racing_since"><label>Racing since:</label> <span t-esc="partner.x_driver_year_racing_since" /></li>
-                                            <li t-if="partner.x_driver_amount_events"><label>Driver number of events:</label> <span t-esc="partner.x_driver_amount_events" /></li>
-                                            <li t-if="partner.x_driver_year_last_event"><label>Driver year of last event:</label> <span t-esc="partner.x_driver_year_last_event" /></li>
-                                            <li t-if="partner.x_driver_shirt_size"><label>Drivers shirt size:</label> <span t-esc="partner.x_driver_shirt_size.name" /></li>
-                                            <li t-if="partner.x_driver_pict_path"><label>Path to picture of the driver:</label> <span t-esc="partner.x_driver_pict_path" /></li>
-                                            <li t-if="partner.x_driver_success"><label>Successes of the driver:</label> <span t-esc="partner.x_driver_success" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="font-bold">
-                                        <label for="name">Address</label>
-                                    </div>
-                                    <p>
-                                        <t t-esc="'street' in partner and partner['street']" /><br />
-                                        <t t-esc="'city' in partner and partner['city']" />
-                                        <t t-esc="'zip' in partner and partner['zip']" /><br />
-                                        <t t-esc="partner.state_id.name" /><br />
-                                        <t t-esc="partner.country_id.name" />
-                                    </p>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="font-bold">
-                                        <label for="name">Contact</label>
-                                    </div>
-                                    <p>
-                                        <t t-esc="'email' in partner and partner['email']" /><br />
-                                        <t t-esc="'phone' in partner and partner['phone']" /><br />
-                                        <t t-esc="'mobile' in partner and partner['mobile']" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="/my/account" class="btn btn-primary">Edit profile</a>
-                        </div>
-                        <hr />
-                        <div class="col-12 mb-3 mt32 profile_address">
-                            <div class="row">
-                                <div class="card mb-3 col-md-4">
-                                    <div class="card-body">
-                                        <h6 class="card-title font-weight-bold billing_add">Billing Address</h6>
-                                        <div class="card border border-primary">
-                                            <div class='card-body' style='min-height: 130px;'>
-                                                <a t-if="user_id.partner_id" href="/my/account" class="btn btn-link float-right p-0 no-decoration" role="button" title="Edit this address" aria-label="Edit this address"><i class='fa fa-edit' /></a>
-                                                <div t-field="user_id.partner_id" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 col-md-4">
-                                    <div class="card-body">
-                                        <h6 class="card-title font-weight-bold">Shipping Address</h6>
-                                        <div class="row all_shipping">
-                                            <div class="col-lg-12">
-                                                <div class="row mt8">
-                                                    <div class="col-md-12 col-lg-12 one_kanban">
-                                                        <form action="/account/address?type=delivery" method="post" class="d-block">
-                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                                                            <a role="button" class='a-submit btn btn-secondary mb16 btn-block user_shipping_address_add'>
-                                                                <i class="fa fa-plus-square" />
-                                                                <span>Add an address</span>
-                                                            </a>
-                                                        </form>
-                                                    </div>
-                                                    <t t-foreach="shippings" t-as="ship">
-                                                        <!-- <t t-if="ship.type == 'delivery'"> -->
-                                                        <div class="col-md-12 col-lg-12 one_kanban mb8">
-                                                            <t t-call="website_lmc.profile_shipping_address">
-                                                                <t t-set="actual_partner" t-value="partner" />
-                                                                <t t-set='contact' t-value="ship" />
-                                                            </t>
-                                                        </div>
-                                                        <!-- </t> -->
-                                                    </t>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 col-md-4">
-                                    <div class="card-body">
-                                        <h6 class="card-title font-weight-bold">Relatives</h6>
-                                        <div class="row all_shipping">
-                                            <div class="col-lg-12">
-                                                <div class="row mt8">
-                                                    <div class="col-md-12 col-lg-12 one_kanban">
-                                                        <form action="/account/address?type=other" method="post" class="d-block">
-                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                                                            <a role="button" class='a-submit btn btn-secondary mb16 btn-block user_shipping_address_add'>
-                                                                <i class="fa fa-plus-square" />
-                                                                <span>Add an address</span>
-                                                            </a>
-                                                        </form>
-                                                    </div>
-                                                    <t t-foreach="others" t-as="other">
-                                                        <!-- <t t-if="other.type == 'other'"> -->
-                                                        <div class="col-md-12 col-lg-12 one_kanban mb8">
-                                                            <t t-call="website_lmc.profile_shipping_address">
-                                                                <t t-set="actual_partner" t-value="partner" />
-                                                                <t t-set='contact' t-value="other" />
-                                                                <t t-set='hide_address' t-value="True" />
-                                                            </t>
-                                                        </div>
-                                                        <!-- </t> -->
-                                                    </t>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <t t-call="website_lmc.personal_tab" />
                     <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'vehicle' else ''} " id="nav-vehicle">
                         <form action="/vehicle/info/edit" method="post" class="form checkout_autoformat address_form" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
@@ -792,14 +735,39 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
+                                            <select id="x_vehicle_cat" name="x_vehicle_cat" class="custom-select form-control has-value" required="true">
+                                                <option value=""></option>
+                                                <t t-foreach="vehicle_categories or []" t-as="vehicle_categ">
+                                                    <option t-att-value="vehicle_categ.id" t-att-selected="vehicle_categ.id == partner.x_vehicle_cat.id">
+                                                        <t t-esc="vehicle_categ.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <label for="x_vehicle_manufacturer">Category</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
                                             <input type="text" name="x_vehicle_manufacturer" class="form-control has-value has-value" t-att-value="partner.x_vehicle_manufacturer" />
                                             <label for="x_vehicle_manufacturer">Vehicle manufacturer</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_ccm" class="form-control has-value has-value" t-att-value="partner.x_vehicle_ccm" />
-                                            <label for="x_vehicle_ccm">CCM</label>
+                                            <input type="text" name="x_vehicle_type" class="form-control has-value has-value" t-att-value="partner.x_vehicle_type" maxlength="20"/>
+                                            <label for="x_vehicle_type">Type</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="number" name="x_vehicle_year_construction" class="form-control has-value has-value" t-att-value="partner.x_vehicle_year_construction" />
+                                            <label for="x_vehicle_year_construction">Construction year</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="number" name="x_vehicle_ccm" class="form-control has-value has-value" t-att-value="partner.x_vehicle_ccm" />
+                                            <label for="x_vehicle_ccm">Cubic</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -810,37 +778,37 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_year_construction" class="form-control has-value has-value" t-att-value="partner.x_vehicle_year_construction" />
-                                            <label for="x_vehicle_year_construction">Construction year</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_vehicle_homologation_num" class="form-control has-value has-value" t-att-value="partner.x_vehicle_homologation_num" />
-                                            <label for="x_vehicle_homologation_num">FIA-period</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_type" class="form-control has-value has-value" t-att-value="partner.x_vehicle_type" />
-                                            <label for="x_vehicle_type">Type</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_approved" class="form-control has-value has-value" t-att-value="partner.x_vehicle_approved" />
-                                            <label for="x_vehicle_approved">Approved?</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
                                             <input type="number" name="x_vehicle_horse_power" class="form-control has-value has-value" t-att-value="partner.x_vehicle_horse_power" />
                                             <label for="x_vehicle_horse_power">Horse power</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_desc" class="form-control has-value has-value" t-att-value="partner.x_vehicle_desc" />
+                                            <input type="text" name="x_vehicle_number_plate" class="form-control has-value has-value" t-att-value="partner.x_vehicle_number_plate" maxlength="20"/>
+                                            <label for="x_vehicle_number_plate">Number Plate</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="chassis_no" class="form-control has-value has-value" t-att-value="partner.chassis_no"/>
+                                            <label for="chassis_no">Chassis</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="x_vehicle_homologation_num" class="form-control has-value has-value" t-att-value="partner.x_vehicle_homologation_num"  maxlength="4"/>
+                                            <label for="x_vehicle_homologation_num">FIA-period</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="x_vehicle_doc_number" class="form-control has-value has-value" t-att-value="partner.x_vehicle_doc_number" maxlength="100"/>
+                                            <label for="x_vehicle_doc_number">Document (FIA)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="x_vehicle_desc" class="form-control has-value has-value" t-att-value="partner.x_vehicle_desc" maxlength="500"/>
                                             <label for="x_vehicle_desc">Description</label>
                                         </div>
                                     </div>
@@ -852,38 +820,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_tire_size" class="form-control has-value has-value" t-att-value="partner.x_vehicle_tire_size" />
-                                            <label for="x_vehicle_tire_size">Tire size</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_rim_size" class="form-control has-value has-value" t-att-value="partner.x_vehicle_rim_size" />
-                                            <label for="x_vehicle_rim_size">Rim size</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_doc_number" class="form-control has-value has-value" t-att-value="partner.x_vehicle_doc_number" />
-                                            <label for="x_vehicle_doc_number">Document (FIA)</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
                                             <input type="text" name="x_registrasion_number" class="form-control has-value has-value" t-att-value="partner.x_registrasion_number" />
                                             <label for="x_registrasion_number">FIA registrasion number</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_pict_path" class="form-control has-value has-value" t-att-value="partner.x_vehicle_pict_path" />
-                                            <label for="x_vehicle_pict_path">Bild-Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_number_plate" class="form-control has-value has-value" t-att-value="partner.x_vehicle_number_plate" />
-                                            <label for="x_vehicle_number_plate">Number Plate</label>
                                         </div>
                                     </div>
                                 </div>
@@ -891,218 +829,24 @@
                                     <button type="submit" class="btn btn-primary mb32 ">
                                         Save
                                     </button>
+                                    <a href="/my/home?tabinfo=vehicle" class="btn btn-primary mb32">
+                                        Cancel
+                                    </a>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'nomination' else ''}" id="nav-nomination">
-                        <section class="content-block-small">
-                            <div class="container container--small">
-                                <div class="fz17">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="wysiwyg font-light wysiwyg-multicolumn-2">
-                                                <ul class="list list-unstyled">
-                                                    <li t-if="partner.x_nomination_year"><label>Nomination Year:</label> <span t-esc="partner.x_nomination_year" /></li>
-                                                    <li t-if="partner.x_date_enrolement_reveived"><label>Date Enrolement Received:</label> <span t-esc="partner.x_date_enrolement_reveived" /></li>
-                                                    <li t-if="partner.x_nomination_status"><label>Nomination Status:</label> <span t-esc="partner.x_nomination_status" /></li>
-                                                    <li t-if="partner.x_race_info_field"><label>Race field:</label> <span t-esc="partner.x_race_info_field.name" /></li>
-                                                    <li t-if="partner.x_race_info_starting_num"><label>Starting Number:</label> <span t-esc="partner.x_race_info_starting_num" /></li>
-                                                    <li t-if="partner.x_pit_box_number"><label>Pit Box Number:</label> <span t-esc="partner.x_pit_box_number" /></li>
-                                                    <li t-if="partner.x_vehicle_inspection_passed"><label>Vehicle inspection passed?:</label> <span t-esc="partner.x_vehicle_inspection_passed" /></li>
-                                                    <li t-if="partner.x_autorized"><label>Autorized to start?:</label> <span t-esc="partner.x_autorized" /></li>
-                                                    <li t-if="partner.x_race_info_pit_id"><label>Pit ID:</label> <span t-esc="partner.x_race_info_pit_id" /></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4">
-                                    <a href="/nomination/info" class="btn btn-primary">Edit Data</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    <t t-call="website_lmc.nomination" />
                 </div>
             </t>
         </template>
+        <!-- nomination detail edit -->
         <template id="edit_nomination_information">
             <t t-call="portal.portal_layout">
                 <t t-set="additional_title">Nomination Details</t>
                 <div class="content-block-small tab-content">
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'personal_data' else ''} " id="nav-profile">
-                        <div class="fz17">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="wysiwyg font-light wysiwyg-multicolumn-2">
-                                        <ul class="list list-unstyled">
-                                            <li t-if="partner.name"><label>Name:</label> <span t-esc="partner.name" /></li>
-                                            <li t-if="partner.x_gender"><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
-                                            <li t-if="partner.x_birthdate"><label>Date of birth:</label> <span t-esc="partner.x_birthdate" /></li>
-                                            <li t-if="partner.x_family_name"><label>Family Name:</label> <span t-esc="partner.x_family_name" /></li>
-                                            <li t-if="partner.x_nationality"><label>Nationality:</label> <span t-esc="partner.x_nationality" /></li>
-                                            <li t-if="partner.x_driver_license_type"><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
-                                            <li t-if="partner.x_driver_license_num"><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
-                                            <li t-if="partner.x_driver_year_driving_license_issuance"><label>Year of issuance of driving license:</label> <span t-esc="partner.x_driver_year_driving_license_issuance" /></li>
-                                            <li t-if="partner.x_drive_club"><label>Drive Club:</label> <span t-esc="partner.x_drive_club" /></li>
-                                            <li t-if="partner.x_driver_year_racing_since"><label>Racing since:</label> <span t-esc="partner.x_driver_year_racing_since" /></li>
-                                            <li t-if="partner.x_driver_amount_events"><label>Driver number of events:</label> <span t-esc="partner.x_driver_amount_events" /></li>
-                                            <li t-if="partner.x_driver_year_last_event"><label>Driver year of last event:</label> <span t-esc="partner.x_driver_year_last_event" /></li>
-                                            <li t-if="partner.x_driver_shirt_size"><label>Drivers shirt size:</label> <span t-esc="partner.x_driver_shirt_size.name" /></li>
-                                            <li t-if="partner.x_driver_pict_path"><label>Path to picture of the driver:</label> <span t-esc="partner.x_driver_pict_path" /></li>
-                                            <li t-if="partner.x_driver_success"><label>Successes of the driver:</label> <span t-esc="partner.x_driver_success" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="font-bold">
-                                        <label for="name">Address</label>
-                                    </div>
-                                    <p>
-                                        <t t-esc="'street' in partner and partner['street']" /><br />
-                                        <t t-esc="'city' in partner and partner['city']" />
-                                        <t t-esc="'zip' in partner and partner['zip']" /><br />
-                                        <t t-esc="partner.state_id.name" /><br />
-                                        <t t-esc="partner.country_id.name" />
-                                    </p>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="font-bold">
-                                        <label for="name">Contact</label>
-                                    </div>
-                                    <p>
-                                        <t t-esc="'email' in partner and partner['email']" /><br />
-                                        <t t-esc="'phone' in partner and partner['phone']" /><br />
-                                        <t t-esc="'mobile' in partner and partner['mobile']" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="/my/account" class="btn btn-primary">Edit profile</a>
-                        </div>
-                        <hr />
-                        <div class="col-12 mb-3 mt32 profile_address">
-                            <div class="row">
-                                <div class="card mb-3 col-md-4">
-                                    <div class="card-body">
-                                        <h6 class="card-title font-weight-bold billing_add">Billing Address</h6>
-                                        <div class="card border border-primary">
-                                            <div class='card-body' style='min-height: 130px;'>
-                                                <a t-if="user_id.partner_id" href="/my/account" class="btn btn-link float-right p-0 no-decoration" role="button" title="Edit this address" aria-label="Edit this address"><i class='fa fa-edit' /></a>
-                                                <div t-field="user_id.partner_id" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 col-md-4">
-                                    <div class="card-body">
-                                        <h6 class="card-title font-weight-bold">Shipping Address</h6>
-                                        <div class="row all_shipping">
-                                            <div class="col-lg-12">
-                                                <div class="row mt8">
-                                                    <div class="col-md-12 col-lg-12 one_kanban">
-                                                        <form action="/account/address?type=delivery" method="post" class="d-block">
-                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                                                            <a role="button" class='a-submit btn btn-secondary mb16 btn-block user_shipping_address_add'>
-                                                                <i class="fa fa-plus-square" />
-                                                                <span>Add an address</span>
-                                                            </a>
-                                                        </form>
-                                                    </div>
-                                                    <t t-foreach="shippings" t-as="ship">
-                                                        <!-- <t t-if="ship.type == 'delivery'"> -->
-                                                        <div class="col-md-12 col-lg-12 one_kanban mb8">
-                                                            <t t-call="website_lmc.profile_shipping_address">
-                                                                <t t-set="actual_partner" t-value="partner" />
-                                                                <t t-set='contact' t-value="ship" />
-                                                            </t>
-                                                        </div>
-                                                        <!-- </t> -->
-                                                    </t>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 col-md-4">
-                                    <div class="card-body">
-                                        <h6 class="card-title font-weight-bold">Relatives</h6>
-                                        <div class="row all_shipping">
-                                            <div class="col-lg-12">
-                                                <div class="row mt8">
-                                                    <div class="col-md-12 col-lg-12 one_kanban">
-                                                        <form action="/account/address?type=other" method="post" class="d-block">
-                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                                                            <a role="button" class='a-submit btn btn-secondary mb16 btn-block user_shipping_address_add'>
-                                                                <i class="fa fa-plus-square" />
-                                                                <span>Add an address</span>
-                                                            </a>
-                                                        </form>
-                                                    </div>
-                                                    <t t-foreach="others" t-as="other">
-                                                        <!-- <t t-if="other.type == 'other'"> -->
-                                                        <div class="col-md-12 col-lg-12 one_kanban mb8">
-                                                            <t t-call="website_lmc.profile_shipping_address">
-                                                                <t t-set="actual_partner" t-value="partner" />
-                                                                <t t-set='contact' t-value="other" />
-                                                                <t t-set='hide_address' t-value="True" />
-                                                            </t>
-                                                        </div>
-                                                        <!-- </t> -->
-                                                    </t>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'vehicle' else ''}" id="nav-vehicle">
-                        <section class="content-block-small">
-                            <div class="container container--small">
-                                <div class="classiccar__profile-data fz17">
-                                    <div class="car-teaser">
-                                        <div class="row">
-                                            <div class="col-md-4 text-center">
-                                                <div class="embed-responsive embed-responsive-4by3 mb-4 mb-md-2">
-                                                    <img width="300" height="225" class="embed-responsive-item" t-attf-src="/web/image/res.partner/{{request.env.user.partner_id.id}}/x_vehicle_pict" alt="Avatar" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="font-bold mb-2">
-                                                    <span t-esc="partner.x_vehicle_manufacturer" />
-                                                </div>
-                                                <div class="wysiwyg font-light wysiwyg-multicolumn-2">
-                                                    <ul class="list list-unstyled">
-                                                        <li>CCM: <span t-esc="partner.x_vehicle_ccm" /></li>
-                                                        <li>Cylinders: <span t-esc="partner.x_vehicle_cylinder" /></li>
-                                                        <li>Construction year: <span t-esc="partner.x_vehicle_year_construction" /></li>
-                                                        <li>FIA-period: <span t-esc="partner.x_vehicle_homologation_num" /></li>
-                                                        <li>Type: <span t-esc="partner.x_vehicle_type" /></li>
-                                                        <li>Approved?: <span t-esc="partner.x_vehicle_approved" /></li>
-                                                        <li>horse power: <span t-esc="partner.x_vehicle_horse_power" /></li>
-                                                        <li>Description: <span t-esc="partner.x_vehicle_desc" /></li>
-                                                        <li>Modifications: <span t-esc="partner.x_vehicle_modifications" /></li>
-                                                        <li>Tire size: <span t-esc="partner.x_vehicle_tire_size" /></li>
-                                                        <li>Rim size: <span t-esc="partner.x_vehicle_rim_size" /></li>
-                                                        <li>Document (FIA): <span t-esc="partner.x_vehicle_doc_number" /></li>
-                                                        <li>FIA registrasion number: <span t-esc="partner.x_registrasion_number" /></li>
-                                                        <li>Bild-Name: <span t-esc="partner.x_vehicle_pict_path" /></li>
-                                                        <li>Number Plate: <span t-esc="partner.x_vehicle_number_plate" /></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4">
-                                    <a href="/vehicle/info" class="btn btn-primary">Edit Data</a>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    <t t-call="website_lmc.personal_tab" />
+                    <t t-call="website_lmc.vehicle_tab" />
                     <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'nomination' else ''} " id="nav-nomination">
                         <form action="/nomination/info/edit" method="post" class="form checkout_autoformat address_form" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />

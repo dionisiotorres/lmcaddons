@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="fanshop_lmc" model="ir.ui.view">
+            <field name="name">Fanshop</field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.fanshop_lmc</field>
+            <field name="arch" type="xml">
+                <t name="FanShop" t-name="website_lmc.fanshop_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap" class="lcm_fanshop_page">
+                            <div class="oe_structure">
+                                <section class="s_cover parallax s_parallax_is_fixed pb256 pt256 bg-black-25" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+                                    <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('https://danifricker-dag.odoo.com/web/image/1831/background_fanshop.jpg'); background-position: 50% 0px;"></span>
+                                </section>
+                                <section class="s_text_block pb32 pt0" data-name="Text block">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 pt32 pb32">
+                                                <h2 style="text-align: center;">
+                                                    <font style="font-size: 62px;">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">Fan shop</font>
+                                                        </font>
+                                                    </font><br/>
+                                                </h2>
+                                                <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                        <font style="vertical-align: inherit;">In our shop you have the opportunity </font>
+                                                        <font style="vertical-align: inherit;">to buy </font>
+                                                        <strong style="box-sizing: inherit; font-weight: 400;">
+                                                            <b>
+                                                                <font style="vertical-align: inherit;">exclusive polo shirts, gilets</font>
+                                                            </b></strong>
+                                                            <b>
+                                                            <font style="vertical-align: inherit;"> and </font>
+                                                        </b>
+                                                        <b><strong style="box-sizing: inherit;">
+                                                                <font style="vertical-align: inherit;">caps from</font>
+                                                            </strong></b>
+                                                            <b>
+                                                            <font style="vertical-align: inherit;"> the </font>
+                                                        </b>
+                                                        <b><strong style="box-sizing: inherit;">
+                                                                <font style="vertical-align: inherit;">Lenzerheide Motor Classics</font>
+                                                            </strong></b>
+                                                        <font style="vertical-align: inherit;"> and thus get a nice souvenir of the highest circuit in the world.</font>
+                                                    <strong style="box-sizing: inherit; font-weight: 400;"><span>&amp;nbsp;</span><b>
+                                                            <font style="vertical-align: inherit;"></font><span>&amp;nbsp;</span>
+                                                        </b></strong>
+                                                        <b>
+                                                        <font style="vertical-align: inherit;"></font><span>&amp;nbsp;</span>
+                                                        <strong style="box-sizing: inherit;">
+                                                            <font style="vertical-align: inherit;"></font><span>&amp;nbsp;</span>
+                                                        </strong>
+                                                        <span>&amp;nbsp;</span>
+                                                        <strong style="box-sizing: inherit;">
+                                                            <font style="vertical-align: inherit;"></font>
+                                                        </strong><span>&amp;nbsp;</span>
+                                                    </b>
+                                                </p>
+                                                <b><span style="box-sizing: inherit;">
+                                                        <font style="color: rgb(66, 66, 66);">
+                                                                <font style="vertical-align: inherit;">Order / Shipping:</font>
+                                                        </font>
+                                                    </span></b>
+                                                    <br style="box-sizing: inherit;"/>
+                                                <font style="color: rgb(99, 99, 99);">
+                                                        <font style="vertical-align: inherit;"> Shipping only in Switzerland unte</font>
+                                                </font>
+                                                    <font style="vertical-align: inherit;">r</font>
+                                                <a href="mailto:fanshop@lenzerheidemotorclassics.ch">
+                                                        <font style="vertical-align: inherit;">fanshop@lenzerheidemotorclassics.ch</font>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data>
+        <data noupdate="1">
+            <record id="fanshop_page" model="website.page">
+                <field name="website_published">True</field>
+                <field name="url">/fanshop</field>
+                <field name="view_id" ref="fanshop_lmc" />
+            </record>
+        </data>
+    </data>
+</odoo>

@@ -5,8 +5,12 @@
 	      	<xpath expr="." position="inside">
 				<link rel="stylesheet" type="text/scss" href="website_lmc/static/src/scss/login.scss"/>
 				<link rel="stylesheet" type="text/css" href="/website_lmc/static/src/css/custom.css"/>
-				<link rel='stylesheet' href='/website_lmc/static/src/css/hm_footer.css'/>
-				<script type="text/javascript" src="/website_lmc/static/src/js/custom.js"></script>
+                <link rel='stylesheet' href='/website_lmc/static/src/css/hm_footer.css' />
+                <!-- <link rel="stylesheet" href="/website_lmc/static/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
+                <script type="text/javascript" src="/website_lmc/static/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" /> -->
+                <link rel="stylesheet" href="/website_lmc/static/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
+                <script type="text/javascript" src="/website_lmc/static/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js" />
+                <script type="text/javascript" src="/website_lmc/static/src/js/custom.js"></script>
 			</xpath>
 		</template>
 	</data>

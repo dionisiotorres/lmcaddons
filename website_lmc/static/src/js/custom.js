@@ -5,29 +5,51 @@ odoo.define('website_lmc.custom', function(require) {
 
     $('.o_forum_profile_pic_edit').on('click', function(ev) {
         ev.preventDefault();
-        $(this).closest('form').find('.o_forum_file_upload').trigger('click');
+        $(this).closest('.user_profile').find('.o_forum_file_upload').trigger('click');
     });
 
     $('.o_forum_file_upload').on('change', function() {
+        // debugger;
         if (this.files.length) {
-            var $form = $(this).closest('form');
+            var $profile = $(this).closest('.user_profile');
             var reader = new window.FileReader();
             reader.onload = function(ev) {
-                $form.find('.o_forum_avatar_img').attr('src', ev.target.result);
+                $profile.find('.o_forum_avatar_img').attr('src', ev.target.result);
+                ajax.jsonRpc("/profile/image/save", 'call', {data:ev.target.result}).then(function(){
+                   $('#profile_img_save_delete').addClass('alert-success');
+                   $('#profile_img_save_delete').removeClass('d-none');
+                   $('#profile_img_save_delete').find('#lmc_msg_datas').html('Your profile picture has been updated. It may take a few moments to update across the site');
+                   // window.location.reload();
+                });
             };
             reader.readAsDataURL(this.files[0]);
-            $form.find('#forum_clear_image').remove();
+            $profile.find('#forum_clear_image').remove();
+
         }
+
     });
 
     $('.o_forum_profile_pic_clear').click(function() {
-        var $form = $(this).closest('form');
-        $form.find('.o_forum_avatar_img').attr("src", "/web/static/src/img/placeholder.png");
-        $form.append($('<input/>', {
-            name: 'clear_image',
-            id: 'forum_clear_image',
-            type: 'hidden',
-        }));
+        var r = confirm("Are you sure you want to reset your current avatar?");
+        if (r == true) {
+            var $profile = $(this).closest('.user_profile');
+            $profile.find('.o_forum_avatar_img').attr("src", "/web/static/src/img/placeholder.png");
+            $profile.append($('<input/>', {
+                name: 'clear_image',
+                id: 'forum_clear_image',
+                type: 'hidden',
+            }));
+            ajax.jsonRpc("/profile/image/delete", 'call', {data:''}).then(function(){
+                $('#profile_img_save_delete').addClass('alert-success');
+                $('#profile_img_save_delete').removeClass('d-none');
+                $('#profile_img_save_delete').find('#lmc_msg_datas').html('Your profile picture has been reset. It may take a few moments to update across the site.');
+                // window.location.reload();
+            });
+        } else {
+          
+        }
+        
+
     });
 
     $('.user_edit_address').on('click', function () {
@@ -125,6 +147,13 @@ odoo.define('website_lmc.custom', function(require) {
             $(this).removeClass('has-value');
         }
     });
+    $(".user_profile .form-group--floating input").keyup(function(ev){
+        if($(this).val()){
+            $(this).addClass('has-value');
+        }else{
+            $(this).removeClass('has-value');
+        }
+    });
 
     // vehicle update js
     $('.o_forum_vehicle_pic_edit').on('click', function(ev) {
@@ -152,5 +181,13 @@ odoo.define('website_lmc.custom', function(require) {
             id: 'forum_clear_image',
             type: 'hidden',
         }));
+    });
+    // $('#x_birthdate .datepicker').datepicker({
+    //     format: 'DD-MM-YYYY',
+    // });
+    $.fn.datepicker.defaults.format = "mm-dd-yyyy";
+    $('#x_birthdate').datepicker({
+        format: 'dd-mm-yyyy',
+        // startDate: '-3d'
     });
 });

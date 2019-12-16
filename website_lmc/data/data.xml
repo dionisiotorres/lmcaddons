@@ -12,4 +12,115 @@
                 <field name="perm_unlink" eval="False"/>
         </record>
     </data>
+    <data noupdate="1">
+        <record id="boxes_lcm_run" model="home.boxes">
+            <field name="sequence">1</field>
+            <field name="name">Run</field>
+            <field name="description">Information and instructions for participants and spectators</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/RUN.jpg"/>
+            <field name="url">/das-rennen</field>
+        </record>
+
+        <record id="boxes_lcm_registation" model="home.boxes">
+            <field name="sequence">2</field>
+            <field name="name">REGISTRATION</field>
+            <field name="description">Book tender, driver entry &amp; accommodation and activities</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/REGISTRATION.jpg"/>
+            <field name="url">/nennung</field>
+        </record>
+
+        <record id="boxes_lcm_program" model="home.boxes">
+            <field name="sequence">3</field>
+            <field name="name">PROGRAM</field>
+            <field name="description">Event program, overview plans and attractions</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/PROGRAM.jpg"/>
+            <field name="url">/program</field>
+        </record>
+
+         <record id="boxes_lcm_sponsors" model="home.boxes">
+            <field name="sequence">4</field>
+            <field name="name">SPONSORS</field>
+            <field name="description">Our supporters, partners and supporters without whom nothing works</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/SPONSORS.jpg"/>
+            <field name="url">/sponsoren</field>
+        </record>
+
+        <record id="boxes_lcm_geniessen" model="home.boxes">
+            <field name="sequence">5</field>
+            <field name="name">ENJOY &amp; EXPERIENCE</field>
+            <field name="description">Activities, cuisine and fun off the track</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/ENJOY_EXPERIENCE.jpg"/>
+            <field name="url">/geniessen</field>
+        </record>
+        <record id="boxes_lcm_unterkuenfte" model="home.boxes">
+            <field name="sequence">6</field>
+            <field name="name">MAINTAINED NIGHT</field>
+            <field name="description">Partner hotels in the destination</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/MAINTAINED_STAY.jpg"/>
+            <field name="url">/unterkuenfte</field>
+        </record>
+        <record id="boxes_lcm_gallery" model="home.boxes">
+            <field name="sequence">7</field>
+            <field name="name">GALLERY &amp; REPORTS</field>
+            <field name="description">Pictures, reports and films from past events</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/GALLERY_REPORTS.jpg"/>
+            <field name="url">/gallery</field>
+        </record>
+        <record id="boxes_lcm_media_press" model="home.boxes">
+            <field name="sequence">8</field>
+            <field name="name">MEDIA &amp; PRESS</field>
+            <field name="description">Press reports and images, accreditation</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/MEDIA_PRESS.jpg"/>
+            <field name="url">https://arosalenzerheide.swiss/de/Medien/Medienmitteilungen?category=&amp;region=9&amp;q=</field>
+        </record>
+        <record id="boxes_lcm_streckenoeffnung" model="home.boxes">
+            <field name="sequence">9</field>
+            <field name="name">RANGE OPENING</field>
+            <field name="description">Closures and opening of the racetrack</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/RANGE_OPENING.jpg"/>
+            <field name="url">/streckenoeffnung</field>
+        </record>
+        <record id="boxes_lcm_shuttlebus" model="home.boxes">
+            <field name="sequence">10</field>
+            <field name="name">SHUTTLEBUS FOR SPECTATORS</field>
+            <field name="description">Locations and timetable for the free bus</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/SHUTTLEBUS_SPECTATORS.jpg"/>
+            <field name="url">/shuttlebus</field>
+        </record>
+        <record id="boxes_lcm_verein" model="home.boxes">
+            <field name="sequence">11</field>
+            <field name="name">ASSOCIATION LMC</field>
+            <field name="description">We are doing more than just this event!</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/CLUB_LMC.jpg"/>
+            <field name="url">/verein</field>
+        </record>
+        <record id="boxes_lcm_helfer" model="home.boxes">
+            <field name="sequence">12</field>
+            <field name="name">Helpers and supporters</field>
+            <field name="description">Become part of the teams and be up close</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/Helpers_supporters.jpg"/>
+            <field name="url">/helfer</field>
+        </record>
+        <record id="boxes_lcm_fanshop" model="home.boxes">
+            <field name="sequence">13</field>
+            <field name="name">FAN SHOP</field>
+            <field name="description">Clothing and other articles from past events</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/FAN_SHOP.jpg"/>
+            <field name="url">/fanshop</field>
+        </record>
+        <record id="boxes_lcm_geschichte" model="home.boxes">
+            <field name="sequence">14</field>
+            <field name="name">HISTORY</field>
+            <field name="description">Motorsport history has been written in the region for almost 70 years</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/HISTORY.jpg"/>
+            <field name="url">/geschichte</field>
+        </record>
+        <record id="boxes_lcm_newslleter" model="home.boxes">
+            <field name="sequence">15</field>
+            <field name="name">News</field>
+            <field name="description">Do you want to receive news and information from us now and then?</field>
+            <field name="banner_image" type="base64" file="website_lmc/static/src/img/News.png"/>
+            <field name="url">/geschichte</field>
+        </record>
+    </data>
 </odoo>

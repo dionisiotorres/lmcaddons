@@ -35,3 +35,15 @@ class WebsiteMenu(models.Model):
 
     _inherit = "website.menu"
     is_show_menu = fields.Boolean("Is show menu", default=True)
+
+
+class HomeBoxes(models.Model):
+    _name = 'home.boxes'
+    _rec_name = 'name'
+    _order = 'sequence, id'
+
+    sequence = fields.Integer(string='Sequence')
+    name = fields.Char('Name', required=True)
+    description = fields.Text('Short Description')
+    banner_image = fields.Binary('Banner Image')
+    url = fields.Char('URL')

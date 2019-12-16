@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="range_lmc" model="ir.ui.view">
+            <field name="name">Route Opening </field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.range_lmc</field>
+            <field name="arch" type="xml">
+                <t name="range_lmc" t-name="website_lmc.range_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_cover parallax s_parallax_is_fixed pb256 pt256 bg-black-25" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+                                    <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/website_lmc/static/src/img/background_MotorClassics_2014_SL31.jpg'); background-position: 49.89% 56.88%;"></span>
+                                    <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                            <div class="s_title pt0 col-lg-12 pb96" data-name="Title">
+                                                <h1 class="s_title_default" style="text-align: center;">
+                                                    <span style="font-weight: normal;">
+                                                        <span style="color: rgb(248, 249, 250); font-size: 62px;">
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">Sponsors</font>
+                                                            </font>
+                                                        </span><br />
+                                                        <span style="color: rgb(255, 255, 255); font-size: 24px;">
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">Our supporters, sponsors and supporters without whom the event would not be possible</font>
+                                                            </font>
+                                                        </span>
+                                                    </span><br />&amp;nbsp;
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 pt64 pb64" style="font-family: UniversLTStd-Cn, sans-serif !important; font-size: inherit; color: blue; font-weight: 400; font-size: initial;">
+                                                <p class="lead o_default_snippet_text">
+                                                    <font style="vertical-align: inherit;">
+                                                        A great way to get your reader's attention is to tell a story.
+                                                    </font><br />
+                                                    <font style="vertical-align: inherit;">Everything you want to write can be told as a story.
+                                                    </font>
+                                                </p>
+                                                <p class="o_default_snippet_text">
+                                                    <b class="o_default_snippet_text">
+                                                        <font style="vertical-align: inherit;">Great stories have personality.
+                                                        </font>
+                                                    </b>
+                                                    <font style="vertical-align: inherit;">Consider telling a great story that gives personality.
+                                                    </font>
+                                                    <font style="vertical-align: inherit;">Writing a story with personality for potential customers helps build a relationship.
+                                                    </font>
+                                                    <font style="vertical-align: inherit;">This can be seen in small quirks such as choice of words or phrases.
+                                                    </font>
+                                                    <font style="vertical-align: inherit;">Write from your point of view, not from someone else's experience.
+                                                    </font>
+                                                </p>
+                                                <p class="o_default_snippet_text">
+                                                    <b class="o_default_snippet_text">
+                                                        <font style="vertical-align: inherit;">Great stories are there for everyone, even if they were only written for one person.
+                                                        </font>
+                                                    </b>
+                                                    <font style="vertical-align: inherit;">When you try to write to a wide audience, your story sounds wrong and boring.
+                                                    </font>
+                                                    <font style="vertical-align: inherit;">Nobody will be interested.
+                                                    </font>
+                                                    <font style="vertical-align: inherit;">Write for one person.
+                                                    </font>
+                                                    <font style="vertical-align: inherit;">If it's real for one, it's real for the rest.
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data>
+    <data noupdate="1">
+        <record id="range_lmc_page" model="website.page">
+            <field name="website_published">True</field>
+            <field name="url">/streckenoeffnung</field>
+            <field name="view_id" ref="range_lmc" />
+        </record>
+    </data>
+    </data>
+</odoo>

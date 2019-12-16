@@ -26,13 +26,13 @@
 }
 
 .user_profile .classiccar-header__hl {
-    color: #c1a947 !important;
+    color: #817E65 !important;
 }
 
 .user_profile .content-hl {
     font-size: 25px;
     line-height: 1.12;
-    font-family: UniversLTStd-Cn;
+    font-family: UniversLTStd-LightCn;
     margin-bottom: 15px;
 }
 
@@ -69,7 +69,7 @@
   }
   .user_profile h6 {
     font-size: calc(22px + 3 * ((100vw - 768px) / 932));
-    font-family: UniversLTStd-Cn;
+    font-family: UniversLTStd-LightCn;
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: 10px;
     /*margin-bottom: 10px;*/
@@ -139,7 +139,7 @@
     height: 4.5rem!important;
     padding: .75rem .75rem .75rem 2.25rem;
     line-height: 1.25 !important;
-    font-family: UniversLTStd-Cn,sans-serif;
+    font-family: UniversLTStd-LightCn,sans-serif;
     color: #38312d !important;
     border-radius: 2px !important;
     border: 0 !important;
@@ -191,7 +191,7 @@
 
 .user_profile .nav-tabs.nav-tabs--default .nav-link {
     font-size: 1rem;
-    font-family: UniversLTStd-Cn;
+    font-family: UniversLTStd-LightCn;
     color: #ada8a6;
     border: 0;
     border-bottom: 4px solid transparent;
@@ -238,19 +238,9 @@
     transform: translateY(-1.25rem) translateX(2rem);
 }
 
-.user_profile .form-group--floating label {
-    position: absolute;
-    pointer-events: none;
-    left: 0;
-    top: 2.5rem;
-    font-size: 1.25rem;
-    transform: translateY(-1.25rem) translateX(1.5rem);
-    transition: transform .2s ease-in-out;
-    transform-origin: left center;
-}
-
 .user_profile .form-group--floating {
     position: relative;
+    line-height: 15px;
 }
 .user_profile .form-group--floating .custom-select:focus, .user_profile .form-group--floating .form-control.custom-select.has-value {
     background-position: 15px 50%;
@@ -265,15 +255,15 @@
     color: #38312d;
     border-radius: 2px;
     border: 0;
-    padding: .75rem 1rem;
+    padding: 1.75rem 1rem;
     box-shadow: inset 0 0 3px rgba(0,0,0,.4);
     height: 4.5rem!important;
 }
 
 .user_profile .btn-primary, .btn-default {
     color: #ffffff !important;
-    border-color: #c1a947 !important;
-    background-color: #c1a947 !important;
+    border-color: #817E65 !important;
+    background-color: #817E65 !important;
 }
 
 .user_profile .btn-primary {
@@ -289,12 +279,13 @@
     line-height: 1;
     border-radius: 2px;
     box-shadow: none;
-    font-family: UniversLTStd-Cn,sans-serif;
+    font-family: UniversLTStd-LightCn,sans-serif;
     cursor: pointer;
 }
 
-.user_profile .form-group--floating .form-control.has-value~label, .user_profile .form-group--floating .form-control:focus~label {
-    transform: translateY(-2.25rem) translateX(1.25rem) scale(.7) !important;
+.user_profile .form-group--floating input {
+    padding: 2rem 1rem 1rem 1.25rem;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 .user_profile .form-group--floating label {
     position: absolute;
@@ -306,6 +297,11 @@
     transition: transform .2s ease-in-out;
     transform-origin: left center;
 }
+.form-group--floating .form-control.has-value~label,.form-group--floating .form-control:focus~label {
+    transform: translateY(-1.87rem) translateX(1.25rem) scale(0.6);
+
+}
+
 
 .user_profile form label {
     margin-bottom: .125rem;
@@ -313,9 +309,6 @@
     font-weight: 400;
 }
 
-.user_profile .form-group--floating .form-control.custom-select.has-value~label, .user_profile .form-group--floating .form-control.custom-select:focus~label {
-    transform: translateY(-2.25rem) translateX(2.25rem) scale(.7) !important;
-}
 
 /*save form*/
 
@@ -352,7 +345,7 @@
 }
 
 .font-light {
-    font-family: UniversLTStd-Cn!important;
+    font-family: UniversLTStd-LightCn!important;
     font-weight: 400;
 }
 
@@ -424,5 +417,9 @@
   color: #2874f0;
   text-transform: uppercase;
   font-size: 14px;
+}
+
+#profile_img_save_delete {
+  margin-bottom: 0px;
 }
 

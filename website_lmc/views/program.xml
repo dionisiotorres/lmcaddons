@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="program_lmc" model="ir.ui.view">
+                    <field name="name">Program</field>
+                    <field name="type">qweb</field>
+                    <field name="key">website_lmc.program_lmc</field>
+                    <field name="arch" type="xml">
+                        <t name="Program" t-name="website_lmc.program_lmc">
+                            <t t-call="website.layout">
+                                <div id="wrap" class="lmc_program_page">
+                                    <section class="s_cover parallax s_parallax_is_fixed pb0 pt144" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+                                        <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/website_lmc/static/src/img/background_LMC-Strecke-geschnitten.jpg'); background-size: cover; background-position: 50% 0px;"></span>
+                                        <div class="container">
+                                          <div class="row s_nb_column_fixed">
+                                            <div class="col-lg-12 s_title" data-name="Title">
+                                              <h1 class="s_title_thin" style="font-size: 62px; text-align: center;">
+                                                <font style="color: rgb(255, 255, 255);"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The program</font></font></font>
+                                                <br/>
+                                              </h1>
+                                            </div>
+                                            <div class="col-lg-12 s_text pb40 pt256" data-name="Text">
+                                              <p class="lead" style="text-align: center;">
+                                                <font style="color: rgb(66, 66, 66); font-size: 36px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The whole event program over both days</font></font></font>
+                                                <br/>
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </section>
+                                    <section class="s_text_block pb32 pt0" data-name="Text block">
+                                        <div class="container">
+                                          <div class="row">
+                                            <div class="col-lg-12 pt32 pb32">
+                                              <h1 class="lead">
+                                                <b>
+                                                  <font style="font-size: 36px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The program in detail</font></font><br/></font>
+                                                </b>
+                                              </h1>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </section>
+                                    <section class="s_tabs" data-name="Tabs" style="">
+                                        <div class="container">
+                                            <div class="row s_col_no_bgcolor">
+                                                <div class="pb48 pt0 col-lg-12">
+                                                    <div class="card bg-300" style="">
+                                                        <div class="card-header">
+                                                            <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="nav_tabs_link_1575973290918_9" data-toggle="tab" href="#nav_tabs_content_1575973290918_9" role="tab" aria-controls="nav_tabs_content_1575973290918_9" aria-selected="false" data-original-title="" title="" aria-describedby="tooltip986288">
+                                                                        <b>
+                                                                            <font style="color: rgb(66, 66, 66);" data-original-title="" title="" aria-describedby="tooltip192297" class="bg-alpha">
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Friday June 5, 2020</font>
+                                                                                </font>
+                                                                            </font>
+                                                                        </b>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="nav_tabs_link_1575973290919_10" data-toggle="tab" href="#nav_tabs_content_1575973290919_10" role="tab" aria-controls="nav_tabs_content_1575973290919_10" aria-selected="false" data-original-title="" title="" aria-describedby="tooltip986288">
+                                                                        <b>
+                                                                            <font style="color: rgb(66, 66, 66);" data-original-title="" title="" aria-describedby="tooltip192297" class="bg-alpha">
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Saturday June 6th 2020</font>
+                                                                                </font>
+                                                                            </font>
+                                                                        </b>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link active" id="nav_tabs_link_1575973290919_11" data-toggle="tab" href="#nav_tabs_content_1575973290919_11" role="tab" aria-controls="nav_tabs_content_1575973290919_11" aria-selected="true" data-original-title="" title="" aria-describedby="tooltip986288">
+                                                                        <b>
+                                                                            <font style="color: rgb(66, 66, 66);" data-original-title="" title="" aria-describedby="tooltip192297" class="bg-alpha">
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Sunday June 7, 2020</font>
+                                                                                </font>
+                                                                            </font>
+                                                                        </b>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="card-body tab-content">
+                                                            <div class="tab-pane fade" id="nav_tabs_content_1575973290918_9" role="tabpanel" aria-labelledby="nav_tabs_link_1575973290918_9">
+                                                                <h3>
+                                                                    <font style="vertical-align: inherit;">
+                                                                        <font style="vertical-align: inherit;">Preparation, corso in the village and aperitif</font>
+                                                                    </font><br/>
+                                                                </h3>
+                                                                <table class="table table-bordered">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="font-size: 18px;">
+                                                                                        <font style="vertical-align: inherit;">
+                                                                                            <font style="vertical-align: inherit;">
+                                                                                                time of day</font>
+                                                                                        </font>
+                                                                                    </font>
+                                                                                    <br/>
+                                                                                </b>
+                                                                            </td>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="font-size: 18px;">
+                                                                                        <font style="vertical-align: inherit;">
+                                                                                            <font style="vertical-align: inherit;">program</font>
+                                                                                        </font>
+                                                                                    </font>
+                                                                                </b>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">from 12:00 p.m.</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">Arrive at the racing grounds, </font>
+                                                                                    </font>
+                                                                                </span>
+                                                                                <br style="box-sizing: inherit; color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"/>
+                                                                                <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">opening the paddock and racing office</font>
+                                                                                    </font>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">from 2 p.m.</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">Administrative acceptance in the race office (pick up documents and start numbers, </font>
+                                                                                    </font>
+                                                                                </span>
+                                                                                <br/>
+                                                                                <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">then technical vehicle acceptance at the vehicle (technical commissioners are on the move in the paddock</font>
+                                                                                    </font>
+                                                                                </span>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">17:00 o'clock</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">Driver briefing (mandatory) and driver blessing</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">17:30</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">Colonization for aperitif</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">6:00 p.m. to 22:00 Uh</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;"> r</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                        <font style="vertical-align: inherit;">
+                                                                                            <font style="vertical-align: inherit;">Guided vehicle parade through Lenzerheide </font>
+                                                                                        </font>
+                                                                                    </span>
+                                                                                </b>
+                                                                                <font style="vertical-align: inherit;"><b><span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                            <font style="vertical-align: inherit;">Presentation and presentation of vehicles and motorcycles in the village center of Lenzerheide. </font>
+                                                                                        </span></b><span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                        <font style="vertical-align: inherit;">Aperitif for driver and escort</font>
+                                                                                    </span></font><br style="box-sizing: inherit; color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"/>
+                                                                                <b>
+                                                                                    <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                        <font style="vertical-align: inherit;"></font>
+                                                                                    </span>
+                                                                                </b>
+                                                                                <br/>
+                                                                                <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                    <font style="vertical-align: inherit;"></font><br/>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <p><b>&amp;nbsp;</b>
+                                                                    <font style="vertical-align: inherit;">
+                                                                        <font style="vertical-align: inherit;">Passengers are allowed on the Corso. </font>
+                                                                        <font style="vertical-align: inherit;">Repatriation of vehicles without road approval is only possible with the police.</font>
+                                                                    </font><br/>
+                                                                </p>
+                                                            </div>
+                                                            <div class="tab-pane fade" id="nav_tabs_content_1575973290919_10" role="tabpanel" aria-labelledby="nav_tabs_link_1575973290919_10">
+                                                                  <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">First day of racing</font></font></h3>
+                                                                  <h3>
+                                                                    <font style="color: rgb(66, 66, 66); font-size: 14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(Provisional plan)</font></font></font>
+                                                                    <br/>
+                                                                  </h3>
+                                                                  <p>
+                                                                    <b>
+                                                                      <br/>
+                                                                    </b>
+                                                                  </p>
+                                                                  <table class="table table-bordered">
+                                                                    <tbody>
+                                                                      <tr>
+                                                                        <td>
+                                                                          <b>
+                                                                            <font style="font-size: 18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                          time of day</font></font></font>
+                                                                            <br/>
+                                                                          </b>
+                                                                        </td>
+                                                                        <td>
+                                                                          <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">program</font></font></b>
+                                                                          <br/>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td>
+                                                                          <font style="font-size: 18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&amp;nbsp;07:15 a.m.</font></font></font>
+                                                                          <br/>
+                                                                        </td>
+                                                                        <td>
+                                                                          <font style="font-size: 18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Wake up call for paddock</font></font></font>
+                                                                          <br/>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td>
+                                                                          <b>
+                                                                            <font style="font-size: 18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">07:15 a.m. - 05:00 p.m.</font></font></font>
+                                                                            <br/>
+                                                                          </b>
+                                                                        </td>
+                                                                        <td>
+                                                                          <b>
+                                                                            <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Race office open</font></font></span>
+                                                                          </b>
+                                                                          <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"></span>
+                                                                          <br/>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                          07:15 a.m. - 08:00 a.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Administrative and technical acceptance of stragglers</font></font><br/>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">8:00 a.m. - 8:25 a.m.</font></font><br/></td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 1</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">8:30 a.m. - 8:55 a.m.</font></font><br/></td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 2</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9:00 a.m. - 9:25 a.m.</font></font><br/></td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 3</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9:30 a.m. - 9:55 a.m.</font></font><br/></td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 4</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10:00 a.m. - 10:25 a.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 5</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10:30 a.m. - 10:55 a.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 6</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11:00 a.m. - 11:25 a.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 7</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11:30 a.m. - 11:55 a.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 8</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12:00 - 12:25 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">village group</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td>
+                                                                          <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12:30 p.m. - 1:30 p.m.</font></font></b>
+                                                                          <br/>
+                                                                        </td>
+                                                                        <td>
+                                                                          <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lunch break and engine rest</font></font></b>
+                                                                          <br/>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 1:30 p.m. - 1:55 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 1</font></font></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2:00 p.m. - 2:25 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 2</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2:30 p.m. - 2:55 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 3</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                          3:00 p.m. - 3:25 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 4</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 3:30 p.m. - 3:55 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 5</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                          4:00 p.m. - 4:25 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 6</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 4.35pm - 5.00pm</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 7</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                          5:00 p.m. - 5:25 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Demonstration run field 8</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                          5:25 - 5:50 p.m.</font></font><br/>
+                                                                        </td>
+                                                                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">village group</font></font><br/></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td>
+                                                                          <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6 p.m.</font></font></b>
+                                                                          <br/>
+                                                                        </td>
+                                                                        <td>
+                                                                          <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">End of day 1 of the event</font></font></b>
+                                                                          <br/>
+                                                                        </td>
+                                                                      </tr>
+                                                                    </tbody>
+                                                                  </table>
+                                                                  <p><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The starting times and field arrangements are subject to change</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .</font></font></p>
+                                                                  <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Please note the latest instructions and information on the website </font></font><a href="http://www.lenzerheidemotorclassics.ch"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">www.lenzerheidemotorclassics.ch</font></font></a> <br/></p>
+                                                            </div>
+                                                            <div class="tab-pane fade active show" id="nav_tabs_content_1575973290919_11" role="tabpanel" aria-labelledby="nav_tabs_link_1575973290919_11">
+                                                                <h3>
+                                                                    <font style="vertical-align: inherit;">
+                                                                        <font style="vertical-align: inherit;">Second day of racing</font>
+                                                                    </font>
+                                                                </h3>
+                                                                <h3>
+                                                                    <font style="color: rgb(66, 66, 66); font-size: 14px;">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">(Provisional plan)</font>
+                                                                        </font>
+                                                                    </font>
+                                                                    <br/>
+                                                                </h3>
+                                                                <p>
+                                                                    <b>
+                                                                        <br/>
+                                                                    </b>
+                                                                </p>
+                                                                <table class="table table-bordered">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="font-size: 18px;">
+                                                                                        <font style="vertical-align: inherit;">
+                                                                                            <font style="vertical-align: inherit;">
+                                                                                                time of day</font>
+                                                                                        </font>
+                                                                                    </font>
+                                                                                    <br/>
+                                                                                </b>
+                                                                            </td>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">program</font>
+                                                                                    </font>
+                                                                                </b>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">07:15 a.m.</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="font-size: 18px;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">Wake up call for paddock</font>
+                                                                                    </font>
+                                                                                </font>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="font-size: 18px;">
+                                                                                        <font style="vertical-align: inherit;">
+                                                                                            <font style="vertical-align: inherit;">07:15 a.m. - 05:00 p.m.</font>
+                                                                                        </font>
+                                                                                    </font>
+                                                                                    <br/>
+                                                                                </b>
+                                                                            </td>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                                                                                        <font style="vertical-align: inherit;">
+                                                                                            <font style="vertical-align: inherit;">Race office open</font>
+                                                                                        </font>
+                                                                                    </span>
+                                                                                </b>
+                                                                                <span style="color: rgb(33, 37, 41); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"></span>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        07:15 a.m. - 08:00 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Administrative and technical acceptance of stragglers</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">8:00 a.m. - 8:25 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 1</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">8:30 a.m. - 8:55 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 2</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">9:00 a.m. - 9:25 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 3</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">9:30 a.m. - 9:55 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 4</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">10:00 a.m. - 10:25 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 5</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">10:30 a.m. - 10:55 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 6</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">11:00 a.m. - 11:25 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 7</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">11:30 a.m. - 11:55 a.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 8</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">12:00 - 12:25 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">village group</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">12:30 p.m. - 1:30 p.m.</font>
+                                                                                    </font>
+                                                                                </b>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">Lunch break and engine rest</font>
+                                                                                    </font>
+                                                                                </b>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;"> 1:30 p.m. - 1:55 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 1</font>
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">2:00 p.m. - 2:25 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 2</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">2:30 p.m. - 2:55 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 3</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        3:00 p.m. - 3:25 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 4</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;"> 3:30 p.m. - 3:55 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 5</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        4:00 p.m. - 4:25 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 6</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;"> 4.35pm - 5.00pm</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 7</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        5:00 p.m. - 5:25 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">Demonstration run field 8</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        5:25 - 5:50 p.m.</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <font style="vertical-align: inherit;">
+                                                                                    <font style="vertical-align: inherit;">village group</font>
+                                                                                </font><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">6 p.m.</font>
+                                                                                    </font>
+                                                                                </b>
+                                                                                <br/>
+                                                                            </td>
+                                                                            <td>
+                                                                                <b>
+                                                                                    <font style="vertical-align: inherit;">
+                                                                                        <font style="vertical-align: inherit;">End of the event</font>
+                                                                                    </font>
+                                                                                </b>
+                                                                                <br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <p><b>
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">The starting times and field arrangements are subject to change</font>
+                                                                        </font>
+                                                                    </b>
+                                                                    <font style="vertical-align: inherit;">
+                                                                        <font style="vertical-align: inherit;"> .</font>
+                                                                    </font>
+                                                                </p>
+                                                                <p>
+                                                                    <font style="vertical-align: inherit;">
+                                                                        <font style="vertical-align: inherit;">Please note the latest instructions and information on the website </font>
+                                                                    </font><a href="http://www.lenzerheidemotorclassics.ch">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">www.lenzerheidemotorclassics.ch</font>
+                                                                        </font>
+                                                                    </a> <br/>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="s_picture bg-200 pt48 pb24" data-name="Picture">
+                                      <div class="container">
+                                        <div class="row s_nb_column_fixed">
+                                          <div class="col-lg-12 s_title pt16 pb16">
+                                            <h2 class="s_title_thin" style="text-align: center;">
+                                              <font style="font-size: 62px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The overview plan</font></font><br/></font>
+                                            </h2>
+                                          </div>
+                                          <div class="col-lg-12 pt16 pb16">
+                                            <p style="text-align: center;">
+                                              <font style="background-color: rgb(255, 255, 0);"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Describe here where the audience areas are</font></font></font>
+                                              <br/>
+                                            </p>
+                                          </div>
+                                          <div class="col-lg-9 offset-lg-1 pb0">
+                                            <figure class="figure">
+                                              <img src="/website_lmc/static/src/img/Situationsplan_LMC.jpg" class="figure-img img-fluid rounded img-thumbnail padding-large" alt="Odoo • A picture with a caption" data-original-title="" title="" aria-describedby="tooltip945509"/>
+                                              <figcaption class="figure-caption py-3 text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVERVIEW PLAN LMC 2020</font></font></figcaption>
+                                            </figure>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </section>
+                                </div>
+                            </t>
+                        </t>
+                    </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="program_page" model="website.page">
+                <field name="website_published">True</field>
+                <field name="url">/program</field>
+                <field name="view_id" ref="program_lmc"/>
+        </record>
+    </data>
+</odoo>

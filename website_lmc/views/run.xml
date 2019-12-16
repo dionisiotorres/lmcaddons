@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="run_lmc" model="ir.ui.view">
+            <field name="name">Run</field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.run_lmc</field>
+            <field name="arch" type="xml">
+            	<t name="Program" t-name="website_lmc.program_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap" class="lmc_run_page">
+                        	<section class="s_cover parallax s_parallax_is_fixed bg-black-50 pb0 pt152 s_parallax_no_overflow_hidden" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+							    <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/website_lmc/static/src/img/background_239A0092.jpeg'); background-position: 50% 0px;"></span>
+							    <div class="container">
+							        <div class="row s_nb_column_fixed">
+							            <div class="col-lg-12 s_title" data-name="Title">
+							                <h1 class="s_title_thin" style="font-size: 62px; text-align: center;">
+							                    <font style="color: rgb(239, 239, 239);">The race</font>
+							                    <br/>
+							                </h1>
+							            </div>
+							            <div class="col-lg-12 s_text pt216 pb104" data-name="Text">
+							                <p class="lead" style="text-align: center;">
+							                    <font style="color: rgb(239, 239, 239); font-size: 36px;">Information for our viewers and guests</font>
+							                    <br/>
+							                </p>
+							            </div>
+							        </div>
+							    </div>
+							</section>
+							<section class="s_text_block pt32 pb0 run_lmc_001" data-name="Text block">
+							    <div class="container">
+							        <div class="row">
+							            <div class="col-lg-12 pt32 pb0">
+							                <h1>The race</h1>
+							                <div class="h6 page-heading__subline" style="">
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">Driving pleasure in the mountains of Graubünden - the Lenzerheide Motor Classics are performance demonstrations without timekeeping, ranking, speed limits and noise regulations. </font>
+							                    </font><br/><br/>
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">The route of the Lenzerheide Motor Classics 2020 leads over 2.45 km from the beginning of the village Lenzerheide along the lake to the valley station Rothorn and further via Dieschen sot past the sports center back to the village entrance. </font>
+							                        <font style="vertical-align: inherit;">The drivers have 2 sessions of 25 minutes each on one day, a total driving time of around 2 hours all weekend or almost 100 km of driving pleasure in the Graubünden mountains. </font>
+							                        <font style="vertical-align: inherit;">Many unique rarities are allowed, from classic cars and historical vehicles / racing vehicles to motorcycles.</font>
+							                    </font>
+							                </div>
+							                <br/>
+							            </div>
+							            <div class="col-lg-12  pt0 pb0 run_lmc_002">
+							            	<h2>Friday June 5, 2020</h2>
+							            	<table class="table">
+											    <thead class="thead-light">
+												      <tr>
+												        <th>time of day</th>
+												        <th>program</th>
+												      </tr>
+											    </thead>
+											    <tbody>
+												    <tr>
+												        <td>from 12 p.m.</td>
+												        <td>Arrive at the racing grounds, <br/>opening the paddock and racing office</td>
+												    </tr>
+												    <tr>
+												        <td>2 p.m.</td>
+												        <td>Administrative and technical vehicle inspection</td>
+												    </tr>
+												    <tr>
+												        <td>6 p.m. - 10 p.m.</td>
+												        <td>Guided vehicle parade through Lenzerheide  <br/>Presentation and presentation of vehicles and motorcycles in the <br/>
+												        village center of Lenzerheide. Aperitif for drivers.
+												    </td>
+												    </tr>
+												</tbody>
+											</table>
+											<h2 class="mt64">Saturday / Sunday, 6th / 7th June 2020</h2>
+											<table class="table">
+											    <thead class="thead-light">
+												      <tr>
+												        <th>time of day</th>
+												        <th>program</th>
+												      </tr>
+											    </thead>
+											    <tbody>
+												    <tr>
+												        <td>8 a.m. - 12 p.m.</td>
+												        <td>Demonstration trips of all classes</td>
+												    </tr>
+												    <tr>
+												        <td>12 p.m. - 1 p.m.</td>
+												        <td>Lunch break and engine rest</td>
+												    </tr>
+												    <tr>
+												        <td>1 p.m. - 6 p.m.</td>
+												        <td>Demonstration trips of all classes
+												    </td>
+												    </tr>
+												</tbody>
+											</table>
+											<p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem;font-size: 18px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Several demonstration trips take place on the 2.45 km long circuit.</font></font></p>
+											<hr class="mt64"/>
+							            </div>
+							        </div>
+							    </div>
+							</section>
+							<section class="s_text_image pt0 pb0 run_lmc_005" data-name="Image - Text">
+							    <div class="container">
+							        <div class="row align-items-center">
+							            <div class="col-lg-6 pb40 pt16">
+							                <img src="/website_lmc/static/src/img/BQEN9316.jpeg" class="img img-fluid mx-auto" alt="Odoo • Image and text" data-original-title="" title="" aria-describedby="tooltip96238"/>
+							            </div>
+							            <div class="col-lg-6 pb16 pt16">
+							                <h2>
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">Race taxi rides</font>
+							                    </font>
+							                </h2>
+							                <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">Adrenaline and racing fever guaranteed! </font>
+							                        <font style="vertical-align: inherit;">Experience the Lenzerheide Motor Classics from the driver's perspective and book a taxi ride as a passenger with one of our licensed racing drivers. </font>
+							                        <font style="vertical-align: inherit;">Duration approx. 10 minutes, costs CHF 100.00.</font>
+							                    </font>
+							                </p>
+							                <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">Tickets are available from the information / merchandising stands at the start or from the Rothorn valley station. </font>
+							                        <font style="vertical-align: inherit;">A helmet is provided.</font>
+							                    </font>
+							                </p>
+							                <font style="vertical-align: inherit;">
+							                    <font style="vertical-align: inherit;">, </font>
+							                </font>
+							                <div class="s_btn text-left pt16 pb16" data-name="Button"><a href="/renntaxifahrten" class="btn btn-outline-secondary" data-original-title="" title="" aria-describedby="tooltip391311">
+							                        <font style="vertical-align: inherit;">
+							                            <font style="vertical-align: inherit;">More information</font>
+							                        </font>
+							                    </a></div>
+							            </div>
+							        </div>
+							    </div>
+							</section>
+							<section class="s_faq_collapse pt48 pb32" data-name="Accordion">
+							    <div class="container">
+							        <div class="row s_nb_column_fixed">
+							            <div class="col-lg-12 s_title pt0 pb0">
+							                <h1 class="s_title_thin">
+							                    <font style="font-size: 62px;">
+							                        <font style="vertical-align: inherit;">
+							                            <font style="vertical-align: inherit;">Arrival information</font>
+							                        </font><br/>
+							                    </font>
+							                </h1>
+							            </div>
+							        </div>
+							        <div class="row s_col_no_bgcolor">
+							            <div class="col-lg-12 pt16 pb16">
+							                <div id="myCollapse" class="accordion" role="tablist">
+							                    <div class="card bg-300" style="">
+							                        <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-target="#myCollapseTab1575968143699" data-original-title="" title="" aria-describedby="tooltip629844">
+							                            <font style="color: rgb(99, 99, 99);">
+							                                <font style="vertical-align: inherit;">
+							                                    <font style="vertical-align: inherit;">By car</font>
+							                                </font>
+							                            </font>
+							                        </a>
+							                        <div class="collapse" role="tabpanel" id="myCollapseTab1575968143699" style="">
+							                            <div class="card-body">
+							                                <p class="card-text">
+							                                    <span style="color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">Please note that the </font>
+							                                        </font><span>&amp;nbsp;</span>
+							                                    </span>
+							                                    <strong style="box-sizing: inherit; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">road from Valbella junction Hauptstrasse / Voa davos Lai is generally closed </font>
+							                                        </font>
+							                                    </strong>
+							                                    <span style="color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">. </font>
+							                                            <font style="vertical-align: inherit;">The bypass is given via Voa davos Lai / Seestrasse. </font>
+							                                            <font style="vertical-align: inherit;">Hourly access and departure is guaranteed for 10 minutes.</font>
+							                                        </font>
+							                                    </span>
+							                                </p>
+							                            </div>
+							                        </div>
+							                    </div>
+							                    <div class="card bg-300" style="">
+							                        <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-original-title="" title="" aria-describedby="tooltip629844" data-target="#myCollapseTab1575968255563">
+							                            <font style="color: rgb(99, 99, 99);">
+							                                <font style="vertical-align: inherit;">
+							                                    <font style="vertical-align: inherit;">Parking control</font>
+							                                </font>
+							                            </font>
+							                        </a>
+							                        <div class="collapse" role="tabpanel" style="" id="myCollapseTab1575968255563">
+							                            <div class="card-body">
+							                                <p class="card-text">
+							                                    <span style="color: rgb(56, 49, 45);  font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">Guests of Rothornbahn are requested on the </font>
+							                                        </font><span>&amp;nbsp;</span>
+							                                    </span>
+							                                    <strong style="box-sizing: inherit; font-weight: 400; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><b>
+							                                            <font style="vertical-align: inherit;">
+							                                                <font style="vertical-align: inherit;">parking Fadail</font>
+							                                            </font>
+							                                        </b>
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;"> to park </font>
+							                                        </font>
+							                                    </strong>
+							                                    <span style="color: rgb(56, 49, 45);font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">. </font>
+							                                            <font style="vertical-align: inherit;">From there you can reach the valley station Rothorn, resp. </font>
+							                                            <font style="vertical-align: inherit;">the race track on foot in about 10 to 15 minutes over the lake dam, along the Heidsee.</font>
+							                                        </font>
+							                                    </span>
+							                                    <span style="color: rgb(56, 49, 45);font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"></span>
+							                                </p>
+							                            </div>
+							                        </div>
+							                    </div>
+							                    <div class="card bg-300" style="">
+							                        <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-original-title="" title="" aria-describedby="tooltip629844" data-target="#myCollapseTab1575968254791">
+							                            <font style="color: rgb(99, 99, 99);">
+							                                <font style="vertical-align: inherit;">
+							                                    <font style="vertical-align: inherit;">With public transport</font>
+							                                </font>
+							                            </font>
+							                        </a>
+							                        <div class="collapse" role="tabpanel" style="" id="myCollapseTab1575968254791">
+							                            <div class="card-body">
+							                                <p class="card-text">
+							                                    <span style="color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">You can reach the Lenzerheide holiday region conveniently and easily using public transport. </font>
+							                                            <font style="vertical-align: inherit;">Traveling </font>
+							                                        </font><span>&amp;nbsp;</span>
+							                                    </span>
+							                                    <strong style="box-sizing: inherit;font-weight: 400; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">by </font>
+							                                        </font><b>
+							                                            <font style="vertical-align: inherit;">
+							                                                <font style="vertical-align: inherit;">train to Chur</font>
+							                                            </font><span>&amp;nbsp;</span>
+							                                        </b>
+							                                    </strong>
+							                                    <span style="color: rgb(56, 49, 45);font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;"> is no problem thanks to national and international fast connections. </font>
+							                                            <font style="vertical-align: inherit;">In Chur you can directly from the train to the bus by </font>
+							                                        </font><span>&amp;nbsp;</span>
+							                                    </span>
+							                                    <strong style="box-sizing: inherit;font-weight: 400; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><b>
+							                                            <font style="vertical-align: inherit;">
+							                                                <font style="vertical-align: inherit;">Graubünden post bus</font>
+							                                            </font>
+							                                        </b>
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;"> transfer </font>
+							                                        </font>
+							                                    </strong>
+							                                    <span style="color: rgb(56, 49, 45);font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span>&amp;nbsp;</span>
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">and get so </font>
+							                                        </font><span>&amp;nbsp;</span>
+							                                    </span>
+							                                    <strong style="box-sizing: inherit;font-weight: 400; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">i </font>
+							                                        </font><b>
+							                                            <font style="vertical-align: inherit;">
+							                                                <font style="vertical-align: inherit;">nnert 30 minutes after Lenzerheide</font>
+							                                            </font>
+							                                        </b>
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;"> .</font>
+							                                        </font>
+							                                    </strong>
+							                                    
+							                                </p>
+							                            </div>
+							                        </div>
+							                    </div>
+							                    <div class="card bg-300" style="">
+							                        <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-original-title="" title="" aria-describedby="tooltip629844" data-target="#myCollapseTab1575968253935">
+							                            <font style="color: rgb(99, 99, 99);">
+							                                <font style="vertical-align: inherit;">
+							                                    <font style="vertical-align: inherit;">shuttle bus</font>
+							                                </font>
+							                            </font>
+							                        </a>
+							                        <div class="collapse" role="tabpanel" style="" id="myCollapseTab1575968253935">
+							                            <div class="card-body">
+							                                <p class="card-text">
+							                                    <strong style="box-sizing: inherit;color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">Lenzerheide - Rothorn valley station - Lenzerheide </font>
+							                                        </font>
+							                                    </strong>
+							                                    <br />
+							                                    <span style="color: rgb(56, 49, 45);font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                        <font style="vertical-align: inherit;">
+							                                            <font style="vertical-align: inherit;">every 30 minutes in both directions </font>
+							                                        </font>
+							                                    </span>
+							                                    <font style="vertical-align: inherit;"><b><strong style="box-sizing: inherit; color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                                                <font style="vertical-align: inherit;">The following stops are used </font>
+							                                            </strong></b><span style="color: rgb(56, 49, 45); font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+							                                            <font style="vertical-align: inherit;"> Lenzerheide Postplatz, Lenzerheide Retirement Home starting area, parking lot Fadail visitor parking lot, parking lot church Valbella visitor parking lot, valley station Rothorn racing tent / paddock</font>
+							                                        </span></font><br/>   
+							                                   
+							                                    <br/>
+							                                    
+							                                </p>
+							                            </div>
+							                        </div>
+							                    </div>
+							                </div>
+							            </div>
+							        </div>
+							    </div>
+							</section>
+							<section class="s_text_image pt32 pb32 run_lmc_0023" data-name="Text - Image">
+							    <div class="container">
+							        <div class="row align-items-center">
+							            <div class="col-lg-6 pt16 pb16">
+							                <h2>
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">Fan shop</font>
+							                    </font><br/>
+							                </h2>
+							                <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;">In our shop you have the opportunity </font>
+							                        <font style="vertical-align: inherit;">to buy </font><strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif; font-weight: 400;"><b>
+							                                <font style="vertical-align: inherit;">exclusive polo shirts, gilets</font>
+							                            </b></strong><b>
+							                            <font style="vertical-align: inherit;"> and </font>
+							                        </b><b><strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">
+							                                <font style="vertical-align: inherit;">caps from</font>
+							                            </strong></b><b>
+							                            <font style="vertical-align: inherit;"> the </font>
+							                        </b><b><strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">
+							                                <font style="vertical-align: inherit;">Lenzerheide Motor Classics</font>
+							                            </strong></b>
+							                        <font style="vertical-align: inherit;"> and thus get a nice souvenir of the highest circuit in the world.</font>
+							                    </font>
+							                    <font style="vertical-align: inherit;"></font>
+							                </p>
+							                <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">
+							                        <font style="vertical-align: inherit;">
+							                            <font style="vertical-align: inherit;">Ordering / shipping:</font>
+							                        </font>
+							                    </strong><br style="box-sizing: inherit;"/>
+							                    <font style="vertical-align: inherit;">
+							                        <font style="vertical-align: inherit;"> Shipping only in Switzerland at </font>
+							                    </font><a href="mailto:fanshop@lenzerheidemotorclassics.ch">
+							                        <font style="vertical-align: inherit;">
+							                            <font style="vertical-align: inherit;">fanshop@lenzerheidemotorclassics.ch</font>
+							                        </font>
+							                    </a>
+							                </p>
+							                <font style="vertical-align: inherit;">
+							                    <font style="vertical-align: inherit;">,
+							                    </font>
+							                </font>
+							                <div class="s_btn text-left pt16 pb16" data-name="Buttons"><a href="/fanshop" class="btn btn-secondary flat" data-original-title="" title="" aria-describedby="tooltip480219">
+							                        <font style="vertical-align: inherit;">
+							                            <font style="vertical-align: inherit;">Learn more</font>
+							                        </font>
+							                    </a></div>
+							            </div>
+							            <div class="col-lg-6 pt16 pb16">
+							                <img src="/website_lmc/static/src/img/FAN_SHOP.jpg" class="img img-fluid mx-auto" alt="Odoo • Text and image" data-original-title="" title="" aria-describedby="tooltip801731"/>
+							            </div>
+							        </div>
+							    </div>
+							</section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="lcm_run_page" model="website.page">
+                <field name="website_published">True</field>
+                <field name="url">/das-rennen</field>
+                <field name="view_id" ref="run_lmc"/>
+        </record>
+    </data>
+</odoo>

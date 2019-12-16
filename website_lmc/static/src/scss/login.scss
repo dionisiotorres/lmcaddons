@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'UniversLTStd-Cn';
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     src: url('/website_lmc/static/src/fonts/UniversLTStd-Cn.ttf') format('truetype');
 }
 .oe_login_form
@@ -28,7 +28,7 @@
 // }
 .login_heading
 {
-    color: #c1a947 !important;
+    color: #817E65 !important;
 }
 .oe_login_image
 {
@@ -50,7 +50,7 @@
     text-transform: uppercase;
     font-family: UniversLTStd-BoldCn,sans-serif;
     font-size: calc(32px + 6 * ((100vw - 768px) / 932));
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 .custom_login_field label{
     position: relative;
@@ -61,7 +61,7 @@
     transform: translateY(-1.25rem) translateX(1.5rem);
     transition: transform .2s ease-in-out;
     transform-origin: left center;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     font-weight: normal;
 
 }
@@ -86,12 +86,12 @@
 }
 .oe_login_form .custom_login_field input{
     padding: 3rem 1rem 1rem 1.25rem;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 
 .login_title{
     text-transform: uppercase;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     text-shadow: 2.5px 0px;
     letter-spacing: 1px;
     color: #38312d;
@@ -99,31 +99,31 @@
 }
 .oe_login_form .btn-primary {
     color: #ffffff !important;
-    border-color: #c1a947 !important;
-    background-color: #c1a947 !important;
-    font-family: UniversLTStd-Cn;
+    border-color: #817E65 !important;
+    background-color: #817E65 !important;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     font-size: 16px
 }
 .oe_login_form .justify-content-between a{
     color: #38312d;
     text-decoration: none;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 .oe_login_form .oe_login_buttons .btn-link{
     color: #38312d;
     text-decoration: none;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 .oe_website_login_container p.login_heading{
     font-size: 20px;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     margin-bottom: 0px;
 }
 .oe_website_login_container p.login_heading:last-child{
      margin-bottom: 15px;
 }
 .oe_website_login_container h1.login_heading{
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     font-size: 41px;
     text-shadow: 3px 0px;
     letter-spacing: 1px;
@@ -133,14 +133,14 @@
     font-weight:bold;
     font-family: UniversLTStd-BoldCn,sans-serif;
     font-size: calc(32px + 6 * ((100vw - 768px) / 932));
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 .classiccar-rigistation a.btn-secondary {
     color: #38312d;
     background: #fefefe;
     border-color: white;
     text-shadow: 0.5px 0.5px;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     padding-top: 12px;
     text-decoration: none;
 }
@@ -170,23 +170,23 @@
 }
 .oe_reset_password_form .custom_login_field input{
     padding: 3rem 1rem 1rem 1.25rem;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
 }
 .oe_forget_container{
     position: relative;
 }
 .oe_reset_password_form .btn-primary{
     color: #ffffff !important;
-    border-color: #c1a947 !important;
-    background-color: #c1a947 !important;
-    font-family: UniversLTStd-Cn;
+    border-color: #817E65 !important;
+    background-color: #817E65 !important;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     width: 100%;
     font-size: 16px;
     padding: 6px;
 }
 h2.resetpwd_title{
     text-transform: uppercase;
-    font-family: UniversLTStd-Cn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     font-size: calc(32px + 6 * ((100vw - 768px) / 932));
     text-shadow: 2px 0px;
     letter-spacing: 1px;
@@ -232,5 +232,106 @@ h2.resetpwd_title{
         margin-top: 5px;
         max-width: 100%;
         padding: 24px 34px;
+    }
+}
+.lmc_program_page{
+    h1, .h1, h1 strong, .h1 strong, h2, .h2, h2 strong, .h2 strong, h2 b, h3 {
+    font-family: UniversLTStd-Cn;
+    color: #817E65;
+    }
+    .bg-alpha{
+        background-color: transparent !important;
+    }
+    .card-body{
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: #212529;
+    }
+}
+.lmc_run_page{
+    .run_lmc_001{
+        h1{
+        color: rgb(129, 126, 101) !important;
+        font-size: calc(45px + (30 * ((100vw - 768px) / 932)));
+        text-align: center;
+        font-weight: 500;
+        font-family: UniversLTStd-LightCn, sans-serif;
+        }
+        .h6.page-heading__subline{
+            color: rgb(56, 49, 45);
+            font-family: UniversLTStd-LightCn, sans-serif;
+            font-size: calc(22px + (3 * ((100vw - 768px) / 932)));
+            line-height: 32px;
+            text-align: center;
+        }
+        .run_lmc_002{
+            tr > td{
+                font-weight: 400;
+                font-family: UniversLTStd-BoldCn, sans-serif;
+                text-align: left;
+                padding: 14px 26px;
+                font-size: 18px;
+            }
+            tr > th{
+                padding: 14px 26px;
+                font-weight: 400;
+                font-family: UniversLTStd-BoldCn, sans-serif;
+                font-size: 18px;
+            }
+        }
+    }
+    .run_lmc_005{
+        font-family: 'UniversLTStd-LightCn', sans-serif;
+        h2{
+            color: #817E65;
+        }
+        p{
+            font-family: 'UniversLTStd-LightCn', sans-serif;
+        }
+        .btn-outline-secondary{
+            color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-outline-secondary:hover {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+    }
+    .card-body{
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: #212529;
+    }
+    h1.s_title_thin{
+           font-family: 'UniversLTStd-LightCn', sans-serif;
+            color: #817E65;
+    }
+    .run_lmc_0023{
+        .btn-secondary{
+            color: white;
+            background-color: #6c757d;
+            border-color: #6c757d;
+            a{
+                text-decoration: none;
+            }
+        }
+        .btn-secondary:hover {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        h2{
+            font-family: 'UniversLTStd-LightCn', sans-serif;
+            color: #817E65;
+        }
+        a, a:hover{
+                color: #0056b3;
+                text-decoration: underline;
+        }
+    }
+}
+.lcm_fanshop_page{
+    h2{
+        font-family: 'UniversLTStd-LightCn', sans-serif;
+        color: #817E65;
     }
 }

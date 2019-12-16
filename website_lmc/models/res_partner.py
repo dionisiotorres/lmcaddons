@@ -13,14 +13,14 @@ class ResPartner(models.Model):
     x_family_name = fields.Char(string='Family Name')
     x_gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
     x_birthdate = fields.Date(string='Date of birth')
-    x_nationality = fields.Char(string='Nationality')
+    x_nationality = fields.Many2one('res.country', string='Nationality')
     x_drive_club = fields.Char(string='Drive Club')
     x_driver_license_type = fields.Many2one('driver.license.codes', string='License Type')
     x_driver_license_num = fields.Char(string='License Number')
     x_driver_pict_path = fields.Char(string='Path to picture of the driver')
-    x_driver_success = fields.Char(string='Successes of the driver')
+    x_driver_success = fields.Text(string='Successes of the driver')
     x_driver_year_racing_since = fields.Integer(string='Racing since')
-    x_driver_amount_events = fields.Integer(string='Driver number of events')
+    x_driver_amount_events = fields.Integer(string='# of races participated')
     x_driver_year_last_event = fields.Integer(string='Driver year of last event')
     x_driver_year_driving_license_issuance = fields.Integer(string='Year of issuance of driving license')
     x_driver_shirt_size = fields.Many2one('shirt.size.codes', string='Drivers shirt size')
@@ -29,8 +29,8 @@ class ResPartner(models.Model):
     x_vehicle_cat = fields.Many2one('vehicle.code', string='Vehicle Category')
     x_vehicle_manufacturer = fields.Char(string='Vehicle manufacturer')
     x_vehicle_type = fields.Char(string='Vehicle Type')
-    x_vehicle_ccm = fields.Char(string='Vehicle ccm')
-    x_vehicle_year_construction = fields.Char(string='Vehicle year of construction')
+    x_vehicle_ccm = fields.Integer(string='Vehicle ccm')
+    x_vehicle_year_construction = fields.Integer(string='Vehicle year of construction')
     x_vehicle_approved = fields.Boolean(string='Vehicle approved?')
     x_vehicle_cylinder = fields.Integer(string='Vehicle number of cylinders')
     x_vehicle_horse_power = fields.Integer(string='Vehicle horse power')
@@ -41,8 +41,9 @@ class ResPartner(models.Model):
     x_vehicle_doc_number = fields.Char(string='Vehicle document (FIA)')
     x_registrasion_number = fields.Char(string='Vehicle FIA registrasion number')
     x_vehicle_pict_path = fields.Char(string='Vehicle Bild-Name')
-    x_vehicle_homologation_num = fields.Integer(string='Vehicle FIA homologation num')
+    x_vehicle_homologation_num = fields.Char(string='Vehicle FIA homologation num')
     x_vehicle_number_plate = fields.Char(string='Vehicle number plate')
+    chassis_no = fields.Char(string="Chassis")
     # nomination
     x_race_info_pit_id = fields.Char(string='Pit ID')
     x_nomination_year = fields.Char(string='Nomination Year')
@@ -72,12 +73,6 @@ class VehicleCode(models.Model):
 
 class Rennfelder(models.Model):
     _name = "rennfelder"
-
-    name = fields.Char(string='Name', required=True, translate=True)
-
-
-class GenderGender(models.Model):
-    _name = "gender.gender"
 
     name = fields.Char(string='Name', required=True, translate=True)
 

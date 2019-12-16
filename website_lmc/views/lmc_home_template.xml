@@ -165,248 +165,33 @@
                         </div>
                       </div>
                     <div class="oe_structure">
-                        <div class="pimcore_area_teaser-row pimcore_area_content lmc_homepg mt64">
+                        <div class="pimcore_area_teaser-row pimcore_area_content lmc_homepg mt64" t-if="home_boxes">
                             <section class="content-block-small">
                                 <div class="container-fuild">
                                     <ul class="row justify-content-center row--gutter-width-24 row--vertical-gutter-24 list-unstyled">
-                                        <li class="col-sm-6 col-md-3">
+                                        <li class="col-sm-6 col-md-3 mt32" t-foreach="home_boxes" t-as="lmc_boxes_id">
+                                          <a t-attf-href="#{lmc_boxes_id.url}">
                                             <section class="teaser img-teaser img-teaser--small isClickable">
                                                 <div class="img-teaser__img teaser__img">
                                                     <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Information and instructions for participants and spectators" title="Information and instructions for participants and spectators" src="/website_lmc/static/src/img/RUN.jpg" /> </div>
+                                                        <img width="424" height="424" class="embed-responsive-item" alt="Information and instructions for participants and spectators" title="Information and instructions for participants and spectators" t-attf-src="/web/image/home.boxes/#{lmc_boxes_id.id}/banner_image" /> </div>
                                                 </div>
                                                 <div class="img-teaser__body text-white">
                                                     <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/das-rennen">RUN</a>
+                                                        <t t-esc="lmc_boxes_id.name"/>
                                                     </div>
-                                                    <div class="img-teaser__sl font-light">Information and instructions for participants and spectators</div>
+                                                    <div class="img-teaser__sl font-light">
+                                                      <t t-esc="lmc_boxes_id.description"/>
+                                                    </div>
                                                 </div>
                                             </section>
+                                          </a>
                                         </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Book tender, driver entry &amp; accommodation and activities" title="Book tender, driver entry &amp; accommodation and activities" src="/website_lmc/static/src/img/REGISTRATION.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">REGISTRATION</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Book tender, driver entry &amp; accommodation and activities</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Event program, overview plans and attractions" title="Event program, overview plans and attractions" src="/website_lmc/static/src/img/PROGRAM.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">PROGRAM</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Event program, overview plans and attractions</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Our supporters, partners and supporters without whom nothing works" title="Our supporters, partners and supporters without whom nothing works" src="/website_lmc/static/src/img/SPONSORS.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">SPONSORS</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Our supporters, partners and supporters without whom nothing works</div>
-                                                </div>
-                                            </section>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </section>
-                        </div>
-                        <div class="pimcore_area_teaser-row pimcore_area_content lmc_homepg mt64">
-                            <section class="content-block-small">
-                                <div class="container-fuild">
-                                    <ul class="row justify-content-center row--gutter-width-24 row--vertical-gutter-24 list-unstyled">
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Activities, cuisine and fun off the track" title="Activities, cuisine and fun off the track" src="/website_lmc/static/src/img/ENJOY_EXPERIENCE.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/das-rennen">ENJOY &amp; EXPERIENCE</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Activities, cuisine and fun off the track</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Partner hotels in the destination" title="Partner hotels in the destination" src="/website_lmc/static/src/img/MAINTAINED_STAY.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">MAINTAINED STAY</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Partner hotels in the destination</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Pictures, reports and films from past events" title="Pictures, reports and films from past events" src="/website_lmc/static/src/img/GALLERY_REPORTS.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">GALLERY &amp; REPORTS</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Pictures, reports and films from past events</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Press reports and images, accreditation" title="Press reports and images, accreditation" src="/website_lmc/static/src/img/MEDIA_PRESS.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">MEDIA &amp; PRESS</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Press reports and images, accreditation</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                         <div class="pimcore_area_teaser-row pimcore_area_content lmc_homepg mt64">
-                            <section class="content-block-small">
-                                <div class="container-fuild">
-                                    <ul class="row justify-content-center row--gutter-width-24 row--vertical-gutter-24 list-unstyled">
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Closures and opening of the racetrack" title="Closures and opening of the racetrack" src="/website_lmc/static/src/img/RANGE_OPENING.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/das-rennen">RANGE OPENING</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Closures and opening of the racetrack</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Locations and timetable for the free bus" title="Locations and timetable for the free bus" src="/website_lmc/static/src/img/SHUTTLEBUS_SPECTATORS.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">SHUTTLEBUS FOR SPECTATORS</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Locations and timetable for the free bus</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="We are doing more than just this event!" title="We are doing more than just this event!" src="/website_lmc/static/src/img/CLUB_LMC.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">CLUB LMC</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">We are doing more than just this event!</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Become part of the team and be close to it" title="Become part of the team and be close to it" src="/website_lmc/static/src/img/Helpers_supporters.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">Helpers and supporters</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Become part of the team and be close to it</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="pimcore_area_teaser-row pimcore_area_content lmc_homepg mt64">
-                            <section class="content-block-small">
-                                <div class="container-fuild">
-                                    <ul class="row justify-content-center row--gutter-width-24 row--vertical-gutter-24 list-unstyled">
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Clothing and other articles from past events" title="Clothing and other articles from past events" src="/website_lmc/static/src/img/FAN_SHOP.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="#" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/das-rennen">FAN SHOP</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Clothing and other articles from past events</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Motorsport history has been written in the region for almost 70 years" title="Motorsport history has been written in the region for almost 70 years" src="/website_lmc/static/src/img/HISTORY.jpg" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">HISTORY</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Motorsport history has been written in the region for almost 70 years</div>
-                                                </div>
-                                            </section>
-                                        </li>
-                                        <li class="col-sm-6 col-md-3">
-                                            <section class="teaser img-teaser img-teaser--small isClickable">
-                                                <div class="img-teaser__img teaser__img">
-                                                    <div class="embed-responsive embed-responsive-1by1">
-                                                        <img width="424" height="424" class="embed-responsive-item" alt="Do you want to receive news and information from time to time?" title="Do you want to receive news and information from time to time?" src="/website_lmc/static/src/img/News.png" /> </div>
-                                                </div>
-                                                <div class="img-teaser__body text-white">
-                                                    <div class="h4 img-teaser__hl">
-                                                        <a target="" class="js-ga-tracking" href="/en/nennung" data-ga-category="Teaser" data-ga-action="" data-ga-label="/en/nennung">News</a>
-                                                    </div>
-                                                    <div class="img-teaser__sl font-light">Event program, overview plans and attractions</div>
-                                                </div>
-                                            </section>
-                                        </li>                                       
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </xpath>

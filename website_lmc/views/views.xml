@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="view_home_lmc_boxes_form" model="ir.ui.view">
+            <field name="name">home.boxes.form</field>
+            <field name="model">home.boxes</field>
+            <field name="arch" type="xml">
+            	<form string="Boxes">
+            		<sheet>
+            			<field name="banner_image" widget='image' class="oe_avatar"/>
+	            		<div class="oe_title">
+	                		<h1>
+	                			<field name="name" default_focus="1" placeholder="Name"/>
+	                		</h1>
+	                	</div>
+	            		<group>
+	                        <group>
+	                        	<field name="description"/>
+	                        	<field name="url" widget="url"/>
+	                        </group>
+	                    </group>
+                    </sheet>
+            	</form>
+            </field>
+        </record>
+        <record id="view_home_lmc_boxes_tree" model="ir.ui.view">
+            <field name="name">home.boxes.tree</field>
+            <field name="model">home.boxes</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="sequence" widget="handle"/>
+            		<field name="name"/>
+            		<field name="description"/>
+            		<field name="url"/>
+            	</tree>
+            </field>
+        </record>
+        <record id="action_homeboxes_form" model="ir.actions.act_window">
+            <field name="name">Boxes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">home.boxes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new home boxes for your homepage
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_home_boxes"
+            name="Boxes"
+            sequence="4"
+            parent="website.menu_website_configuration"/>
+
+        <menuitem id="menu_website_home_boxes" parent="website_lmc.menu_home_boxes"
+            sequence="10" name="boxes"
+            action="action_homeboxes_form"/>
+    </data>
+</odoo>
