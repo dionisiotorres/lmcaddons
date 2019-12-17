@@ -9,21 +9,21 @@
                         <div class="col-md-8">
                             <div class="wysiwyg font-light wysiwyg-multicolumn-2">
                                 <ul class="list list-unstyled">
-                                    <li t-if="partner.name"><label>Name:</label> <span t-esc="partner.name" /></li>
-                                    <li t-if="partner.x_gender"><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
-                                    <li t-if="partner"><label>Date of birth:</label> <span t-field="partner.x_birthdate" t-options='{"format": "d-MM-YYYY"}'/></li>
-                                    <li t-if="partner.x_family_name"><label>Family Name:</label> <span t-esc="partner.x_family_name" /></li>
-                                    <li t-if="partner.x_nationality"><label>Nationality:</label> <span t-esc="partner.x_nationality.name" /></li>
-                                    <li t-if="partner.x_driver_license_type"><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
-                                    <li t-if="partner.x_driver_license_num"><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
-                                    <li t-if="partner.x_driver_year_driving_license_issuance"><label>Year of issuance of driving license:</label> <span t-esc="partner.x_driver_year_driving_license_issuance" /></li>
-                                    <li t-if="partner.x_drive_club"><label>Drive Club:</label> <span t-esc="partner.x_drive_club" /></li>
-                                    <li t-if="partner.x_driver_year_racing_since"><label>Racing since:</label> <span t-esc="partner.x_driver_year_racing_since" /></li>
-                                    <li t-if="partner.x_driver_amount_events"><label>Driver number of events:</label> <span t-esc="partner.x_driver_amount_events" /></li>
-                                    <li t-if="partner.x_driver_year_last_event"><label>Driver year of last event:</label> <span t-esc="partner.x_driver_year_last_event" /></li>
-                                    <li t-if="partner.x_driver_shirt_size"><label>Drivers shirt size:</label> <span t-esc="partner.x_driver_shirt_size.name" /></li>
-                                    <li t-if="partner.x_driver_pict_path"><label>Path to picture of the driver:</label> <span t-esc="partner.x_driver_pict_path" /></li>
-                                    <li t-if="partner.x_driver_success"><label>Successes of the driver:</label> <span t-esc="partner.x_driver_success" /></li>
+                                    <li><label>Name:</label> <span t-esc="partner.name" /></li>
+                                    <li><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
+                                    <li><label>Date of birth:</label> <span t-field="partner.x_birthdate" t-options='{"format": "d-MM-YYYY"}' /></li>
+                                    <li><label>Family Name:</label> <span t-esc="partner.x_family_name" /></li>
+                                    <li><label>Nationality:</label> <span t-esc="partner.x_nationality.name" /></li>
+                                    <li><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
+                                    <li><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
+                                    <li><label>Year of issuance of driving license:</label> <span t-esc="partner.x_driver_year_driving_license_issuance" /></li>
+                                    <li><label>Drive Club:</label> <span t-esc="partner.x_drive_club" /></li>
+                                    <li><label>Racing since:</label> <span t-esc="partner.x_driver_year_racing_since" /></li>
+                                    <li><label>Driver number of events:</label> <span t-esc="partner.x_driver_amount_events" /></li>
+                                    <li><label>Driver year of last event:</label> <span t-esc="partner.x_driver_year_last_event" /></li>
+                                    <li><label>Drivers shirt size:</label> <span t-esc="partner.x_driver_shirt_size.name" /></li>
+                                    <li><label>Path to picture of the driver:</label> <span t-esc="partner.x_driver_pict_path" /></li>
+                                    <li><label>Successes of the driver:</label> <span t-esc="partner.x_driver_success" /></li>
                                 </ul>
                             </div>
                         </div>
@@ -151,23 +151,23 @@
                                         </div>
                                         <div class="wysiwyg font-light wysiwyg-multicolumn-2">
                                             <ul class="list list-unstyled">
-                                                <li>Category: <span t-esc="partner.x_vehicle_cat.name" /></li>
-                                                <li>Type: <span t-esc="partner.x_vehicle_type" /></li>
-                                                <li>Construction year: <span t-esc="partner.x_vehicle_year_construction" /></li>
-                                                <li>Cubic: <span t-esc="partner.x_vehicle_ccm" /></li>
-                                                <li>Cylinders: <span t-esc="partner.x_vehicle_cylinder" /></li>
-                                                <li>Horse power: <span t-esc="partner.x_vehicle_horse_power" /></li>
-                                                <li>Number Plate: <span t-esc="partner.x_vehicle_number_plate" /></li>
-                                                <li>Chassis No: <span t-esc="partner.chassis_no" /></li>
-                                                <li>FIA-period: <span t-esc="partner.x_vehicle_homologation_num" /></li>
-                                                <li>Document (FIA): <span t-esc="partner.x_vehicle_doc_number" /></li>
-                                                <li>Description: <span t-esc="partner.x_vehicle_desc" /></li>
-                                                <li>Modifications: <span t-esc="partner.x_vehicle_modifications" /></li>
-                                                <li>FIA registrasion number: <span t-esc="partner.x_registrasion_number" /></li>
-                                                <li>Approved?: <span t-esc="partner.x_vehicle_approved" /></li>
-                                                <li>Tire size: <span t-esc="partner.x_vehicle_tire_size" /></li>
-                                                <li>Rim size: <span t-esc="partner.x_vehicle_rim_size" /></li>
-                                                <li>Bild-Name: <span t-esc="partner.x_vehicle_pict_path" /></li>
+                                                <li><label>Category:</label> <span t-esc="partner.x_vehicle_cat.name" /></li>
+                                                <li><label>Type:</label> <span t-esc="partner.x_vehicle_type" /></li>
+                                                <li><label>Construction year:</label> <span t-esc="partner.x_vehicle_year_construction" /></li>
+                                                <li><label>Cubic:</label> <span t-esc="partner.x_vehicle_ccm" /></li>
+                                                <li><label>Cylinders:</label> <span t-esc="partner.x_vehicle_cylinder" /></li>
+                                                <li><label>Horse power:</label> <span t-esc="partner.x_vehicle_horse_power" /></li>
+                                                <li><label>Number Plate:</label> <span t-esc="partner.x_vehicle_number_plate" /></li>
+                                                <li><label>Chassis No:</label> <span t-esc="partner.chassis_no" /></li>
+                                                <li><label>FIA-period:</label> <span t-esc="partner.x_vehicle_homologation_num" /></li>
+                                                <li><label>Document (FIA):</label> <span t-esc="partner.x_vehicle_doc_number" /></li>
+                                                <li><label>Description:</label> <span t-esc="partner.x_vehicle_desc" /></li>
+                                                <li><label>Modifications:</label> <span t-esc="partner.x_vehicle_modifications" /></li>
+                                                <li><label>FIA registrasion number:</label> <span t-esc="partner.x_registrasion_number" /></li>
+                                                <li><label>Approved?:</label> <span t-esc="partner.x_vehicle_approved" /></li>
+                                                <li><label>Tire size:</label> <span t-esc="partner.x_vehicle_tire_size" /></li>
+                                                <li><label>Rim size:</label> <span t-esc="partner.x_vehicle_rim_size" /></li>
+                                                <li><label>Bild-Name:</label> <span t-esc="partner.x_vehicle_pict_path" /></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -439,15 +439,17 @@
                             </div>
                             <div class="classiccar__user text-center">
                                 <div class="col-12 col-sm-auto mb-3 image_change_profile">
-                                    <div class="mx-auto custom_dp_change" style="width: 150px;">
+                                    <div class="mx-auto custom_dp_change" style="width: 175px;">
                                         <input type="file" class="d-none o_forum_file_upload" name="ufile" accept="image/*" />
                                         <div class="user_img_icon">
-                                            <a href="#" class="float-left o_forum_profile_pic_edit" aria-label="Edit">
-                                                <i class="fa fa-pencil fa-1g" title="Edit"></i>
-                                            </a>
-                                            <a href="#" class="float-right o_forum_profile_pic_clear" title="Clear" aria-label="Clear">
-                                                <i class="fa fa-trash-o fa-1g"></i>
-                                            </a>
+                                            <div class="profile_photo_icons">
+                                                <a href="#" class="float-left o_forum_profile_pic_edit" aria-label="Edit">
+                                                    <i class="fa fa-pencil fa-1g" title="Edit"></i>
+                                                </a>
+                                                <a href="#" class="float-right o_forum_profile_pic_clear" title="Clear" aria-label="Clear">
+                                                    <i class="fa fa-trash-o fa-1g"></i>
+                                                </a>
+                                            </div>
                                             <img class="img img-fluid o_forum_avatar_img classiccar__user-img" t-attf-src="/web/image/res.partner/{{request.env.user.partner_id.id}}/image" alt="Avatar" />
                                         </div>
                                     </div>
@@ -510,178 +512,189 @@
             <t t-call="portal.portal_layout">
                 <!-- Tab panes -->
                 <div class="content-block-small tab-content">
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'personal_data' else ''} " id="nav-profile">
+                    <div role="tabpanel" t-attf-class="container custom-tab-edit-mode container--small tab-pane fade #{'in active' if tabinfo == 'personal_data' else ''} " id="nav-profile">
                         <form action="/my/account" class="form checkout_autoformat address_form" method="post">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                             <div class="form-section o_portal_details">
                                 <h6 class="form-section__headline text-center">Personal data</h6>
                                 <div class="row row--gutter-width-24">
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="name" t-att-class="'form-control has-value' if partner.name else 'form-control'" t-att-value="'name' in partner and partner['name']" />
+                                        <div class="floating-label">
+                                            <input type="text" name="name" class="floating-input" t-att-value="'name' in partner and partner['name']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="name">Name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="email" name="email" class="form-control has-value" t-att-value="'email' in partner and partner['email']" required="true" />
+                                        <div class="floating-label">
+                                            <input type="email" name="email" class="floating-input" t-att-value="'email' in partner and partner['email']" required="true" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="email">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="tel" name="phone" class="form-control has-value" t-att-value="'phone' in partner and partner['phone']" required="true" />
+                                        <div class="floating-label">
+                                            <input type="tel" name="phone" class="floating-input" t-att-value="'phone' in partner and partner['phone']" required="true" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="phone">Phone</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="street" class="form-control has-value" t-att-value="'street' in partner and partner['street']" required="true" />
+                                        <div class="floating-label">
+                                            <input type="text" name="street" class="floating-input" t-att-value="'street' in partner and partner['street']" required="true" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="street">Street</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="city" class="form-control has-value" t-att-value="'city' in partner and partner['city']" required="true" />
+                                        <div class="floating-label">
+                                            <input type="text" name="city" class="floating-input" t-att-value="'city' in partner and partner['city']" required="true" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="city">City</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="zipcode" class="form-control has-value" t-att-value="'zip' in partner and partner['zip']" required="true" />
+                                        <div class="floating-label">
+                                            <input type="text" name="zipcode" class="floating-input" t-att-value="'zip' in partner and partner['zip']" required="true" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="zipcode">Zip / Postal Code</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select id="country_id" name="country_id" class="custom-select form-control has-value" required="true">
-                                                <option value="">Country...</option>
+                                        <div class="floating-label">
+                                            <select id="country_id" name="country_id" class="floating-select" onclick="this.setAttribute('value', this.value);" required="true">
+                                                <option value=""></option>
                                                 <t t-foreach="countries or []" t-as="country">
                                                     <option t-att-value="country.id" t-att-selected="country.id == int(country_id) if country_id else country.id == partner.country_id.id">
                                                         <t t-esc="country.name" />
                                                     </option>
                                                 </t>
                                             </select>
+                                            <span class="highlight"></span>
                                             <label for="country_id">Country*</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select name="state_id" class="custom-select form-control has-value" data-init="1">
-                                                <option value="">State / Province...</option>
+                                        <div class="floating-label">
+                                            <select id="state_id" name="state_id" class="floating-select" onclick="this.setAttribute('value', this.value);" required="true">
+                                                <option value=""></option>
                                                 <t t-foreach="states or []" t-as="state">
                                                     <option t-att-value="state.id" style="display:none;" t-att-data-country_id="state.country_id.id" t-att-selected="state.id == partner.state_id.id">
                                                         <t t-esc="state.name" />
                                                     </option>
                                                 </t>
                                             </select>
+                                            <span class="highlight"></span>
                                             <label for="state_id">State / Province*</label>
                                         </div>
                                     </div>
                                     <!-- extra fields -->
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select name="x_gender" class="custom-select form-control has-value">
+                                        <div class="floating-label">
+                                            <select id="x_gender" name="x_gender" class="floating-select" onclick="this.setAttribute('value', this.value);">
                                                 <option value=""></option>
                                                 <option value="male" t-att-selected="partner.x_gender == 'male'">Male</option>
                                                 <option value="female" t-att-selected="partner.x_gender == 'female'">Female</option>
                                             </select>
+                                            <span class="highlight"></span>
                                             <label for="x_gender">Gender</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="input-group date form-group--floating" data-provide="datepicker" id="x_birthdate">
-                                            <input type="text"  name="x_birthdate" t-att-value="partner.x_birthdate if partner else ''" class="form-control datepicker has-value"/>
-                                            <div class="input-group-addon">
-                                                <span class="glyphicon glyphicon-th"></span>
-                                            </div>
-                                            <label for="x_birthdate">Date of birth</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_family_name" class="form-control has-value" t-att-value="'x_family_name' in partner and partner['x_family_name']" />
+                                        <div class="floating-label">
+                                            <input type="text" name="x_family_name" class="floating-input" t-att-value="'x_family_name' in partner and partner['x_family_name']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_family_name">Family Name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select id="x_nationality" name="x_nationality" class="custom-select form-control has-value" required="true">
-                                                <option value="">Nationality...</option>
+                                        <div class="floating-label">
+                                            <select id="x_nationality" name="x_nationality" class="floating-select" onclick="this.setAttribute('value', this.value);">
+                                                <option value=""></option>
                                                 <t t-foreach="nationalities or []" t-as="nationality">
                                                     <option t-att-value="nationality.id" t-att-selected="nationality.id == partner.x_nationality.id">
                                                         <t t-esc="nationality.name" />
                                                     </option>
                                                 </t>
                                             </select>
-                                            <label for="country_id">Nationality*</label>
+                                            <span class="highlight"></span>
+                                            <label for="x_nationality">Nationality*</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select id="x_driver_license_type" name="x_driver_license_type" class="custom-select form-control has-value" required="true">
-                                                <option value="">License Type...</option>
+                                        <div class="floating-label">
+                                            <select id="x_driver_license_type" name="x_driver_license_type" class="floating-select" onclick="this.setAttribute('value', this.value);">
+                                                <option value=""></option>
                                                 <t t-foreach="license_types or []" t-as="l_type">
                                                     <option t-att-value="l_type.id" t-att-selected="l_type.id == partner.x_driver_license_type.id">
                                                         <t t-esc="l_type.name" />
                                                     </option>
                                                 </t>
                                             </select>
-                                            <label for="country_id">License Type*</label>
+                                            <span class="highlight"></span>
+                                            <label for="x_driver_license_type">License Type*</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_driver_license_num" class="form-control has-value" t-att-value="'x_driver_license_num' in partner and partner['x_driver_license_num']" />
+                                        <div class="floating-label">
+                                            <input type="text" name="x_driver_license_num" class="floating-input" t-att-value="'x_driver_license_num' in partner and partner['x_driver_license_num']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_driver_license_num">License Number</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_driver_year_driving_license_issuance" class="form-control has-value" t-att-value="'x_driver_year_driving_license_issuance' in partner and partner['x_driver_year_driving_license_issuance']" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_driver_year_driving_license_issuance" class="floating-input" t-att-value="'x_driver_year_driving_license_issuance' in partner and partner['x_driver_year_driving_license_issuance']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_driver_year_driving_license_issuance">Year of issuance of driving license</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_drive_club" class="form-control has-value" t-att-value="'x_drive_club' in partner and partner['x_drive_club']" />
+                                        <div class="floating-label">
+                                            <input type="text" name="x_drive_club" class="floating-input" t-att-value="'x_drive_club' in partner and partner['x_drive_club']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_drive_club">Drive Club</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_driver_year_racing_since" class="form-control has-value" t-att-value="'x_driver_year_racing_since' in partner and partner['x_driver_year_racing_since']" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_driver_year_racing_since" class="floating-input" t-att-value="'x_driver_year_racing_since' in partner and partner['x_driver_year_racing_since']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_driver_year_racing_since">Racing since</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_driver_amount_events" class="form-control has-value" t-att-value="'x_driver_amount_events' in partner and partner['x_driver_amount_events']" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_driver_amount_events" class="floating-input" t-att-value="'x_driver_amount_events' in partner and partner['x_driver_amount_events']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_driver_amount_events"># of races participated</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_driver_year_last_event" class="form-control has-value" t-att-value="'x_driver_year_last_event' in partner and partner['x_driver_year_last_event']" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_driver_year_last_event" class="floating-input" t-att-value="'x_driver_year_last_event' in partner and partner['x_driver_year_last_event']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_driver_year_last_event">Driver year of last event</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select id="x_driver_shirt_size" name="x_driver_shirt_size" class="custom-select form-control has-value" required="true">
-                                                <option value="">Drivers shirt size...</option>
+                                        <div class="floating-label">
+                                            <select id="x_driver_shirt_size" name="x_driver_shirt_size" class="floating-select" onclick="this.setAttribute('value', this.value);">
+                                                <option value=""></option>
                                                 <t t-foreach="shirt_size_ids or []" t-as="s_size">
                                                     <option t-att-value="s_size.id" t-att-selected="s_size.id == partner.x_driver_shirt_size.id">
                                                         <t t-esc="s_size.name" />
                                                     </option>
                                                 </t>
                                             </select>
-                                            <label for="country_id">Drivers shirt size*</label>
+                                            <span class="highlight"></span>
+                                            <label for="x_driver_shirt_size">Drivers shirt size*</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <textarea type="textarea" name="x_driver_success" class="form-control has-value" maxlength="500"><t t-esc="partner.x_driver_success"/></textarea>
+                                        <div class="floating-label">
+                                            <textarea type="textarea" name="x_driver_success" class="floating-input floating-textarea" placeholder=" " maxlength="500"><t t-esc="partner.x_driver_success"/></textarea>
+                                            <span class="highlight"></span>
                                             <label for="x_driver_success">Successes of the driver</label>
                                         </div>
                                     </div>
@@ -710,7 +723,7 @@
                 <t t-set="additional_title">Vehicle Details</t>
                 <div class="content-block-small tab-content">
                     <t t-call="website_lmc.personal_tab" />
-                    <div role="tabpanel" t-attf-class="container container--small tab-pane fade #{'in active' if tabinfo == 'vehicle' else ''} " id="nav-vehicle">
+                    <div role="tabpanel" t-attf-class="container custom-tab-edit-mode container--small tab-pane fade #{'in active' if tabinfo == 'vehicle' else ''} " id="nav-vehicle">
                         <form action="/vehicle/info/edit" method="post" class="form checkout_autoformat address_form" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                             <input type="hidden" name="submitted" value="1" />
@@ -720,7 +733,7 @@
                                 <h2>Vehicle Details</h2>
                                 <div class="row row--gutter-width-24">
                                     <div class="col-md-12 col-sm-auto mb-3">
-                                        <div style="width: 140px;">
+                                        <div style="width: 140px;margin-bottom:15px;">
                                             <input type="file" class="d-none o_forum_vehicle_img_upload" name="vehicle_img" accept="image/*" />
                                             <div class="col-12">
                                                 <a href="#" class="float-left o_forum_vehicle_pic_edit" aria-label="Edit">
@@ -734,8 +747,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <select id="x_vehicle_cat" name="x_vehicle_cat" class="custom-select form-control has-value" required="true">
+                                        <div class="floating-label">
+                                            <select id="x_vehicle_cat" name="x_vehicle_cat" class="floating-select" onclick="this.setAttribute('value', this.value);" required="true">
                                                 <option value=""></option>
                                                 <t t-foreach="vehicle_categories or []" t-as="vehicle_categ">
                                                     <option t-att-value="vehicle_categ.id" t-att-selected="vehicle_categ.id == partner.x_vehicle_cat.id">
@@ -743,84 +756,98 @@
                                                     </option>
                                                 </t>
                                             </select>
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_manufacturer">Category</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_manufacturer" class="form-control has-value has-value" t-att-value="partner.x_vehicle_manufacturer" />
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_manufacturer" class="floating-input" t-att-value="'x_vehicle_manufacturer' in partner and partner['x_vehicle_manufacturer']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_manufacturer">Vehicle manufacturer</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_type" class="form-control has-value has-value" t-att-value="partner.x_vehicle_type" maxlength="20"/>
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_type" class="floating-input" t-att-value="'x_vehicle_type' in partner and partner['x_vehicle_type']" placeholder=" " maxlength="20"/>
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_type">Type</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_vehicle_year_construction" class="form-control has-value has-value" t-att-value="partner.x_vehicle_year_construction" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_vehicle_year_construction" class="floating-input" t-att-value="'x_vehicle_year_construction' in partner and partner['x_vehicle_year_construction']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_year_construction">Construction year</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_vehicle_ccm" class="form-control has-value has-value" t-att-value="partner.x_vehicle_ccm" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_vehicle_ccm" class="floating-input" t-att-value="'x_vehicle_ccm' in partner and partner['x_vehicle_ccm']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_ccm">Cubic</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_vehicle_cylinder" class="form-control has-value has-value" t-att-value="partner.x_vehicle_cylinder" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_vehicle_cylinder" class="floating-input" t-att-value="'x_vehicle_cylinder' in partner and partner['x_vehicle_cylinder']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_cylinder">Cylinders</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="number" name="x_vehicle_horse_power" class="form-control has-value has-value" t-att-value="partner.x_vehicle_horse_power" />
+                                        <div class="floating-label">
+                                            <input type="number" name="x_vehicle_horse_power" class="floating-input" t-att-value="'x_vehicle_horse_power' in partner and partner['x_vehicle_horse_power']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_horse_power">Horse power</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_number_plate" class="form-control has-value has-value" t-att-value="partner.x_vehicle_number_plate" maxlength="20"/>
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_number_plate" class="floating-input" t-att-value="'x_vehicle_number_plate' in partner and partner['x_vehicle_number_plate']" placeholder=" " maxlength="20"/>
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_number_plate">Number Plate</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="chassis_no" class="form-control has-value has-value" t-att-value="partner.chassis_no"/>
+                                        <div class="floating-label">
+                                            <input type="text" name="chassis_no" class="floating-input" t-att-value="'chassis_no' in partner and partner['chassis_no']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="chassis_no">Chassis</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_homologation_num" class="form-control has-value has-value" t-att-value="partner.x_vehicle_homologation_num"  maxlength="4"/>
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_homologation_num" class="floating-input" t-att-value="'x_vehicle_homologation_num' in partner and partner['x_vehicle_homologation_num']" placeholder=" " maxlength="4"/>
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_homologation_num">FIA-period</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_doc_number" class="form-control has-value has-value" t-att-value="partner.x_vehicle_doc_number" maxlength="100"/>
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_doc_number" class="floating-input" t-att-value="'x_vehicle_doc_number' in partner and partner['x_vehicle_doc_number']" placeholder=" " maxlength="100"/>
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_doc_number">Document (FIA)</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_desc" class="form-control has-value has-value" t-att-value="partner.x_vehicle_desc" maxlength="500"/>
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_desc" class="floating-input" t-att-value="'x_vehicle_desc' in partner and partner['x_vehicle_desc']" placeholder=" " maxlength="500"/>
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_desc">Description</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_modifications" class="form-control has-value has-value" t-att-value="partner.x_vehicle_modifications" />
+                                        <div class="floating-label">
+                                            <input type="text" name="x_vehicle_modifications" class="floating-input" t-att-value="'x_vehicle_modifications' in partner and partner['x_vehicle_modifications']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_vehicle_modifications">Modifications</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_registrasion_number" class="form-control has-value has-value" t-att-value="partner.x_registrasion_number" />
+                                        <div class="floating-label">
+                                            <input type="text" name="x_registrasion_number" class="floating-input" t-att-value="'x_registrasion_number' in partner and partner['x_registrasion_number']" placeholder=" " />
+                                            <span class="highlight"></span>
                                             <label for="x_registrasion_number">FIA registrasion number</label>
                                         </div>
                                     </div>

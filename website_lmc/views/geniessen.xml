@@ -1,5 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <record id="geniessen_lmc" model="ir.ui.view">
+            <field name="name">Geniessen</field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.geniessen_lmc</field>
+            <field name="arch" type="xml">
+                <t name="Geniessen" t-name="website_lmc.geniessen_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap" class="lmc_geniessen_page">
+                            <section class="s_cover parallax s_parallax_is_fixed pt96 pb80 s_parallax_no_overflow_hidden" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+                                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-position: 50% 0px; background-image: url('/website_lmc/static/src/img/background_bg-pattern-wood.jpg');"></span>
+                                <div class="container">
+                                    <div class="row s_nb_column_fixed">
+                                        <div class="col-lg-12 s_title bg-100 shadow" data-name="Title" style="">
+                                            <h1 class="s_title_thin" style="font-size: 62px; text-align: center;">Geniessen, Kulinarik &amp; Aktivitäten<br/></h1>
+                                        </div>
+                                        <div class="bg-200 col-lg-12 pb16 pt40 s_text" data-name="Text">
+                                            <font style="color: rgb(66, 66, 66); font-size: 24px;">Historische Rennfahrzeuge sind schön. Aber manchmal ist auch etwas anderes schön. Darum haben wir mit unseren Partnern eine Reihe von Möglichkeiten und Aktivitäten auf der Lenzerheide zusammengestellt, die neben der Piste genossen werden können.</font>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="s_three_columns bg-200 pt32 pb32" data-name="Columns">
+                                <div class="container">
+                                    <div class="row d-flex align-items-stretch">
+                                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                                            <div class="card bg-white">
+                                                <img class="card-img-top" src="/website_lmc/static/src/img/epic 2.jpg" alt="Odoo – Beispiel 3 für drei Spalten" data-original-title="" title="" aria-describedby="tooltip474157" />
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Schnupperkurs E-Mountainbike<br /></h3>
+                                                    <h3 class="card-title">
+                                                        <font style="font-size: 18px;">Wir können alles anbieten was den MTB Sport betrifft:</font>
+                                                    </h3>
+                                                    <ul>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(66, 66, 66);">E MTB geführte Touren</font>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(66, 66, 66);">E-MTB Technik und Sicherheitskurs</font>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(66, 66, 66);">Allmountain &amp; Enduro Fahrtechnikkurs</font>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(66, 66, 66);">Allgemein geführte Touren</font>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(66, 66, 66);">Bikepark Downhill
+                                                                </font>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <p class="MsoNormal">
+                                                        <font style="color: rgb(99, 99, 99);">Dies für Erwachsene und Kinder&amp;nbsp;
+                                                        </font>
+                                                    </p>
+                                                    <p class="MsoNormal">
+                                                        <font style="color: rgb(99, 99, 99);">Es gbit einen Kurs für E-MTB Einsteiger bis Könner.&amp;nbsp;
+                                                        </font>
+                                                    </p>
+                                                    <ul>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(99, 99, 99);">Einen Kurs von 1.5 - 3 Std für E-MTB&amp;nbsp;</font>
+                                                                <b>
+                                                                    <font style="color: rgb(99, 99, 99);">Beginner</font>
+                                                                </b>
+                                                                <font style="color: rgb(99, 99, 99);">&amp;nbsp;in</font>
+                                                                <b> </b>
+                                                                <font style="color: rgb(99, 99, 99);">welchem wir mit den Basics um das E-Biken aufbauen.z.B: richtiges Handling MTB mit Erklärung Bauteile, verschiedenen Motoren, Gesetze, Tipps und Tricks, Fahrtechnikschule mit anschliessender kurzer Tour
+                                                                </font>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(99, 99, 99);">Für die<b> Fortgeschrittenen:</b> Einegeführte Tour für bereits erfahrenere E-BIker von 1.5 - 3 Std.
+                                                                </font>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <p class="MsoNormal">
+                                                        <font style="color: rgb(99, 99, 99);">Man könnte auch eine eine Art „Kultur und Kulinarik“ Tour anbieten mit Sehenswürdigkeiten und einen Apéro mit Spezialitäten aus der Region. Diese würde natürlich auch ohne E-Bike mit dem „normalen“ Bike passen. Angebot mit dem Namen „E-MTB Classic Tour“
+                                                        </font>
+                                                    </p>
+                                                    <p class="MsoNormal">
+                                                        <b>
+                                                            <font style="color: rgb(99, 99, 99);">MTB „Normal</font>
+                                                        </b>
+                                                        <font style="color: rgb(99, 99, 99);">“</font>
+                                                    </p>
+                                                    <ul>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(99, 99, 99);">Geführte Tour von 1.5 - 3 Std für von Einsteiger bis Könner</font>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(99, 99, 99);">Fahrtechnikkurs</font>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="MsoNormal">
+                                                                <font style="color: rgb(99, 99, 99);">Reparatur Kurs</font>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <p class="MsoNormal">
+                                                        <font style="color: rgb(99, 99, 99);">Wir berechnen für eine Stunde CHF 90.00 pro Guide</font>
+                                                    </p>
+                                                    <p class="MsoNormal">
+                                                        <font style="color: rgb(99, 99, 99);">Da wir mit allen Sportgeschäften zusammenarbeiten können wir auch Bikes organisieren falls es Anfragen für Miete geben würde.&amp;nbsp;</font>
+                                                    </p>
+                                                    <p class="MsoNormal">
+                                                        <font style="color: rgb(99, 99, 99);">Ebenfalls können wir auf Anfrage Ausrüstung anieten. (Helme, Handschuhe, allg. Protektoren)</font>
+                                                    </p>
+                                                    <div class="pb0 pt16 s_btn text-left" data-name="Button" style="text-align: center;">
+                                                        <a href="http://epic-bike.ch" class="btn btn-secondary btn-sm flat" data-original-title="" title="" aria-describedby="tooltip408928">Erfahren Sie mehr</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                                            <div class="card bg-white">
+                                                <img class="card-img-top" src="/website_lmc/static/src/img/unterkunft-buchen-winter.jpg" alt="Odoo – Beispiel 3 für drei Spalten" data-original-title="" title="" aria-describedby="tooltip474157" />
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Golf spielen <br /></h3>
+                                                    <p class="card-text o_default_snippet_text">Löschen Sie das obige Bild oder ersetzen Sie es durch ein Bild, das Ihre Botschaft veranschaulicht. Klicken Sie auf das Bild, um den Stil der <em class="o_default_snippet_text">abgerundeten Ecken</em> zu ändern.</p>
+                                                    <div class="s_btn text-left pb0 pt16" data-name="Button">
+                                                        <a href="#" class="btn btn-primary btn-sm o_default_snippet_text">Erfahren Sie mehr</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                                            <div class="card bg-white">
+                                                <img class="card-img-top" src="/website_lmc/static/src/img/unterkunft-buchen-winter.jpg" alt="Odoo – Beispiel 3 für drei Spalten" data-original-title="" title="" aria-describedby="tooltip474157" />
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Aktivitäten auf dem Berg<br /></h3>
+                                                    <p class="card-text o_default_snippet_text">Löschen Sie das obige Bild oder ersetzen Sie es durch ein Bild, das Ihre Botschaft veranschaulicht. Klicken Sie auf das Bild, um den Stil der <em class="o_default_snippet_text">abgerundeten Ecken</em> zu ändern.</p>
+                                                    <div class="s_btn text-left pb0 pt16" data-name="Button">
+                                                        <a href="#" class="btn btn-primary btn-sm o_default_snippet_text">Erfahren Sie mehr</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="geniessen_page" model="website.page">
+            <field name="website_published">True</field>
+            <field name="url">/geniessen</field>
+            <field name="view_id" ref="geniessen_lmc" />
+        </record>
     </data>
 </odoo>

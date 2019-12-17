@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gallery_lmc" model="ir.ui.view">
+            <field name="name">Gallery</field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.gallery_lmc</field>
+            <field name="arch" type="xml">
+                <t name="gallery" t-name="website_lmc.gallery_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap" class="lmc_gallery_page">
+                            <section class="s_cover parallax s_parallax_is_fixed pb256 pt184 s_parallax_no_overflow_hidden" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+                                <span class="s_parallax_bg oe_img_bg oe_custom_bg" style="background-image: url('/website_lmc/static/src/img/background_hoch_das_rad.jpg'); background-position: 50% 0px;"></span>
+                                <div class="container">
+                                    <div class="row s_nb_column_fixed">
+                                        <div class="col-lg-12 s_title bg-100" data-name="Title" style="">
+                                            <h1 class="s_title_thin" style="font-size: 62px; text-align: center;">
+                                                <font class="text-alpha" style="">Erinnerungen und Berichte von vergangenen Veranstaltungen</font>
+                                                <br/>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="s_three_columns bg-200 pt32 pb32" data-name="Columns">
+                                <div class="container">
+                                    <div class="row d-flex align-items-stretch">
+                                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb24">
+                                            <div class="card bg-white">
+                                                <img class="card-img-top" src="/website_lmc/static/src/img/LMC-2019-Dorfgruppe-Opel.jpg" alt="Odoo – Beispiel 3 für drei Spalten" data-original-title="" title="" aria-describedby="tooltip237317" />
+                                                <div class="card-body">
+                                                    <h3 class="card-title" style="text-align: center;">
+                                                        <font style="font-size: 12px;">16. Juni 2019</font>
+                                                    </h3>
+                                                    <h2 class="h6" style="box-sizing: inherit; margin-top: 0px; margin-bottom: 10px; color: rgb(56, 49, 45); font-size: calc(22px + (3 * ((100vw - 768px) / 932))); line-height: 32px; font-family: UniversLTStd-LightCn, sans-serif; font-weight: 500; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/de/medien/Laut-lauter-Lenzerheide-Motor-Classics_pt_1483796" style="box-sizing: inherit; cursor: pointer; color: inherit; text-decoration: none; background-color: transparent; touch-action: manipulation;">Laut, lauter, Lenzerheide Motor Classics</a>
+                                                    </h2>
+                                                    <div class="teaser__desc" style="box-sizing: inherit; font-size: 14px; line-height: 21px; margin-bottom: 30px; margin-top: 20px; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Über
+                                                        200 Renn- und Sportwagen sowie Rennmotorräder präsentierten sich
+                                                        während der vergangenen drei Tagen an den 8. Lenzerheide Motor Classics.
+                                                        Der Motorsport Event durfte bei perfekten Wetterverhältnissen
+                                                        durchgeführt werden und lockte zahlreiche Besucherinnen und Besucher an.
+                                                        Das Organisationskomitee rund um Präsident Michael Widmer könnte kein
+                                                        positiveres Fazit ziehen.</div>
+                                                    <div class="s_btn text-left pb0 pt32" data-name="Button" style="text-align: center;">
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/de/medien/Laut-lauter-Lenzerheide-Motor-Classics_pt_1483796" class="btn btn-secondary flat" data-original-title="" title="" aria-describedby="tooltip175158">Weiterlesen</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb24">
+                                            <div class="card bg-white">
+                                                <img class="card-img-top" src="/website_lmc/static/src/img/volvo.jpg" alt="Odoo – Beispiel 3 für drei Spalten" data-original-title="" title="" aria-describedby="tooltip237317" />
+                                                <div class="card-body">
+                                                    <h3 class="card-title" style="text-align: center;">
+                                                        <font style="font-size: 12px;">11. Juni 2019</font>
+                                                    </h3>
+                                                    <div class="teaser__desc" style="box-sizing: inherit; font-size: 14px; line-height: 21px; margin-bottom: 30px; margin-top: 20px; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                        <h2 class="h6" style="box-sizing: inherit; margin-top: 0px; margin-bottom: 10px; color: rgb(56, 49, 45); font-size: calc(22px + (3 * ((100vw - 768px) / 932))); line-height: 32px; font-family: UniversLTStd-LightCn, sans-serif; font-weight: 500; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                            <a href="https://www.lenzerheide-motorclassics.ch/de/medien/Dieses-Wochenende-sind-die-Oldtimer-los_pt_1455224" style="box-sizing: inherit; cursor: pointer; color: inherit; text-decoration: none; background-color: transparent; touch-action: manipulation;">Dieses Wochenende sind die Oldtimer los</a>
+                                                        </h2>
+                                                        <div class="teaser__desc" style="box-sizing: inherit; font-size: 14px; line-height: 21px; margin-bottom: 30px; margin-top: 20px; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">An den 8. Lenzerheide Motor Classics vom 14. bis 16. Juni 2019 werden rund 200 Renn- und Sportwagen sowie Rennmotorräder erwartet. Mit den Aufbauarbeiten rund um die Talstation Rothorn wurde begonnen. Neben den Demonstrationtsfahrten und Flugshows am Samstag und Sonntag, erwarten die Besucherinnen und Besucher auch der beliebte Fahrzeugcorso am Freitagabend sowie diverse Attraktionen und Aussteller auf dem Rothorn Parkplatz.</div>
+                                                    </div>
+                                                    <div class="s_btn text-left pb0 pt32" data-name="Button" style="text-align: center;">
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/de/medien/Laut-lauter-Lenzerheide-Motor-Classics_pt_1483796" class="btn btn-secondary flat" data-original-title="" title="" aria-describedby="tooltip175158">Weiterlesen</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="gallery_page" model="website.page">
+            <field name="website_published">True</field>
+            <field name="url">/gallery</field>
+            <field name="view_id" ref="gallery_lmc" />
+        </record>
+    </data>
+</odoo>
