@@ -16,7 +16,7 @@
         'data/data.xml',
         'views/my_account.xml',
         'views/partner_view.xml',
-        #'views/views.xml',
+        'views/views.xml',
         'views/footer.xml',
         'views/website_login_page.xml',
         'views/lmc_home_template.xml',
