@@ -16,7 +16,7 @@
                                         <div class="col-lg-12 s_title bg-100" data-name="Title" style="">
                                             <h1 class="s_title_thin" style="font-size: 62px; text-align: center;">
                                                 <font class="text-alpha" style="">Erinnerungen und Berichte von vergangenen Veranstaltungen</font>
-                                                <br/>
+                                                <br />
                                             </h1>
                                         </div>
                                     </div>
@@ -68,6 +68,163 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </section>
+                            <section class="s_text_block pt32 pb32" data-name="Text block">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="pt32 pb32 col-lg-6">
+                                            <div class="col-md-6" style="box-sizing: inherit; position: relative; width: 500px; min-height: 1px; padding-right: 20px; padding-left: 20px; flex: 0 0 50%; max-width: 50%; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                <div class="wysiwyg" style="box-sizing: inherit;">
+                                                    <strong class="text-uppercase" style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif; font-weight: 400; text-transform: uppercase !important;">
+                                                        <br />
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 " style="box-sizing: inherit; position: relative; width: 500px; min-height: 1px; padding-right: 20px; padding-left: 20px; flex: 0 0 50%; max-width: 50%; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                <div class="wysiwyg" style="box-sizing: inherit;">
+                                                    <strong class="text-uppercase" style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif; text-transform: uppercase !important;">
+                                                        <font style="font-size: 24px;">ONLINE BERICHTE</font>
+                                                    </strong>
+                                                    <br style="box-sizing: inherit;" />
+                                                    <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 40px;">
+                                                        <strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">2018</strong>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.dreamcar.ch/?page_id=345109" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.dreamcar.ch</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://rallye-rohr.ch/event/lenzerheide-motor-classics-2018" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.rallye-rohr.ch</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.zwischengas.com/de/VC/veranstaltungsberichte/Lenzerheide-Motor-Classics-2018.html" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.zwischengas.com</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <br style="box-sizing: inherit;" />
+                                                        <strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">2017</strong>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.dreamcar.ch/?p=293839" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.dreamcar.ch</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.zwischengas.com/de/VC/veranstaltungsberichte/Lenzerheide-Motor-Classics-2017.html" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.zwischengas.com</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <br style="box-sizing: inherit;" />
+                                                        <strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">2016</strong>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.dreamcar.ch/?s=lenzerheide" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.dreamcar.ch</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://rallye-rohr.ch/event/lenzerheide-motor-classics-2016" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.rallye-rohr.ch</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.zwischengas.com/de/VC/veranstaltungsberichte/Lenzerheide-Motor-Classics-2016.html" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.zwischengas.com</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <br style="box-sizing: inherit;" />
+                                                        <strong style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif;">2015</strong>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.dreamcar.ch/?s=lenzerheide+motor+classics" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.dreamcar.ch</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.swissclassics.com/de/artikel/Lenzerheide-Motor-Classics-2015-rasant-bewegtes-historisches-Kulturgut.html" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">www.swissclassics.com</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="http://www.zwischengas.com/de/VC/veranstaltungsberichte/Lenzerheide-Motor-Classics-2015-rasant-bewegtes-historisches-Kulturgut-.html" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;" data-original-title="" title="" aria-describedby="tooltip431796">www.zwischengas.com</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pb32 col-lg-12 pt0">
+                                            <div class="col-md-6" style="box-sizing: inherit; position: relative; width: 500px; min-height: 1px; padding-right: 20px; padding-left: 20px; flex: 0 0 50%; max-width: 50%; color: rgb(56, 49, 45); font-family: UniversLTStd-Cn, sans-serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+                                                <div class="wysiwyg" style="box-sizing: inherit;">
+                                                    <strong class="text-uppercase" style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif; text-transform: uppercase !important;">
+                                                        <font style="font-size: 24px;">FRÜHERE MEDIENMITTEILUNGEN</font>
+                                                    </strong>
+                                                    <strong class="text-uppercase" style="box-sizing: inherit; font-family: UniversLTStd-BoldCn, sans-serif; font-weight: 400; text-transform: uppercase !important;">
+                                                        <br />
+                                                    </strong>
+                                                    <br style="box-sizing: inherit;" />
+                                                    <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 40px;">
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20170611-medienmitteilung-lenzerheide-motor-classcis.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;" data-original-title="" title="" aria-describedby="tooltip376001">11.06.2017 - Perfekte Bedingungen für Motor Classics&amp;nbsp;(pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20170606-medienmitteilung-lenzerheide-motor-classcis_programm.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">06.06.2017 - Röhrende Motoren und Carrera Challenge (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20170531-medienmitteilung-lenzerheide-motor-classcis_fahrzeuge.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">31.05.2017 - Von La France bis LaFerrari (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20170523-medienmitteilung-lenzerheide-motor-classcis.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">23.05.2017 - Ein Hauch Nostalgie in Lenzerheide (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20160612-medienmitteilung-lenzerheide-motor-classics.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">12.06.2016 - Gute Stimmung trotz Regenwetter (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20160608-medienmitteilung-lenzerheide-motor-classics.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">08.06.2016 - Knatternde Motoren &amp;nbsp;der Duft von Motorenöl (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20160602-medienmitteilung-lenzerheide-motor-classics_highlights.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">02.06.2016 - Leckerbissen für jeden Motorsport-Fan (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20160511-medienmitteilung-lenzerheide-motor-classics.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">11.05.2016 - 5. Lenzerheide Motor Classics (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20150520-medienmitteilung-lenzerheide-motor-classics.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">20.05.2015 - 4. Lenzerheide Motor Classics (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20150603-medienmitteilung-lenzerheide-motor-classics_strassensperrung.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">03.06.2015 - 4. Lenzerheide Motor Classics (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20150610-medienmitteilung-lenzerheide-motor-classics_programm.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;">10.06.2015 - Historische Fahrzeuge in Lenzerheide (pdf)</a>
+                                                        <br style="box-sizing: inherit;" />
+                                                        <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/medienmitteilungen/20150614-medienmitteilung-lenzerheide-motor-classics_bericht.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;" data-original-title="" title="" aria-describedby="tooltip95100">14.06.2015 - Motorfahrzeug-Atmosphäre in Lenzerheide (pdf)</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="o_gallery s_image_gallery o_fake_not_editable pt8 o_grid o_spc-medium" data-columns="3" style="overflow: hidden;" data-name="Image Gallery">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/LMC-Rennen-Rennfeld.jpg" alt="Folien Bild" data-index="0"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/LMC-Fahrerlager.jpg" alt="Folien Bild" data-index="1"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/LMC-Rennen-Bike-Pulk.jfif" alt="Folien Bild" data-index="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/LMC-Rennen-Mini.jfif" alt="Folien Bild" data-index="3"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/LMC-Rennen-Corsair.jfif" alt="Folien Bild" data-index="4"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/239A0342.jpeg" alt="Folien Bild" data-index="5"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4274.jpg" alt="Folien Bild" data-index="6"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4991.jpg" alt="Folien Bild" data-index="7"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4691.jpg" alt="Folien Bild" data-index="8"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4644.jpg" alt="Folien Bild" data-index="9"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4613.jpg" alt="Folien Bild" data-index="10"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid d-block" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4537.jpg" alt="Folien Bild" data-index="11"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid" src="/website_lmc/static/src/img/gallery/MotorClassics_2104_SL22.jpg" data-index="12"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4173.jpg" data-index="13"/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img img-fluid" src="/website_lmc/static/src/img/gallery/Motor-Classics-2018-JF-4059.jpg" data-index="14"/>
+                                        </div>
+                                    </div>
+                                    <div class="row"></div>
                                 </div>
                             </section>
                         </div>

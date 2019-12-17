@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="news_lmc" model="ir.ui.view">
+            <field name="name">News</field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.news_lmc</field>
+            <field name="arch" type="xml">
+                <t name="History" t-name="website_lmc.news_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="parallax pt128 pb32" data-scroll-background-ratio="0.6" data-name="Cover" style="background-image: none;">
+                                    <span class="s_parallax_bg" style="background-image: url('/website_lmc/static/src/img/peak.jpg'); background-position: 50.28% 39.98%;"></span>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 pt128 pb128" data-name="Title">
+                                                <h1 style="font-size: 62px; text-align: center;font-family: 'UniversLTStd-LightCn', sans-serif;color: white;">History<br/>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="s_text_block pt32 pb32" data-name="Text block">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 pt32 pb32">
+                                                <h1 id="toc-entry-target-0" tabindex="-1" style="color: rgb(129, 126, 101) !important; font-size: calc(45px + (30 * ((100vw - 768px) / 932))); font-family: UniversLTStd-LightCn, sans-serif; text-align: center;padding-bottom: 40px;">
+                                                    <font style="vertical-align: inherit;">Historical past of the Lenzerheide Motor Classics
+                                                    </font>
+                                                </h1>
+                                                <div style="font-size: 18px;">
+                                                    <section style="box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 7px 0px;">
+                                                        <div class="container" style="padding-top: 50px;padding-bottom: 50px;padding-left: 20px; padding-right: 20px; width: 1000px;">
+                                                            <div class="table-responsive">
+                                                                <p> 
+                                                                    With one of the first Swiss mountain races on the Tiefencastel-Lenz-Lenzerheide route in August 1951 , Lenzerheide experienced an absolutely impressive event. Even the big poster, on which the «Alfetta», unbeatable in all races, and the Lenzerhorn in the background, were impressed as a young boy. We awesome touched 80 vehicles from Alfa Romeo, Lancia, Cisitalia, BMW Veritas, Porsche 356, MG, Jaguar 120 and the now unknown Jowett-Jupiter on the occasion of the vehicle inspection at the Hotel Kurhaus. The absolute highlight was the great hero Willy Peter Dätwyler and his Alfa 412
+                                                                    <br/><br/>
+                                                                    This car, which dates from 1939, was not only the racing car itself in its form, it was equipped with a four overhead V12 engine (a design by Bruno Trevisan). This unbeatable vehicle, which you not only saw and heard, but also almost ingested its burned methanol mixture from the exhaust pipe as a drug, was controlled by Willy Peter Datwyler.
+                                                                    <br/><br/>
+                                                                    In 1957 another international mountain race took place in collaboration with the ACS (at that time counted as a European championship). As a grown-up boy, I was able to experience this race even more closely on the same route as my father's helper, head of the medical service. Of course, we also admired our local hero Willy Gruber, who brilliantly balanced his little Ford over the route more than he drove quickly. Many of the cars were there that we can now admire again at the Lenzerheide Motor Classics: Porsche 356 Carrera, MGA, Alfa Romeo Giulietta Veloce, the small, fast Fiat Abarth Zagato, Lancia Aurelia B20, AC Bristol (based on the Cobra), Mercedes Gullwing, Triumph TR3, Aston Martin DB2, and many more. The exciting big fight for that
+                                                                    <br /><br />
+                                                                    European mountain championship between the Porsche (an RS Bergspyder, which every time a huge flame emanated from the middle pipe exhaust when switching) by the famous race director Huschke von Hanstein, the Borgward RS (the then mythical Ferrari with Ludovico Scarfiotti) by Hans Herrmann and the Maserati 200 / S by Willy Peter Dätwyler, who also won the European Championship, was an unforgettable experience.
+                                                                    <br /><br />
+                                                                    Have fun and enjoy the Lenzerheide Motor Classics. Marc-Andrea Durband
+                                                                    <br/><a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/lmc-oldtimer.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;" data-original-title="" title="" aria-describedby="tooltip247191">&gt; European</a> Mountain Climbing <a href="https://www.lenzerheide-motorclassics.ch/microsites-assets/lenzerheide-motor-classics/pdf/lmc-oldtimer.pdf" target="_blank" style="box-sizing: inherit; cursor: pointer; color: rgb(84, 75, 69); text-decoration: underline; background-color: transparent; touch-action: manipulation;" data-original-title="" title="" aria-describedby="tooltip247191">Championship Tiefencastel - Lenz - Lenzerheide 1957 (pdf)</a>
+                                                                    <br/><br/>
+                                                                    <span style="font-size: 14px;">
+                                                                        Copyright Photo below: photographer Max Pichler Wilerzell
+                                                                    </span>
+                                                                    <br/><br/>
+                                                                </p>
+                                                                <p style="box-sizing: inherit; margin-top: 0px; margin-bottom: 1rem;">
+                                                                    <img class="img-fluid o_we_custom_image" src="/website_lmc/static/src/img/Lmc_bild_auto-big.jpeg" data-original-title="" title="" aria-describedby="tooltip47501" />
+                                                                    <br />
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <p class="lead o_default_snippet_text"></p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data>
+        <data noupdate="1">
+            <record id="news_page" model="website.page">
+                <field name="website_published">True</field>
+                <field name="url">/geschichte</field>
+                <field name="view_id" ref="news_lmc" />
+            </record>
+        </data>
+    </data>
+</odoo>

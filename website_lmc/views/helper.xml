@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="helper_lmc" model="ir.ui.view">
+            <field name="name">Helper</field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.helper_lmc</field>
+            <field name="arch" type="xml">
+                <t name="Helper" t-name="website_lmc.helper_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="parallax s_parallax_is_fixed pt128 pb64" data-scroll-background-ratio="1" data-name="Cover" style="background-image: none;">
+                                    <span class="s_parallax_bg" style="background-image: url('/website_lmc/static/src/img/helfer.jpg'); background-position: 49.89% 56.88%;"></span>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12" data-name="Title">
+                                                <h1 style="text-align: center;">
+                                                    <span style="color: #817E65; font-size: 62px;">
+                                                        Volunteers and helpers
+                                                    </span><br />
+                                                    <span style="color: rgb(255, 255, 255); font-size: 24px;">
+                                                        It would not work without their help and effort!
+                                                    </span><br />
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12 pt64 pb32" style="font-family: UniversLTStd-Cn, sans-serif !important;font-size: initial;color: #817E65;">
+                                                <p class="lead">
+                                                    A great way to get your reader's attention is to tell a story.
+                                                    <br />
+                                                    Everything you want to write can be told as a story.
+                                                </p>
+                                                <p>
+                                                    <b style="color: #817E65;">
+                                                        Great stories have personality.
+                                                    </b>
+                                                    Consider telling a great story that gives personality.
+                                                    Writing a story with personality for potential customers helps build a relationship. This can be seen in small quirks such as choice of words or phrases. Write from your point of view, not from someone else's experience.
+                                                </p>
+                                                <p>
+                                                    <b style="color: #817E65;">
+                                                        Great stories are there for everyone, even if they were only written for one person.
+                                                    </b>
+                                                    When you try to write to a wide audience, your story sounds wrong and boring. Nobody will be interested. Write for one person. If it's real for one, it's real for the rest.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="pt32 pb32" data-name="Columns">
+                                    <div class="container">
+                                        <div class="row d-flex align-items-stretch">
+                                            <div class="col-lg-4 pt16 pb16">
+                                                <div class="card bg-white">
+                                                    <img class="card-img-top" src="https://danifricker-dag.odoo.com/web/image/1837/2000px-Vaz_Obervaz_wappen.svg.png" alt="Odoo - Example 3 for three columns" data-original-title="" title="" aria-describedby="tooltip474157" />
+                                                    <div class="card-body">
+                                                        <h3 class="card-title" style="font-family: 'UniversLTStd-LightCn', sans-serif;color: #817E65;">local community<br />
+                                                        </h3>
+                                                        <p class="card-text" style="font-family: 'UniversLTStd-Cn', sans-serif;font-size: 18px;color: #817E65;">
+                                                            Delete the image above or replace it with an image that illustrates your message. Click on the image to change the style of the <em>rounded corners.</em></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 pt16 pb16">
+                                                <div class="card bg-white">
+                                                    <br />
+                                                    <div class="card-body">
+                                                        <h3 class="card-title">
+                                                            <img class="img-fluid o_we_custom_image" src="https://danifricker-dag.odoo.com/web/image/1835/feuerwehr%20vaz%202q.jpg" />
+                                                            <br />
+                                                        </h3>
+                                                        <h3 class="card-title" style="font-family: 'UniversLTStd-LightCn', sans-serif;color: #817E65;">Fire department Vaz / Obervaz<br /></h3>
+                                                        <p class="card-text" style="font-family: 'UniversLTStd-Cn', sans-serif;font-size: 18px;color: #817E65;">Delete the image above or replace it with an image that illustrates your message. Click on the image to change the style of the <em>rounded corners</em> .</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 pt16 pb16">
+                                                <div class="card bg-white">
+                                                    <img class="card-img-top" src="https://danifricker-dag.odoo.com/web/image/1836/Screenshot_2019-12-10%20Lenzerheide%20Bergbahnen%20AG%20in%20Lenzerheide%20Ferien%20in%20Lenzerheide%20Schweiz.png" alt="Odoo - Example 3 for three columns" data-original-title="" title="" aria-describedby="tooltip474157" />
+                                                    <div class="card-body">
+                                                        <h3 class="card-title" style="font-family: 'UniversLTStd-LightCn', sans-serif;color: #817E65;">Lenzerheide mountain railways<br /></h3>
+                                                        <p class="card-text">
+                                                            <br />
+                                                        </p>
+                                                        <div class="s_btn pb16 text-center pt16" data-name="Button">
+                                                            <a href="https://arosalenzerheide.swiss/de/Region/Lenzerheide/Region/Wissenswertes/Von-A-bis-Z/Lenzerheide-Bergbahnen-AG_isd_125275" class="btn btn-secondary" data-original-title="" title="" aria-describedby="tooltip812576" style="color: #FFFFFF;background-color: #817E65;border-color: #817E65;">More information</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 pt16 pb16">
+                                                <div class="card bg-white">
+                                                    <img class="card-img-top" src="https://danifricker-dag.odoo.com/web/image/1839/staffelg.png" alt="Odoo - Example 3 for three columns" data-original-title="" title="" aria-describedby="tooltip474157" />
+                                                    <div class="card-body">
+                                                        <h3 class="card-title" style="font-family: 'UniversLTStd-LightCn', sans-serif;color: #817E65;">S + R relay<br /></h3>
+                                                        <p class="card-text" style="font-family: 'UniversLTStd-Cn', sans-serif;font-size: 18px;color: #817E65;">They are there for our security:<br /></p>
+                                                        <div id="cc-m-7887862256" class="j-module n j-text ">
+                                                            <p>
+                                                                <span style="font-family: 'UniversLTStd-Cn', sans-serif;font-size: 15px;color: #817E65;">Besson François, Borgeaud Serge, Brander Markus, Brudermann Martin, Felder Andreas, Gassmann Francis, Guignard Laurent, Hallé Jonas, Horat Andreas, Horat Hans-Peter, Jäggi Andreas, Joye Michel-Roland, Kappeler René, Ludin Sepp, Mani Jürg, Müller Hermann, Nyffenegger Stefan, Preiswerk Adrian, Siegrist Adrian, Sornin Jean-Louis, Zürcher Hansruedi
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="s_btn text-center pt16 pb16" data-name="Button">
+                                                            <a href="https://www.staffel.ch/" class="btn btn-secondary" data-original-title="" title="" aria-describedby="tooltip432835" target="_blank" style="color: #FFFFFF;background-color: #817E65;border-color: #817E65;">More info</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data>
+        <data noupdate="1">
+            <record id="helper_page" model="website.page">
+                <field name="website_published">True</field>
+                <field name="url">/helfer</field>
+                <field name="view_id" ref="helper_lmc" />
+            </record>
+        </data>
+    </data>
+</odoo>
