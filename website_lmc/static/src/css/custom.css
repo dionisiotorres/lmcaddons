@@ -465,6 +465,20 @@
   display: none;
 }
 
+.profile_address .btn-secondary:hover{
+  background-color: #817E65;
+  border-color: #817E65;
+}
+
+.profile_address .btn-secondary{
+  background-color: #817E65;
+  border-color: #817E65;
+}
+
+.custom_doc_tab .badge-secondary{
+  background-color: #817E65;
+}
+
 /*inner page css*/
 
 .lmc_geniessen_page .s_title_thin, 
