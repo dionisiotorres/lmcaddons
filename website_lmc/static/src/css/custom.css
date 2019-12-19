@@ -438,6 +438,11 @@ body{
   overflow-x: hidden;
 }
 
+.custom-tab-edit-mode label .start{
+  font-weight: bold;
+  color: red;
+}
+
 
 /*extra address*/
 

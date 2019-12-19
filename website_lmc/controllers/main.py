@@ -16,7 +16,7 @@ class CustomWebsiteHome(Website):
         return res
 
 class CustomerUserPortal(CustomerPortal):
-
+    
     OPTIONAL_BILLING_FIELDS = ["zipcode", "state_id", "vat", "company_name", "about_us", "x_family_name", "x_gender",
     "x_birthdate", "x_nationality", "x_drive_club", "x_driver_license_type", "x_driver_license_num", "x_driver_pict_path",
     "x_driver_success", "x_driver_year_racing_since", "x_driver_amount_events", "x_driver_year_last_event",

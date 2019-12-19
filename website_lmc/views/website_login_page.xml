@@ -67,13 +67,6 @@
 
     <template id="reset_password_custom" inherit_id="auth_signup.reset_password" name="Reset password lmc">
         <xpath expr="//form" position="replace">
-            <div class="mt16">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h1 class="text-center login_heading rs_tl_mpl">FORGOT YOUR PASSWORD?</h1>
-                    </div>
-                </div>
-            </div>
             <div class="oe_forget_container container">
                 <div class="background_image_forget"/>
                 <div class="forgetpassword_container">
