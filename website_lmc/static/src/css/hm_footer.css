@@ -145,7 +145,7 @@
     text-shadow: 0 2px 4px rgba(0,0,0,.5);
 }
 .lmc_homepg .font-light {
-    font-family: UniversLTStd-LightCn,sans-serif!important;
+    font-family: UniversLTStd-LightCn, sans-serif!important;
     font-weight: 400;
 }
 .lmc_homepg a:hover {
@@ -168,7 +168,7 @@
 @media screen and (min-width: 768px) {
 .lmc_homepg .h4, .lmc_homepg h4 {
     text-transform: uppercase;
-    font-family: UniversLTStd-BoldCn,sans-serif;
+    font-family: UniversLTStd-LightCn, sans-serif;
     font-size: calc(32px + 6 * ((100vw - 768px) / 932));
     }
 }

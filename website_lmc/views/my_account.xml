@@ -6,15 +6,13 @@
                 <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar {{classes if classes else ''}} {{'mt-3 rounded' if breadcrumbs_searchbar else 'border-top-0' }}">
                     <!--  Navbar breadcrumb or title  -->
                     <t t-if="breadcrumbs_searchbar">
-                        <t t-call="portal.portal_breadcrumbs"/>
+                        <t t-call="portal.portal_breadcrumbs" />
                     </t>
-                    <span t-else="" class="navbar-brand mb-0 h1 mr-auto" t-esc="title or 'No title'"/>
-
+                    <span t-else="" class="navbar-brand mb-0 h1 mr-auto" t-esc="title or 'No title'" />
                     <!--  Collapse button -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#o_portal_navbar_content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle filters">
-                        <span class="navbar-toggler-icon small"/>
+                        <span class="navbar-toggler-icon small" />
                     </button>
-
                     <!--  Collapsable content  -->
                     <div class="collapse navbar-collapse" id="o_portal_navbar_content">
                         <div class="nav flex-column flex-lg-row ml-auto p-0 mb-3 mb-lg-0 mt-1 mt-lg-0">
@@ -22,13 +20,12 @@
                                 <span class="small mr-1 navbar-text">Sort By:</span>
                                 <div class="btn-group">
                                     <button id="portal_searchbar_sortby" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">
-                                        <t t-esc="searchbar_sortings[sortby].get('label', 'Newest')"/>
+                                        <t t-esc="searchbar_sortings[sortby].get('label', 'Newest')" />
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="portal_searchbar_sortby">
                                         <t t-foreach="searchbar_sortings" t-as="option">
-                                            <a t-att-href="request.httprequest.path + '?' + keep_query('*', sortby=option)"
-                                               t-attf-class="dropdown-item#{sortby == option and ' active' or ''}">
-                                                <span t-esc="searchbar_sortings[option].get('label')"/>
+                                            <a t-att-href="request.httprequest.path + '?' + keep_query('*', sortby=option)" t-attf-class="dropdown-item#{sortby == option and ' active' or ''}">
+                                                <span t-esc="searchbar_sortings[option].get('label')" />
                                             </a>
                                         </t>
                                     </div>
@@ -38,13 +35,12 @@
                                 <span class="small mr-1 navbar-text">Filter By:</span>
                                 <div class="btn-group">
                                     <button id="portal_searchbar_filters" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">
-                                        <t t-esc="searchbar_filters[filterby].get('label', 'All')"/>
+                                        <t t-esc="searchbar_filters[filterby].get('label', 'All')" />
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="portal_searchbar_filters">
                                         <t t-foreach="searchbar_filters" t-as="option">
-                                            <a t-att-href="default_url + '?' + keep_query('*', filterby=option)"
-                                               t-attf-class="dropdown-item#{filterby == option and ' active' or ''}">
-                                                <span t-esc="searchbar_filters[option].get('label')"/>
+                                            <a t-att-href="default_url + '?' + keep_query('*', filterby=option)" t-attf-class="dropdown-item#{filterby == option and ' active' or ''}">
+                                                <span t-esc="searchbar_filters[option].get('label')" />
                                             </a>
                                         </t>
                                     </div>
@@ -54,37 +50,35 @@
                                 <span class="small mr-1 navbar-text">Group By:</span>
                                 <div class="btn-group">
                                     <button id="portal_searchbar_groupby" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">
-                                        <t t-esc="searchbar_groupby[groupby].get('label', 'None')"/>
+                                        <t t-esc="searchbar_groupby[groupby].get('label', 'None')" />
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="portal_searchbar_groupby">
                                         <t t-foreach="searchbar_groupby" t-as="option">
-                                            <a t-att-href="default_url + '?' + keep_query('*', groupby=option)"
-                                               t-attf-class="dropdown-item#{groupby == option and ' active' or ''}">
-                                                <span t-esc="searchbar_groupby[option].get('label')"/>
+                                            <a t-att-href="default_url + '?' + keep_query('*', groupby=option)" t-attf-class="dropdown-item#{groupby == option and ' active' or ''}">
+                                                <span t-esc="searchbar_groupby[option].get('label')" />
                                             </a>
                                         </t>
                                     </div>
                                 </div>
                             </div>
-                            <t t-raw="0"/>
+                            <t t-raw="0" />
                         </div>
                         <form t-if="searchbar_inputs" class="form-inline o_portal_search_panel ml-lg-4">
                             <div class="input-group input-group-sm w-100">
                                 <div class="input-group-prepend">
-                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"/>
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" />
                                     <div class="dropdown-menu" role="menu">
                                         <t t-foreach='searchbar_inputs' t-as='input'>
-                                            <a t-att-href="'#' + searchbar_inputs[input]['input']"
-                                                t-attf-class="dropdown-item#{search_in == searchbar_inputs[input]['input'] and ' active' or ''}">
-                                                <span t-raw="searchbar_inputs[input]['label']"/>
+                                            <a t-att-href="'#' + searchbar_inputs[input]['input']" t-attf-class="dropdown-item#{search_in == searchbar_inputs[input]['input'] and ' active' or ''}">
+                                                <span t-raw="searchbar_inputs[input]['label']" />
                                             </a>
                                         </t>
                                     </div>
                                 </div>
-                                <input type="text" class="form-control form-control-sm" placeholder="Search" t-att-value='search' name="search"/>
+                                <input type="text" class="form-control form-control-sm" placeholder="Search" t-att-value='search' name="search" />
                                 <span class="input-group-append">
                                     <button class="btn btn-secondary search-submit" type="button">
-                                        <span class="fa fa-search"/>
+                                        <span class="fa fa-search" />
                                     </button>
                                 </span>
                             </div>
@@ -97,11 +91,11 @@
             <div class="container container--small">
                 <div t-attf-class="table-responsive border rounded border-top-0 #{classes if classes else ''}">
                     <table class="table rounded mb-0 bg-white o_portal_my_doc_table">
-                        <t t-raw="0"/>
+                        <t t-raw="0" />
                     </table>
                 </div>
                 <div t-if="pager" class="o_portal_pager text-center">
-                    <t t-call="portal.pager"/>
+                    <t t-call="portal.pager" />
                 </div>
             </div>
         </template>
@@ -144,7 +138,6 @@
                                     <li><label>Name:</label> <span t-esc="partner.name" /></li>
                                     <li><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
                                     <li><label>Date of birth:</label> <span t-field="partner.x_birthdate" t-options='{"format": "d-MM-YYYY"}' /></li>
-                                    <li><label>Family Name:</label> <span t-esc="partner.x_family_name" /></li>
                                     <li><label>Nationality:</label> <span t-esc="partner.x_nationality.name" /></li>
                                     <li><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
                                     <li><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
@@ -154,7 +147,6 @@
                                     <li><label>Driver number of events:</label> <span t-esc="partner.x_driver_amount_events" /></li>
                                     <li><label>Driver year of last event:</label> <span t-esc="partner.x_driver_year_last_event" /></li>
                                     <li><label>Drivers shirt size:</label> <span t-esc="partner.x_driver_shirt_size.name" /></li>
-                                    <li><label>Path to picture of the driver:</label> <span t-esc="partner.x_driver_pict_path" /></li>
                                     <li><label>Successes of the driver:</label> <span t-esc="partner.x_driver_success" /></li>
                                 </ul>
                             </div>
@@ -263,7 +255,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </template>
         <template id="vehicle_tab">
@@ -297,10 +288,6 @@
                                                 <li><label>Description:</label> <span t-esc="partner.x_vehicle_desc" /></li>
                                                 <li><label>Modifications:</label> <span t-esc="partner.x_vehicle_modifications" /></li>
                                                 <li><label>FIA registrasion number:</label> <span t-esc="partner.x_registrasion_number" /></li>
-                                                <li><label>Approved?:</label> <span t-esc="partner.x_vehicle_approved" /></li>
-                                                <li><label>Tire size:</label> <span t-esc="partner.x_vehicle_tire_size" /></li>
-                                                <li><label>Rim size:</label> <span t-esc="partner.x_vehicle_rim_size" /></li>
-                                                <li><label>Bild-Name:</label> <span t-esc="partner.x_vehicle_pict_path" /></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -624,58 +611,58 @@
                                 <div class="container container--small">
                                     <div class="row justify-content-between mt-4">
                                         <div t-attf-class="col-12 col-md col-lg-12">
-                                        <div class="o_portal_my_home">
-                                            <div class="oe_structure" id="oe_structure_portal_my_home_1" />
-                                            <h3>Your Documents</h3>
-                                            <ul class="custom_doc_tab">
-                                                <t t-if="lead_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Leads</t>
-                                                    <t t-set="url" t-value="'/my/leads'" />
-                                                    <t t-set="count" t-value="lead_count" />
-                                                </t>
-                                                <t t-if="opp_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Opportunities</t>
-                                                    <t t-set="url" t-value="'/my/opportunities'" />
-                                                    <t t-set="count" t-value="opp_count" />
-                                                </t>
-                                                <t t-if="quotation_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Quotations</t>
-                                                    <t t-set="url" t-value="'/my/quotes'" />
-                                                    <t t-set="count" t-value="quotation_count" />
-                                                </t>
-                                                <t t-if="order_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Sales Orders</t>
-                                                    <t t-set="url" t-value="'/my/orders'" />
-                                                    <t t-set="count" t-value="order_count" />
-                                                </t>
-                                                <t t-if="purchase_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Purchase Orders</t>
-                                                    <t t-set="url" t-value="'/my/purchase'" />
-                                                    <t t-set="count" t-value="purchase_count" />
-                                                </t>
-                                                <t t-if="invoice_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Invoices &amp; Bills</t>
-                                                    <t t-set="url" t-value="'/my/invoices'" />
-                                                    <t t-set="count" t-value="invoice_count" />
-                                                </t>
-                                                <t t-if="project_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Projects</t>
-                                                    <t t-set="url" t-value="'/my/projects'" />
-                                                    <t t-set="count" t-value="project_count" />
-                                                </t>
-                                                <t t-if="task_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Tasks</t>
-                                                    <t t-set="url" t-value="'/my/tasks'" />
-                                                    <t t-set="count" t-value="task_count" />
-                                                </t>
-                                                <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
-                                                    <t t-set="title">Timesheets</t>
-                                                    <t t-set="url" t-value="'/my/timesheets'" />
-                                                    <t t-set="count" t-value="timesheet_count" />
-                                                </t>
-                                            </ul>
+                                            <div class="o_portal_my_home">
+                                                <div class="oe_structure" id="oe_structure_portal_my_home_1" />
+                                                <h3>Your Documents</h3>
+                                                <ul class="custom_doc_tab">
+                                                    <t t-if="lead_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Leads</t>
+                                                        <t t-set="url" t-value="'/my/leads'" />
+                                                        <t t-set="count" t-value="lead_count" />
+                                                    </t>
+                                                    <t t-if="opp_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Opportunities</t>
+                                                        <t t-set="url" t-value="'/my/opportunities'" />
+                                                        <t t-set="count" t-value="opp_count" />
+                                                    </t>
+                                                    <t t-if="quotation_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Quotations</t>
+                                                        <t t-set="url" t-value="'/my/quotes'" />
+                                                        <t t-set="count" t-value="quotation_count" />
+                                                    </t>
+                                                    <t t-if="order_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Sales Orders</t>
+                                                        <t t-set="url" t-value="'/my/orders'" />
+                                                        <t t-set="count" t-value="order_count" />
+                                                    </t>
+                                                    <t t-if="purchase_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Purchase Orders</t>
+                                                        <t t-set="url" t-value="'/my/purchase'" />
+                                                        <t t-set="count" t-value="purchase_count" />
+                                                    </t>
+                                                    <t t-if="invoice_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Invoices &amp; Bills</t>
+                                                        <t t-set="url" t-value="'/my/invoices'" />
+                                                        <t t-set="count" t-value="invoice_count" />
+                                                    </t>
+                                                    <t t-if="project_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Projects</t>
+                                                        <t t-set="url" t-value="'/my/projects'" />
+                                                        <t t-set="count" t-value="project_count" />
+                                                    </t>
+                                                    <t t-if="task_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Tasks</t>
+                                                        <t t-set="url" t-value="'/my/tasks'" />
+                                                        <t t-set="count" t-value="task_count" />
+                                                    </t>
+                                                    <t t-if="timesheet_count" t-call="portal.portal_docs_entry">
+                                                        <t t-set="title">Timesheets</t>
+                                                        <t t-set="url" t-value="'/my/timesheets'" />
+                                                        <t t-set="count" t-value="timesheet_count" />
+                                                    </t>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
                                         <div id="o_my_sidebar" class="col-12 col-md col-lg-4 col-xl-3 o_my_sidebar" style="display:none;">
                                             <div class="o_my_contact" t-if="sales_user">
                                                 <t t-call="portal.portal_contact" />
@@ -785,14 +772,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
-                                            <input type="text" name="x_family_name" t-att-class="'form-control has-value' if partner.x_family_name else 'form-control'" t-att-value="'x_family_name' in partner and partner['x_family_name']" />
-                                            <label for="x_family_name">Family Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
                                         <div class="form-group form-group--floating select_label">
-                                            <select id="x_nationality" name="x_nationality" t-att-class="'custom-select form-control has-value' if partner.x_nationality else 'custom-select form-control'" required="true">
+                                            <select id="x_nationality" name="x_nationality" t-att-class="'custom-select form-control has-value' if partner.x_nationality else 'custom-select form-control'">
                                                 <option value=""></option>
                                                 <t t-foreach="nationalities or []" t-as="nationality">
                                                     <option t-att-value="nationality.id" t-att-selected="nationality.id == partner.x_nationality.id">
@@ -800,7 +781,7 @@
                                                     </option>
                                                 </t>
                                             </select>
-                                            <label for="country_id">Nationality*</label>
+                                            <label for="x_nationality">Nationality*</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -865,10 +846,13 @@
                                             <label for="country_id">Drivers shirt size*</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <div class="form-group form-group--floating">
-                                            <textarea type="textarea" name="x_driver_success" t-att-class="'form-control has-value' if partner.x_driver_success else 'form-control'" maxlength="500"><t t-esc="partner.x_driver_success"/></textarea>
-                                            <label for="x_driver_success">Successes of the driver</label>
+                                            <div class="floating-label">
+                                                <textarea type="textarea" name="x_driver_success" class="floating-input floating-textarea" rows="3" placeholder=" " maxlength="500"><t t-esc="partner.x_driver_success"/></textarea>
+                                                <span class="highlight"></span>
+                                                <label for="x_driver_success">Successes of the driver</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -921,7 +905,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating select_label">
-                                            <select id="x_vehicle_cat" name="x_vehicle_cat" t-att-class="'custom-select form-control has-value' if partner.x_vehicle_cat else 'custom-select form-control'" required="true">
+                                            <select id="x_vehicle_cat" name="x_vehicle_cat" t-att-class="'custom-select form-control has-value' if partner.x_vehicle_cat else 'custom-select form-control'">
                                                 <option value=""></option>
                                                 <t t-foreach="vehicle_categories or []" t-as="vehicle_categ">
                                                     <option t-att-value="vehicle_categ.id" t-att-selected="vehicle_categ.id == partner.x_vehicle_cat.id">
@@ -994,12 +978,6 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
-                                            <input type="text" name="x_vehicle_desc" t-att-class="'form-control has-value' if partner.x_vehicle_desc else 'form-control'" t-att-value="partner.x_vehicle_desc" maxlength="500" />
-                                            <label for="x_vehicle_desc">Description</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group form-group--floating">
                                             <input type="text" name="x_vehicle_modifications" t-att-class="'form-control has-value' if partner.x_vehicle_modifications else 'form-control'" t-att-value="partner.x_vehicle_modifications" />
                                             <label for="x_vehicle_modifications">Modifications</label>
                                         </div>
@@ -1008,6 +986,13 @@
                                         <div class="form-group form-group--floating">
                                             <input type="text" name="x_registrasion_number" t-att-class="'form-control has-value' if partner.x_registrasion_number else 'form-control'" t-att-value="partner.x_registrasion_number" />
                                             <label for="x_registrasion_number">FIA registrasion number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="floating-label">
+                                            <textarea type="textarea" name="x_vehicle_desc" class="floating-input floating-textarea" rows="3" placeholder=" " maxlength="500"><t t-esc="partner.x_vehicle_desc"/></textarea>
+                                            <span class="highlight"></span>
+                                            <label for="x_vehicle_desc">Description</label>
                                         </div>
                                     </div>
                                 </div>

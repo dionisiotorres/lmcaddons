@@ -1,5 +1,8 @@
 
 /*imc profile page css*/
+body{
+  font-family: 'UniversLTStd-LightCn', sans-serif !important;
+}
 
 .user_profile .main-section {
     background: #fff;
@@ -28,7 +31,7 @@
 .user_profile .content-hl {
     font-size: 25px;
     line-height: 1.12;
-    font-family: UniversLTStd-LightCn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     margin-bottom: 15px;
 }
 
@@ -65,7 +68,7 @@
   }
   .user_profile h6 {
     font-size: calc(22px + 3 * ((100vw - 768px) / 932));
-    font-family: UniversLTStd-LightCn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: 10px;
     /*margin-bottom: 10px;*/
@@ -130,7 +133,7 @@
 
 .user_profile .classiccar__user-hl{
   text-transform: uppercase;
-  font-family: UniversLTStd-BoldCn,sans-serif;
+  font-family: 'UniversLTStd-LightCn', sans-serif;
   /*font-size: calc(32px + 6 * ((100vw - 768px) / 932));*/
   font-size: 20px;
   color: #38312d!important;
@@ -142,7 +145,7 @@
     /*padding: .75rem .75rem .75rem 2.25rem;*/
     padding: 10px 10px 5px 30px;
     line-height: 1.25 !important;
-    font-family: UniversLTStd-LightCn,sans-serif;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     color: #38312d !important;
     border-radius: 2px !important;
     border: 0 !important;
@@ -197,7 +200,7 @@
 
 .user_profile .nav-tabs.nav-tabs--default .nav-link {
     font-size: 1rem;
-    font-family: UniversLTStd-LightCn;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     color: #ada8a6;
     border: 0;
     border-bottom: 4px solid transparent;
@@ -240,7 +243,8 @@
 }
 
 .user_profile .form-group--floating .custom-select+label {
-    transform: translateY(-1.25rem) translateX(2rem);
+    /*transform: translateY(-1.25rem) translateX(2rem);*/
+    transform: translateY(-1.87rem) translateX(1.25rem) scale(0.6);
 }
 
 .user_profile .form-group--floating {
@@ -288,7 +292,7 @@
     line-height: 1;
     border-radius: 2px;
     box-shadow: none;
-    font-family: UniversLTStd-LightCn,sans-serif;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     cursor: pointer;
 }
 
@@ -306,6 +310,7 @@
     transform-origin: left center;
     font-family: 'UniversLTStd-LightCn', sans-serif;
     font-weight: normal;
+    color: #212529;
 }
 .form-group--floating .form-control.has-value~label,.form-group--floating .form-control:focus~label {
     transform: translateY(-1.87rem) translateX(1.25rem) scale(0.6);
@@ -315,7 +320,7 @@
 
 .user_profile form label {
     margin-bottom: .125rem;
-    font-size: .75rem;
+    /*font-size: .75rem;*/
     font-weight: 400;
 }
 
@@ -323,7 +328,7 @@
 /*save form*/
 
 .user_profile .font-bold, .user_profile .strong, b, strong {
-    font-family: UniversLTStd-BoldCn,sans-serif;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     font-weight: bold;
 }
 
@@ -355,7 +360,7 @@
 }
 
 .font-light {
-    font-family: UniversLTStd-LightCn!important;
+    font-family: 'UniversLTStd-LightCn', sans-serif;
     font-weight: 400;
 }
 
@@ -376,6 +381,63 @@
 .user_profile label{
   font-weight: bold;
 }
+
+/*only css floating*/
+
+/****  floating-Lable style start ****/
+.custom-tab-edit-mode .floating-label {
+  position: relative;
+  margin-bottom: 20px;
+}
+.custom-tab-edit-mode .floating-input,
+.custom-tab-edit-mode .floating-select {
+  /*font-size: 14px;*/
+  display: block;
+  width: 100%;
+  font-size: 1.25rem !important;
+  color: #495057;
+  padding: 40px 10px 23px 20px;
+  background-color: transparent;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.custom-tab-edit-mode .floating-input:focus,
+.custom-tab-edit-mode .floating-select:focus {
+  outline: none;
+}
+
+.custom-tab-edit-mode label {
+  color: #212529;
+  transform-origin: left center;
+  font-size: 1.10rem;
+  transform: translateY(-1.25rem) translateX(1.5rem);
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  top: 2.7rem;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.custom-tab-edit-mode .floating-input:focus ~ label,
+.custom-tab-edit-mode .floating-input:not(:placeholder-shown) ~ label {
+  transform: translateY(-1.87rem) translateX(1.25rem) scale(0.6);
+}
+
+.custom-tab-edit-mode .floating-select:focus ~ label,
+.custom-tab-edit-mode .floating-select:not([value=""]):valid ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #5264ae;
+}
+
+.custom-tab-edit-mode .floating-textarea {
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
 
 /*extra address*/
 
