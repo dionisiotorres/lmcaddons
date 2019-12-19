@@ -137,7 +137,7 @@
                                 <ul class="list list-unstyled">
                                     <li><label>Name:</label> <span t-esc="partner.name" /></li>
                                     <li><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
-                                    <li><label>Date of birth:</label> <span t-field="partner.x_birthdate" /></li>
+                                    <li><label>Date of birth:</label> <span t-field="partner.x_birthdate" t-options='{"format": "d.MM.YYYY"}' /></li>
                                     <li><label>Nationality:</label> <span t-esc="partner.x_nationality.name" /></li>
                                     <li><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
                                     <li><label>License Number:</label> <span t-esc="partner.x_driver_license_num" /></li>
