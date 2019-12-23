@@ -9,7 +9,7 @@
     'author': 'Kanak Infosystems LLP.',
     'website': 'http://www.kanakinfosystems.com',
     'images': ['static/description/banner.jpg'],
-    'depends': ['website_sale', 'website_form'],
+    'depends': ['website_sale', 'website_form', 'bi_website_odoo_gdpr'],
     'data': [
         'views/assets.xml',
         'security/ir.model.access.csv',

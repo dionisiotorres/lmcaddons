@@ -1,0 +1,38 @@
+#tabs{
+  background: white;
+    color: black;
+    width: 100%;
+    font-weight: 600;
+}
+#tabs h6.section-title{
+    color: #eee;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: teal;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 4px solid !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: black;
+    font-size: 20px;
+}
+
+
+.extra-img {
+    height: 70px;
+    width: 70px;
+    overflow: hidden; 
+    position: relative;
+}
+
+.bi-margin {
+    margin: 10px;
+    margin-left: 20px;
+}

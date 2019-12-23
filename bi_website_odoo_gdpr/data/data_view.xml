@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="gdpr_template_filter_x" model="gdpr.template">
+            <field name="name">Your Personal Details</field>
+            <field name="description">These details are used as a billing address in your order placed on our website.</field>
+            <field name="url" widget="url">/my/account</field>
+            <field name="selection_type">user</field>
+            <field name="active">1</field>
+            <field name="image" type="base64" file="bi_website_odoo_gdpr/static/src/img/details.png"/>
+        </record>
+    </data>
+</odoo>
+

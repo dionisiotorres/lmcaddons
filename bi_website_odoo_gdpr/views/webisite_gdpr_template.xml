@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<odoo>
+    
+    <template id="assets_frontends" inherit_id="website.assets_frontend" name="Custom CSS-JS">
+        <xpath expr="." position="inside">
+            
+            <link rel="stylesheet" href="/bi_website_odoo_gdpr/static/src/css/nav_tab.css"/>
+            <script type="text/javascript" src="/bi_website_odoo_gdpr/static/src/js/gdprrequest.js"></script>
+        </xpath>
+    </template>
+    
+    <template id="bi_gdpr_profile_data_template" inherit_id="portal.portal_layout">
+        <xpath expr="//div[hasclass('o_portal_my_details')]" position="inside">
+            <div style="height:1vh" />
+            <div>
+                <i class="fa fa-user" role="img"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                <span>
+                    <a href="/gdpr/profile" target="_BLANK">Manage Your Personal Data</a>
+                </span>
+            </div>
+        </xpath>
+    </template>
+
+
+    <template id="bi_gdpr_profile_data" name="My GDPR Data">
+        <t t-call="website.layout">
+            <div class="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb mt8">
+                                <li class="breadcrumb-item">
+                                    <a href="/my/home">
+                                        <i class="fa fa-home"/>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item" style="list-style-type: none;">
+                                    <span>Manage Your Personal Data</span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <h2>
+                        <t t-if="gpdr_config_id">
+                            <span t-esc="gpdr_config_id.title" />
+                        </t>
+                    </h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <span widget="html" t-field="gpdr_config_id.description" />
+                        </div>
+                    </div>
+                </div>
+                <div style="height:2vh" />
+                <div class="container">    
+                    <div class="col-sm-6">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">  
+                                <a class="nav-item nav-link active" href="#tab1info" data-toggle="tab" role="tab" aria-selected="true">Information</a>
+                                <a class="nav-item nav-link" href="#tab2request" data-toggle="tab" role="tab" aria-selected="true">Requests <t t-esc="request_count" /></a>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="tab-content py-3 px-3 px-sm-3" id="nav-tabContent">   
+                        <div class="tab-pane fade show active" id="tab1info">
+                            <div class="container">
+                                <t t-foreach="gpdr_template_id" t-as="gdpr_template">
+                                    <div class="card col-md-10" >
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <span class="bi-margin" style="width: 10%;">
+                                                    <img t-if="gdpr_template" t-attf-src="/web/image/gdpr.template/#{gdpr_template.sudo().id}/image" align="left" class="img img-fluid extra-img" alt="Image"/>
+                                                </span>
+                                                <span class="bi-margin" style="width: 70%;"> 
+                                                    <t t-if="gdpr_template.url">
+                                                        <a t-attf-href="#{gdpr_template.url}">
+                                                            <h4 t-field="gdpr_template.name" />
+                                                        </a>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <h4 t-field="gdpr_template.name" />
+                                                    </t>
+                                                    <p t-field="gdpr_template.description" />
+                                                </span>
+                                                <span class="bi-margin">
+                                                    <button class="btn download" type="submit" id="'%s' % (gdpr_template.id)" t-att-value="'%s' % (gdpr_template.id)"><b><i class="fa fa-download text-success"/></b></button>
+                                                    
+                                                    <button class="btn deleted" type="submit" id="'%s' % (gdpr_template.id)" t-att-value="'%s' % (gdpr_template.id)"><b><i class="fa fa-trash text-danger"/></b></button>
+                                                </span>
+
+                                                <div class="modal fade" id="downloadreq" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" style="float: left;margin: 10px;">
+                                                                    <b>
+                                                                        Request to download Information
+                                                                    </b>
+                                                                </h5>
+                                                            </div>
+                                                            <div class="modal-body" style="    margin: 10px;">
+                                                                <p>We receive your request for data download. stay with us while request has been confirmed.</p>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn done text-right" type="submit" style="float: right;margin: 10px;"><b>OK</b></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade" id="deletereq" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" style="float: left;margin: 10px;">
+                                                                    <b>
+                                                                        Request to Delete Information
+                                                                    </b> 
+                                                                </h5>
+                                                            </div>
+                                                            <div class="modal-body" style="    margin: 10px;">
+                                                                <t t-if="gpdr_config_id">
+                                                                    <span widget="html" t-field="gpdr_config_id.remove_msg" />
+                                                                </t>
+                                                                <t t-else="">
+                                                                    <p>We receive your request for data removal. stay with us while request has been confirmed.</p>
+                                                                </t>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn done text-right" type="submit" style="float: right;margin: 10px;"><b>OK</b></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="tab2request">
+                            <div class="container">
+                                <t t-foreach="gpdr_request_id" t-as="gdpr_request">
+                                    <div class="card col-md-10" >
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <span class="bi-margin" style="width: 88%;"> 
+                                                    <t t-if="gdpr_request">
+                                                        <b><span t-field="gdpr_request.gdpr_id.name" /></b>
+                                                        <t t-if="gdpr_request.request_type == 'download'">(Request for DATA DOWNLOAD)
+                                                        </t>
+                                                        <t t-else="" >(Request for DATA REMOVAL)
+                                                        </t>
+                                                    </t>
+                                                    <br/>
+                                                    <t t-if="gdpr_request.create_date">
+                                                        <b>Created On: </b><span t-field="gdpr_request.create_date" />
+                                                    </t>
+                                                    <br/>
+                                                    
+                                                    <t t-if="gdpr_request.state == 'pending'"><b>State: </b> <strong style="color:#205493;"><span t-field="gdpr_request.state" class="label"/></strong></t>
+                                                    <t t-if="gdpr_request.state == 'done'"><b>State: </b> <strong style="color:green;"><span t-field="gdpr_request.state" class="label"/></strong></t>
+                                                    <t t-if="gdpr_request.state == 'cancel'" ><b>State: </b> <strong style="color:red;"><span t-field="gdpr_request.state" class="label"/></strong></t>
+
+                                                </span>
+                                                <span class="bi-margin">
+                                                    <t t-if="gdpr_request.state == 'done' and gdpr_request.request_type == 'download'">
+                                                        <a t-att-href="'/my/data/pdf/%s?%s' % (gdpr_request.partner_id.id, keep_query())" class="btn download" type="submit"><b><i class="fa fa-download text-success"/></b></a>
+                                                    </t>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <div t-if="pager" class="o_portal_pager text-center">
+                                    <t t-call="website.pager"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

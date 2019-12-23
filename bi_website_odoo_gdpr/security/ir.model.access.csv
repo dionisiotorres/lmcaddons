@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gdpr_template,gdpr_template,model_gdpr_template,website.group_website_designer,1,1,1,0
+access_gdpr_config,gdpr_config,model_gdpr_config,website.group_website_designer,1,1,1,0
+admin_request,admin_request,model_gdpr_request,base.group_system,1,1,1,1
+admin_template,admin_template,model_gdpr_template,base.group_system,1,1,1,1
+admin_config,admin_config,model_gdpr_config,base.group_system,1,1,1,1

@@ -584,7 +584,8 @@
                                 <div class="mb-4 mb-md-0">
                                     <a class="fz15" t-attf-href="/web/reset_password" target="_blank">Change password</a> |
                                     <a class="fz15" t-if="not user_id._is_public()" t-attf-href="/web/session/logout?redirect=/">Logout</a> |
-                                    <a class="fz15">Joined <span t-field="request.env.user.create_date" t-options='{"format": "dd MMMM y"}'></span></a>
+                                    <a class="fz15">Joined <span t-field="request.env.user.create_date" t-options='{"format": "dd MMMM y"}'></span></a> |
+                                    <a href="/gdpr/profile" target="_BLANK">Manage Your Personal Data</a>
                                     <div class="text-muted"><small>Last seen <span t-esc="request.env.user.get_last_seen()" /> ago</small></div>
                                 </div>
                             </div>

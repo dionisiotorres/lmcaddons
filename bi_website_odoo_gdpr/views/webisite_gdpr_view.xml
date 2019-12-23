@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="gdpr_template_form_view" model="ir.ui.view">
+            <field name="name">gdpr.template.form</field>
+            <field name="model">gdpr.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="image" widget='image' class="oe_avatar" nolabel="1"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Description"> 
+                                <field name="description" nolabel="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="selection_type" />
+                                <field name="url" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="gdpr_template_tree_view" model="ir.ui.view">
+            <field name="name">gdpr.template.tree</field>
+            <field name="model">gdpr.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="selection_type" />
+                    <field name="url" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_gdpr_template_list" model="ir.actions.act_window">
+            <field name="name">GDPR Template</field>
+            <field name="res_model">gdpr.template</field>
+            <field name="viewtype">form</field>
+            <field name="viewmode">tree,form</field>
+        </record>
+
+        <record id="gdpr_request_form_view" model="ir.ui.view">
+            <field name="name">gdpr.request.form</field>
+            <field name="model">gdpr.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="mark_done" string="Mark As Done" type="object" class="btn-primary" attrs="{'invisible': [('state', '!=', 'pending')]}" />
+                        <button name="mark_cancel" string="Cancel" type="object" class="btn" attrs="{'invisible': [('state', '!=', 'pending')]}" />
+                        <field name="state" widget="statusbar" statusbar_visible="pending,done,cancel" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="wipe_data" type="object" class="oe_stat_button" icon="fa-archive" string="Wipe Data" attrs="{'invisible': [('request_type', '!=', 'delete')]}"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="selection_type"/>
+                                <field name="gdpr_id" />
+                            </group>
+                            <group>
+                                <field name="request_type" />
+                                <field name="create_date" />
+                                <field name="is_wipe" attrs="{'invisible': [('request_type', '!=', 'delete')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="gdpr_request_tree_view" model="ir.ui.view">
+            <field name="name">gdpr.request.tree</field>
+            <field name="model">gdpr.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id"/>
+                    <field name="selection_type"/>
+                    <field name="gdpr_id" />
+                    <field name="request_type" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_gdpr_request_list" model="ir.actions.act_window">
+            <field name="name">GDPR Request</field>
+            <field name="res_model">gdpr.request</field>
+            <field name="viewtype">form</field>
+            <field name="viewmode">tree,form</field>
+        </record>
+
+
+        <record id="gen_gdpr_config_form" model="ir.ui.view">
+            <field name="name">GDPR Configuration Wizard</field>
+            <field name="model">gdpr.config</field>
+            <field name="arch" type="xml">
+                <form string="Updated URLs">
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="GDPR Configuration" name="gdpr_data">
+                            <group>
+                                <group string="GDPR Title"> 
+                                    <field name="title" nolabel="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="GDPR Description"> 
+                                    <field name="description" nolabel="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Data Removal Message" name="gdpr_remove_msg">
+                            <group string="Message while removing Data"> 
+                                <field name="remove_msg" nolabel="1"/>
+                            </group>                            
+                        </page>
+                    </notebook>
+                    <group>
+                        <group>
+                            <field name="is_gdpr_msg" />
+                            <field name="gdpr_msg" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="save" string="Save" class="btn btn-primary" type="object"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="bi_url_gdpr_config_action" model="ir.actions.act_window">
+            <field name="name">GDPR Configuration</field>
+            <field name="res_model">gdpr.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_gdpr_settings" name="GDPR" sequence="1"
+            parent="website.menu_website_global_configuration"/>
+
+        <menuitem id="menu_gdpr_config_list"
+            action="bi_url_gdpr_config_action"
+            parent="menu_gdpr_settings" name="GDPR Configuration" sequence="1"/>
+
+        <menuitem id="menu_gdpr_template_list"
+            action="action_gdpr_template_list"
+            parent="menu_gdpr_settings" name="GDPR Template" sequence="2"/>
+
+        <menuitem id="menu_gdpr_request_list"
+            action="action_gdpr_request_list"
+            parent="menu_gdpr_settings" name="GDPR Request" sequence="3"/>
+
+    </data>
+</odoo>

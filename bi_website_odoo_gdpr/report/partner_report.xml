@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="website_res_partner_temp_id_view">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<t t-foreach="docs" t-as="o">
+						<br/>
+						<h2><span t-field="o.name"/></h2>
+						<br />
+						<table style="border-collapse: collapse;width: 100%;" class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Mobile</th>
+									<th>Phone</th>
+									<th>Email</th>
+								</tr>
+							</thead>
+							<tbody class="components_tbody">
+								<tr>
+									<td>
+										<span t-field="o.name" />
+									</td>
+									<td>
+										<span t-field="o.mobile" />
+									</td>
+									<td>
+										<span t-field="o.phone" />
+									</td>
+									<td>
+										<span t-field="o.email" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table style="border-collapse: collapse;width: 100%;" class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Street</th>
+									<th>Street2</th>
+									<th>City</th>
+									<th>Zip Code</th>
+									<th>State</th>
+									<th>Country</th>
+								</tr>
+							</thead>
+							<tbody class="components_tbody">
+								<tr>
+									<td>
+										<span t-field="o.street" />
+									</td>
+									<td>
+										<span t-field="o.street2" />
+									</td>
+									<td>
+										<span t-field="o.city" />
+									</td>
+									<td>
+										<span t-field="o.zip" />
+									</td>
+									<td>
+										<span t-field="o.state_id" />
+									</td>
+									<td>
+										<span t-field="o.country_id" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</t>
+				</div>
+			</t>
+		</template>
+
+		<template id="website_res_partner_temp_id">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="bi_website_odoo_gdpr.website_res_partner_temp_id_view" /><!-- 
+						t-lang="doc.partner_id.lang" -->
+				</t>
+			</t>
+		</template>
+
+
+		<report id="website_res_partner_report_id" string="Website Partner"
+			model="res.partner" report_type="qweb-pdf" file="bi_website_odoo_gdpr.website_res_partner_temp_id" name="bi_website_odoo_gdpr.website_res_partner_temp_id"/>								
+
+	</data>
+</odoo>
