@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_company_form_inherit" model="ir.ui.view">
+            <field name="name">Res Company Custom</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after">
+                    <field name="product_tab_type" />
+                </field>
+            </field>
+        </record>
+        <template id="vertical_tab">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-2">
+                    <ul class="nav nav-pills verti flex-column mt16 mb16">
+                        <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
+                            <li class="nav-item ">
+                                <a t-attf-class="nav-link #{'active show' if rennfelder_id_first else ''}" data-toggle="pill" t-attf-href="#ren_#{rennfelder_id.id}">
+                                    <b><t t-esc="rennfelder_id.name" /></b></a>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+                <div class="col-lg-9 col-md-10 col-10">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
+                            <div t-attf-class="tab-pane #{'active show' if rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
+                                <div class="row">
+                                    <t t-foreach="partner_ids" t-as="partner_id">
+                                        <t t-if="partner_id.x_race_info_field and partner_id.x_race_info_field.id == rennfelder_id.id">
+                                            <div class="col-lg-4 col-md-10 mt8 mb16">
+                                                <div class="cssui-usercard">
+                                                    <div class="cssui-usercard__body">
+                                                        <div class="cssui-usercard__header">
+                                                            <img class="cssui-usercard__avatar" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
+                                                            <div class="cssui-usercard__header-info">
+                                                                <h5>
+                                                                    <t t-esc="partner_id.name" />
+                                                                </h5>
+                                                                <t t-esc="partner_id.x_vehicle_manufacturer" /><br />
+                                                                <t t-esc="partner_id.x_vehicle_type" /><br />
+                                                                <t t-esc="partner_id.x_vehicle_year_construction" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="cssui-usercard__content">
+                                                            <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="horizontal_tab">
+            <ul class="nav nav-pills nav-tabs mt8">
+                <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
+                    <li class="nav-item ">
+                        <a t-attf-class="nav-link #{'active show' if rennfelder_id_first else ''}" data-toggle="pill" t-attf-href="#ren_#{rennfelder_id.id}">
+                            <b><t t-esc="rennfelder_id.name" /></b></a>
+                    </li>
+                </t>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
+                    <div t-attf-class="tab-pane #{'active show' if rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
+                        <div class="row">
+                            <t t-foreach="partner_ids" t-as="partner_id">
+                                <t t-if="partner_id.x_race_info_field and partner_id.x_race_info_field.id == rennfelder_id.id">
+                                    <div class="col-lg-4 col-md-10 mt8 mb16">
+                                        <div class="cssui-usercard">
+                                            <div class="cssui-usercard__body">
+                                                <div class="cssui-usercard__header">
+                                                    <img class="cssui-usercard__avatar" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
+                                                    <div class="cssui-usercard__header-info">
+                                                        <h5>
+                                                            <t t-esc="partner_id.name" />
+                                                        </h5>
+                                                        <t t-esc="partner_id.x_vehicle_manufacturer" /><br />
+                                                        <t t-esc="partner_id.x_vehicle_type" /><br />
+                                                        <t t-esc="partner_id.x_vehicle_year_construction" />
+                                                    </div>
+                                                </div>
+                                                <div class="cssui-usercard__content">
+                                                    <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </template>
+        <record id="racefields_lmc" model="ir.ui.view">
+            <field name="name">Racefields </field>
+            <field name="type">qweb</field>
+            <field name="key">website_lmc.racefields_lmc</field>
+            <field name="arch" type="xml">
+                <t name="racefields_lmc" t-name="website_lmc.racefields_lmc">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure" />
+                            <div class="col-sm-12 partner_block_cl">
+                                <t t-set="tabs" t-value="request.env['rennfelder'].search([])" />
+                                <div class="container" t-if="tabs" style="border-top: 1px solid lightgrey;">
+                                    <t t-if="company.product_tab_type=='horizontal'">
+                                        <t t-call="website_lmc.horizontal_tab" />
+                                    </t>
+                                    <t t-if="company.product_tab_type=='vertical'">
+                                        <t t-call="website_lmc.vertical_tab" />
+                                    </t>
+                                </div>
+                                <div class="oe_structure" />
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+    <data>
+        <data noupdate="1">
+            <record id="racefields_lmc_page" model="website.page">
+                <field name="website_published">True</field>
+                <field name="url">/racefields</field>
+                <field name="view_id" ref="racefields_lmc" />
+            </record>
+        </data>
+    </data>
+</odoo>

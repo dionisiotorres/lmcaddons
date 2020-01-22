@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from odoo import http
@@ -298,3 +299,12 @@ class CustomerUserPortal(CustomerPortal):
         partner_id = request.env.user.partner_id
         partner_id.image = ''
         return {"success": True}
+
+    @route(["/racefields"], type="http", auth="public", website=True)
+    def racefields(self, **post):
+        rennfelder_ids = request.env['rennfelder'].search([])
+        partner_ids = request.env['res.partner'].search([])
+        values = {'rennfelder_ids': rennfelder_ids,
+                  'partner_ids': partner_ids,
+                  'company': request.env.user.company_id}
+        return request.render("website_lmc.racefields_lmc", values)

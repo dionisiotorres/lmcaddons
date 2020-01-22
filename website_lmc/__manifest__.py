@@ -33,6 +33,7 @@
         'views/helper.xml',
         'views/history.xml',
         'views/news.xml',
+        'views/racefields.xml',
     ],
     'installable': True,
     'license': 'OPL-1',

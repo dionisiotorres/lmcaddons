@@ -4,6 +4,11 @@ from odoo import models, fields
 from datetime import datetime
 
 
+class ResCompany(models.Model):
+    _inherit = "res.company"
+
+    product_tab_type = fields.Selection([('vertical', 'Vertical'), ('horizontal', 'Horizontal')], string="Tab Type", default='vertical')
+
 class Users(models.Model):
     _inherit = "res.users"
 
