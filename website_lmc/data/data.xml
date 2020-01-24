@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <function model="res.partner" name="set_website_pulished_true"/>
     	<record model="ir.rule" id="website_menu_public_hide">
                 <field name="name">website menu hide for public user</field>
                 <field name="model_id" ref="website.model_website_menu"/>

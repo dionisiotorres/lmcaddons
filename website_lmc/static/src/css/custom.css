@@ -201,6 +201,12 @@ body{
 .nav-tabs .nav-link {
   border: none;
 }
+.partner_block_cl .nav-tabs .nav-link.active {
+  font-size: 14px;  
+}
+.partner_block_cl .nav-tabs .nav-link {
+  font-size: 13px;  
+}
 
 .user_profile .nav-tabs.nav-tabs--default .nav-link {
     font-size: 1rem;
@@ -620,18 +626,19 @@ body{
   background-color: #817E65;
   color: #FFFFFF;
 }
-/*.partner_block_cl .nav-pills li>a.nav-link.active::after{
+.partner_block_cl .flex-column li>a.nav-link.active b::after{
     content: "";
     position: absolute;
-    top: 18px;
+    width: 22px;
+    top: unset;
     right: -10px;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid #817E65;
+    border-top: 12px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 13px solid #817E65;
     display: block;
-    width: 0;
-    left: 270px;
-}*/
+    left: 268px;
+    margin-top: -23px;
+}
 
 .partner_block_cl .cssui-usercard__header{
   padding: 0.5rem 2% 0.5rem;
@@ -655,6 +662,7 @@ body{
   margin: 0 auto; 
   display: block;
   max-height: 150px;
+  /*max-height: 120px;*/
 }
 
 .partner_block_cl .cssui-usercard__avatar{

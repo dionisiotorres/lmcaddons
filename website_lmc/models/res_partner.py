@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class ResPartner(models.Model):
@@ -54,6 +54,7 @@ class ResPartner(models.Model):
     x_pit_box_number = fields.Integer(string='Pit Box Number')
     x_vehicle_inspection_passed = fields.Char(string='Vehicle inspection passed?')
     x_autorized = fields.Char(string='Autorized to start?')
+    website_published = fields.Boolean(default=True)
     type = fields.Selection(
         [('contact', 'Contact'),
          ('invoice', 'Invoice address'),
@@ -64,6 +65,10 @@ class ResPartner(models.Model):
         default='contact',
         help="Used by Sales and Purchase Apps to select the relevant address depending on the context.")
 
+    @api.model
+    def set_website_pulished_true(self):
+        partner_ids = self.env['res.partner'].sudo().search([])
+        partner_ids.write({'website_published': True})
 
 class VehicleCode(models.Model):
     _name = "vehicle.code"

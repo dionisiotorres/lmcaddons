@@ -1,6 +1,6 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-access_vehicle_code,access_vehicle_code,model_vehicle_code,base.group_user,1,1,1,1
-access_rennfelder,access_rennfelder,model_rennfelder,base.group_user,1,1,1,1
-access_driver_license_codes,access_driver_license_codes,model_driver_license_codes,base.group_user,1,1,1,1
-access_shirt_size_codes,access_shirt_size_codes,model_shirt_size_codes,base.group_user,1,1,1,1
+access_vehicle_code,access_vehicle_code,model_vehicle_code,,1,1,1,1
+access_rennfelder,access_rennfelder,model_rennfelder,,1,1,1,1
+access_driver_license_codes,access_driver_license_codes,model_driver_license_codes,,1,1,1,1
+access_shirt_size_codes,access_shirt_size_codes,model_shirt_size_codes,,1,1,1,1
 access_home_boxes,access_home_boxes,model_home_boxes,,1,1,1,1

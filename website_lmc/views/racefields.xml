@@ -8,34 +8,43 @@
             <field name="arch" type="xml">
                 <field name="currency_id" position="after">
                     <field name="product_tab_type" />
+                    <field name="mobile_pic" />
                 </field>
             </field>
         </record>
         <template id="vertical_tab">
             <div class="row">
-                <div class="col-lg-3 col-md-2 col-2">
-                    <ul class="nav nav-pills verti flex-column mt16 mb16">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <ul class="nav nav-pills flex-column mt16 mb16">
                         <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
-                            <li class="nav-item ">
+                            <li class="nav-item">
                                 <a t-attf-class="nav-link #{'active show' if rennfelder_id_first else ''}" data-toggle="pill" t-attf-href="#ren_#{rennfelder_id.id}">
                                     <b><t t-esc="rennfelder_id.name" /></b></a>
                             </li>
                         </t>
                     </ul>
                 </div>
-                <div class="col-lg-9 col-md-10 col-10">
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
                             <div t-attf-class="tab-pane #{'active show' if rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
+                                <div class="oe_structure" />
+                                <h2 class="text-center">
+                                    <b><t t-esc="rennfelder_id.name" /></b>
+                                </h2>
+                                <div class="clearfix"/>
+                                <div class="oe_structure" />
                                 <div class="row">
                                     <t t-foreach="partner_ids" t-as="partner_id">
                                         <t t-if="partner_id.x_race_info_field and partner_id.x_race_info_field.id == rennfelder_id.id">
-                                            <div class="col-lg-4 col-md-10 mt8 mb16">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb16 mt8">
+                                                <div class="oe_structure" />
+                                                <div class="clearfix"/>
                                                 <div class="cssui-usercard">
                                                     <div class="cssui-usercard__body">
                                                         <div class="cssui-usercard__header">
-                                                            <img class="cssui-usercard__avatar" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
+                                                            <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
                                                             <div class="cssui-usercard__header-info">
                                                                 <h5>
                                                                     <t t-esc="partner_id.name" />
@@ -54,6 +63,8 @@
                                         </t>
                                     </t>
                                 </div>
+                                <div class="oe_structure" />
+                                <div class="clearfix"/>
                             </div>
                         </t>
                     </div>
@@ -73,14 +84,18 @@
             <div class="tab-content">
                 <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
                     <div t-attf-class="tab-pane #{'active show' if rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
+                        <h2 class="text-center">
+                            <b><t t-esc="rennfelder_id.name" /></b>
+                        </h2>
+                        <div class="oe_structure" />
                         <div class="row">
                             <t t-foreach="partner_ids" t-as="partner_id">
                                 <t t-if="partner_id.x_race_info_field and partner_id.x_race_info_field.id == rennfelder_id.id">
-                                    <div class="col-lg-4 col-md-10 mt8 mb16">
+                                    <div class="col-sm-12 col-md-4 col-lg-4 mt8 mb16">
                                         <div class="cssui-usercard">
                                             <div class="cssui-usercard__body">
                                                 <div class="cssui-usercard__header">
-                                                    <img class="cssui-usercard__avatar" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
+                                                    <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
                                                     <div class="cssui-usercard__header-info">
                                                         <h5>
                                                             <t t-esc="partner_id.name" />
@@ -99,6 +114,7 @@
                                 </t>
                             </t>
                         </div>
+                        <div class="oe_structure" />
                     </div>
                 </t>
             </div>
@@ -110,19 +126,20 @@
             <field name="arch" type="xml">
                 <t name="racefields_lmc" t-name="website_lmc.racefields_lmc">
                     <t t-call="website.layout">
-                        <div id="wrap">
-                            <div class="oe_structure" />
-                            <div class="col-sm-12 partner_block_cl">
-                                <t t-set="tabs" t-value="request.env['rennfelder'].search([])" />
-                                <div class="container" t-if="tabs" style="border-top: 1px solid lightgrey;">
-                                    <t t-if="company.product_tab_type=='horizontal'">
-                                        <t t-call="website_lmc.horizontal_tab" />
-                                    </t>
-                                    <t t-if="company.product_tab_type=='vertical'">
-                                        <t t-call="website_lmc.vertical_tab" />
-                                    </t>
+                        <div class="oe_structure oe_empty">
+                            <div id="wrap">
+                                <div class="col-sm-12 partner_block_cl">
+                                    <t t-set="tabs" t-value="request.env['rennfelder'].search([])" />
+                                    <div class="container" t-if="tabs" style="border-top: 1px solid lightgrey;">
+                                        <t t-if="company.product_tab_type=='horizontal'">
+                                            <t t-call="website_lmc.horizontal_tab" />
+                                        </t>
+                                        <t t-if="company.product_tab_type=='vertical'">
+                                            <t t-call="website_lmc.vertical_tab" />
+                                        </t>
+                                    </div>
+                                    <div class="oe_structure" />
                                 </div>
-                                <div class="oe_structure" />
                             </div>
                         </div>
                     </t>

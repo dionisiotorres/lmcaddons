@@ -8,6 +8,7 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     product_tab_type = fields.Selection([('vertical', 'Vertical'), ('horizontal', 'Horizontal')], string="Tab Type", default='vertical')
+    mobile_pic = fields.Boolean("Mobile Picture",default=False)
 
 class Users(models.Model):
     _inherit = "res.users"
