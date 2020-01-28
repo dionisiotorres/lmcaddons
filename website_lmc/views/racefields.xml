@@ -30,10 +30,12 @@
                         <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
                             <div t-attf-class="tab-pane #{'active show' if rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
                                 <div class="oe_structure" />
-                                <h2 class="text-center">
+                                <h2 class="text-center mt16">
                                     <b><t t-esc="rennfelder_id.name" /></b>
                                 </h2>
                                 <div class="clearfix"/>
+                                <div class="oe_structure" />
+                                <h3 class="text-center"><span t-field="rennfelder_id.note"/></h3>
                                 <div class="oe_structure" />
                                 <div class="row">
                                     <t t-foreach="partner_ids" t-as="partner_id">

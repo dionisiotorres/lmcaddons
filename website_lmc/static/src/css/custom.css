@@ -627,17 +627,17 @@ body{
   color: #FFFFFF;
 }
 .partner_block_cl .flex-column li>a.nav-link.active b::after{
-    content: "";
+    /*content: "";
     position: absolute;
     width: 22px;
     top: unset;
     right: -10px;
     border-top: 12px solid transparent;
-    border-bottom: 13px solid transparent;
-    border-left: 13px solid #817E65;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid #817E65;
     display: block;
     left: 268px;
-    margin-top: -23px;
+    margin-top: -22px;*/
 }
 
 .partner_block_cl .cssui-usercard__header{

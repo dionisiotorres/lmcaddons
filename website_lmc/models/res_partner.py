@@ -78,8 +78,12 @@ class VehicleCode(models.Model):
 
 class Rennfelder(models.Model):
     _name = "rennfelder"
+    _description = "Renn felder"
+    _order = 'sequence'
 
     name = fields.Char(string='Name', required=True, translate=True)
+    sequence = fields.Integer(help='Used to order Journals in the dashboard view', default=10)
+    note = fields.Text("Note")
 
 
 class DriverLicenseCodes(models.Model):
