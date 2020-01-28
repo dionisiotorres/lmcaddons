@@ -302,8 +302,8 @@ class CustomerUserPortal(CustomerPortal):
 
     @route(["/racefields"], type="http", auth="public", website=True)
     def racefields(self, **post):
-        rennfelder_ids = request.env['rennfelder'].search([('id','=',22222200)])
-        partner_ids = request.env['res.partner'].sudo().search([('id','=',22222200)])
+        rennfelder_ids = request.env['rennfelder'].search([])
+        partner_ids = request.env['res.partner'].sudo().search([])
         values = {'rennfelder_ids': rennfelder_ids,
                   'partner_ids': partner_ids,
                   'company': request.env.user.company_id}
