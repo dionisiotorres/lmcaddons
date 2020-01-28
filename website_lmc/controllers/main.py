@@ -304,7 +304,10 @@ class CustomerUserPortal(CustomerPortal):
     def racefields(self, **post):
         rennfelder_ids = request.env['rennfelder'].search([])
         partner_ids = request.env['res.partner'].sudo().search([])
-        values = {'rennfelder_ids': rennfelder_ids,
-                  'partner_ids': partner_ids,
-                  'company': request.env.user.company_id}
+        # values = {'rennfelder_ids': rennfelder_ids,
+        #           'partner_ids': partner_ids,
+        #           'company': request.env.user.company_id}
+        values = {}
         return request.render("website_lmc.racefields_lmc", values)
+
+
