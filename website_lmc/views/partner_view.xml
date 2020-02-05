@@ -47,6 +47,7 @@
                                 <field name="x_vehicle_cylinder"/>
                                 <field name="x_vehicle_horse_power"/>
                                 <field name="x_vehicle_desc"/>
+                                <field name="image_url_vehical"/>
                             </group>
                             <group>
                                 <field name="x_vehicle_modifications"/>

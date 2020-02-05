@@ -136,7 +136,14 @@
                             <div class="wysiwyg font-light wysiwyg-multicolumn-2">
                                 <ul class="list list-unstyled">
                                     <li><label>Name:</label> <span t-esc="partner.name" /></li>
-                                    <li><label>Gender:</label> <span t-esc="partner.x_gender" /></li>
+                                    <li><label>Gender:</label>
+                                        <t t-if="partner.x_gender == 'male'">
+                                           <span>Male</span>
+                                        </t>
+                                        <t t-if="partner.x_gender == 'female'">
+                                           <span>Female</span>
+                                        </t>
+                                    </li>
                                     <li><label>Date of birth:</label> <span t-field="partner.x_birthdate" t-options='{"format": "d-MM-YYYY"}' /></li>
                                     <li><label>Nationality:</label> <span t-esc="partner.x_nationality.name" /></li>
                                     <li><label>License Type:</label> <span t-esc="partner.x_driver_license_type.name" /></li>
@@ -585,7 +592,7 @@
                                     <a class="fz15" t-attf-href="/web/reset_password" target="_blank">Change password</a> |
                                     <a class="fz15" t-if="not user_id._is_public()" t-attf-href="/web/session/logout?redirect=/">Logout</a> |
                                     <a class="fz15">Joined <span t-field="request.env.user.create_date" t-options='{"format": "dd MMMM y"}'></span></a> |
-                                    <!-- <a href="/racefields" target="_BLANK">Race Fields</a> | -->
+                                    <a href="/racefields" target="_BLANK">Race Fields</a> |
                                     <a href="/gdpr/profile" target="_BLANK">Manage Your Personal Data</a> |
                                     <div class="text-muted"><small>Last seen <span t-esc="request.env.user.get_last_seen()" /> ago</small></div>
                                 </div>
@@ -726,6 +733,7 @@
                                             <label for="street">Street<span class="start">*</span></label>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-4">
                                         <div class="form-group form-group--floating">
                                             <input type="text" name="city" t-att-class="'form-control has-value' if partner.city else 'form-control'" t-att-value="'city' in partner and partner['city']"/>
@@ -773,6 +781,12 @@
                                                 </t>
                                             </select>
                                             <label for="x_nationality">Nationality<span class="start">*</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                         <input type="text" name="x_birthdate" t-attf-class="form-control birthDate_datepicker #{'has-value' if partner and partner['x_birthdate'] else ''}" t-att-value="'x_birthdate' in partner and partner['x_birthdate'] and partner['x_birthdate'].strftime('%m-%d-%Y')"/>
+                                         <label for="x_birthdate">Date of birth</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">

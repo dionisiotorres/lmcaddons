@@ -50,11 +50,12 @@ class ResPartner(models.Model):
     x_date_enrolement_reveived = fields.Date(string='Date Enrolement Received')
     x_nomination_status = fields.Char(string='Nomination Status')
     x_race_info_field = fields.Many2one('rennfelder', string='Race field')
-    x_race_info_starting_num = fields.Integer(string='Starting Number')
+    x_race_info_starting_num = fields.Char(string='Starting Number')
     x_pit_box_number = fields.Integer(string='Pit Box Number')
     x_vehicle_inspection_passed = fields.Char(string='Vehicle inspection passed?')
     x_autorized = fields.Char(string='Autorized to start?')
     website_published = fields.Boolean(default=True)
+    image_url_vehical = fields.Char(string="URL")
     type = fields.Selection(
         [('contact', 'Contact'),
          ('invoice', 'Invoice address'),

@@ -16,9 +16,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <ul class="nav nav-pills flex-column mt16 mb16">
+
                         <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
                             <li class="nav-item">
-                                <a t-attf-class="nav-link #{'active show' if rennfelder_id_first else ''}" data-toggle="pill" t-attf-href="#ren_#{rennfelder_id.id}">
+                                <a t-attf-class="nav-link #{'active show' if rennfelder_id.id == selected_type else ''} #{'active show' if not selected_type and rennfelder_id_first else ''}" data-toggle="pill" t-attf-href="#ren_#{rennfelder_id.id}">
                                     <b><t t-esc="rennfelder_id.name" /></b></a>
                             </li>
                         </t>
@@ -28,7 +29,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <t t-foreach="rennfelder_ids" t-as="rennfelder_id">
-                            <div t-attf-class="tab-pane #{'active show' if rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
+                            <div t-attf-class="tab-pane #{'active show' if rennfelder_id.id == selected_type else ''} #{'active show' if not selected_type and rennfelder_id_first else ''}" t-attf-id="ren_#{rennfelder_id.id}">
                                 <div class="oe_structure" />
                                 <h2 class="text-center mt16">
                                     <b><t t-esc="rennfelder_id.name" /></b>
@@ -46,18 +47,57 @@
                                                 <div class="cssui-usercard">
                                                     <div class="cssui-usercard__body">
                                                         <div class="cssui-usercard__header">
-                                                            <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar" />
+                                                            <span class="race_start_number" t-if="not user_id.has_group('base.group_user') and partner_id.x_race_info_starting_num">
+                                                                <t t-esc="partner_id.x_race_info_starting_num"/>
+                                                            </span>
+                                                            <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar"  t-if="user_id.has_group('base.group_user')"/>
                                                             <div class="cssui-usercard__header-info">
-                                                                <h5>
+                                                                <h5 t-if="user_id.has_group('base.group_user')" style="margin-bottom: 0px">
                                                                     <t t-esc="partner_id.name" />
                                                                 </h5>
-                                                                <t t-esc="partner_id.x_vehicle_manufacturer" /><br />
-                                                                <t t-esc="partner_id.x_vehicle_type" /><br />
-                                                                <t t-esc="partner_id.x_vehicle_year_construction" />
+                                                                <span t-if="user_id.has_group('base.group_user') and partner_id.x_race_info_starting_num">
+                                                                    <t t-esc="partner_id.x_race_info_starting_num"/>
+                                                                    <br/>
+                                                                </span>
+                                                                <t t-if="partner_id.x_vehicle_manufacturer">
+                                                                    <t t-esc="partner_id.x_vehicle_manufacturer" /><br />
+                                                                </t>
+                                                                <t t-if="partner_id.x_vehicle_type">
+                                                                    <t t-esc="partner_id.x_vehicle_type" /><br />
+                                                                </t>
+                                                                <t t-if="partner_id.x_vehicle_year_construction">
+                                                                    <t t-esc="partner_id.x_vehicle_year_construction" />
+                                                                </t>
+                                                                <t t-if="partner_id.x_vehicle_ccm">
+                                                                  &amp;nbsp;|&amp;nbsp;  <t t-esc="partner_id.x_vehicle_ccm"/> &amp;nbsp; ccm
+                                                                  <br/>
+                                                                </t>
+                                                                <t t-if="partner_id.x_vehicle_cylinder">
+                                                                    <t t-esc="partner_id.x_vehicle_cylinder"/>
+                                                                    <span>Cylinder</span>
+                                                                </t>
+                                                                <t t-if="partner_id.x_vehicle_horse_power"> |
+                                                                    <t t-esc="partner_id.x_vehicle_horse_power"/> <span>HP</span>
+                                                                </t>
+                                                                <t t-if="partner_id.image_url_vehical">
+                                                                    <a t-att-href="partner_id.image_url_vehical" style="color: white;text-decoration: none;">
+                                                                        click to visit us
+                                                                    </a>
+                                                                </t>
                                                             </div>
                                                         </div>
                                                         <div class="cssui-usercard__content">
-                                                            <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
+                                                            <t t-if="partner_id.image_url_vehical">
+                                                                <a class="image_car_block" t-att-href="partner_id.image_url_vehical">
+                                                                    <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
+                                                                </a>
+                                                            </t>
+                                                            <t t-if="not partner_id.image_url_vehical">
+                                                                <div class="image_car_block">
+                                                                    <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
+                                                                    <span class="vehical_description" t-esc="partner_id.x_vehicle_desc"/>
+                                                                </div>
+                                                            </t>
                                                         </div>
                                                     </div>
                                                 </div>

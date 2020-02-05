@@ -199,4 +199,9 @@ odoo.define('website_lmc.custom', function(require) {
             this.selectionEnd = position;
         }
     });
+    $(".cssui-usercard__content .image_car_block").click(function(){
+        $(this).toggleClass('image_show_car_desc');
+    });
+
+    $('.birthDate_datepicker').datepicker();
 });

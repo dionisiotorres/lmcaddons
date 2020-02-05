@@ -1,10 +1,13 @@
 
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import http
+from odoo import http, _
 from odoo.http import request, route
 from odoo.addons.portal.controllers.portal import CustomerPortal
 from odoo.addons.website.controllers.main import Website
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo.exceptions import UserError
+from datetime import datetime
 import base64
 
 
@@ -17,7 +20,7 @@ class CustomWebsiteHome(Website):
         return res
 
 class CustomerUserPortal(CustomerPortal):
-    
+
     OPTIONAL_BILLING_FIELDS = ["zipcode", "state_id", "vat", "company_name", "about_us", "x_family_name", "x_gender",
     "x_birthdate", "x_nationality", "x_drive_club", "x_driver_license_type", "x_driver_license_num", "x_driver_pict_path",
     "x_driver_success", "x_driver_year_racing_since", "x_driver_amount_events", "x_driver_year_last_event",
@@ -36,6 +39,14 @@ class CustomerUserPortal(CustomerPortal):
                 image = post.get('ufile').read()
                 partner.write({'image': base64.b64encode(image), 'about_us': post.get('about_us') or ''})
             post.pop('ufile')
+        if post.get('x_birthdate'):
+            try:
+                my_date = datetime.strptime(post.get('x_birthdate'), '%m-%d-%Y')
+                birthday_date = my_date.strftime(DEFAULT_SERVER_DATE_FORMAT)
+                post['x_birthdate'] = birthday_date
+            except:
+                raise UserError(_("Please Enter correct birth date."))
+
         res = super(CustomerUserPortal, self).account(redirect=redirect, **post)
         res.qcontext['tabinfo'] = 'personal_data'
         license_type = request.env['driver.license.codes'].sudo().search([])
@@ -303,10 +314,13 @@ class CustomerUserPortal(CustomerPortal):
     @route(["/racefields"], type="http", auth="public", website=True)
     def racefields(self, **post):
         rennfelder_ids = request.env['rennfelder'].search([])
-        partner_ids = request.env['res.partner'].sudo().search([])
+        partner_ids = request.env['res.partner'].sudo().search([], order='x_race_info_starting_num')
+        partner_id = request.env.user.partner_id
+        selected_type = partner_id.x_race_info_field.id if partner_id.x_race_info_field else False
         values = {'rennfelder_ids': rennfelder_ids,
                   'partner_ids': partner_ids,
-                  'company': request.env.user.company_id}
+                  'company': request.env.user.company_id,
+                  'selected_type': selected_type}
         return request.render("website_lmc.racefields_lmc", values)
 
 

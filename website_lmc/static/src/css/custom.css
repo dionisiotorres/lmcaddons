@@ -650,19 +650,21 @@ body{
 }
 
 .partner_block_cl .cssui-usercard__content{
-  padding: 0.5rem 1% 0.5rem;
+  /*padding: 0.5rem 1% 0.5rem;*/
   display: grid;
   align-items: center;
   /*background-image: linear-gradient(to bottom, #3F51B5, #041886);*/
   background: #dedede;
   color: #fff;
 }
-
+.partner_block_cl .cssui-usercard__content img{
+  width:100%;
+}
 .partner_block_cl .cssui-usercard__image{
   margin: 0 auto; 
   display: block;
   max-height: 150px;
-  /*max-height: 120px;*/
+  min-height: 150px;
 }
 
 .partner_block_cl .cssui-usercard__avatar{
@@ -670,8 +672,8 @@ body{
   border: 4px solid #fff;
   box-sizing: border-box;
   margin-right: 4%;
-  width: 8rem;
-  height: 8rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .partner_block_cl .cssui-usercard__name-label{
@@ -836,4 +838,28 @@ body{
 
 .partner_block_cl .icon-man-woman{
   background-image: url("https://stas-melnikov.ru/demo-icons/family-colored.svg");
+}
+
+.cssui-usercard__header .race_start_number{
+    background: white;
+    color: red;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 4%;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 64px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.image_car_block.image_show_car_desc .vehical_description{
+     position: absolute;
+    bottom: 0;
+    padding: 3px;
+    background: #000000bf;
+    display: block;
+}
+.image_car_block .vehical_description{
+  display: none;
 }
