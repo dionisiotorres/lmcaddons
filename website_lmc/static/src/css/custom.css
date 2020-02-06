@@ -853,13 +853,12 @@ body{
     font-size: 14px;
     font-weight: bold;
 }
-.image_car_block.image_show_car_desc .vehical_description{
-     position: absolute;
-    bottom: 0;
-    padding: 3px;
-    background: #000000bf;
-    display: block;
+.custom_discription_info_car{
+  cursor: pointer;
 }
-.image_car_block .vehical_description{
-  display: none;
+.model_vehical_desc_001{
+  color: gray;
+}
+.car_description_info h5.modal-title{
+  color: gray;
 }

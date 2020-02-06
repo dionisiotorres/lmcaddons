@@ -88,14 +88,6 @@ class CustomerUserPortal(CustomerPortal):
 
         shippings = partner.mapped('child_ids').filtered(lambda r: r.type == 'delivery')
         others = partner.mapped('child_ids').filtered(lambda r: r.type == 'other')
-        # import pdb
-        # pdb.set_trace()
-        # shippings = request.env['res.partner'].sudo().search([
-        #     ("id", "child_of", partner.commercial_partner_id.ids),
-        #     ("type", "in", ["delivery"])], order='id desc')
-        # others = request.env['res.partner'].sudo().search([
-        #     ("id", "child_of", partner.commercial_partner_id.ids),
-        #     ("type", "in", ["other"]), ("id", "!=", partner.id)], order='id desc')
         values.update({
             'shippings': shippings,
             'others': others,
@@ -323,4 +315,10 @@ class CustomerUserPortal(CustomerPortal):
                   'selected_type': selected_type}
         return request.render("website_lmc.racefields_lmc", values)
 
-
+    @route(["/partner/car/info"], type="json", auth="public", website=True)
+    def partner_car_info(self, **post):
+        values = {'modeldata': False}
+        if post.get('partner_id'):
+            partner = request.env['res.partner'].sudo().search([('id', '=', int(post.get('partner_id')))])
+            values['modeldata'] = request.env['ir.ui.view'].render_template("website_lmc.modal_popup_car_desc", {'partner_id': partner})
+        return values

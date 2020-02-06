@@ -199,9 +199,21 @@ odoo.define('website_lmc.custom', function(require) {
             this.selectionEnd = position;
         }
     });
-    $(".cssui-usercard__content .image_car_block").click(function(){
-        $(this).toggleClass('image_show_car_desc');
+    $('.custom_discription_info_car').click(function(){
+        var partner_id = parseInt(this.getAttribute('data-partner_id'));
+        var href_url = this.getAttribute('data-href');
+        if(href_url){
+            window.location.href = href_url;
+        }else{
+            ajax.jsonRpc("/partner/car/info", 'call', {'partner_id': partner_id}).then(function(datas) {
+                if(datas.modeldata){
+                    $('.car_descriptions_main').html(datas.modeldata);
+                    $('.car_descriptions_main').find('.car_description_info').modal('show');
+                }
+            });
+        }
+        
     });
-
+    
     $('.birthDate_datepicker').datepicker();
 });

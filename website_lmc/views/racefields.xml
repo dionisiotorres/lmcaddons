@@ -45,17 +45,22 @@
                                                 <div class="oe_structure" />
                                                 <div class="clearfix"/>
                                                 <div class="cssui-usercard">
-                                                    <div class="cssui-usercard__body">
+                                                    <div class="cssui-usercard__body custom_discription_info_car" t-att-data-href="partner_id.image_url_vehical" t-att-data-partner_id="partner_id.id">
                                                         <div class="cssui-usercard__header">
-                                                            <span class="race_start_number" t-if="not user_id.has_group('base.group_user') and partner_id.x_race_info_starting_num">
+                                                            <span class="race_start_number" t-if="not user_id.has_group('base.group_user') and partner_id.x_race_info_starting_num and not '.' in partner_id.x_race_info_starting_num">
                                                                 <t t-esc="partner_id.x_race_info_starting_num"/>
                                                             </span>
-                                                            <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar"  t-if="user_id.has_group('base.group_user')"/>
+                                                            <t t-if="partner_id.x_race_info_starting_num and '.' in partner_id.x_race_info_starting_num">
+                                                                <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar"/>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <img t-attf-class="cssui-usercard__avatar #{'' if company.mobile_pic else 'd-none d-sm-block'}" t-attf-src="/web/image/res.partner/#{partner_id.id}/image" alt="Avatar"  t-if="user_id.has_group('base.group_user')"/>
+                                                            </t>
                                                             <div class="cssui-usercard__header-info">
                                                                 <h5 t-if="user_id.has_group('base.group_user')" style="margin-bottom: 0px">
                                                                     <t t-esc="partner_id.name" />
                                                                 </h5>
-                                                                <span t-if="user_id.has_group('base.group_user') and partner_id.x_race_info_starting_num">
+                                                                <span t-if="user_id.has_group('base.group_user') and partner_id.x_race_info_starting_num and not '.' in partner_id.x_race_info_starting_num">
                                                                     <t t-esc="partner_id.x_race_info_starting_num"/>
                                                                     <br/>
                                                                 </span>
@@ -80,6 +85,7 @@
                                                                     <t t-esc="partner_id.x_vehicle_horse_power"/> <span>HP</span>
                                                                 </t>
                                                                 <t t-if="partner_id.image_url_vehical">
+                                                                    <br/>
                                                                     <a t-att-href="partner_id.image_url_vehical" style="color: white;text-decoration: none;">
                                                                         click to visit us
                                                                     </a>
@@ -87,17 +93,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="cssui-usercard__content">
-                                                            <t t-if="partner_id.image_url_vehical">
-                                                                <a class="image_car_block" t-att-href="partner_id.image_url_vehical">
-                                                                    <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
-                                                                </a>
-                                                            </t>
-                                                            <t t-if="not partner_id.image_url_vehical">
-                                                                <div class="image_car_block">
-                                                                    <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
-                                                                    <span class="vehical_description" t-esc="partner_id.x_vehicle_desc"/>
-                                                                </div>
-                                                            </t>
+                                                            <div class="image_car_block">
+                                                                <img class="cssui-usercard__image img-fluid" t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" alt="Avatar" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,6 +109,31 @@
                         </t>
                     </div>
                 </div>
+            </div>
+            <div class="car_descriptions_main"/>
+        </template>
+        <template id="modal_popup_car_desc" name="modal popup description">
+            <div class="modal fade car_description_info" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Description</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span>&amp;times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img t-attf-src="/web/image/res.partner/#{partner_id.id}/x_vehicle_pict" style="width:100%;" class="model_vehical_img_001"/>
+                            </div>
+                            <div class="col-md-6">
+                                <p t-esc="partner_id.x_vehicle_desc" class="model_vehical_desc_001" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
             </div>
         </template>
         <template id="horizontal_tab">
