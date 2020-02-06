@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="frontend_layout_custom" inherit_id="portal.frontend_layout" name="top header">
+		<xpath expr="//header" position="before">
+			<div class="scs_above_header_border col-xs-hidden">
+	          <div class="container-fluid" style="word-wrap: break-word;">
+	          	<div class="row">
+		            <div class="col-lg-10 col-md-10 col-sm-10 contact_info_top_header">
+	                              &amp;nbsp;&amp;nbsp;&amp;nbsp;<i class="fa fa-phone phone_icon"></i>&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="contact_number_style" t-esc="res_company.phone"></span>&amp;nbsp;&amp;nbsp;&amp;nbsp;<i class="fa fa-envelope email_icon"></i> &amp;nbsp;&amp;nbsp;&amp;nbsp;<a class="text_gray" t-attf-href="mailto:#{res_company.email}"><t t-esc="res_company.email"/></a>
+	            	</div>
+		            <div class="col-md-2 text-right">
+		                <a class="scs_above_head_icons" target="_blank" t-att-href="website.social_facebook" t-if="website.social_facebook">
+		                  <i class="fa fa-facebook-square"></i>
+		                </a>
+		                <a class="scs_above_head_icons" target="_blank" t-att-href="website.social_twitter" t-if="website.social_twitter">
+		                  <i class="fa fa-twitter"></i>
+		                </a>
+		                <a class="scs_above_head_icons" target="_blank" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+		                  <i class="fa fa-linkedin"></i>
+		                </a>
+		                <a class="scs_above_head_icons" rel="publisher" target="_blank" href="https://www.youtube.com/channel/UCfS_433Zx5ui2hZ8uPY371A">
+		                  <i class="fa font-icons-icon fa-youtube"></i>
+		                </a>
+		              </div>
+		          </div>
+	          </div>
+	        </div>
+		</xpath>
+	</template>
+</odoo>

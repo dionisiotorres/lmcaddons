@@ -14,6 +14,7 @@
         'views/assets.xml',
         'security/ir.model.access.csv',
         'data/data.xml',
+        'views/header.xml',
         'views/my_account.xml',
         'views/partner_view.xml',
         'views/views.xml',

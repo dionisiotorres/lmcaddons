@@ -862,3 +862,65 @@ body{
 .car_description_info h5.modal-title{
   color: gray;
 }
+.contact_number_style{
+  color: #707070;
+    border-right: 1px solid #333;
+    padding-right: 10px;
+}
+.scs_above_head_icons{
+  padding-left: 5px;
+    padding-right: 5px;
+    color: #a0a5aa;
+}
+.scs_above_header_border{
+      border-bottom: .1px solid #817e65;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+.scs_above_header_border a.text_gray{
+  color: gray;
+}
+a.scs_above_head_icons:hover{
+  color:gray;
+}
+header #top_menu>li {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+header #top_menu>li > a{
+    overflow: hidden;
+    padding: 10px 20px!important;
+}
+header #top_menu>li > a:hover, header #top_menu>li > a.active{
+  color: #fff!important;
+    background-color: #817E65!important;
+    border-radius: 25px!important;
+}
+header .navbar ul.nav > li.divider{
+  border-right:none;
+}
+header .navbar .navbar-brand.logo img{
+  height: 4.5125rem;
+}
+@media(max-width: 768px){
+  header #top_menu>li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  header #top_menu>li > a{
+      overflow: hidden;
+      padding: 10px 20px!important;
+      text-align: center;
+  }
+  header #top_menu>li > a:hover, header #top_menu>li > a.active{
+    color: #fff!important;
+      background-color: #817E65!important;
+      border-radius: 25px!important;
+  }
+  header .navbar ul.nav > li.divider{
+    border-right:none;
+  }
+  .scs_above_header_border .contact_info_top_header{
+    font-size: 11px;
+  }
+}
