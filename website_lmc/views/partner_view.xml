@@ -1,78 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
+        <record id="view_partner_search_inherit" model="ir.ui.view">
+            <field name="name">res.partner.search.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="salesperson" position="after">
+                    <filter name="even_reistration" string="Even Reistration" domain="[]" context="{'group_by' : 'state'}"/>
+                </filter>
+            </field>
+        </record>
+
         <record id="view_partner_form_inherit" model="ir.ui.view">
             <field name="name">res.partner.form.inherit</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,registered,confirmed"/>
+                    </header>
+                </xpath>
                 <xpath expr="//notebook//page[@name='internal_notes']//field[@name='comment']" position="after">
                     <label for="about_us"/>
                     <field name="about_us"/>
                 </xpath>
                 <xpath expr="//notebook[last()]" position="inside">
                     <page string="Personal Data" name="personal_data">
-                        <group>
-                            <group>
-                                <!-- <field name="x_driver_pic" widget="image" class="oe_avatar"/> -->
+                        <group name="row1" col="3">
+                            <group name="left" string="Basics">
                                 <field name="x_gender"/>
-                                <field name="x_family_name"/>
                                 <field name="x_birthdate"/>
                                 <field name="x_nationality"/>
-                                <field name="x_driver_year_driving_license_issuance"/>
-                                <field name="x_driver_license_type"/>
-                                <field name="x_driver_license_num"/>
                                 <field name="x_drive_club"/>
-                            </group>
-                            <group>
-                                <field name="x_driver_year_racing_since"/>
-                                <field name="x_driver_amount_events"/>
-                                <field name="x_driver_year_last_event"/>
                                 <field name="x_driver_shirt_size"/>
-                                <field name="x_driver_pict_path"/>
-                                <field name="x_driver_success"/>
                             </group>
+                            
+                            <group name="middle" string="License">
+                              <field name="x_driver_license_type"/>
+                              <field name="x_driver_license_num"/>
+                              <field name="x_driver_year_driving_license_issuance"/>
+                            </group>
+                            
+                            <group name="right" string="History">
+                              <field name="x_driver_year_racing_since"/>
+                              <field name="x_driver_amount_events"/>
+                              <field name="x_driver_year_last_event"/>
+                            </group>
+                        </group>
+                        
+                        <group name="row2">
+                          <field name="x_driver_success"/>
                         </group>
                     </page>
                     <page string="Vehicle" name="vehicle">
-                        <group>
-                            <group>
-                                <field name="x_vehicle_pict" widget="image" class="oe_avatar"/>
+                        <group name="row1" col="3">
+                          <group name="left" string="">
+                            <field name="x_vehicle_pict" widget="image" nolabel="1" class="oe_avatar"/>
+                            <field name="image_url_vehical" widget='url' string="URL to be accessed when clicking on the picture in web race-field. no address here means vehicle description will be shown."/>
+                          </group>
+                          <group name="middle" string="">
+                          </group>
+                          <group name="right" string="">
+                          </group>
+                        </group>
+                        <group name="row2" col="3">
+                            <group name="left" string="Basics">
                                 <field name="x_vehicle_cat"/>
                                 <field name="x_vehicle_manufacturer"/>
                                 <field name="x_vehicle_type"/>
-                                <field name="x_vehicle_ccm"/>
-                                <field name="x_vehicle_year_construction"/>
-                                <field name="x_vehicle_approved"/>
-                                <field name="x_vehicle_cylinder"/>
-                                <field name="x_vehicle_horse_power"/>
-                                <field name="x_vehicle_desc"/>
-                                <field name="image_url_vehical"/>
-                            </group>
-                            <group>
-                                <field name="x_vehicle_modifications"/>
-                                <field name="x_vehicle_tire_size"/>
-                                <field name="x_vehicle_rim_size"/>
-                                <field name="x_vehicle_doc_number"/>
-                                <field name="x_registrasion_number"/>
-                                <field name="x_vehicle_pict_path"/>
-                                <field name="x_vehicle_homologation_num"/>
-                                <field name="x_race_info_pit_id"/>
                                 <field name="x_vehicle_number_plate"/>
                             </group>
+                            <group name="middle" string="Details">
+                              <field name="x_vehicle_ccm"/>
+                              <field name="x_vehicle_cylinder"/>
+                                <field name="x_vehicle_horse_power"/>
+                              <field name="x_vehicle_year_construction"/>
+                            </group>
+                            <group name="right" string="Documents">
+                              <field name="x_vehicle_doc_number"/>
+                              <field name="x_registrasion_number"/>
+                              <field name="x_vehicle_homologation_num"/>
+                            </group>
+                        </group>
+                        <group name="row3" col="1">
+                          <field name="x_vehicle_desc" widget="text"/>
+                          <field name="x_vehicle_modifications" widget="text"/>
                         </group>
                     </page>
                     <page string="Nomination" name="nomination">
-                        <group>
-                            <group>
-                                <field name="x_nomination_year"/>
+                      <group name="row1">
+                            <group name="left" string="Registration">
+                                <label for="registration" string="Registered:"/>
+                                <div>
+                                  <field name="x_nom_registered_dat"/>
+                                </div>
+                                <label for="registration" string="Confirmed:"/>
+                                <div>
+                                <field name="x_nom_confirmed_dat"/>
+                                </div>
+                                <label for="registration" string="Rejected:"/>
+                                <div>
+                                <field name="x_nom_rejected_dat"/>
+                                </div>
+                                <label for="registration" string="On waitlist:"/>
+                                <div>
+                                <field name="x_nom_waitlist"/>
+                                <field name="x_nom_waitlist_dat"/>
+                                </div>
+                                <label for="registration" string="Doc approval:"/>
+                                <div>
+                                <field name="x_doc_approval"/>
+                                <field name="x_doc_approval_dat"/>
+                                </div>
+                                <label for="registration" string="Tech approval:"/>
+                                <div>
+                                <field name="x_tech_approval"/>
+                                <field name="x_tech_approval_dat"/>
+                                </div>
+                                <label for="registration" string="Qualified:"/>
+                                <div>
+                                <field name="x_nom_qualified"/>
+                                <field name="x_nom_qualified_dat"/>
+                                </div>
+                            </group>
+                            <group name="right" string="Race Information">
                                 <field name="x_race_info_field"/>
                                 <field name="x_race_info_starting_num"/>
-                                <field name="x_pit_box_number"/>
-                                <field name="x_vehicle_inspection_passed"/>
-                                <field name="x_autorized"/>
                                 <field name="x_race_info_pit_id"/>
                             </group>
+                            <separator string="Event Registration"/>
+                            <field name="event_registration_ids"/>
                         </group>
                     </page>
                 </xpath>

@@ -664,7 +664,6 @@ body{
 .partner_block_cl .cssui-usercard__image{
   margin: 0 auto; 
   display: block;
-  max-height: 150px;
   min-height: 150px;
 }
 

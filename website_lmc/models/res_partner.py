@@ -1,11 +1,53 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+import datetime
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
     _description = 'Contact'
+
+    @api.depends('event_registration_ids.state')
+    def _compute_state(self):
+        for partner in self:
+            event = self.env['event.event'].search([('registration_ids.partner_id', '=', partner.id)], limit=1)
+            event_registration_state = event.registration_ids.filtered(lambda a: a.partner_id == partner)[0]
+            if event_registration_state:
+                if event_registration_state.state == 'draft':
+                    partner.state = 'registered'
+                elif event_registration_state.state == 'open':
+                    partner.state = 'confirmed'
+                elif event_registration_state.state == 'done':
+                    partner.state = 'attended'
+                elif event_registration_state.state == 'cancel':
+                    partner.state = 'rejected'
+            else:
+                partner.state = 'draft'
+
+    @api.depends('state', 'x_nom_waitlist', 'x_doc_approval', 'x_tech_approval', 'x_nom_qualified')
+    def _compute_x_nom_dat(self):
+        for record in self:
+            # if record.state=='registered':
+            #     record.x_nom_registered_dat = datetime.datetime.now()
+            # if record.state == 'confirmed':
+            #     record.x_nom_confirmed_dat = datetime.datetime.now()
+            # if record.state == 'rejected':
+            #     record.x_nom_rejected_dat = datetime.datetime.now()
+            if record.x_nom_waitlist:
+                record.x_nom_waitlist_dat = datetime.datetime.now()
+            if record.x_doc_approval:
+                record.x_doc_approval_dat = datetime.datetime.now()
+            if record.x_tech_approval:
+                record.x_tech_approval_dat = datetime.datetime.now()
+            if record.x_nom_qualified:
+                record.x_nom_qualified_dat = datetime.datetime.now()
+
+    # @api.depends('x_nom_rejected')
+    # def _compute_x_nom(self):
+    #     for record in self:
+    #         if record.x_nom_rejected:
+    #             record.x_nom_confirmed = record.x_nom_waitlist = record.x_doc_approval = record.x_tech_approval = record.x_nom_qualified = False
 
     about_us = fields.Text("About Us")
     # personal inf
@@ -64,12 +106,31 @@ class ResPartner(models.Model):
          ("private", "Private Address"),
         ], string='Address Type',
         default='contact',
-        help="Used by Sales and Purchase Apps to select the relevant address depending on the context.")
+        help="Used by Sales and Purchase Apps tx_nom_confirmedo select the relevant address depending on the context.")
+
+    state = fields.Selection([('draft','Draft'),('registered','Registered'),('confirmed','Confirmed'),('rejected','Rejected'),('attended','Attended')], compute="_compute_state", string="Registeration State", store=True)
+    #x_nom_registered = fields.Boolean(string="Registered for Nomination", help="Registered for nomination")
+    x_nom_registered_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Registered for nomination date", help="Registered for nomination date", store=True)
+    #x_nom_confirmed = fields.Boolean(string="Nomination confirmed", help="Nomination confirmed")
+    x_nom_confirmed_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Nomination confirmed date", help="Nomination confirmed date", store=True)
+    #x_nom_rejected = fields.Boolean(string="Nomination rejected", help="Nomination rejected")
+    x_nom_rejected_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Nomination rejected date", help="Nomination rejected date", store=True)
+    x_nom_waitlist = fields.Boolean(string="Nomination waitlist", help="Nomination waitlist")
+    x_nom_waitlist_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Nomination waitlist date", help="Nomination waitlist date", store=True)
+    x_doc_approval = fields.Boolean(string="Document approval", help="Document approval")
+    x_doc_approval_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Document approval date", help="Document approval date", store=True)
+    x_tech_approval = fields.Boolean(string="Technical approval", help="Technical approval")
+    x_tech_approval_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Technical approval date", help="Technical approval date", store=True)
+    x_nom_qualified = fields.Boolean(string="Qualified", help="Qualified")
+    x_nom_qualified_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Qualified date", help="Qualified date", store=True)
+
+    event_registration_ids = fields.One2many('event.registration', 'partner_id', string="Event Registration")
 
     @api.model
     def set_website_pulished_true(self):
         partner_ids = self.env['res.partner'].sudo().search([])
         partner_ids.write({'website_published': True})
+
 
 class VehicleCode(models.Model):
     _name = "vehicle.code"
@@ -84,7 +145,7 @@ class Rennfelder(models.Model):
 
     name = fields.Char(string='Name', required=True, translate=True)
     sequence = fields.Integer(help='Used to order Journals in the dashboard view', default=10)
-    note = fields.Text("Note")
+    note = fields.Html("Note")
 
 
 class DriverLicenseCodes(models.Model):

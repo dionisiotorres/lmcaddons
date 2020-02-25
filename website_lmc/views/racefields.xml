@@ -36,7 +36,7 @@
                                 </h2>
                                 <div class="clearfix"/>
                                 <div class="oe_structure" />
-                                <h3 class="text-center"><span t-field="rennfelder_id.note"/></h3>
+                                <h3 class="text-center"><span t-raw="rennfelder_id.note"/></h3>
                                 <div class="oe_structure" />
                                 <div class="row">
                                     <t t-foreach="partner_ids" t-as="partner_id">
@@ -65,7 +65,7 @@
                                                                     <br/>
                                                                 </span>
                                                                 <t t-if="partner_id.x_vehicle_manufacturer">
-                                                                    <t t-esc="partner_id.x_vehicle_manufacturer" /><br />
+                                                                    <t t-esc="partner_id.x_vehicle_manufacturer" />
                                                                 </t>
                                                                 <t t-if="partner_id.x_vehicle_type">
                                                                     <t t-esc="partner_id.x_vehicle_type" /><br />
@@ -117,7 +117,14 @@
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Description</h5>
+                        <h5 class="modal-title">
+                            <t t-if="partner_id.x_vehicle_manufacturer">
+                                <t t-esc="partner_id.x_vehicle_manufacturer" />
+                            </t>
+                            <t t-if="partner_id.x_vehicle_type">
+                                <t t-esc="partner_id.x_vehicle_type" />
+                            </t>
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span>&amp;times;</span>
                         </button>
@@ -165,7 +172,7 @@
                                                         <h5>
                                                             <t t-esc="partner_id.name" />
                                                         </h5>
-                                                        <t t-esc="partner_id.x_vehicle_manufacturer" /><br />
+                                                        <t t-esc="partner_id.x_vehicle_manufacturer" />
                                                         <t t-esc="partner_id.x_vehicle_type" /><br />
                                                         <t t-esc="partner_id.x_vehicle_year_construction" />
                                                     </div>
