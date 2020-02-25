@@ -12,18 +12,19 @@ class ResPartner(models.Model):
     def _compute_state(self):
         for partner in self:
             event = self.env['event.event'].search([('registration_ids.partner_id', '=', partner.id)], limit=1)
-            event_registration_state = event.registration_ids.filtered(lambda a: a.partner_id == partner)[0]
-            if event_registration_state:
-                if event_registration_state.state == 'draft':
-                    partner.state = 'registered'
-                elif event_registration_state.state == 'open':
-                    partner.state = 'confirmed'
-                elif event_registration_state.state == 'done':
-                    partner.state = 'attended'
-                elif event_registration_state.state == 'cancel':
-                    partner.state = 'rejected'
-            else:
-                partner.state = 'draft'
+            event_registration_state = event.registration_ids.filtered(lambda a: a.partner_id == partner)
+            for event_rec in event_registration_state:
+                if event_registration_state:
+                    if event_registration_state.state == 'draft':
+                        partner.state = 'registered'
+                    elif event_registration_state.state == 'open':
+                        partner.state = 'confirmed'
+                    elif event_registration_state.state == 'done':
+                        partner.state = 'attended'
+                    elif event_registration_state.state == 'cancel':
+                        partner.state = 'rejected'
+                else:
+                    partner.state = 'draft'
 
     @api.depends('state', 'x_nom_waitlist', 'x_doc_approval', 'x_tech_approval', 'x_nom_qualified')
     def _compute_x_nom_dat(self):
