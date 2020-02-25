@@ -14,14 +14,14 @@ class ResPartner(models.Model):
             event = self.env['event.event'].search([('registration_ids.partner_id', '=', partner.id)], limit=1)
             event_registration_state = event.registration_ids.filtered(lambda a: a.partner_id == partner)
             for event_rec in event_registration_state:
-                if event_registration_state:
-                    if event_registration_state.state == 'draft':
+                if event_rec:
+                    if event_rec.state == 'draft':
                         partner.state = 'registered'
-                    elif event_registration_state.state == 'open':
+                    elif event_rec.state == 'open':
                         partner.state = 'confirmed'
-                    elif event_registration_state.state == 'done':
+                    elif event_rec.state == 'done':
                         partner.state = 'attended'
-                    elif event_registration_state.state == 'cancel':
+                    elif event_rec.state == 'cancel':
                         partner.state = 'rejected'
                 else:
                     partner.state = 'draft'
