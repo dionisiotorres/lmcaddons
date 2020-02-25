@@ -13,6 +13,7 @@ class ResPartner(models.Model):
         for partner in self:
             event = self.env['event.event'].search([('registration_ids.partner_id', '=', partner.id)], limit=1)
             event_registration_state = event.registration_ids.filtered(lambda a: a.partner_id == partner)
+            partner.state = 'draft'
             for event_rec in event_registration_state:
                 if event_rec:
                     if event_rec.state == 'draft':
@@ -23,8 +24,7 @@ class ResPartner(models.Model):
                         partner.state = 'attended'
                     elif event_rec.state == 'cancel':
                         partner.state = 'rejected'
-                else:
-                    partner.state = 'draft'
+            
 
     @api.depends('state', 'x_nom_waitlist', 'x_doc_approval', 'x_tech_approval', 'x_nom_qualified')
     def _compute_x_nom_dat(self):
