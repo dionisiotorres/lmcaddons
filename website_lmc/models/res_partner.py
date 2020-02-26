@@ -29,6 +29,7 @@ class EventRegistration(models.Model):
 
     def update_dates(self):
         for reg in self.search([]):
+            reg.partner_id.x_nom_registered_dat = reg.date_open
             flag_confirm = False
             for msg in reg.message_ids:
                 for t in msg.tracking_value_ids:
