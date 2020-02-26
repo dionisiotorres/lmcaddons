@@ -4,6 +4,51 @@ from odoo import models, fields, api
 import datetime
 
 
+class EventRegistration(models.Model):
+    _inherit = "event.registration"
+    _description = 'Contact'
+
+    date_confirmed = fields.Datetime()
+    date_rejected = fields.Datetime()
+
+    @api.one
+    def confirm_registration(self):
+        self.state = 'open'
+        self.partner_id.x_nom_confirmed_dat = fields.Datetime.now()
+        self.date_confirmed = fields.Datetime.now()
+        # auto-trigger after_sub (on subscribe) mail schedulers, if needed
+        onsubscribe_schedulers = self.event_id.event_mail_ids.filtered(
+            lambda s: s.interval_type == 'after_sub')
+        onsubscribe_schedulers.execute()
+
+    @api.one
+    def button_reg_cancel(self):
+        self.state = 'cancel'
+        self.partner_id.x_nom_rejected_dat = fields.Datetime.now()
+        self.date_rejected = fields.Datetime.now()
+
+    def update_dates(self):
+        for reg in self.search([]):
+            flag_confirm = False
+            for msg in reg.message_ids:
+                for t in msg.tracking_value_ids:
+                    if t.new_value_char == 'Confirmed':
+                        flag_confirm = True
+                        reg.date_confirmed = t.create_date
+                        reg.partner_id.x_nom_confirmed_dat = t.create_date
+                if flag_confirm:
+                    break
+            flag_rejected = False
+            for msg in reg.message_ids:
+                for t in msg.tracking_value_ids:
+                    if t.new_value_char == 'Cancelled':
+                        flag_rejected = True
+                        reg.date_rejected = t.create_date
+                        reg.partner_id.x_nom_rejected_dat = t.create_date
+                if flag_rejected:
+                    break
+
+
 class ResPartner(models.Model):
     _inherit = "res.partner"
     _description = 'Contact'
@@ -16,6 +61,7 @@ class ResPartner(models.Model):
             partner.state = 'draft'
             for event_rec in event_registration_state:
                 if event_rec:
+                    partner.x_nom_registered_dat = event_rec.date_open
                     if event_rec.state == 'draft':
                         partner.state = 'registered'
                     elif event_rec.state == 'open':
@@ -24,17 +70,10 @@ class ResPartner(models.Model):
                         partner.state = 'attended'
                     elif event_rec.state == 'cancel':
                         partner.state = 'rejected'
-            
 
     @api.depends('state', 'x_nom_waitlist', 'x_doc_approval', 'x_tech_approval', 'x_nom_qualified')
     def _compute_x_nom_dat(self):
         for record in self:
-            # if record.state=='registered':
-            #     record.x_nom_registered_dat = datetime.datetime.now()
-            # if record.state == 'confirmed':
-            #     record.x_nom_confirmed_dat = datetime.datetime.now()
-            # if record.state == 'rejected':
-            #     record.x_nom_rejected_dat = datetime.datetime.now()
             if record.x_nom_waitlist:
                 record.x_nom_waitlist_dat = datetime.datetime.now()
             if record.x_doc_approval:
@@ -43,12 +82,6 @@ class ResPartner(models.Model):
                 record.x_tech_approval_dat = datetime.datetime.now()
             if record.x_nom_qualified:
                 record.x_nom_qualified_dat = datetime.datetime.now()
-
-    # @api.depends('x_nom_rejected')
-    # def _compute_x_nom(self):
-    #     for record in self:
-    #         if record.x_nom_rejected:
-    #             record.x_nom_confirmed = record.x_nom_waitlist = record.x_doc_approval = record.x_tech_approval = record.x_nom_qualified = False
 
     about_us = fields.Text("About Us")
     # personal inf
@@ -109,13 +142,10 @@ class ResPartner(models.Model):
         default='contact',
         help="Used by Sales and Purchase Apps tx_nom_confirmedo select the relevant address depending on the context.")
 
-    state = fields.Selection([('draft','Draft'),('registered','Registered'),('confirmed','Confirmed'),('rejected','Rejected'),('attended','Attended')], compute="_compute_state", string="Registeration State", store=True)
-    #x_nom_registered = fields.Boolean(string="Registered for Nomination", help="Registered for nomination")
-    x_nom_registered_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Registered for nomination date", help="Registered for nomination date", store=True)
-    #x_nom_confirmed = fields.Boolean(string="Nomination confirmed", help="Nomination confirmed")
-    x_nom_confirmed_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Nomination confirmed date", help="Nomination confirmed date", store=True)
-    #x_nom_rejected = fields.Boolean(string="Nomination rejected", help="Nomination rejected")
-    x_nom_rejected_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Nomination rejected date", help="Nomination rejected date", store=True)
+    state = fields.Selection([('draft', 'Draft'), ('registered', 'Registered'), ('confirmed', 'Confirmed'), ('rejected', 'Rejected'), ('attended', 'Attended')], compute="_compute_state", string="Registeration State", store=True)
+    x_nom_registered_dat = fields.Datetime(compute="_compute_state", string="Registered for nomination date", help="Registered for nomination date", store=True)
+    x_nom_confirmed_dat = fields.Datetime(string="Nomination confirmed date", help="Nomination confirmed date")
+    x_nom_rejected_dat = fields.Datetime(string="Nomination rejected date", help="Nomination rejected date")
     x_nom_waitlist = fields.Boolean(string="Nomination waitlist", help="Nomination waitlist")
     x_nom_waitlist_dat = fields.Datetime(compute="_compute_x_nom_dat", string="Nomination waitlist date", help="Nomination waitlist date", store=True)
     x_doc_approval = fields.Boolean(string="Document approval", help="Document approval")

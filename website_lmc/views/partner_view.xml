@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
             <field name="arch" type="xml">
                 <filter name="salesperson" position="after">
-                    <filter name="even_reistration" string="Even Reistration" domain="[]" context="{'group_by' : 'state'}"/>
+                    <filter name="even_reistration" string="Event Reistration" domain="[]" context="{'group_by' : 'state'}"/>
                 </filter>
             </field>
         </record>
@@ -99,11 +99,11 @@
                                 </div>
                                 <label for="registration" string="Confirmed:"/>
                                 <div>
-                                <field name="x_nom_confirmed_dat"/>
+                                <field name="x_nom_confirmed_dat" readonly="1"/>
                                 </div>
                                 <label for="registration" string="Rejected:"/>
                                 <div>
-                                <field name="x_nom_rejected_dat"/>
+                                <field name="x_nom_rejected_dat" readonly="1"/>
                                 </div>
                                 <label for="registration" string="On waitlist:"/>
                                 <div>
