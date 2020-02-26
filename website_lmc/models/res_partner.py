@@ -37,7 +37,8 @@ class EventRegistration(models.Model):
                     if t.new_value_char == 'Confirmed' or t.new_value_char == 'Bestätigt':
                         flag_confirm = True
                         reg.date_confirmed = t.create_date
-                        reg.partner_id.x_nom_confirmed_dat = t.create_date
+                        if reg.partner_id:
+                            reg.partner_id.x_nom_confirmed_dat = t.create_date
                 if flag_confirm:
                     break
             flag_rejected = False
@@ -46,7 +47,8 @@ class EventRegistration(models.Model):
                     if t.new_value_char == 'Cancelled' or t.new_value_char == 'Abgebrochen':
                         flag_rejected = True
                         reg.date_rejected = t.create_date
-                        reg.partner_id.x_nom_rejected_dat = t.create_date
+                        if reg.partner_id:
+                            reg.partner_id.x_nom_rejected_dat = t.create_date
                 if flag_rejected:
                     break
 
