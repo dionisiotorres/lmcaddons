@@ -34,7 +34,7 @@ class EventRegistration(models.Model):
             flag_confirm = False
             for msg in reg.message_ids:
                 for t in msg.tracking_value_ids:
-                    if t.new_value_char == 'Confirmed':
+                    if t.new_value_char == 'Confirmed' or t.new_value_char == 'Bestätigt':
                         flag_confirm = True
                         reg.date_confirmed = t.create_date
                         reg.partner_id.x_nom_confirmed_dat = t.create_date
@@ -43,7 +43,7 @@ class EventRegistration(models.Model):
             flag_rejected = False
             for msg in reg.message_ids:
                 for t in msg.tracking_value_ids:
-                    if t.new_value_char == 'Cancelled':
+                    if t.new_value_char == 'Cancelled' or t.new_value_char == 'Abgebrochen':
                         flag_rejected = True
                         reg.date_rejected = t.create_date
                         reg.partner_id.x_nom_rejected_dat = t.create_date
