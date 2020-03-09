@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_create_partner_invoice" model="ir.ui.view">
+        <field name="name">Create Partner Invoice</field>
+        <field name="model">customer.invoice.create</field>
+        <field name="arch" type="xml">
+            <form string="Merge Partner Invoice">
+                <group>
+                    <group>
+                        <field name='date_invoice'/>
+                        <field name="product_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="create_invoice" string="Create Customer Invoice" type="object" class="oe_highlight" />
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <act_window name="Create Customer Invoice" res_model="customer.invoice.create" src_model="res.partner" view_mode="form" target="new" multi="True" key2="client_action_multi" id="action_view_invoice_create" />
+</odoo>
