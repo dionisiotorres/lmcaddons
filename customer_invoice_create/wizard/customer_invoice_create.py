@@ -6,6 +6,7 @@ class CustomerInvoiceCreate(models.TransientModel):
     _name = 'customer.invoice.create'
 
     date_invoice = fields.Date(string='Invoice Date')
+    payment_term_id = fields.Mnay2one('account.payment.term', string="Payment Term")
     product_ids = fields.Many2many('product.product', string='Product')
 
     @api.multi
@@ -29,7 +30,7 @@ class CustomerInvoiceCreate(models.TransientModel):
                     'date_invoice': self.date_invoice,
                     'type': 'out_invoice',
                     'journal_id': sale_journal.id,
-                    'payment_term_id': property_payment_term_id.id,
+                    'payment_term_id': self.payment_term_id.id or property_payment_term_id.id,
                     'account_id': parnter.property_account_receivable_id.id,
                 })
                 inv_line = None
