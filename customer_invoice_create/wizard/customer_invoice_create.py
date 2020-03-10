@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class CustomerInvoiceCreate(models.TransientModel):
     _name = 'customer.invoice.create'
 
-    date_invoice = fields.Date(string='Invoice Date')
+    date_invoice = fields.Date(string='Invoice Date', default=fields.Date.context_today)
     payment_term_id = fields.Many2one('account.payment.term', string="Payment Term")
     product_ids = fields.Many2many('product.product', string='Product')
 
