@@ -11,7 +11,6 @@ class CustomerInvoiceCreate(models.TransientModel):
 
     @api.multi
     def create_invoice(self):
-        #property_payment_term_id = False
         context = dict(self._context or {})
         invoice = self.env['account.invoice']
         invoice_line = self.env['account.invoice.line']
@@ -20,10 +19,6 @@ class CustomerInvoiceCreate(models.TransientModel):
             ('type', '=', 'sale')], limit=1)
         for record in self:
             for parnter in partner_ids:
-                # if parnter.customer:
-                #     property_payment_term_id = parnter.property_payment_term_id
-                # if parnter.supplier:
-                #     property_payment_term_id = parnter.property_supplier_payment_term_id
                 invoices = invoice.create({
                     'partner_id': parnter.id,
                     'partner_shipping_id': parnter.id,
@@ -46,3 +41,4 @@ class CustomerInvoiceCreate(models.TransientModel):
                         'quantity': 1,
                     })
                     inv_line._onchange_product_id()
+                invoices._onchange_invoice_line_ids()
