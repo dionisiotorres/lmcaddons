@@ -50,8 +50,18 @@
                               <field name="x_driver_year_last_event"/>
                             </group>
                         </group>
-                        
-                        <group name="row2">
+                        <group name="row2" col="2" string="Account Information">
+                            <group>
+                                <field name="account_type_id"/>
+                            </group>
+                            <group>
+                                <field name="account_number"/>
+                            </group>
+                        </group>
+                        <group name="row3">
+                            <field name="account_details"/>
+                        </group>
+                        <group name="row4">
                           <field name="x_driver_success"/>
                         </group>
                     </page>

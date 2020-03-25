@@ -24,7 +24,7 @@ class CustomerUserPortal(CustomerPortal):
     OPTIONAL_BILLING_FIELDS = ["zipcode", "state_id", "vat", "company_name", "about_us", "x_family_name", "x_gender",
     "x_birthdate", "x_nationality", "x_drive_club", "x_driver_license_type", "x_driver_license_num", "x_driver_pict_path",
     "x_driver_success", "x_driver_year_racing_since", "x_driver_amount_events", "x_driver_year_last_event",
-    "x_driver_year_driving_license_issuance", "x_driver_shirt_size"]
+    "x_driver_year_driving_license_issuance", "x_driver_shirt_size", "account_type_id", "account_number", "account_details"]
 
     @route(['/my/account'], type='http', auth='user', website=True)
     def account(self, redirect=None, **post):
@@ -46,15 +46,19 @@ class CustomerUserPortal(CustomerPortal):
                 post['x_birthdate'] = birthday_date
             except:
                 raise UserError(_("Please Enter correct birth date."))
+        else:
+            post['x_birthdate'] = False
 
         res = super(CustomerUserPortal, self).account(redirect=redirect, **post)
         res.qcontext['tabinfo'] = 'personal_data'
         license_type = request.env['driver.license.codes'].sudo().search([])
         nationalities = request.env['res.country'].sudo().search([])
         shirt_size_ids = request.env['shirt.size.codes'].sudo().search([])
+        account_type_ids = request.env['account.type'].sudo().search([])
         res.qcontext['license_types'] = license_type
         res.qcontext['nationalities'] = nationalities
         res.qcontext['shirt_size_ids'] = shirt_size_ids
+        res.qcontext['account_type_ids'] = account_type_ids
         return res
 
     @route(['/my', '/my/home'], type='http', auth="user", website=True)

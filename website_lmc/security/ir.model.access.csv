@@ -4,3 +4,4 @@ access_rennfelder,access_rennfelder,model_rennfelder,,1,1,1,1
 access_driver_license_codes,access_driver_license_codes,model_driver_license_codes,,1,1,1,1
 access_shirt_size_codes,access_shirt_size_codes,model_shirt_size_codes,,1,1,1,1
 access_home_boxes,access_home_boxes,model_home_boxes,,1,1,1,1
+access_account_type,access_account_type,model_account_type,base.group_user,1,1,1,1

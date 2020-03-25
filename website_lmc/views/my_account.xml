@@ -154,6 +154,11 @@
                                     <li><label>Driver number of events:</label> <span t-esc="partner.x_driver_amount_events" /></li>
                                     <li><label>Driver year of last event:</label> <span t-esc="partner.x_driver_year_last_event" /></li>
                                     <li><label>Drivers shirt size:</label> <span t-esc="partner.x_driver_shirt_size.name" /></li>
+                                    <!-- Account Info -->
+                                    <li><label>Account Type:</label> <span t-esc="partner.account_type_id.name" /></li>
+                                    <li><label>Account Number:</label> <span t-esc="partner.account_number" /></li>
+                                    <li><label>Account Details:</label> <span t-esc="partner.account_details" /></li>
+
                                     <li><label>Successes of the driver:</label> <span t-esc="partner.x_driver_success" /></li>
                                 </ul>
                             </div>
@@ -849,6 +854,35 @@
                                                 </t>
                                             </select>
                                             <label for="x_driver_shirt_size">Drivers shirt size<span class="start">*</span></label>
+                                        </div>
+                                    </div>
+                                    <!-- Account Info -->
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating select_label">
+                                            <select id="account_type_id" name="account_type_id" t-att-class="'custom-select form-control has-value' if partner.account_type_id else 'custom-select form-control'">
+                                                <option value=""></option>
+                                                <t t-foreach="account_type_ids or []" t-as="account_type">
+                                                    <option t-att-value="account_type.id" t-att-selected="account_type.id == partner.account_type_id.id">
+                                                        <t t-esc="account_type.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <label for="account_type_id">Account Type</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-group--floating">
+                                            <input type="text" name="account_number" t-att-class="'form-control has-value' if partner.account_number else 'form-control'" t-att-value="'account_number' in partner and partner['account_number']" />
+                                            <label for="account_number">Account Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-group--floating">
+                                            <div class="floating-label">
+                                                <textarea type="textarea" name="account_details" class="floating-input floating-textarea" rows="3" placeholder=" " maxlength="500"><t t-esc="partner.account_details"/></textarea>
+                                                <span class="highlight"></span>
+                                                <label for="account_details">Account Details</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

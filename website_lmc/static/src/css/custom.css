@@ -307,9 +307,13 @@ body{
 }
 
 .user_profile .form-group--floating input, .user_profile .form-group--floating textarea {
-    padding: 40px 10px 23px 20px;
+    /*padding: 40px 10px 23px 20px;*/
+    padding: 20px 10px 20px 20px;
     font-family: 'UniversLTStd-LightCn', sans-serif;
     height: auto;
+}
+.user_profile textarea.floating-input.floating-textarea {
+    padding: 30px 10px 20px 20px;
 }
 .user_profile .form-group--floating label {
     position: absolute;

@@ -4,6 +4,12 @@ from odoo import models, fields, api
 import datetime
 
 
+class AccountType(models.Model):
+    _name = "account.type"
+
+    name = fields.Char(string='Name')
+
+
 class EventRegistration(models.Model):
     _inherit = "event.registration"
     _description = 'Contact'
@@ -161,6 +167,11 @@ class ResPartner(models.Model):
 
     event_registration_ids = fields.One2many('event.registration', 'partner_id', string="Event Registration")
 
+    # account info
+    account_type_id = fields.Many2one('account.type', string='Account Type')
+    account_number = fields.Char(string='Account Number')
+    account_details = fields.Text(string='Account Details')
+
     @api.model
     def set_website_pulished_true(self):
         partner_ids = self.env['res.partner'].sudo().search([])
@@ -193,3 +204,4 @@ class ShirtSizeCodes(models.Model):
     _name = "shirt.size.codes"
 
     name = fields.Char(string='Name', required=True, translate=True)
+
