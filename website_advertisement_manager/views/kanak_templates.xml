@@ -63,7 +63,7 @@
 
     <template id="ads_zone" inherit_id="portal.frontend_layout" name="Ads zone">
         <xpath expr="//main" positio="inside">
-            <t t-call="website_advertisement_manager.kanak_ad_leftside_layout_template">
+            <!--<t t-call="website_advertisement_manager.kanak_ad_leftside_layout_template">
                 <t t-set="position" t-value="'left1'"/>
                 <t t-set="block_name" t-value="'Left 1'"/>
             </t>
@@ -81,29 +81,17 @@
             <t t-call="website_advertisement_manager.kanak_ad_rightside_layout_template">
                 <t t-set="position" t-value="'right1'"/>
                 <t t-set="block_name" t-value="'Right 1'"/>
-                <!-- <t t-set="height" t-value="'150px'"/>
-                <t t-set="padding" t-value="'10px'"/>
-                <t t-set="right" t-value="'0%'"/>
-                <t t-set="top" t-value="'12%'"/> -->
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_rightside_layout_template">
                 <t t-set="position" t-value="'right2'"/>
                 <t t-set="block_name" t-value="'Right 2'"/>
-                <!-- <t t-set="height" t-value="'150px'"/>
-                <t t-set="padding" t-value="'10px'"/>
-                <t t-set="right" t-value="'0%'"/>
-                <t t-set="top" t-value="'40%'"/> -->
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_rightside_layout_template">
                 <t t-set="position" t-value="'right3'"/>
                 <t t-set="block_name" t-value="'Right 3'"/>
-                <!-- <t t-set="height" t-value="'150px'"/>
-                <t t-set="padding" t-value="'10px'"/>
-                <t t-set="right" t-value="'0%'"/>
-                <t t-set="top" t-value="'68%'"/> -->
-            </t>
+            </t> -->
 
             <!-- <div groups="sales_team.group_sale_manager"
                 class="ad_block_div mt16 mb8" style="width: 160px; height: 400px; padding: 5px; position: fixed; left: 10px; top: 15%;">
