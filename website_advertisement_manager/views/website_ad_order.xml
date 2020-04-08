@@ -20,10 +20,10 @@
 				</xpath>
 
 				<xpath expr="//notebook//form//label[@for='name']" position="before">
-					<group string="Ad Block Details" attrs="{'invisible': [('is_ad_block_line','=',False)]}">
+					<group string="Ad Block Details">
 						<group>
-                            <field name="ad_date_from" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
-			                <field name="ad_date_to" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
+                            <field name="ad_date_from"/>
+			                <field name="ad_date_to"/>
 							<field name="ad_total_days" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
 						</group>
 						<group>
