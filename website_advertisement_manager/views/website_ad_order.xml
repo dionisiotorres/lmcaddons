@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+    <data>
+
+        <record id="website_ad_inherit_view_order_form" model="ir.ui.view">
+			<field name="name">sale.order.form.inherit.ad.order</field>
+			<field name="model">sale.order</field>
+			<field name="mode">primary</field>
+			<field name="priority" eval="100"/>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[hasclass('oe_subtotal_footer')]" position="after">
+	 				<field name="is_ad_block_order" invisible="1"/>
+					<group class="oe_subtotal_footer oe_right" attrs="{'invisible' : [('is_ad_block_order', '=', False)]}">
+						<field name="total_ad_blocks" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+					</group>
+				</xpath>
+
+				<xpath expr="//notebook//form//label[@for='name']" position="before">
+					<group string="Ad Block Details" attrs="{'invisible': [('is_ad_block_line','=',False)]}">
+						<group>
+                            <field name="ad_date_from" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
+			                <field name="ad_date_to" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
+							<field name="ad_total_days" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
+						</group>
+						<group>
+							<field name="ad_block_status" attrs="{'readonly': [('is_ad_block_line', '=', True)]}"/>
+							<field name="ad_display_type" readonly="1"/>
+                            <field name="ad_content_status" readonly="1"/>
+							<field name="is_ad_block_line" readonly="1" invisible="1"/>
+						</group>
+					</group>
+					<group name="ad_block_content_group" attrs="{'invisible': [('is_ad_block_line','=',False)]}">
+						<field name="ad_banner_img" attrs="{'readonly': [('is_ad_block_line', '=', True)],
+							'invisible': [('ad_display_type','!=','banner')]}" widget="image"/>
+						<field name="ad_banner_link" attrs="{'readonly': [('is_ad_block_line', '=', True)],
+							'invisible': [('ad_display_type','!=','banner')]}"/>
+					</group>
+	            </xpath>
+	            <xpath expr="//notebook//form//field[@name='product_id']" position="attributes">
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+                    <attribute name="context">{'form_view_ref': 'website_advertisement_manager.website_ad_block_form_view'}</attribute>
+	            </xpath>
+	            <xpath expr="//notebook//form//field[@name='product_uom_qty']" position="attributes">
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	            </xpath>
+	            <xpath expr="//notebook//form//field[@name='product_uom']" position="attributes">
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	            </xpath>
+	            <xpath expr="//notebook//form//field[@name='price_unit']" position="attributes">
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	            </xpath>
+				<xpath expr="//tree/field[@name='tax_id']" position="after">
+					<field name="ad_date_from" attrs="{'readonly': [('state', '=', 'sale')]}"/>
+					<field name="ad_date_to" attrs="{'readonly': [('state', '=', 'sale')]}"/>
+					<field name="ad_total_days" readonly="1"/>
+					<field name="ad_block_status" readonly="1" string="Block Status"/>
+					<field name="ad_display_type" invisible="1"/>
+					<field name="ad_banner_img" invisible="1"/>
+					<field name="ad_banner_link" invisible="1"/>
+					<field name="is_ad_block_line" invisible="1"/>
+				</xpath>
+				<xpath expr="//tree/field[@name='product_id']" position="attributes">
+					<attribute name="options">{'no_create_edit': True, 'no_open': True}</attribute>
+					<attribute name="domain">[("is_ad_block",'=',True)]</attribute>
+				</xpath>
+				<xpath expr="//tree/field[@name='product_uom_qty']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//tree/field[@name='product_uom']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//tree/field[@name='qty_delivered']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//tree/field[@name='qty_invoiced']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//tree/field[@name='price_unit']" position="attributes">
+					<attribute name="readonly">1</attribute>
+				</xpath>
+			</field>
+		</record>
+
+        <record id="website_ad_order_action" model="ir.actions.act_window">
+            <field name="name">Website Ad Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_ad_block_order','=', True)]</field>
+            <field
+               name="view_ids"
+               eval="[(5, 0, 0),
+                   (0, 0, {'sequence': 2, 'view_mode': 'tree', 'sequence':2, 'view_id': ref('sale.view_order_tree')}),
+                   (0, 0, {'sequence': 3, 'view_mode': 'form', 'sequence':3, 'view_id': ref('website_advertisement_manager.website_ad_inherit_view_order_form')})
+               ]"/>
+        </record>
+
+        <menuitem
+            id="menu_website_ad_order"
+            action="website_ad_order_action"
+            parent="menu_website_ad_root_menu"
+            sequence="1"
+            name="Ad Orders"
+        />
+
+    </data>
+</odoo>

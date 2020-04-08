@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+	<data noupdate="1">
+
+		<record model="product.product" id="ad_block_1">
+			<field name="name">Display At Home ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">home_page_full_top</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/1.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_2">
+			<field name="name">Top Container in Shop Page</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">shop_page_full_top</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/2.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_3">
+			<field name="name">Bottom Container in Shop Page</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">shop_page_full_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/3.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_4">
+			<field name="name">Side Div Below Products Category</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">below_product_categories</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/4.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_5">
+			<field name="name">Bottom Container in Product Page</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">product_image_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/6.png"/>
+		</record>
+
+		<!-- <record model="product.product" id="ad_block_6">
+			<field name="name">Left Side Div in Cart Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">cart_left</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/7.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_7">
+			<field name="name">Right Side Div in Cart Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">cart_right</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/8.png"/>
+		</record> -->
+
+		<record model="product.product" id="ad_block_8">
+			<field name="name">Bottom Container in Cart Page</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">cart_full_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/9.png"/>
+		</record>
+
+		<!-- <record model="product.product" id="ad_block_9">
+			<field name="name">Left Side Div in Checkout Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">checkout_page_left_side</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/10.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_10">
+			<field name="name">Right Side Div in Checkout Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">checkout_page_right_side</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/11.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_11">
+			<field name="name">Left Side Div in Payment Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">payment_page_left_side</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/12.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_12">
+			<field name="name">Right Side Div in Payment Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">payment_page_right_side</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/13.png"/>
+		</record>
+
+		<record model="product.product" id="ad_block_13">
+			<field name="name">Side Div in Right Bottom in Confirmation Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">confirmation_page_right_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/14.png"/>
+		</record> -->
+
+		<record model="product.product" id="ad_block_14">
+			<field name="name">Bottom Container in Confirmation Page</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">confirmation_page_full_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/15.png"/>
+		</record>
+
+
+		<!-- <record model="product.product" id="ad_block_16">
+			<field name="name">Bottom Container in Checkout Page ashvin</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">checkout_full_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/16.png"/>
+		</record> -->
+
+		<record model="product.product" id="ad_block_17">
+			<field name="name">Bottom Container in Payment Page</field>
+			<field name="type">service</field>
+			<field name="is_ad_block">True</field>
+			<field name="type">service</field>
+			<field name="block_position">payment_full_bottom</field>
+			<field name="ad_block_state">available</field>
+			<field name="allow_external_link">True</field>
+			<field name="sale_ok">True</field>
+			<field name="ad_block_image" type="base64" file="website_advertisement_manager/static/img/17.png"/>
+		</record>
+
+	</data>
+</odoo>

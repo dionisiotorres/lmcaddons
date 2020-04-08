@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+    <data noupdate="0">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~ Block Product Data ~~~~~~~~~~~~~~~~~~ -->
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_2">
+            <field name="lst_price">99</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_5">
+            <field name="lst_price">69</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_3">
+            <field name="lst_price">39</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_4">
+            <field name="lst_price">49</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- <record model="product.product" id="website_advertisement_manager.ad_block_6">
+            <field name="lst_price">45</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_7">
+            <field name="lst_price">22</field>
+            <field name="website_published">True</field>
+        </record> -->
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_8">
+            <field name="lst_price">56</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- <record model="product.product" id="website_advertisement_manager.ad_block_9">
+            <field name="lst_price">98</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_10">
+            <field name="lst_price">66</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_11">
+            <field name="lst_price">11</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_12">
+            <field name="lst_price">99</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_13">
+            <field name="lst_price">55</field>
+            <field name="website_published">True</field>
+        </record> -->
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_14">
+            <field name="lst_price">29</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- <record model="product.product" id="website_advertisement_manager.ad_block_16">
+            <field name="lst_price">45</field>
+            <field name="website_published">True</field>
+        </record> -->
+
+        <record model="product.product" id="website_advertisement_manager.ad_block_17">
+            <field name="lst_price">45</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~ Sale Order Data ~~~~~~~~~~~~~~~~~~ -->
+
+        <record id="ad_block_sale_order_1" model="sale.order">
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="is_ad_block_order">True</field>
+        </record>
+
+        <record id="ad_block_sale_order_1_line_1" model="sale.order.line">
+            <field name="order_id" ref="website_advertisement_manager.ad_block_sale_order_1"/>
+            <field name="product_id" ref="website_advertisement_manager.ad_block_2"/>
+            <field name="is_ad_block_line">True</field>
+            <field name="price_unit">99</field>
+            <field name="product_uom_qty">1</field>
+            <field name="ad_block_status">draft</field>
+            <field name="ad_display_type">banner</field>
+            <field name="ad_date_from" eval="(DateTime.today().date() + relativedelta(days=2)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_date_to" eval="(DateTime.today().date() + relativedelta(days=3)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_banner_img"  type="base64" file="website_advertisement_manager/static/src/img/banner2.png"/>
+            <field name="ad_banner_link">http://www.webkul.com</field>
+            <field name="ad_img_name">banner2.png</field>
+            <field name="ad_content_status">approved</field>
+        </record>
+
+        <record id="ad_block_sale_order_1_line_2" model="sale.order.line">
+            <field name="order_id" ref="website_advertisement_manager.ad_block_sale_order_1"/>
+            <field name="product_id" ref="website_advertisement_manager.ad_block_5"/>
+            <field name="is_ad_block_line">True</field>
+            <field name="price_unit">69</field>
+            <field name="product_uom_qty">1</field>
+            <field name="ad_block_status">draft</field>
+            <field name="ad_display_type">banner</field>
+            <field name="ad_date_from" eval="(DateTime.today().date() + relativedelta(days=3)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_date_to" eval="(DateTime.today().date() + relativedelta(days=4)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_banner_img"  type="base64" file="website_advertisement_manager/static/src/img/banner1.jpg"/>
+            <field name="ad_banner_link">http://www.webkul.com</field>
+            <field name="ad_img_name">banner1.jpg</field>
+            <field name="ad_content_status">denied</field>
+        </record>
+        <function model="sale.order" name="action_confirm"
+            eval="[ref('website_advertisement_manager.ad_block_sale_order_1')]"/>
+
+
+        <!--  ~~~~~~~~~~~~~~~ Sale Order 2 ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <record id="ad_block_sale_order_2" model="sale.order">
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="is_ad_block_order">True</field>
+        </record>
+
+        <record id="ad_block_sale_order_2_line_1" model="sale.order.line">
+            <field name="order_id" ref="website_advertisement_manager.ad_block_sale_order_2"/>
+            <field name="product_id" ref="website_advertisement_manager.ad_block_2"/>
+            <field name="is_ad_block_line">True</field>
+            <field name="price_unit">99</field>
+            <field name="product_uom_qty">1</field>
+            <field name="ad_block_status">active</field>
+            <field name="ad_display_type">banner</field>
+            <field name="ad_date_from" eval="(DateTime.today().date() + relativedelta(days=0)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_date_to" eval="(DateTime.today().date() + relativedelta(days=0)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_banner_img"  type="base64" file="website_advertisement_manager/static/src/img/demobanner.png"/>
+            <field name="ad_banner_link">http://www.webkul.com</field>
+            <field name="ad_img_name">demobanner.png</field>
+            <field name="ad_content_status">approved</field>
+        </record>
+
+        <record id="ad_block_sale_order_2_line_2" model="sale.order.line">
+            <field name="order_id" ref="website_advertisement_manager.ad_block_sale_order_2"/>
+            <field name="product_id" ref="website_advertisement_manager.ad_block_8"/>
+            <field name="is_ad_block_line">True</field>
+            <field name="price_unit">56</field>
+            <field name="product_uom_qty">1</field>
+            <field name="ad_block_status">active</field>
+            <field name="ad_display_type">banner</field>
+            <field name="ad_date_from" eval="(DateTime.today().date() + relativedelta(days=0)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_date_to" eval="(DateTime.today().date() + relativedelta(days=0)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_banner_img"  type="base64" file="website_advertisement_manager/static/src/img/banner1.jpg"/>
+            <field name="ad_banner_link">http://www.webkul.com</field>
+            <field name="ad_img_name">banner1.jpg</field>
+            <field name="ad_content_status">denied</field>
+        </record>
+        <function model="sale.order" name="action_confirm"
+            eval="[ref('website_advertisement_manager.ad_block_sale_order_2')]"/>
+
+
+        <!--  ~~~~~~~~~~~~~~~ Sale Order 3 ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <record id="ad_block_sale_order_3" model="sale.order">
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="is_ad_block_order">True</field>
+        </record>
+
+        <record id="ad_block_sale_order_3_line_1" model="sale.order.line">
+            <field name="order_id" ref="website_advertisement_manager.ad_block_sale_order_3"/>
+            <field name="product_id" ref="website_advertisement_manager.ad_block_17"/>
+            <field name="is_ad_block_line">True</field>
+            <field name="price_unit">45</field>
+            <field name="product_uom_qty">1</field>
+            <field name="ad_block_status">draft</field>
+            <field name="ad_display_type">banner</field>
+            <field name="ad_date_from" eval="(DateTime.today().date() + relativedelta(days=10)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_date_to" eval="(DateTime.today().date() + relativedelta(days=12)).strftime('%Y-%m-%d')"></field>
+            <field name="ad_banner_img"  type="base64" file="website_advertisement_manager/static/src/img/banner2.png"/>
+            <field name="ad_banner_link">http://www.webkul.com</field>
+            <field name="ad_img_name">banner2.png</field>
+            <field name="ad_content_status">new</field>
+        </record>
+
+        <function model="sale.order" name="action_confirm"
+            eval="[ref('website_advertisement_manager.ad_block_sale_order_3')]"/>
+
+    </data>
+</odoo>

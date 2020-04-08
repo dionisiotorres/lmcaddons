@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+
+<odoo>
+    <data noupdate="1">
+        <!--Mail to customer for ad content status state changed-->
+        <record id="content_approval_template_to_customer" model="mail.template">
+            <field name="name">Mail to Customer On Content Approval</field>
+            <field name="email_from">${object.company_id.partner_id.email or '' | safe}</field>
+            <field name="subject">Ad Block Content Status Updated</field>
+            <field name="email_to">${object.order_partner_id.email or '' | safe}</field>
+            <field name="model_id" ref="sale.model_sale_order_line"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.lang}</field>
+            <field name="body_html"><![CDATA[
+                    Hello ${object.order_partner_id.name},
+                    <p>&nbsp;</p>
+                    <p>Your ad block content has been ${object.ad_content_status}.</p>
+                    <p>&nbsp;</p>
+                    <p>Thank you,</p>
+                    <p style="color:#eeeeee;">
+                    % if object.company_id.partner_id.user_ids and object.company_id.partner_id.user_ids[0].signature:
+                        ${object.company_id.partner_id.user_ids[0].signature | safe}
+                    % endif
+                    </p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

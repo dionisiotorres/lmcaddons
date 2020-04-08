@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+
+    <template id="portal_my_home_my_ad_blocks" name="Portal My Home : my ad blocks entries" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="my_ad_blocks_count" t-call="portal.portal_docs_entry">
+                <t t-set="title">Ad Blocks</t>
+                <t t-set="url" t-value="'/my/ad/blocks'"/>
+                <t t-set="count" t-value="my_ad_blocks_count"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_ad_blocks" name="My Appointments">
+         <t t-call="portal.portal_layout">
+             <t t-set="breadcrumbs_searchbar" t-value="True"/>
+             <t t-call="portal.portal_searchbar">
+                 <t t-set="title">Ad Blocks</t>
+             </t>
+             <t t-if="not ad_blocks_obj">
+                 <p>There are currently no Ad Blocks for your account.</p>
+             </t>
+             <t t-if="ad_blocks_obj" t-call="portal.portal_table">
+                 <thead>
+                   <tr class="active">
+                       <th> Ad Block Position # </th>
+                       <th> Order Ref </th>
+                       <th> Date From </th>
+                       <th> Date To </th>
+                       <th> Total Days </th>
+                       <th> Price per Day</th>
+                       <th> Total </th>
+                       <th> Status </th>
+                     </tr>
+                 </thead>
+                 <t t-foreach="ad_blocks_obj" t-as="block">
+                     <tr class='clickable-row ad_block_row' data-href='url://my/ad/blocks/#{block.id}?#{keep_query()}'>
+                         <td>
+                            <a t-attf-href="/my/ad/blocks/#{block.id}?#{keep_query()}"><t t-esc="block.product_id.name"/></a>
+                         </td>
+                         <td>
+                             <span t-field="block.order_id.name"/>
+                         </td>
+                         <td>
+                             <span t-field="block.ad_date_from" t-field-options='{"format": "d MMMM,y"}'/>
+                         </td>
+                         <td>
+                            <span t-field="block.ad_date_to" t-field-options='{"format": "d MMMM,y"}'/>
+                         </td>
+                         <td>
+                             <t t-esc="block.ad_total_days"/>
+                         </td>
+                         <td>
+                            <t t-esc="block.price_unit" t-options='{"widget": "monetary", "display_currency": block.currency_id}'/>
+                         </td>
+                         <td>
+                            <t t-esc="block.price_subtotal" t-options='{"widget": "monetary", "display_currency": block.currency_id}'/>
+                         </td>
+                         <td>
+                             <div t-set="status" t-value="block.ad_block_status"/>
+                                <div t-if="status=='draft'" class="badge badge-info">
+                                    <!-- <i class="fa fa-user" aria-hidden="true" style="margin-right:3px;"></i> -->
+                                      <span t-esc="status" style="font-size:12px;text-transform: capitalize;"/>
+                                </div>
+                                <div t-if="status=='active'" class="badge badge-success">
+                                    <i class="fa fa-check fa-1x" style="margin-right:3px;"></i>
+                                     <span t-esc="status" style="font-size:12px;text-transform: capitalize;"/>
+                                </div>
+                               <div t-if="status=='expire'" class="badge badge-danger">
+                                   <i class="fa fa-times fa-1x" style="margin-right:3px;"></i>
+                                    <span t-esc="status" style="font-size:12px;text-transform: capitalize;"/>
+                               </div>
+                         </td>
+                     </tr>
+                 </t>
+            </t>
+       </t>
+    </template>
+
+    <template id="portal_my_home_menu_ad_blocks" name="Ad Blocks" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'website_ad_blocks'" t-attf-class="breadcrumb-item #{'active ' if not ad_block else ''}">
+                <a t-if="ad_block" t-attf-href="/my/ad/blocks?{{ keep_query() }}"> Ad Blocks</a>
+                <t t-else="">Ad Blocks</t>
+            </li>
+            <li t-if="ad_block" class="breadcrumb-item active">
+                <t t-esc="ad_block.product_id.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_ad_block_page" name="Ad Block Description Page">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="card card-default mb0">
+                    <div class="card-header">
+                        <div class="row">
+                            <h4 class="col-md-10">
+                                <t t-call='portal.record_pager'/>
+                                <b><span t-field="ad_block.product_id.name"/></b>
+                                <a t-attf-href="/my/orders/#{ad_block.order_id.id}?#{keep_query()}" style="color:white;">
+                                    <div class="badge ml8 order_ref_div">
+                                        Order Ref : <t t-esc="ad_block.order_id.name"/>
+                                    </div>
+                                </a>
+                            </h4>
+                            <h4 class="col-md-2 pull-right">
+                                <t t-set="status" t-value="ad_block.ad_block_status"/>
+                                   <t t-if="status=='draft'">
+                                       <span class="text-info pull-right"><i class="fa fa-circle" style="font-size:14px;"/> Draft</span>
+                                   </t>
+                                  <t t-if="status=='active'">
+                                      <span class="text-success pull-right"><i class="fa fa-circle" style="font-size:14px;"/> Active</span>
+                                  </t>
+                                  <t t-if="status=='expire'">
+                                      <span class="text-danger pull-right"><i class="fa fa-circle" style="font-size:14px;"/> Expired</span>
+                                  </t>
+                            </h4>
+
+                        </div>
+                    </div>
+                    </div>
+                    <t t-call="website_advertisement_manager.portal_ad_blocks_report"/>
+            </div>
+            <div class="oe_structure mb32"/>
+        </t>
+    </template>
+
+    <template id="portal_ad_blocks_report" name="Ad Block Portal Report">
+        <div class="ad_loader" style="display:none;"/>
+            <t t-if="request.env['ir.default'].sudo().get('res.config.settings', 'auto_approve_ad_block')">
+                <t t-if="ad_block.ad_block_status == 'draft'">
+                    <div t-if="ad_block.ad_banner_img" class="card card-info mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Your ad block will be automatically published according the booked date.
+                            If you wish to update the content, then you can update it.
+                        </div>
+                    </div>
+                    <div t-else="" class="card card-info mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Thankyou, for the booking of advertisement block.
+                            You can add the content for the advertisement block.
+                        </div>
+                    </div>
+                </t>
+                <t t-if="ad_block.ad_block_status=='active'">
+                    <div t-if="ad_block.ad_banner_img" class="card card-success mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Your ad block has been published according the booked date.
+                            If you wish to update the content, then you can update it.
+                        </div>
+                    </div>
+                    <div t-else="" class="card card-warning mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Your ad block is currently published according the booked date.
+                            Kindly add the content of the ad block as soon as possible.
+                        </div>
+                    </div>
+                </t>
+            </t>
+            <t t-else="">
+                <t t-if="ad_block.ad_block_status in ['draft','active']">
+                    <div t-if="ad_block.ad_content_status == 'new'" class="card card-info mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Thankyou, for the booking of advertisement block.
+                            You can add the content
+                            and send the request for the approval.
+                        </div>
+                    </div>
+                    <div t-if="ad_block.ad_content_status == 'pending'" class="card card-warning mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Your request for block content approval has been registered and is under process.
+                            Once confirmed you will be notified.
+                        </div>
+                    </div>
+                    <div t-if="ad_block.ad_content_status == 'approved'" class="card card-success mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Your content has been approved.
+                            Your ad block will be automatically published according the booked date.
+                            If you wish to update the content again, then update and again send the
+                            request for content approval.
+                        </div>
+                    </div>
+                    <div t-if="ad_block.ad_content_status == 'denied'" class="card card-danger mb4 mt4">
+                        <div class="card-header block_msg" style="font-size:15px;">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            Sorry, Your content for advertisement block has been denied,(denied)
+                            you can update the content and resend the request for content approval.
+                        </div>
+                    </div>
+                </t>
+            </t>
+            <t t-if="ad_block.ad_block_status == 'expire'">
+                <div class="card card-danger mb4 mt4">
+                    <div class="card-header block_msg" style="font-size:15px;">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        The validity of this advertisement block position has been expired.
+                        You can <a href="/advertisement" class="text-danger"><strong>book a new ad block </strong></a> according to the available dates.
+                    </div>
+                </div>
+            </t>
+            <div class="card card-default mt0">
+                <div class="">
+                    <div class="row ml8 mr8 mt16 block_info" style="">
+                        <div class="col-md-3" style="    border-right: 1px solid #dddddd;">
+                            <span style="font-weight:bold;">Ad Block Position</span><br/>
+                            <t t-esc="ad_block.name"/>
+                        </div>
+                        <div class="col-md-3" style="    border-right: 1px solid #dddddd;">
+                            <span style="font-weight:bold;">Duration</span><br/>
+                            <t t-esc="ad_block.ad_date_from" t-options='{"widget": "date" , "format": "d MMM, y"}'/> -
+                            <t t-esc="ad_block.ad_date_to" t-options='{"widget": "date" , "format": "d MMM, y"}'/>
+                        </div>
+                        <div class="col-md-2" style="    border-right: 1px solid #dddddd;">
+                            <span style="font-weight:bold;">Price per Day</span><br/>
+                            <span t-esc="ad_block.price_unit" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                        </div>
+                        <div class="col-md-2" style="    border-right: 1px solid #dddddd;">
+                            <span style="font-weight:bold;">Number of Days</span><br/>
+                            <t t-esc="ad_block.ad_total_days"/>
+                        </div>
+                        <div class="col-md-2">
+                            <span style="font-weight:bold;">Total Amount</span><br/>
+                            <span t-esc="ad_block.price_subtotal" class="block_total_amount"
+                                t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                        </div>
+                    </div>
+                <div class="container mb32 mt32" id="ad_block_banner_content">
+                    <div class="row">
+                        <div class="offset-md-1 col-md-2">
+                            <span class="" style="font-size:15px;color:#222222;font-weight:bold;"> Upload Image : </span>
+                        </div>
+                        <div class="col-md-6 ad_img_border">
+                            <div>
+                                <div t-if="ad_block.ad_banner_img" id="image_preview"
+                                    t-attf-style="background:url('data:image/jpg;base64,{{ ad_block.ad_banner_img }}') no-repeat center;">
+                                </div>
+                                <div t-else="" id="image_preview"
+                                    t-attf-style="background:url('/web/static/src/img/placeholder.png') no-repeat center;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="offset-md-3 col-md-6 text-muted" style="padding:0px;font-size:14px;">
+                            <span>
+                                <em><i class="fa fa-info-circle" aria-hidden="true"/>
+                                Standard size for <span t-esc="ad_block.product_id.name"/> position is
+                                <span t-esc="request.website._get_ad_block_image_size(ad_block.product_id)"/>.</em>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mt8 mb8">
+                        <div class=" offset-md-3 col-md-6 input-group mt0 p-0" style="margin-top:15px;">
+                            <input id="imgUpload" type="file" name="imgUpload" class=" form-control custom-file-input"
+                                accept="image/gif, image/jpg, image/jpeg, image/png" style="display:none;"/>
+                            <div id="ad_file_name" tabindex="500"  class="form-control"
+                                t-att-style="'background-color:#eeeeee;' if ad_block.ad_block_status == 'expire' else ''">
+                                <!-- overflow:overlay; -->
+                                <span t-if="ad_block.ad_img_name" t-esc="ad_block.ad_img_name"/>
+                            </div>
+                            <span class="input-group-btn">
+                                <a class="btn btn-danger ad_img_browse_btn fa fa-picture-o"
+                                    t-att-disabled="1 if ad_block.ad_block_status == 'expire' else None"
+                                    t-att-style="'pointer-events:None;border-radius:unset;' if ad_block.ad_block_status == 'expire' else 'border-radius:unset;'">
+                                    &#032;Browse...
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mt16 mb8" t-if="ad_block.product_id.allow_external_link">
+                        <div class="offset-md-1 col-md-2">
+                                <span class="" style="font-size:15px;color:#222222;font-weight:bold;"> Add Link : </span>
+                        </div>
+                        <div class="form-group col-md-6" style="padding:0px;">
+                            <input class="form-control" type="text" id="ad_banner_link" name="ad_banner_link"
+                                placeholder="https://www.example.com"
+                                t-att-readonly="1 if ad_block.ad_block_status == 'expire' else None"
+                                t-att-value="ad_block.ad_banner_link if ad_block.ad_banner_link else ''"/>
+                        </div>
+                    </div>
+                    <div t-if="ad_block.ad_block_status != 'expire'" class="row">
+                        <div class="offset-md-3 col-md-6" style="padding:0px;">
+                            <div class="alert alert-danger" id="show_req_panel" style="display:none;padding:10px;">
+                                <button type="button" class="close" data-dismiss="alert" style="margin-top: -3px;">&#160; x </button>
+                                <strong> Required..!! </strong>
+                            </div>
+                            <div class="alert alert-success" id="img_success_upd" style="display:none;padding:10px;">
+                                <button type="button" class="close" data-dismiss="alert" style="margin-top: -3px;">&#160; x </button>
+                                <strong> Successfully updated..!! </strong>
+                            </div>
+                            <button id="portal_add_banner" class="btn btn-lg pull-right"
+                                t-att-data-block-id="ad_block.id" title="Click to save the banner">
+                                <span t-if="not request.env['ir.default'].sudo().get('res.config.settings', 'auto_approve_ad_block')">
+                                    Save and Request To Approve
+                                </span>
+                                <span t-if="ad_block.ad_banner_img and request.env['ir.default'].sudo().get('res.config.settings', 'auto_approve_ad_block')">
+                                    Update
+                                </span>
+                                <span t-if="not ad_block.ad_banner_img and request.env['ir.default'].sudo().get('res.config.settings', 'auto_approve_ad_block')">
+                                    Add
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="website_ad_inherit_portal_order_page" inherit_id="sale.sale_order_portal_content">
+        <xpath expr="//section[@id='details']//td[@id='product_name']" position="attributes">
+            <attribute name="t-if">not line.is_ad_block_line</attribute>
+        </xpath>
+        <xpath expr="//section[@id='details']//td[@id='product_name']" position="after">
+            <td id="product_name" t-if="line.is_ad_block_line">
+                <a t-attf-href="/advertisement">
+                     <span t-field="line.name"/>
+                </a>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>

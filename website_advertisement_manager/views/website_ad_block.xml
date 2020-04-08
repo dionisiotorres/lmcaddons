@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+    <data>
+
+        <record id="website_ad_block_tree_view" model= "ir.ui.view">
+            <field name= "name">product.template.tree</field>
+            <field name= "model">product.template</field>
+            <field name="type">tree</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="100"/>
+            <field name= "arch" type= "xml">
+                <tree string="Website Ad Block" decoration-success="ad_block_state=='available'"
+                    decoration-danger="ad_block_state=='not_available'">
+                    <field name="name"/>
+                    <field name="is_ad_block" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="lst_price" widget='monetary' options="{'currency_field': 'currency_id'}"
+                        string="Price per day"/>
+                    <field name="ad_block_state"/>
+                    <field name="website_published"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id= "website_ad_block_form_view" model= "ir.ui.view">
+            <field name= "name">product.template.form</field>
+            <field name= "model">product.template</field>
+            <field name="type">form</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="100"/>
+            <field name= "arch" type= "xml">
+                <form string="Website Ad Block" create="false">
+                    <header>
+                        <field name="ad_block_state" widget="statusbar"/>
+                    </header>
+                    <div attrs="{'invisible': [('ad_current_customer','=',False)]}" class="oe_form_box_info oe_text_center">
+                        <strong>Currently Customer &#34;<field name="ad_current_customer" readonly="1"/>&#34; is actively using this block.</strong>
+                    </div>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_website_published" type="object"
+                                    class="oe_stat_button" icon="fa-globe">
+                                <field name="website_published" widget="website_button"/>
+                            </button>
+                            <button name="website_advertisement_manager.website_ad_order_sol_action" type="action"
+                                    class="oe_stat_button" icon="fa-th-list" string='View All Bookings'
+                                />
+                        </div>
+                        <div class="oe_title oe_inline">
+                            <b><label for="name" string="Name" class="oe_edit_only"/></b>
+                        	<h1>
+								<field name="name" default_focus="1" placeholder="Block Name"
+                                    class="oe_title " style="max-width:500px;"/>
+							</h1>
+                        </div>
+                        <field name="is_ad_block" invisible="1"/>
+                        <group>
+                            <group>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="lst_price" help= "Price Of Block per Unit Day"
+                                     widget='monetary' options="{'currency_field': 'currency_id'}"
+                                     string="Price per day" required="1"/>
+                                <field name="allow_external_link"/>
+                                <field name="ad_block_sol_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="block_position" required="1" readonly="0"/>
+                                <field name="website_page" widget="many2many_tags" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
+                                <field name="height" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
+                                <field name="banner_heading" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="block_position_page" string="Block Position Image">
+                                <group>
+                                    <div>
+                                        <field name="ad_block_image" widget="image" options="{'size': [825, 825]}"
+                                            help="Image showing the position of block in website"
+                                            class="oe_inline"/>
+                                    </div>
+                                </group>
+                            </page>
+                            <page name="ad_block_lines_page" string="Ad Block Lines">
+                                <field name="ad_block_sol_ids" context="{'tree_view_ref':'website_advertisement_manager.website_ad_order_sol_tree_view'}"/>
+                            </page>
+                            <page string="Note">
+                                <field name="description" placeholder="Description..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="website_ad_block_action" model="ir.actions.act_window">
+            <field name="name">Website Ad Blocks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_ad_block','=', True)]</field>
+            <field name="context">{'default_is_ad_block': True, 'default_type': 'service'}</field>
+            <field
+               name="view_ids"
+               eval="[(5, 0, 0),
+                   (0, 0, {'sequence': 2, 'view_mode': 'tree', 'sequence':2, 'view_id': ref('website_ad_block_tree_view')}),
+                   (0, 0, {'sequence': 3, 'view_mode': 'form', 'sequence':3, 'view_id': ref('website_ad_block_form_view')})
+               ]"/>
+        </record>
+
+        <menuitem
+            id="menu_website_ad_root_menu"
+            parent="website.menu_website_configuration"
+            sequence="10"
+            name="Advertisement"
+        />
+        <menuitem
+            id="menu_website_ad_block"
+            action="website_ad_block_action"
+            parent="menu_website_ad_root_menu"
+            sequence="3"
+            name="Ad Blocks"
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,153 @@
+/* Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
+/* See LICENSE file for full copyright and licensing details. */
+/* License URL : https://store.webkul.com/license.html/ */
+
+.ad_block_div{
+    background-color: #e0e0e0;
+    color: #5a5a5a;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 992px) {
+    .ad_block_div {
+        height: auto!important;
+        line-height: auto!important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ad_block_div {
+        height: auto!important;
+        line-height: auto!important;
+    }
+}
+
+#image_preview{
+    width: 100%;
+    min-height: 180px;
+    background-size: auto 100% !important;
+    margin: 4% 1% 2% 0%;
+    border: 1px solid #f9f9f9;
+}
+
+@media only screen and (max-width: 320px) {
+    #image_preview {
+        width: 100%;
+        height: 150px;
+        background-repeat: no-repeat;
+        background-size: contain !important;
+    }
+}
+
+input.has_error{
+    border: 1px solid #bf7574;
+    box-shadow: 0px 1px 0.94px 0.06px #bf7574;
+}
+
+.ad_loader{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(/website_advertisement_manager/static/src/img/ad_loader.gif) center no-repeat rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 1px white;
+}
+
+div.image_error{
+    border-radius: 7px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border: 2px solid #d9534e;
+}
+
+.ad_link_error{
+    border: 2px solid #d9534e;
+}
+.order_ref_div{
+    font-size: 14px;
+    color: #222222;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dadada;
+}
+.block_msg{
+    font-size:14px;
+    color:#D46E2B;
+    background-color:#fbe7da;
+    border:1px solid #facfb3;
+    border-radius: 4px;
+}
+.block_info{
+    border-width:1px;
+    border-color:#f2f2f2;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4.8px 0.2px rgba(0,0,0,0.08);
+}
+
+.block_info > div{
+    font-size:15px;
+    color:#222222;
+}
+
+.ad_img_border{
+    border: 4px solid #dadada;
+    height: 230px;
+    border-style: dashed;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 320px) {
+    .ad_img_border{
+        height: 210px;
+    }
+}
+
+#portal_add_banner{
+    font-size: 14px;
+    color: #ffffff;
+    border: 1px solid #0086e1;
+    background-color: #1a94f2;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#portal_add_banner: hover{
+    border-color: #0089ef;
+}
+
+.ad_img_browse_btn{
+    margin-right: -1px;
+    height: 34px;
+}
+
+
+
+/* override position and transform in 3.3.x */
+[id^=adblockMultiple] .carousel-inner .carousel-item.left.active {
+  transform: translateX(-33%);
+}
+[id^=adblockMultiple] .carousel-inner .carousel-item.right.active {
+  transform: translateX(33%);
+}
+
+[id^=adblockMultiple] .carousel-inner .carousel-item.next {
+  transform: translateX(33%)
+}
+[id^=adblockMultiple] .carousel-inner .carousel-item.prev {
+  transform: translateX(-33%)
+}
+
+[id^=adblockMultiple] .carousel-inner .carousel-item.right,
+[id^=adblockMultiple] .carousel-inner .carousel-item.left {
+  transform: translateX(0);
+}
+
+[id^=adblockMultiple] .carousel-inner .carousel-item .col-lg-4{
+    max-width: 32.33333333%;
+}

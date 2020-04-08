@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+    <template id="website_ad_assets_frontend" inherit_id="website.assets_frontend" name="Website Advertisement Manager">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="website_advertisement_manager/static/src/js/website_ad.js"></script>
+            <link rel="stylesheet" href="website_advertisement_manager/static/src/css/website_ad.css"/>
+        </xpath>
+    </template>
+</odoo>

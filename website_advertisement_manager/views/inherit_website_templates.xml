@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+
+    <template id="ad_common_layout_template" name="Ad Common Layout Template">
+        <t t-set="ad_blocks" t-value="request.website._get_ad_block_ids()"/>
+        <t t-set="block" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
+        <div id="ad_block_banner" t-if="block and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
+            and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
+            class="mt16 mb8" t-att-style="'height:%spx;line-height: %spx;'%(h,h)">
+            <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
+                <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
+                    t-attf-src="data:image/jpg;base64,{{ block.sudo().ad_block_sol_id.ad_banner_img }}" alt="Not found"
+                    style="width:100%;height:100%;"/>
+                <img t-else="" class="item oe_img_bg oe_custom_bg active"
+                    src="/web/static/src/img/placeholder.png" alt="Not found"
+                    style="width:100%;height:100%;"/>
+            </a>
+        </div>
+        <div t-if="block and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager"
+            class="ad_block_div mt16 mb8" t-att-style="'height:%spx;padding:%s;'%(h,p)">
+            <t t-esc="block_name"/>
+        </div>
+        <div t-if="block and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager"
+            class="ad_block_div mt16 mb8" t-att-style="'height:%spx;padding:%s;'%(h,p)">
+            <t t-esc="block_name"/>
+        </div>
+    </template>
+
+    <template id="ad_inherit_products" inherit_id="website_sale.products" name="Show Shop Ad BLock" customize_show="True" priority="99">
+        <xpath expr="//div[hasclass('products_pager')][1]" position="before">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'shop_page_full_top'"/>
+                <t t-set="block_name" t-value="'Top Container Shop Page'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('products_pager')][2]" position="after">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'shop_page_full_bottom'"/>
+                <t t-set="block_name" t-value="'Bottom Container Shop Page'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'below_product_categories'"/>
+                <t t-set="block_name" t-value="'Side Div Below Products Category'"/>
+                <t t-set="h" t-value="220"/>
+                <t t-set="p" t-value="'25%'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="ad_inherit_product" inherit_id="website_sale.product" name="Show Product Page Ad Block" customize_show="True">
+        <xpath expr="//section[@id='product_detail']" position="inside">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'product_image_bottom'"/>
+                <t t-set="block_name" t-value="'Container Below Product Details'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="ad_inherit_cart" inherit_id="website_sale.cart" name="Show Cart Ad Block" customize_show="True">
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="inside">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'cart_full_bottom'"/>
+                <t t-set="block_name" t-value="'Bottom Container Cart Page'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- <template id="ad_inherit_checkout" inherit_id="website_sale.checkout" name="Show Checkout Ad Blocks" customize_show="True">
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="inside">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'checkout_full_bottom'"/>
+                <t t-set="block_name" t-value="'Bottom Container Checkout Page'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+    </template> -->
+
+    <template id="ad_inherit_payment" inherit_id="website_sale.payment" name="Show Payment Ad Blocks" customize_show="True">
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="inside">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'payment_full_bottom'"/>
+                <t t-set="block_name" t-value="'Bottom Container Payment Page'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="ad_inherit_confirmation" inherit_id="website_sale.confirmation" name="Show Confirmation Ad Blocks"
+        customize_show="True">
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="inside">
+            <t t-call="website_advertisement_manager.ad_common_layout_template">
+                <t t-set="position" t-value="'confirmation_page_full_bottom'"/>
+                <t t-set="block_name" t-value="'Bottom Container Confirmation Page'"/>
+                <t t-set="h" t-value="190"/>
+                <t t-set="p" t-value="'7.5%'"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
