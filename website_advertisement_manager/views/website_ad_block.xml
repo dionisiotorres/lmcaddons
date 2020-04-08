@@ -69,7 +69,10 @@
                             <group>
                                 <field name="block_position" required="1" readonly="0"/>
                                 <field name="website_page" widget="many2many_tags" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
-                                <field name="height" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
+                                <field name="banner_height" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
+                                <field name="top_margin" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
+                                <field name="left_margin" attrs="{'invisible': [('block_position','not in',('left1','left2','left3'))]}"/>
+                                <field name="right_margin" attrs="{'invisible': [('block_position','not in',('right1','right2','right3'))]}"/>
                                 <field name="banner_heading" attrs="{'invisible': [('block_position','not in',('left1','left2','left3','right1','right2','right3'))]}"/>
                             </group>
                         </group>

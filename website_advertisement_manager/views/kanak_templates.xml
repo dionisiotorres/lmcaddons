@@ -6,8 +6,8 @@
         <t t-set="block" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
-            class="mt16 mb8" t-att-style="'width: 160px; height: %s; padding: %s; position: fixed; left: %s; top: %s;'%(height,padding,left,top)">
-            <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px;"><t t-esc="block.banner_heading"/></p>
+            class="mt16 mb8" t-att-style="'width: 160px; height: %s; position: fixed; left: %s; top: %s;'%(block.banner_height, block.left_margin, block.top_margin)">
+            <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
             <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
                 <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
                     t-attf-src="data:image/jpg;base64,{{ block.sudo().ad_block_sol_id.ad_banner_img }}" alt="Not found"
@@ -17,15 +17,15 @@
                     style="width:100%;height:100%;"/>
             </a>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; padding: %s; position: fixed; left: %s; top: %s;'%(height,padding,left,top)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; left: %s; top: %s;'%(block.banner_height, block.left_margin, block.top_margin)">
             <div class="ad_block_div mt16 mb8">
-                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px;"><t t-esc="block.banner_heading"/></p>
+                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; padding: %s; position: fixed; left: %s; top: %s;'%(height,padding,left,top)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; left: %s; top: %s;'%(block.banner_height, block.left_margin, block.top_margin)">
             <div class="ad_block_div mt16 mb8">
-                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px;"><t t-esc="block.banner_heading"/></p>
+                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
@@ -36,8 +36,8 @@
         <t t-set="block" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
-            class="mt16 mb8" t-att-style="'width: 160px; height: %s; padding: %s; position: fixed; right: %s; top: %s;'%(height,padding,right,top)">
-            <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px;"><t t-esc="block.banner_heading"/></p>
+            class="mt16 mb8" t-att-style="'width: 160px; height: %s; position: fixed; right: %s; top: %s;'%(block.banner_height, block.right_margin, block.top_margin)">
+            <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
             <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
                 <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
                     t-attf-src="data:image/jpg;base64,{{ block.sudo().ad_block_sol_id.ad_banner_img }}" alt="Not found"
@@ -47,15 +47,15 @@
                     style="width:100%;height:100%;"/>
             </a>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; padding: %s; position: fixed; right: %s; top: %s;'%(height,padding,right,top)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; right: %s; top: %s;'%(block.banner_height, block.right_margin, block.top_margin)">
             <div class="ad_block_div mt16 mb8">
-                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px;"><t t-esc="block.banner_heading"/></p>
+                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; padding: %s; position: fixed; right: %s; top: %s;'%(height,padding,right,top)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; right: %s; top: %s;'%(block.banner_height, block.right_margin, block.top_margin)">
             <div class="ad_block_div mt16 mb8">
-                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px;"><t t-esc="block.banner_heading"/></p>
+                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
@@ -66,55 +66,43 @@
             <t t-call="website_advertisement_manager.kanak_ad_leftside_layout_template">
                 <t t-set="position" t-value="'left1'"/>
                 <t t-set="block_name" t-value="'Left 1'"/>
-                <t t-set="height" t-value="'150px'"/>
-                <t t-set="padding" t-value="'10px'"/>
-                <t t-set="left" t-value="'0%'"/>
-                <t t-set="top" t-value="'12%'"/>
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_leftside_layout_template">
                 <t t-set="position" t-value="'left2'"/>
                 <t t-set="block_name" t-value="'Left 2'"/>
-                <t t-set="height" t-value="'150px'"/>
-                <t t-set="padding" t-value="'10px'"/>
-                <t t-set="left" t-value="'0%'"/>
-                <t t-set="top" t-value="'40%'"/>
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_leftside_layout_template">
                 <t t-set="position" t-value="'left3'"/>
                 <t t-set="block_name" t-value="'Left 3'"/>
-                <t t-set="height" t-value="'150px'"/>
-                <t t-set="padding" t-value="'10px'"/>
-                <t t-set="left" t-value="'0%'"/>
-                <t t-set="top" t-value="'68%'"/>
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_rightside_layout_template">
                 <t t-set="position" t-value="'right1'"/>
                 <t t-set="block_name" t-value="'Right 1'"/>
-                <t t-set="height" t-value="'150px'"/>
+                <!-- <t t-set="height" t-value="'150px'"/>
                 <t t-set="padding" t-value="'10px'"/>
                 <t t-set="right" t-value="'0%'"/>
-                <t t-set="top" t-value="'12%'"/>
+                <t t-set="top" t-value="'12%'"/> -->
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_rightside_layout_template">
                 <t t-set="position" t-value="'right2'"/>
                 <t t-set="block_name" t-value="'Right 2'"/>
-                <t t-set="height" t-value="'150px'"/>
+                <!-- <t t-set="height" t-value="'150px'"/>
                 <t t-set="padding" t-value="'10px'"/>
                 <t t-set="right" t-value="'0%'"/>
-                <t t-set="top" t-value="'40%'"/>
+                <t t-set="top" t-value="'40%'"/> -->
             </t>
 
             <t t-call="website_advertisement_manager.kanak_ad_rightside_layout_template">
                 <t t-set="position" t-value="'right3'"/>
                 <t t-set="block_name" t-value="'Right 3'"/>
-                <t t-set="height" t-value="'150px'"/>
+                <!-- <t t-set="height" t-value="'150px'"/>
                 <t t-set="padding" t-value="'10px'"/>
                 <t t-set="right" t-value="'0%'"/>
-                <t t-set="top" t-value="'68%'"/>
+                <t t-set="top" t-value="'68%'"/> -->
             </t>
 
             <!-- <div groups="sales_team.group_sale_manager"
