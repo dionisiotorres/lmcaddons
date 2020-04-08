@@ -6,7 +6,7 @@
         <t t-set="block" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
-            class="mt16 mb8" t-att-style="'width: 160px; height: %s; position: fixed; left: %s; top: %s;'%(block.banner_height, block.left_margin, block.top_margin)">
+            class="mt16 mb8" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
             <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
             <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
                 <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
@@ -17,13 +17,13 @@
                     style="width:100%;height:100%;"/>
             </a>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; left: %s; top: %s;'%(block.banner_height, block.left_margin, block.top_margin)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; left: %s; top: %s;'%(block.banner_height, block.left_margin, block.top_margin)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
@@ -36,7 +36,7 @@
         <t t-set="block" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
-            class="mt16 mb8" t-att-style="'width: 160px; height: %s; position: fixed; right: %s; top: %s;'%(block.banner_height, block.right_margin, block.top_margin)">
+            class="mt16 mb8" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
             <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
             <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
                 <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
@@ -47,13 +47,13 @@
                     style="width:100%;height:100%;"/>
             </a>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; right: %s; top: %s;'%(block.banner_height, block.right_margin, block.top_margin)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; position: fixed; right: %s; top: %s;'%(block.banner_height, block.right_margin, block.top_margin)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
