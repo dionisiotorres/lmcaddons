@@ -73,7 +73,7 @@ class ProductTemplate(models.Model):
 #         ('unique_block_position', 'unique(block_position,website_page)',
 #         _('There is already a record with this block position.'))
 #     ]
-    _sql_constraints = [('unique_block_position', 'check(1=1)', 'No error'),]
+
 
     @api.one
     def compute_ad_block_sol_status(self):
