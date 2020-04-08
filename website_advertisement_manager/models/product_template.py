@@ -70,7 +70,7 @@ class ProductTemplate(models.Model):
     ad_block_sol_ids = fields.One2many("sale.order.line", "ad_block_product_tmpl_id", "Ad Block Lines", copy=True, auto_join= True)
 
     _sql_constraints = [
-        ('unique_block_position', 'unique(block_position)',
+        ('unique_block_position', 'unique(block_position,website_page)',
         _('There is already a record with this block position.'))
     ]
 
