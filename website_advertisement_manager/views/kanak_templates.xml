@@ -4,10 +4,10 @@
     <template id="kanak_ad_leftside_layout_template" name="Kanak Ad Leftside Layout Template">
         <t t-set="ad_blocks" t-value="request.website._get_ad_block_ids()"/>
         <t t-set="blocks" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
-        <t t-set="block" t-value="blocks and blocks.filtered(lambda b: request.httprequest.path in b.website_page.url)"/>
+        <t t-set="block" t-value="blocks and blocks.filtered(lambda b: request.httprequest.path in b.website_page.mapped('url'))"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
-            class="mt16 mb8" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
+            class="mt16 mb8" t-att-style="'width: 160px; height: %s; top-margin: %s; left-margin: %s'%(block.banner_height,block.top_margin,block.left_margin)">
             <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
             <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
                 <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
@@ -18,13 +18,13 @@
                     style="width:100%;height:100%;"/>
             </a>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; top-margin: %s; left-margin: %s'%(block.banner_height,block.top_margin,block.left_margin)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; top-margin: %s; left-margin: %s'%(block.banner_height,block.top_margin,block.left_margin)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
@@ -35,10 +35,10 @@
     <template id="kanak_ad_rightside_layout_template" name="Kanak Ad Rightside Layout Template">
         <t t-set="ad_blocks" t-value="request.website._get_ad_block_ids()"/>
         <t t-set="blocks" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
-        <t t-set="block" t-value="blocks and blocks.filtered(lambda b: request.httprequest.path in b.website_page.url)"/>
+        <t t-set="block" t-value="blocks and blocks.filtered(lambda b: request.httprequest.path in b.website_page.mapped('url'))"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
-            class="mt16 mb8" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
+            class="mt16 mb8" t-att-style="'width: 160px; height: %s; top-margin: %s; right-margin: %s'%(block.banner_height,block.top_margin,block.right_margin)">
             <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
             <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
                 <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
@@ -49,13 +49,44 @@
                     style="width:100%;height:100%;"/>
             </a>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; top-margin: %s; right-margin: %s'%(block.banner_height,block.top_margin,block.right_margin)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
             </div>
         </div>
-        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s;'%(block.banner_height)">
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: 160px; height: %s; top-margin: %s; right-margin: %s'%(block.banner_height,block.top_margin,block.right_margin)">
+            <div class="ad_block_div mt16 mb8">
+                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
+                <t t-esc="block_name"/>
+            </div>
+        </div>
+    </template>
+
+    <template id="kanak_ad_footer_layout_template" name="Kanak Ad Footer Layout Template">
+        <t t-set="ad_blocks" t-value="request.website._get_ad_block_ids()"/>
+        <t t-set="blocks" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
+        <t t-set="block" t-value="blocks and blocks.filtered(lambda b: request.httprequest.path in b.website_page.mapped('url'))"/>
+        <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
+            and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
+            class="mt16 mb8" t-att-style="'width: auto; height: %s;text-align: center; margin-bottom: 20px;'%(block.banner_height)">
+            <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
+            <a t-att-href="block.sudo().allow_external_link and block.sudo().ad_block_sol_id.ad_banner_link or ''" target="_new">
+                <img t-if="block.sudo().ad_block_sol_id.ad_banner_img" class="item oe_img_bg oe_custom_bg active"
+                    t-attf-src="data:image/jpg;base64,{{ block.sudo().ad_block_sol_id.ad_banner_img }}" alt="Not found"
+                    style="width:auto;height:100%;"/>
+                <img t-else="" class="item oe_img_bg oe_custom_bg active"
+                    src="/web/static/src/img/placeholder.png" alt="Not found"
+                    style="width:auto;height:100%;"/>
+            </a>
+        </div>
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and not block.sudo().ad_block_sol_id" groups="sales_team.group_sale_manager" t-att-style="'width: auto; height: %s;text-align: center; margin-bottom: 20px;'%(block.banner_height)">
+            <div class="ad_block_div mt16 mb8">
+                <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
+                <t t-esc="block_name"/>
+            </div>
+        </div>
+        <div t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_content_status != 'approved'" groups="sales_team.group_sale_manager" t-att-style="'width: auto; height: %s;text-align: center; margin-bottom: 20px;'%(block.banner_height)">
             <div class="ad_block_div mt16 mb8">
                 <p style="text-transform: uppercase; font-size: 9px; text-align: center; margin-bottom: 0px; height: 12px;"><t t-esc="block.banner_heading"/></p>
                 <t t-esc="block_name"/>
@@ -99,6 +130,33 @@
                 class="ad_block_div mt16 mb8" style="width: 160px; height: 400px; padding: 5px; position: fixed; left: 10px; top: 15%;">
                 Left Block
             </div> -->
+        </xpath>
+    </template>
+
+    <template id="ads_footer" inherit_id="website.layout" name="Footer Ads">
+        <xpath expr="//footer" position="before">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-4">
+                        <t t-call="website_advertisement_manager.kanak_ad_footer_layout_template">
+                            <t t-set="position" t-value="'footer1'"/>
+                            <t t-set="block_name" t-value="'Footer 1'"/>
+                        </t>
+                    </div>
+                    <div class="col-md-4">
+                        <t t-call="website_advertisement_manager.kanak_ad_footer_layout_template">
+                            <t t-set="position" t-value="'footer2'"/>
+                            <t t-set="block_name" t-value="'Footer 2'"/>
+                        </t>
+                    </div>
+                    <div class="col-md-4">
+                        <t t-call="website_advertisement_manager.kanak_ad_footer_layout_template">
+                            <t t-set="position" t-value="'footer3'"/>
+                            <t t-set="block_name" t-value="'Footer 3'"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
         </xpath>
     </template>
 

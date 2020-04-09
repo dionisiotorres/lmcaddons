@@ -38,12 +38,15 @@ BLOCK_POS = [
     ("payment_full_bottom", "Bottom Container in Payment Page"),
     ("confirmation_page_right_bottom", "Side Div in Right Bottom in Confirmation Page"),
     ("confirmation_page_full_bottom", "Bottom Container in Confirmation Page"),
-    ("left1", "Left Side in selected Page1"),
-    ("left2", "Left Side in selected Page2"),
-    ("left3", "Left Side in selected Page3"),
-    ("right1", "Right Side in seleced Page1"),
-    ("right2", "Right Side in seleced Page2"),
-    ("right3", "Right Side in seleced Page3"),
+    ("left1", "Left Side in selected Page"),
+    ("left2", "Left Side in selected Page"),
+    ("left3", "Left Side in selected Page"),
+    ("right1", "Right Side in seleced Page"),
+    ("right2", "Right Side in seleced Page"),
+    ("right3", "Right Side in seleced Page"),
+    ("footer1", "Block First Above Footer in seleced Page"),
+    ("footer2", "Block Second Above Footer in seleced Page"),
+    ("footer3", "Block Third ABove Footer in seleced Page"),
 ]
 
 class ProductTemplate(models.Model):
@@ -52,7 +55,7 @@ class ProductTemplate(models.Model):
     is_ad_block = fields.Boolean("Is Ad Block")
     website_page = fields.Many2many('website.page', string="Website Page")
     banner_height = fields.Char('Banner Height', default='150px')
-    top_margin = fields.Char('Top Margin', default='18%')
+    top_margin = fields.Char('Top Margin', default='15px')
     left_margin = fields.Char('Left Margin', default='10px')
     right_margin = fields.Char('Right Margin', default='10px')
     banner_heading = fields.Char('Heading', default="Advertisement")
