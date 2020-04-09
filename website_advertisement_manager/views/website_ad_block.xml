@@ -20,6 +20,7 @@
                     <field name="lst_price" widget='monetary' options="{'currency_field': 'currency_id'}"
                         string="Price per day"/>
                     <field name="ad_block_state"/>
+		    <field name="website_page" widget="many2many_tags"/>
                     <field name="website_published"/>
                 </tree>
             </field>
