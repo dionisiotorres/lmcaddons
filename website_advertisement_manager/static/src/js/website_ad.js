@@ -162,6 +162,30 @@ odoo.define('website_advertisement_manager.website_ad', function(require) {
                 })
             });
         });
+
+        var $left_el = $(".left_ads");
+        if ($left_el.length > 0) {
+            $left_el.scrollToFixed({
+                minWidth: 990,
+                marginTop: 20,
+                limit: function () {
+                    var limit = $('footer').offset().top - $left_el.outerHeight(true) - 125;
+                    return limit;
+                }
+            });
+        }
+        var $right_el = $(".right_ads");
+        if ($right_el.length > 0) {
+            $right_el.scrollToFixed({
+                minWidth: 990,
+                marginTop: 20,
+                limit: function () {
+                    var limit = $('footer').offset().top - $right_el.outerHeight(true) - 125;
+                    return limit;
+                }
+            });
+        }
+
     });
 
     $(document).on('change', '#input_ad_date_from , #input_ad_date_to', function(){
