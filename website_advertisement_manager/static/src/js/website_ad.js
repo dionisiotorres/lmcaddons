@@ -169,7 +169,7 @@ odoo.define('website_advertisement_manager.website_ad', function(require) {
                 minWidth: 990,
                 marginTop: 82,
                 limit: function () {
-                    var limit = $('stopfixedads').offset().top - $left_el.outerHeight(true) - 125;
+                    var limit = $('.stopfixedads').offset().top - $left_el.outerHeight(true) - 125;
                     return limit;
                 }
             });
@@ -180,7 +180,7 @@ odoo.define('website_advertisement_manager.website_ad', function(require) {
                 minWidth: 990,
                 marginTop: 82,
                 limit: function () {
-                    var limit = $('stopfixedads').offset().top - $right_el.outerHeight(true) - 125;
+                    var limit = $('.stopfixedads').offset().top - $right_el.outerHeight(true) - 125;
                     return limit;
                 }
             });
