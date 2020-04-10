@@ -167,7 +167,7 @@ odoo.define('website_advertisement_manager.website_ad', function(require) {
         if ($left_el.length > 0) {
             $left_el.scrollToFixed({
                 minWidth: 990,
-                marginTop: 20,
+                marginTop: 82,
                 limit: function () {
                     var limit = $('footer').offset().top - $left_el.outerHeight(true) - 125;
                     return limit;
@@ -178,7 +178,7 @@ odoo.define('website_advertisement_manager.website_ad', function(require) {
         if ($right_el.length > 0) {
             $right_el.scrollToFixed({
                 minWidth: 990,
-                marginTop: 20,
+                marginTop: 82,
                 limit: function () {
                     var limit = $('footer').offset().top - $right_el.outerHeight(true) - 125;
                     return limit;
