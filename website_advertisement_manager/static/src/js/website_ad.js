@@ -163,28 +163,28 @@ odoo.define('website_advertisement_manager.website_ad', function(require) {
             });
         });
 
-        var $left_el = $(".left_ads");
-        if ($left_el.length > 0) {
-            $left_el.scrollToFixed({
-                minWidth: 990,
-                marginTop: 82,
-                limit: function () {
-                    var limit = $('.stopfixedads').offset().top - $left_el.outerHeight(true) - 125;
-                    return limit;
-                }
-            });
-        }
-        var $right_el = $(".right_ads");
-        if ($right_el.length > 0) {
-            $right_el.scrollToFixed({
-                minWidth: 990,
-                marginTop: 82,
-                limit: function () {
-                    var limit = $('.stopfixedads').offset().top - $right_el.outerHeight(true) - 125;
-                    return limit;
-                }
-            });
-        }
+        // var $left_el = $(".left_ads");
+        // if ($left_el.length > 0) {
+        //     $left_el.scrollToFixed({
+        //         minWidth: 990,
+        //         marginTop: 82,
+        //         limit: function () {
+        //             var limit = $('.stopfixedads').offset().top - $left_el.outerHeight(true) - 125;
+        //             return limit;
+        //         }
+        //     });
+        // }
+        // var $right_el = $(".right_ads");
+        // if ($right_el.length > 0) {
+        //     $right_el.scrollToFixed({
+        //         minWidth: 990,
+        //         marginTop: 82,
+        //         limit: function () {
+        //             var limit = $('.stopfixedads').offset().top - $right_el.outerHeight(true) - 125;
+        //             return limit;
+        //         }
+        //     });
+        // }
 
     });
 
