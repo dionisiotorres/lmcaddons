@@ -67,6 +67,7 @@
         <t t-set="ad_blocks" t-value="request.website._get_ad_block_ids()"/>
         <t t-set="blocks" t-value="ad_blocks and ad_blocks.filtered(lambda b: b.block_position == position)"/>
         <t t-set="block" t-value="blocks and blocks.filtered(lambda b: request.httprequest.path in b.website_page.mapped('url'))"/>
+        <t t-set="block" t-value="block and len(block) > 1 and block[0] or block"/>
         <div id="ad_block_banner" t-if="block and request.httprequest.path in block.website_page.mapped('url') and block.sudo().ad_block_sol_id and block.sudo().ad_block_sol_id.ad_block_status == 'active'
             and block.sudo().ad_block_sol_id.ad_content_status == 'approved' and block.sudo().ad_block_sol_id.ad_display_type == 'banner'"
             class="mt16 mb8" t-att-style="'width: auto; height: %s;text-align: center; margin-bottom: 20px;'%(block.banner_height)">
