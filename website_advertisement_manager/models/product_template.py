@@ -54,10 +54,10 @@ class ProductTemplate(models.Model):
 
     is_ad_block = fields.Boolean("Is Ad Block")
     website_page = fields.Many2many('website.page', string="Website Page")
-    banner_height = fields.Char('Banner Height', default='150px')
+    banner_height = fields.Char('Banner Height', default='auto')
     top_margin = fields.Char('Top Margin', default='15px')
-    left_margin = fields.Char('Left Margin', default='10px')
-    right_margin = fields.Char('Right Margin', default='10px')
+    left_margin = fields.Char('Left Margin', default='auto')
+    right_margin = fields.Char('Right Margin', default='auto')
     banner_heading = fields.Char('Heading', default="Advertisement")
     block_position = fields.Selection(BLOCK_POS, string="Ad Block Position")
     ad_block_state = fields.Selection([
