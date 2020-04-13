@@ -41,22 +41,22 @@
 					</group>
 	            </xpath>
 	            <xpath expr="//notebook//form//field[@name='product_id']" position="attributes">
-	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', False)]}</attribute>
                     <attribute name="context">{'form_view_ref': 'website_advertisement_manager.website_ad_block_form_view'}</attribute>
 	            </xpath>
 	            <xpath expr="//notebook//form//field[@name='product_uom_qty']" position="attributes">
-	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', False)]}</attribute>
 	            </xpath>
 	            <xpath expr="//notebook//form//field[@name='product_uom']" position="attributes">
-	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', False)]}</attribute>
 	            </xpath>
 	            <xpath expr="//notebook//form//field[@name='price_unit']" position="attributes">
-	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', True)]}</attribute>
+	                <attribute name="attrs">{'readonly': [('is_ad_block_line', '=', False)]}</attribute>
 	            </xpath>
 				<xpath expr="//tree/field[@name='tax_id']" position="after">
 					<field name="ad_date_from" attrs="{'readonly': [('state', '=', 'sale')]}"/>
 					<field name="ad_date_to" attrs="{'readonly': [('state', '=', 'sale')]}"/>
-					<field name="ad_total_days" readonly="1"/>
+					<field name="ad_total_days" readonly="0"/>
 					<field name="ad_block_status" readonly="1" string="Block Status"/>
 					<field name="ad_display_type" invisible="1"/>
 					<field name="ad_banner_img" invisible="1"/>
@@ -67,8 +67,8 @@
 					<attribute name="options">{'no_create_edit': True, 'no_open': True}</attribute>
 					<attribute name="domain">[("is_ad_block",'=',True)]</attribute>
 				</xpath>
-				<xpath expr="//tree/field[@name='product_uom_qty']" position="attributes">
-					<attribute name="invisible">1</attribute>
+<!-- 				<xpath expr="//tree/field[@name='product_uom_qty']" position="attributes">
+					<attribute name="invisible">0</attribute>
 				</xpath>
 				<xpath expr="//tree/field[@name='product_uom']" position="attributes">
 					<attribute name="invisible">1</attribute>
@@ -81,7 +81,7 @@
 				</xpath>
 				<xpath expr="//tree/field[@name='price_unit']" position="attributes">
 					<attribute name="readonly">1</attribute>
-				</xpath>
+				</xpath> -->
 			</field>
 		</record>
 
