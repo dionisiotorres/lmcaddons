@@ -105,8 +105,8 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
     _order = 'ad_block_status'
 
-    ad_date_from = fields.Date(string="Date From", required=True, default=fields.Date.today())
-    ad_date_to = fields.Date(string="Date To", required=True, default=fields.Date.today())
+    ad_date_from = fields.Date(string="Date From", required=False, default=fields.Date.today())
+    ad_date_to = fields.Date(string="Date To", required=False, default=fields.Date.today())
     ad_total_days = fields.Integer("Number Of Days", readonly=True, compute="_compute_total_ad_days")
     ad_block_status = fields.Selection([
         ("draft", "Draft"),
@@ -181,7 +181,8 @@ class SaleOrderLine(models.Model):
                 d1 = datetime.strptime(str(rec.ad_date_to),"%Y-%m-%d").date()
                 diff = d1 - d0
                 rec.ad_total_days = diff.days + 1
-                rec.product_uom_qty = diff.days + 1
+                #as date end is not needed for LMC they will add manully
+                #rec.product_uom_qty = diff.days + 1
         return
 
     @api.depends('product_id')
