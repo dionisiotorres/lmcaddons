@@ -149,7 +149,7 @@ class SaleOrderLine(models.Model):
     @api.multi
     def _compute_ad_block_status(self):
         for rec in self:
-            rec.ad_block_status = 'active'
+            rec.ad_block_status = 'draft'
             date_today = date.today()
             ad_expire_day = datetime.strptime(str(rec.ad_date_to),"%Y-%m-%d").date() + timedelta(days=1)
             ad_date_from = datetime.strptime(str(rec.ad_date_from),"%Y-%m-%d").date()
