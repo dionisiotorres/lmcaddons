@@ -175,7 +175,7 @@
 										<strong class="o_kanban_record_title">
 											<i class="fa fa-calendar" aria-label="Dropdown" aria-hidden="true" style="margin:2px;" title="Dropdown"></i>
 											<span><t t-esc="record.ad_date_from.value and record.ad_date_from.value.split(' ')[0] or False"/></span>
-											<span>- <t t-esc="record.ad_date_from.value and record.ad_date_from.value.split(' ')[0] or False"/></span>
+											<span>- <t t-esc="record.ad_date_to.value and record.ad_date_to.value.split(' ')[0] or False"/></span>
 										</strong>
 									</div>
 								</div>
