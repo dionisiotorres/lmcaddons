@@ -157,7 +157,7 @@ class SaleOrderLine(models.Model):
             if rec.is_ad_block_line and rec.state == 'sale':
                 if date_today >= ad_expire_day:
                     rec.ad_block_status = 'expire'
-                if date_today == ad_date_from or date_today == ad_date_to:
+                if date_today >= ad_date_from or date_today <= ad_date_to:
                     rec.ad_block_status = 'active'
             if rec.is_ad_block_line and rec.state == 'cancel':
                 if date_today >= ad_expire_day:
