@@ -107,8 +107,8 @@ class ProductTemplate(models.Model):
             for rec in obj2:
                 ad_date_from = datetime.strptime(str(rec.ad_date_from),"%Y-%m-%d").date()
                 ad_date_to = datetime.strptime(str(rec.ad_date_to),"%Y-%m-%d").date()
-                if date_today == ad_date_from or date_today == ad_date_to:
-
+                #if date_today == ad_date_from or date_today == ad_date_to:
+                if date_today >= ad_date_from or date_today <= ad_date_to:
                     self.ad_block_sol_id = rec.id
                     self.ad_block_state = 'not_available'
         return
