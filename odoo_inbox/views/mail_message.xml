@@ -10,7 +10,6 @@
                     <field name="partner_followers" widget="many2many_tags"/>
                     <field name="tag_ids" widget="many2many_tags"/>
                     <field name="folder_id"/>
-                    <field name="msg_unread"/>
                 </xpath>
                 <field name="partner_ids" position="after">
                     <field name="email_cc_ids" widget="many2many_tags"/>

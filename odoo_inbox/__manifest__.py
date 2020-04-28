@@ -38,4 +38,5 @@ Mailbox (Odoo Inbox)
     'application': True,
     'price': 150,
     'currency': 'EUR',
+    'live_test_url': 'http://68.183.95.144:8090/web?db=odooinbox_v12',
 }

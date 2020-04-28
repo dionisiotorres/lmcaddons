@@ -35,8 +35,8 @@ class WebsiteOdooInbox(http.Controller):
             partner_id = request.env.user.partner_id
             if partner_id:
                 if label != 'sent':
-                    domain += ['|', '|', ('partner_ids', 'in', partner_id.ids), ('notified_partner_ids', 'in', partner_id.ids), ('starred_partner_ids', 'in', partner_id.ids)]
-                counter_domain = ['|', '|', ('partner_ids', 'in', partner_id.ids), ('notified_partner_ids', 'in', partner_id.ids), ('starred_partner_ids', 'in', partner_id.ids)]
+                    domain += ['|', '|', ('partner_ids', 'in', partner_id.ids), ('needaction_partner_ids', 'in', partner_id.ids), ('starred_partner_ids', 'in', partner_id.ids)]
+                counter_domain = ['|', '|', ('partner_ids', 'in', partner_id.ids), ('needaction_partner_ids', 'in', partner_id.ids), ('starred_partner_ids', 'in', partner_id.ids)]
 
         mails = MailMessage.search(domain, offset=(page-1)*self._message_per_page, limit=self._message_per_page, order="date desc")
         for msg in mails:
@@ -55,8 +55,8 @@ class WebsiteOdooInbox(http.Controller):
 
         count_parent_messages = MailMessage.search(counter_domain)
         # count_parent_messages = count_mails.filtered(lambda self: not self.parent_id)
+
         inbox_mssg_count = count_parent_messages.filtered(lambda e: e.msg_unread == False and e.message_label in ['inbox','starred'] and not e.folder_id)
-        inbox_mssg_count = inbox_mssg_count.filtered(lambda e: e.author_id == False or e.author_id.id != request.env.user.partner_id.id)
         starred_mssg_count = count_parent_messages.filtered(lambda e: e.msg_unread == False and e.message_label == 'starred')
         snoozed_mssg_count = count_parent_messages.filtered(lambda e: e.msg_unread == False and e.message_label == 'snoozed')
         folder_mssg_count = count_parent_messages.filtered(lambda e: e.msg_unread == False and e.folder_id.id == existing_folder)
@@ -124,7 +124,7 @@ class WebsiteOdooInbox(http.Controller):
         if user_id:
             partner_id = request.env.user.partner_id
             if partner_id:
-                domain = ['|', '|', ('partner_ids', 'in', partner_id.ids), ('notified_partner_ids', 'in', partner_id.ids), ('starred_partner_ids', 'in', partner_id.ids)]
+                domain = ['|', '|', ('partner_ids', 'in', partner_id.ids), ('needaction_partner_ids', 'in', partner_id.ids), ('starred_partner_ids', 'in', partner_id.ids)]
         parent_messages = MailMessage.search(domain)
         # parent_messages = mails.filtered(lambda self: not self.parent_id)
         inbox_mssg_count = parent_messages.filtered(lambda e: e.msg_unread == False and e.message_label in ['inbox','starred'] and not e.folder_id)
@@ -188,6 +188,7 @@ class WebsiteOdooInbox(http.Controller):
                                 'res_model': 'res.partner',
                                 'res_id': partner.id,
                                 'datas': base64.encodestring(i.read()),
+                                'datas_fname': i.filename,
                             }
                         attachment = request.env['ir.attachment'].sudo().create(attachments)
                         attachment_ids.append(attachment.id)
@@ -195,8 +196,8 @@ class WebsiteOdooInbox(http.Controller):
             message = partner.message_post(
                     body=body,
                     subject=subject,
-                    # model='res.partner',
-                    # res_id=partner.id,
+                    model='res.partner',
+                    res_id=partner.id,
                     email_from='%s <%s>' % (request.env.user.name, request.env.user.email),
                     author_id=request.env.user.partner_id.id,
                     parent_id=messageObj.id,
@@ -244,13 +245,16 @@ class WebsiteOdooInbox(http.Controller):
                                 'res_model': 'res.partner',
                                 # 'res_id': partner.id,
                                 'datas': base64.encodestring(i.read()),
+                                'datas_fname': i.filename,
                             }
                         attachment = request.env['ir.attachment'].sudo().create(attachments)
                         attachment_ids.append(attachment.id)
 
-            message = request.env.user.partner_id.message_post(
+            message = request.env['res.partner'].message_post(
                 body=body,
                 subject=subject,
+                model='res.partner',
+                # res_id=partner.id,
                 email_from='%s <%s>' % (request.env.user.name, request.env.user.email),
                 author_id=request.env.user.partner_id.id,
                 attachment_ids=attachment_ids,
@@ -259,7 +263,6 @@ class WebsiteOdooInbox(http.Controller):
                 email_bcc_ids=email_bcc_ids.ids if email_bcc_ids else False,
                 message_type='email',
             )
-
             message.msg_unread = False
         return request.redirect('/mail/inbox')
 

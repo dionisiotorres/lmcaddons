@@ -126,7 +126,7 @@ odoo.define('odoo_inbox.page_note', function(require) {
             });
 
             $form.on('click', 'button, .a-submit', function() {
-                $textarea.html($form.find('.note-editable').html());
+                $textarea.html($form.find('.note-editable').code());
             });
         });
 
@@ -308,7 +308,6 @@ odoo.define('odoo_inbox.page_note', function(require) {
         }
 
         $('#compose_partner').select2({
-            tags: true,
             width: '100%',
             placeholder: "To",
             allowClear: true,
@@ -336,7 +335,6 @@ odoo.define('odoo_inbox.page_note', function(require) {
         });
 
         $('#cc_compose_partner').select2({
-            tags: true,
             width: '100%',
             placeholder: "Cc",
             allowClear: true,
@@ -364,7 +362,6 @@ odoo.define('odoo_inbox.page_note', function(require) {
         });
 
         $('#bcc_compose_partner').select2({
-            tags: true,
             width: '100%',
             placeholder: "Bcc",
             allowClear: true,
@@ -555,10 +552,7 @@ odoo.define('odoo_inbox.page_note', function(require) {
                 
                 var e_from = $(this).closest('.message__details').find('.address_dropdown table .email_from')[0].innerHTML;
                 var e_date = $(this).closest('.message__details').find('.message__details__body:last').find('.body_content').find('.body_mail_id_date').find('.date_content').find('span')[0].innerHTML;
-                var e_to = '';
-                if ($(this).closest('.message__details').find('.address_dropdown table .email_to').length > 0) {
-                    var e_to = $(this).closest('.message__details').find('.address_dropdown table .email_to')[0].innerHTML;
-                }
+                var e_to = $(this).closest('.message__details').find('.address_dropdown table .email_to')[0].innerHTML;
                 var e_body = $(this).closest('.message__details').find('.message__details__body:last').find('.body_content').find('.message__details__body__content')[0].innerHTML;
                 var mssg_body = "<br/>" + "<br/>" + "---------- Forwarded message ---------" + "<br/>" + "From: " + "<b>" + e_from + "</b>" + "<br/>" + "Date: " + e_date + "<br/>" + "Subject: " + subject + "<br/>" + "To: " + "<b>" + e_to + "</b>" + "<br/>" + "<br/>" + e_body + "<br/>"
 
