@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_message_tag,access_message_tag,model_message_tag,,1,1,1,1
+access_message_folder,access_message_folder,model_message_folder,,1,1,1,1

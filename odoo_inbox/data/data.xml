@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="action_website_odoo_inbox" model="ir.actions.act_url">
+            <field name="name">Mailbox</field>
+            <field name="url">/mail/inbox</field>
+            <field name="target">self</field>
+        </record>
+
+
+        <record id="menu_website_odoo_inbox" model="ir.ui.menu">
+            <field name="name">Mailbox</field>
+            <field name="sequence" eval="110"/>
+            <field name="web_icon">odoo_inbox,static/description/icon.png</field>
+            <field name="action" ref="action_website_odoo_inbox"/>
+        </record>
+
+        <record id="ir_cron_move_inbox_message_action" model="ir.cron">
+            <field name="name">Set to Inbox</field>
+            <field name="model_id" ref="model_mail_message"/>
+            <field name="state">code</field>
+            <field name="code">model.set_to_inbox()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>
