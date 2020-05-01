@@ -432,6 +432,9 @@
                                 <t t-call="odoo_inbox.message_tag_list" />
                             </div>
                         </div>
+                        <div class='message_date gmail_message_link_tr d-none d-sm-block'>
+                            <span t-field="mail.get('parent_id').date" title="mail.get('parent_id').date" />
+                        </div>
                         <a class="starred_btn" t-att-data-message='mail.get("parent_id").id' t-attf-title="#{ starred and 'Move to Inbox' or 'Mark as Todo'}" style="color: #f9bd3d;">
                             <i t-att-class="'fa fa-star' if request.env.user.partner_id in mail.get('parent_id').starred_partner_ids else ''" style="font-size: 1.4em;vertical-align: text-top;color: #f9bd3d;cursor: pointer;"></i>
                         </a>
@@ -473,6 +476,9 @@
                                 <t t-set="mail_message" t-value="mail.get('parent_id')" />
                                 <t t-call="odoo_inbox.message_tag_list" />
                             </div>
+                        </div>
+                        <div class='message_date gmail_message_link_tr d-none d-sm-block'>
+                            <span t-field="mail.get('parent_id').date" title="mail.get('parent_id').date" />
                         </div>
                         <a class="starred_btn" t-att-data-message='mail.get("parent_id").id' t-attf-title="#{ starred and 'Move to Inbox' or 'Mark as Todo'}" style="color: #f9bd3d;">
                             <i t-att-class="'fa fa-star' if request.env.user.partner_id in mail.get('parent_id').starred_partner_ids else ''" style="font-size: 1.4em;vertical-align: text-top;color: #f9bd3d;cursor: pointer;"></i>

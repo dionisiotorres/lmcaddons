@@ -719,14 +719,15 @@ input[type="radio"] {
 .message__summary .message__summary__icon {
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-right: 15px;
-    padding-left: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .message__summary .message__summary__body {
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: gray;
-    width: 62%;
+    width: 32%;
     line-height: 18px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -737,13 +738,18 @@ input[type="radio"] {
     /*padding-left: 6px;*/
 }
 
+.message__summary .message_date {
+    width: 18%;
+    padding: 15px 10px;
+}
+
 .message__summary__title {
-    width: 25%;
+    width: 22%;
     overflow: hidden;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-right: 15px;
-    padding-left: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .message__summary:before {
@@ -1509,7 +1515,7 @@ a.message_forwad {
 }
 
 .gmail_read {
-    font-weight: lighter;
+    /*font-weight: lighter;*/
     text-:decoration:none;
     color: black;
 }
