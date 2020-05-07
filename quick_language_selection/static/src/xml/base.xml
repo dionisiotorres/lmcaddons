@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="UserMenu">
+        <t t-jquery=".dropdown-menu" t-operation="prepend">
+            <switch-lang/>
+            <div role="separator" class="dropdown-divider"/>
+        </t>
+    </t>
+</templates>
