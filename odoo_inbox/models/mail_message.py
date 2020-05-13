@@ -40,15 +40,39 @@ class Message(models.Model):
         help='Partners that have a notification pushing this message in their mailboxes')
     email_bcc_ids = fields.Many2many('res.partner', 'mail_notification_bcc', 'message_id', 'partner_id', string='BCC',
         help='Partners that have a notification pushing this message in their mailboxes')
+    fetchmail_server_id = fields.Many2one('fetchmail.server', "Inbound Mail Server", readonly=True, index=True)
 
     @api.model
     def create(self, values):
         rec = super(Message, self).create(values)
+
+        fetchmail_server_id = self.env.context.get('fetchmail_server_id')
+        if fetchmail_server_id:
+            fetchmail_server = self.env['fetchmail.server'].browse(int(fetchmail_server_id))
+            folder_id = self.env['message.folder'].search([('name', '=', fetchmail_server.name)])
+            if not folder_id:
+                folder_id = self.env['message.folder'].create({'name': fetchmail_server.name})
+            values['folder_id'] = folder_id.id
+            values['fetchmail_server_id'] = fetchmail_server_id
+
         tasks = self.env['project.task'].search([('id', '=', rec.res_id)])
         if tasks:
             partners = tasks.message_follower_ids.mapped('partner_id.id')
             rec.partner_followers = [(6, 0, partners)]
         return rec
+
+    @api.multi
+    def write(self, values):
+        fetchmail_server_id = self.env.context.get('fetchmail_server_id')
+        if fetchmail_server_id:
+            fetchmail_server = self.env['fetchmail.server'].browse(int(fetchmail_server_id))
+            folder_id = self.env['message.folder'].search([('name', '=', fetchmail_server.name)])
+            if not folder_id:
+                folder_id = self.env['message.folder'].create({'name': fetchmail_server.name})
+            values['folder_id'] = folder_id.id
+            values['fetchmail_server_id'] = fetchmail_server_id
+        return super(Message, self).write(values)
+
 
     def get_messages_time(self, your_time=None):
         if your_time == 'tomorrow':
