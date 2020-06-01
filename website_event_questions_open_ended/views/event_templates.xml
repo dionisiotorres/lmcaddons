@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="registration_attendee_details_questions_open_ended" inherit_id="website_event_questions.registration_attendee_details_questions" name="Registration Attendee Details with open ended questions">
+        <xpath expr="//select[hasclass('o_specific_answer')]" position="replace">
+            <t t-if="not question.open_ended">
+                <!-- STD odoo template -->
+                <select t-attf-name="#{counter}-answer_ids-#{question.id}" class="o_specific_answer" required="true">
+                    <t t-foreach='question.answer_ids' t-as="answer">
+                        <option t-esc='answer.name' t-att-value='answer.id'/>
+                    </t>
+                </select>
+            </t>
+            <t t-if="question.open_ended">
+                <textarea name="open_answer" t-attf-name="#{counter}-open-answers-#{question.id}" t-att-value="open_answer" />
+            </t>
+        </xpath>
+        <xpath expr="//select[hasclass('o_general_answer')]" position="replace">
+            <t t-if="not question.open_ended">
+                <!-- STD odoo template -->
+                <select t-attf-name="0-answer_ids-#{question.id}" class="o_general_answer" required="true">
+                    <t t-foreach='question.answer_ids' t-as="answer">
+                        <option t-esc='answer.name' t-att-value='answer.id'/>
+                    </t>
+                </select>
+            </t>
+            <t t-if="question.open_ended">
+                <textarea name="open_answer_general" t-attf-name="0-open-answers-#{question.id}" t-att-value="open_answer_general" />
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

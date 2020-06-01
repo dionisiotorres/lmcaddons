@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="event_question_3" model="event.question">
+        <field name="title">Please give you general impression</field>
+        <field name="event_id" ref="event.event_1"/>
+        <field name="open_ended" eval="True" />
+        <field name="sequence">4</field>
+    </record>
+</odoo>
