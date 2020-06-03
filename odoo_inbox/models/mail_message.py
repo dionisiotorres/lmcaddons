@@ -55,10 +55,10 @@ class Message(models.Model):
             values['folder_id'] = folder_id.id
             values['fetchmail_server_id'] = fetchmail_server_id
 
-        tasks = self.env['project.task'].search([('id', '=', rec.res_id)])
-        if tasks:
-            partners = tasks.message_follower_ids.mapped('partner_id.id')
-            rec.partner_followers = [(6, 0, partners)]
+        # tasks = self.env['project.task'].search([('id', '=', rec.res_id)])
+        # if tasks:
+        #     partners = tasks.message_follower_ids.mapped('partner_id.id')
+        #     rec.partner_followers = [(6, 0, partners)]
         return rec
 
     @api.multi

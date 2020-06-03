@@ -24,7 +24,7 @@
 Mailbox (Odoo Inbox)
 ========================
         """,
-    'depends': ['website', 'project', 'mail', 'contacts'],
+    'depends': ['website', 'mail', 'contacts'],
     'data': [
         'data/data.xml',
         'security/ir.model.access.csv',
