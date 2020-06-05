@@ -8,6 +8,7 @@
             <data>
                 <xpath expr="//field[@name='auto_confirm']" position="after">
                     <field name='online_auto_invoice' />
+                    <field name='auto_invoice_validate' />
                 </xpath>
             </data>
         </field>

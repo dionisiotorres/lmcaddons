@@ -36,4 +36,5 @@ class PaymentTransaction(models.Model):
                 invoices = trans.sale_order_ids.action_invoice_create()
                 trans.invoice_ids = [(6, 0, invoices)]
                 invoices = trans.invoice_ids.filtered(lambda inv: inv.state == 'draft')
-                invoices.action_invoice_open()
+                if any([order.order_line.mapped('event_id').filtered(lambda x: x.auto_invoice_validate) for order in trans.sale_order_ids]):
+                    invoices.action_invoice_open()

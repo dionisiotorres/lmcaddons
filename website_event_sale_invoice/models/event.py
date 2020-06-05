@@ -6,3 +6,4 @@ class EventEvent(models.Model):
     _inherit = 'event.event'
 
     online_auto_invoice = fields.Boolean(string='Online Automatic Invoice', help='Create invoice online after successfull payment.')
+    auto_invoice_validate = fields.Boolean(string='Auto Invoice Validate')
