@@ -41,13 +41,13 @@ class MailTemplate(models.Model):
                     isr_pdf = self.env.ref('l10n_ch.l10n_ch_isr_report').render_qweb_pdf([res_id])[0]
                     isr_pdf = base64.b64encode(isr_pdf)
                     new_attachments.append((isr_report_name, isr_pdf))
-
-                if related_model.can_generate_qr_bill():
-                    # We add an attachment containing the QR-bill
-                    qr_report_name = 'QR-bill-' + inv_print_name + '.pdf'
-                    qr_pdf = self.env.ref('l10n_ch.l10n_ch_qr_report').render_qweb_pdf([res_id])[0]
-                    qr_pdf = base64.b64encode(qr_pdf)
-                    new_attachments.append((qr_report_name, qr_pdf))
+#
+#                if related_model.can_generate_qr_bill():
+#                    # We add an attachment containing the QR-bill
+#                    qr_report_name = 'QR-bill-' + inv_print_name + '.pdf'
+#                    qr_pdf = self.env.ref('l10n_ch.l10n_ch_qr_report').render_qweb_pdf([res_id])[0]
+#                    qr_pdf = base64.b64encode(qr_pdf)
+#                    new_attachments.append((qr_report_name, qr_pdf))
 
                 attachments_list = multi_mode and rslt[res_id].get('attachments', False) or rslt.get('attachments', False)
                 if attachments_list:
