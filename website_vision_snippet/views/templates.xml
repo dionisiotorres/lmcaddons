@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="s_vision_api" name="Vision">
+        <section class="vision">
+            <div class="container">
+                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                    <h1 class="s_title_thin">
+                        <font style="font-size: 52px;">Vision</font>
+                    </h1>
+                </div>
+            </div>
+            <div class="vision_upload o_not_editable">
+                <form class="md-form mb64">
+                    <div class="file-field">
+                        <!-- <div class="mb-4 text-center">
+              <img src="/website_vision_snippet/static/src/img/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar"/>
+            </div> -->
+                        <div class="z-depth-1-half mb-4 text-cente">
+                            <img src="/website_vision_snippet/static/src/img/placeholder.jpg" class="img-fluid" alt="example placeholder" />
+                        </div>
+                        <div class="justify-content-center text-center upload-container">
+                            <div class="btn btn-mdb-color btn-rounded">
+                                <span>Upload photo</span>
+                                <input type="file" id="upload_vision_file" name="vision_file" />
+                            </div>
+                        </div>
+                        <div class="loading-container text-center">
+                            <img src="/website_vision_snippet/static/src/img/loading.gif" alt="Loading" class="loading text-center" style="display: none;" />
+                        </div>
+                        <div class="container">
+                            <div class="col-lg-12 title pt16 pb16" style="text-align: center;">
+                            </div>
+                            <div class="row">
+                                <div class=" col-md-4 col-sm-12 ">
+                                    <div class="response  mt32">
+                                    </div>
+                                </div>
+                                <div class=" col-md-4 col-sm-12 ">
+                                    <div class="faces mt32">
+                                    </div>
+                                </div>
+                                <div class=" col-md-4 col-sm-12 ">
+                                    <div class="lm  mt32">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="logos mt32">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="anno mt32">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </template>
+    <template id="website_vision_snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_feature']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="website_vision_snippet.s_vision_api" t-thumbnail="/website/static/src/img/snippets_thumbs/s_picture.png" />
+        </xpath>
+    </template>
+    <template id="vision_assets" inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/website_vision_snippet/static/src/css/style.css" />
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/website_vision_snippet/static/src/js/script.js" />
+            </xpath>
+  </template>
+</odoo>
