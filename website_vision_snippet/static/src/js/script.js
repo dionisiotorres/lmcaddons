@@ -2,13 +2,13 @@ odoo.define("website_vision_snippet.script", function (require) {
 "use strict";
 
 var core = require('web.core');
-var publicWidget = require('web.public.widget');
+var sAnimation = require('website.content.snippets.animation');
 var ajax = require('web.ajax');
 var qweb = core.qweb;
 
-publicWidget.registry.vision = publicWidget.Widget.extend({
+sAnimation.registry.vision = sAnimation.Class.extend({
   selector: '.vision',
-  read_events: {
+  events: {
       'change #upload_vision_file': '_onUploadVisionFile',
   },
   _onUploadVisionFile: function (ev) {
