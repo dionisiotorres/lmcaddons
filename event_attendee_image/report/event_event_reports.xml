@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_size_a5" model="report.paperformat">
+        <field name="name">Event Registration Report</field>
+        <field name="default" eval="True"/>
+        <field name="format">A5</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <report
+        id="report_event_registration_attendee_badge"
+        model="event.registration"
+        string="LMC Registration Badge"
+        report_type="qweb-pdf"
+        name="attendee_event.event_registration_report_attendees_badge"
+        file="attendee_event.event_registration_report_attendees_badge"
+        paperformat="attendee_event.paperformat_size_a5"
+        print_report_name="'Registration Event New - %s' % (object.name).replace('/','')"
+    />
+
+</odoo>

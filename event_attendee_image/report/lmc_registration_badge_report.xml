@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- template use to render a Registration Badge -->
+    <template id="event_registration_report_attendees_badge">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div class="row">
+                        
+                        <div class="col-6" style="  height: 149mm;">
+                            <div>
+                                <div>
+                                    <div class="col-12 text-left" id="o_image_name">
+                                        <img class="img-fluid" t-attf-src="data:image/*;base64,{{o.attentees_img}}"/>
+                                    </div>
+                                </div>
+
+                                <t t-set="names" t-value="o.name.split(' ')"/>
+                                <div class="text-left" t-if="names">
+                                    <h5 t-esc="names[0]"/>
+                                    <h5 t-esc="names[1]" t-if="len(names) > 1"/>
+                                </div>
+
+                                <div>
+                                    <div t-field="o.event_id.badge_front"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div t-field="o.event_id.badge_front"></div>
+                                </div>
+                            </div>
+                            <div class="footer" style="float:right;">
+                                <h5 t-field="o.sale_order_id"/>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
