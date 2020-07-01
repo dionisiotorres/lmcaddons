@@ -22,9 +22,9 @@
         model="event.registration"
         string="LMC Registration Badge"
         report_type="qweb-pdf"
-        name="attendee_event.event_registration_report_attendees_badge"
-        file="attendee_event.event_registration_report_attendees_badge"
-        paperformat="attendee_event.paperformat_size_a5"
+        name="event_attendee_image.event_registration_report_attendees_badge"
+        file="event_attendee_image.event_registration_report_attendees_badge"
+        paperformat="event_attendee_image.paperformat_size_a5"
         print_report_name="'Registration Event New - %s' % (object.name).replace('/','')"
     />
 
