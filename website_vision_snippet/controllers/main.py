@@ -20,7 +20,7 @@ class VisionAPI(http.Controller):
         if not post.get('fileContents'):
             return {'success': False}
 
-        credential = os.path.join(current_dir, 'DAG-cda728af956d.json')
+        credential = os.path.join(current_dir, '../static/src/credentials.json')
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential
 
         # Instantiates a client
