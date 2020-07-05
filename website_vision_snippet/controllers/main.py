@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
+import base64
 import binascii
 import logging
 import os
 
 from odoo import http
+from odoo.http import request
 
 # Imports the Google Cloud client library
 from google.cloud import vision
@@ -15,10 +17,11 @@ current_dir = os.path.dirname(__file__)
 
 
 class VisionAPI(http.Controller):
-    @http.route('/check/vision', type='json', auth="public", methods=['POST'], website=True, csrf=False)
-    def check_vision(self, **post):
-        if not post.get('fileContents'):
-            return {'success': False}
+    @http.route('/vision/response', type='http', auth="public", methods=['POST'],
+                website=True, csrf=False)
+    def vision_response(self, **post):
+        if not post.get('vision_file'):
+            return request.redirect("/")
 
         credential = os.path.join(current_dir, '../static/src/credentials.json')
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential
@@ -30,20 +33,20 @@ class VisionAPI(http.Controller):
         likelihood_name = (
             'UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY')
 
-        base64_content = post.get('fileContents')
-        base64_content = base64_content.replace('data:image/jpeg;base64,', '')
-        base64_content = base64_content.replace('data:image/png;base64,', '')
-        content = binascii.a2b_base64(base64_content)
+        base64_content = ''
+        for f in request.httprequest.files.getlist('vision_file'):
+            data = f.read()
+            base64_content = base64.encodestring(data)
 
+        if not base64_content:
+            return request.redirect("/")
+
+        content = binascii.a2b_base64(base64_content)
         image = types.Image(content=content)
 
         # Performs label detection on the image file
         response = client.label_detection(image=image)
-        ress_datas = []
-        res_faces_datas = []
-        res_lm_datas = []
-        res_logos_datas = []
-        res_anno_datas =[]
+
         labels = response.label_annotations
 
         response_faces = client.face_detection(image=image)
@@ -57,92 +60,54 @@ class VisionAPI(http.Controller):
 
         annotations = response.web_detection
 
-        if labels:
-            ress_datas.append('LABELS:')
-            print('LABELS:')
-            for label in labels:
-                ress_datas.append(label.description)
-                print(label.description)
+        data = {}
 
-        if faces:
-            res_faces_datas.append('FACES:')
-            print('FACES:')
-            for face in faces:
-                print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-                print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-                print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
-                res_faces_datas.append('Anger: {}'.format(likelihood_name[face.anger_likelihood]))
-                res_faces_datas.append('Joy: {}'.format(likelihood_name[face.joy_likelihood]))
-                res_faces_datas.append('Surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
+        #====label===========
+        label_list = []
+        for label in labels:
+            label_list.append(label.description)
+        if label_list:
+            data['Labels'] = label_list
 
-                vertices = (['({},{})'.format(vertex.x, vertex.y)
-                    for vertex in face.bounding_poly.vertices])
-                print('face bounds: {}'.format(','.join(vertices)))
-                res_faces_datas.append('face bounds: {}'.format(','.join(vertices)))
+        #======Faces=========
+        face_list = []
+        for face in faces:
+            face_list.append('anger: {}'.format(likelihood_name[face.anger_likelihood]))
+            face_list.append('joy: {}'.format(likelihood_name[face.joy_likelihood]))
+            face_list.append('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
 
-        if landmarks:
-            print('LANDMARKS:')
-            res_lm_datas.append('LANDMARKS:')
-            for landmark in landmarks:
-                print(landmark.description)
-                for location in landmark.locations:
-                    lat_lng = location.lat_lng
-                    print('Latitude {}'.format(lat_lng.latitude))
-                    print('Longitude {}'.format(lat_lng.longitude))
-                    res_lm_datas.append('Latitude {}'.format(lat_lng.latitude))
-                    res_lm_datas.append('Longitude {}'.format(lat_lng.longitude))
+            vertices = (['({},{})'.format(vertex.x, vertex.y)
+                for vertex in face.bounding_poly.vertices])
+            face_list.append('face bounds: {}'.format(','.join(vertices)))
+        if face_list:
+            data['Faces'] = face_list
 
-        if logos:
-            print('LOGOS:')
-            res_logos_datas.append('LOGOS:')
-            for logo in logos:
-                print(logo.description)
-                res_logos_datas.append(logo.description)
+        #======Landmarks=========
+        landmark_list = []
+        for landmark in landmarks:
+            print(landmark.description)
+            for location in landmark.locations:
+                lat_lng = location.lat_lng
+                landmark_list.apeend('Latitude {}'.format(lat_lng.latitude))
+                landmark_list.apeend('Longitude {}'.format(lat_lng.longitude))
+        if landmark_list:
+            data['Landmarks'] = landmark_list
 
-        if annotations:
-            if annotations.best_guess_labels:
-                print('ANNOTATIONS:')
-                res_anno_datas.append('ANNOTATIONS:')
-                for label in annotations.best_guess_labels:
-                    print('\nBest guess label: {}'.format(label.label))
-                    res_anno_datas.append('Best guess label: {}'.format(label.label))
+        #=====logo=====
+        logo_list = []
+        for logo in logos:
+            logo_list.append(logo.description)
+        if logo_list:
+            data['Logos'] = logo_list
 
-            if annotations.pages_with_matching_images:
-                print('\n{} Pages with matching images found:'.format(
-                    len(annotations.pages_with_matching_images)))
+        #=======Annotations=====
+        annotation_list = []
+        if annotations.best_guess_labels:
+            for label in annotations.best_guess_labels:
+                annotation_list.apeend('\nBest guess label: {}'.format(label.label))
+        if annotation_list:
+            data['Annotations'] = annotation_list
+        print("data____________", data)
 
-                for page in annotations.pages_with_matching_images:
-                    print('\n\tPage url   : {}'.format(page.url))
-
-                    if page.full_matching_images:
-                        print('\t{} Full Matches found: '.format(
-                            len(page.full_matching_images)))
-
-                        for image in page.full_matching_images:
-                            print('\t\tImage url  : {}'.format(image.url))
-
-                    if page.partial_matching_images:
-                        print('\t{} Partial Matches found: '.format(
-                            len(page.partial_matching_images)))
-
-                        for image in page.partial_matching_images:
-                            print('\t\tImage url  : {}'.format(image.url))
-
-            if annotations.web_entities:
-                print('\n{} Web entities found: '.format(
-                    len(annotations.web_entities)))
-
-                for entity in annotations.web_entities:
-                    print('\n\tScore      : {}'.format(entity.score))
-                    print(u'\tDescription: {}'.format(entity.description))
-
-            if annotations.visually_similar_images:
-                print('\n{} visually similar images found:\n'.format(
-                    len(annotations.visually_similar_images)))
-
-                for image in annotations.visually_similar_images:
-                    print('\tImage url    : {}'.format(image.url))
-
-        # print("res_datas__________", ress_datas)
-        return {'success': True, 'datass': ress_datas, 'faces_datas': res_faces_datas, 'lm_datas' : res_lm_datas, 'logos_datas': res_logos_datas, 'anno_datas': res_anno_datas}
-
+        vals = {'datas': data}
+        return request.render("website_vision_snippet.vision_response", vals)

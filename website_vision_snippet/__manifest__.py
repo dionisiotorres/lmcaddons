@@ -10,7 +10,6 @@
         'wizard/vision_views.xml',
         'views/templates.xml',
         'views/google_vision_views.xml',
-        
     ],
     'images': [
     ],

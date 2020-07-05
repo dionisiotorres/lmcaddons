@@ -45,30 +45,10 @@
     font-size: 18px;
     font-weight: 300;
 }
-.faces p {
-    font-size: 18px;
-    font-weight: 300;
-}
-.lm p{
-    font-size: 18px;
-    font-weight: 300;
-}
-.logos p{
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.anno p{
-    font-size: 18px;
-    font-weight: 300;
-}
-
 .loading {
     width: 70px;
 }
-.response p:nth-child(1), .faces p:nth-child(1),.lm p:nth-child(1),.logos p:nth-child(1) {
-    font-weight: bold;
-    border-bottom: 3px solid #5f5e97;
-    width: 61px;
+p.heading {
+    font-size: 20px;
+    margin-bottom: 5px;
 }
-
