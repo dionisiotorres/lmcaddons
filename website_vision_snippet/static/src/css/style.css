@@ -8,6 +8,10 @@
     margin-left: auto;
     margin-right: auto;
 }
+.z-depth-1-half  img{
+    width: 100%;
+    height: auto;
+}
 .btn-mdb-color {
     color: #fff;
     background-color: #59698d !important;

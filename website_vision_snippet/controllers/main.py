@@ -17,11 +17,11 @@ current_dir = os.path.dirname(__file__)
 
 
 class VisionAPI(http.Controller):
-    @http.route('/vision/response', type='http', auth="public", methods=['POST'],
+    @http.route('/vision/response', type='json', auth="public", methods=['POST'],
                 website=True, csrf=False)
     def vision_response(self, **post):
-        if not post.get('vision_file'):
-            return request.redirect("/")
+        if not post.get('fileContents'):
+            return {'success': False}
 
         credential = os.path.join(current_dir, '../static/src/credentials.json')
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential
@@ -33,15 +33,11 @@ class VisionAPI(http.Controller):
         likelihood_name = (
             'UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY')
 
-        base64_content = ''
-        for f in request.httprequest.files.getlist('vision_file'):
-            data = f.read()
-            base64_content = base64.encodestring(data)
-
-        if not base64_content:
-            return request.redirect("/")
-
+        base64_content = post.get('fileContents')
+        base64_content = base64_content.replace('data:image/jpeg;base64,', '')
+        base64_content = base64_content.replace('data:image/png;base64,', '')
         content = binascii.a2b_base64(base64_content)
+
         image = types.Image(content=content)
 
         # Performs label detection on the image file
@@ -109,5 +105,6 @@ class VisionAPI(http.Controller):
             data['Annotations'] = annotation_list
         print("data____________", data)
 
-        vals = {'datas': data}
-        return request.render("website_vision_snippet.vision_response", vals)
+        res_datas = request.env['ir.ui.view'].render_template(
+            "website_vision_snippet.vision_response", {'datas': data})
+        return {'success': True, 'datas': res_datas}

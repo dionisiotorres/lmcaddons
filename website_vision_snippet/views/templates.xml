@@ -11,16 +11,21 @@
             </div>
         </div>
         <div class="vision_upload o_not_editable">
-            <form action="/vision/response" method="post" enctype="multipart/form-data" class="md-form mb64">
+            <form class="md-form mb64">
                 <div class="file-field">
                     <div class="z-depth-1-half mb-4 text-cente">
-                        <img src="/website_vision_snippet/static/src/img/placeholder.jpg" class="img-fluid" alt="example placeholder" />
+                        <img src="/website_vision_snippet/static/src/img/placeholder.jpg" class="img-fluid" alt="example placeholder"/>
                     </div>
                     <div class="justify-content-center text-center upload-container">
                         <div class="btn btn-mdb-color btn-rounded">
                             <span>Upload photo</span>
-                            <input type="file" id="upload_vision_file" name="vision_file" onchange="form.submit()"/>
+                            <input type="file" id="upload_vision_file" name="vision_file"/>
                         </div>
+                    </div>
+                    <div class="loading-container text-center">
+                        <img src="/website_vision_snippet/static/src/img/loading.gif" alt="Loading" class="loading text-center" style="display: none;"/>
+                    </div>
+                    <div class="response text-center mt32">
                     </div>
                 </div>
             </form>
@@ -36,26 +41,23 @@
     <xpath expr="//link[last()]" position="after">
         <link rel="stylesheet" type="text/css" href="/website_vision_snippet/static/src/css/style.css" />
     </xpath>
+    <xpath expr="//script[last()]" position="after">
+        <script type="text/javascript" src="/website_vision_snippet/static/src/js/script.js"/>
+    </xpath>
 </template>
 
 <template id="vision_response" name="Vision Response">
-    <t t-call="website.layout">
-        <div id="wrap" class="oe_structure">
-            <div class="response text-center mt32">
-                <h1 class="mb32">Vision Response</h1>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4" t-foreach="datas" t-as="data">
-                            <p class="heading"><b><t t-esc="data"/></b></p>
-                            <t t-foreach="datas.get(data)" t-as="d">
-                                <p><t t-esc="d"/></p>
-                            </t>
-                        </div>
-                    </div>
-                </div>
+    <h1 class="mb32">Vision Response</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" t-foreach="datas" t-as="data">
+                <p class="heading"><b><t t-esc="data"/></b></p>
+                <t t-foreach="datas.get(data)" t-as="d">
+                    <p><t t-esc="d"/></p>
+                </t>
             </div>
         </div>
-    </t>
+    </div>
 </template>
 
 </odoo>
