@@ -36,4 +36,3 @@ class CompanyAddButton(models.Model):
                 attendee.write({"attentees_img": partner.image, 'img_warning': False})
             else:
                 attendee.write({"img_warning": "Contact not Found", "attentees_img": False})
-

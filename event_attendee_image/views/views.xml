@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="event.view_event_registration_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group/group/field[@name='date_closed']" position="after">
-                <field name="attentees_img" widget="image"/>
+                <field name="attentees_img" widget="image" class="oe_avatar"/>
                 <field name="img_warning"/>
             </xpath>
         </field>

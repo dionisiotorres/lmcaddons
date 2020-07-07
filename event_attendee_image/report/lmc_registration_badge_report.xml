@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <!-- template use to render a Registration Badge -->
     <template id="event_registration_report_attendees_badge">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
                 <div class="page">
                     <div class="row">
-                        
-                        <div class="col-6" style="  height: 149mm;">
+                        <div class="col-6">
                             <div>
                                 <div>
                                     <div class="col-12 text-left" id="o_image_name">
-                                        <img class="img-fluid" t-attf-src="data:image/*;base64,{{o.attentees_img}}"/>
+                                        <img class="img rounded-circle" t-attf-src="data:image/*;base64,{{o.attentees_img}}" style="height: 200px; width: 200px; margin-left:-22px;" />
                                     </div>
                                 </div>
-
-                                <t t-set="names" t-value="o.name.split(' ')"/>
-                                <div class="text-left" t-if="names">
-                                    <h5 t-esc="names[0]"/>
-                                    <h5 t-esc="names[1]" t-if="len(names) > 1"/>
+                                <t t-set="names" t-value="o.name.split(' ')" />
+                                <div class="text-left" style="color:#4ea6a5; text-transform: uppercase; margin-top:20px;" t-if="names">
+                                    <h5 t-esc="names[0]" style="font-size: 35px !important; font-weight: bold;" />
+                                    <h5 t-esc="names[1]" style="font-size: 35px !important;font-weight: bold;" t-if="len(names) > 1" />
                                 </div>
-
                                 <div>
                                     <div t-field="o.event_id.badge_front"></div>
                                 </div>
@@ -31,11 +27,48 @@
                                     <div t-field="o.event_id.badge_front"></div>
                                 </div>
                             </div>
-                            <div class="footer" style="float:right;">
-                                <h5 t-field="o.sale_order_id"/>
+                        </div>
+                    </div>
+                    <!-- <div class="footer"> -->
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <img style="height:60px; margin-left: -55px;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s &amp;humanreadable=1' % ('Code128', o.barcode, 600, 100)" />
+                            </div>
+                            <div class="col-6 text-right">
+                                <br />
+                                <br />
+                                <h5 style="font-size: 15px !important; font-weight: bold; text-transform: uppercase;" t-field="o.sale_order_id" />
                             </div>
                         </div>
-                        <!-- Back -->
+                    <!-- </div> -->
+                    <div style="page-break-before: always;">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <br />
+                            <br />
+                            &amp;nbsp;
+                        </div>
+                    </div>
+                    <!-- Back -->
+                    <div style="page-break-before: always;">
                     </div>
                 </div>
             </t>
