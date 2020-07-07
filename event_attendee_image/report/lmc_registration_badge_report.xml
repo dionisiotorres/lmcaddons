@@ -6,7 +6,7 @@
             <t t-foreach="docs" t-as="o">
                 <div class="page">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12">
                             <div>
                                 <div>
                                     <div class="col-12 text-left" id="o_image_name">
@@ -16,7 +16,7 @@
                                 <t t-set="names" t-value="o.name.split(' ')" />
                                 <div class="text-left" style="color:#4ea6a5; text-transform: uppercase; margin-top:20px;" t-if="names">
                                     <h5 t-esc="names[0]" style="font-size: 35px !important; font-weight: bold;" />
-                                    <h5 t-esc="names[1]" style="font-size: 35px !important;font-weight: bold;" t-if="len(names) > 1" />
+                                    <h5 t-esc="(' ').join(names[1:])" style="font-size: 35px !important;font-weight: bold;" t-if="len(names) > 1" />
                                 </div>
                                 <div>
                                     <div t-field="o.event_id.badge_front"></div>
@@ -53,8 +53,7 @@
                             </div>
                             <div class="col-6 text-right">
                                 <br />
-                                <br />
-                                <h5 style="font-size: 15px !important; font-weight: bold; text-transform: uppercase;" t-field="o.sale_order_id" />
+                                <h5 style="font-size: 18px !important; font-weight: bold; text-transform: uppercase;" t-field="o.sale_order_id" />
                             </div>
                         </div>
                     <!-- </div> -->
