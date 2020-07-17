@@ -1,6 +1,15 @@
 # -*- coding: utf-8 
 from odoo import api, fields, models, _
 
+class ResCompany(models.Model):
+
+    _inherit = "res.company"
+
+    upload_image = fields.Binary("Upload Image",
+                                 attachment=True,
+                                 help="This field holds the image used for" +
+                                 "the badge, limited to 256x256")
+
 class EventRegistration(models.Model):
     _inherit = 'event.registration'
 

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+
+    <record id="view_order_form_inherit_res_comapny" model="ir.ui.view">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_address_format')]" position="after">
+                <field name="upload_image" widget="image" class="oe_left oe_avatar" accept=".png"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="paperformat_size_a5" model="report.paperformat">
         <field name="name">Event Registration Report</field>
         <field name="default" eval="True"/>

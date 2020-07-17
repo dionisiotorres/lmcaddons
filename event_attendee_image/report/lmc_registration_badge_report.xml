@@ -3,14 +3,23 @@
     <!-- template use to render a Registration Badge -->
     <template id="event_registration_report_attendees_badge">
         <t t-call="web.basic_layout">
+            <!--<div style="position: absolute;opacity: 1;z-index: 100;width: 150%;">
+                <img src="/event_attendee_image/static/src/img/badge_background_page1.jpg"
+                     style="top:306px;width:65%;height:1150px;opacity:1;z-index:-100;"/>
+            </div>-->
             <t t-foreach="docs" t-as="o">
                 <div class="page">
                     <div class="row">
+                        <div style="position: absolute;opacity: 1;width: 150%;">
+                            <img src="/event_attendee_image/static/src/img/badge_background_page1.jpg"
+                                 style="position:absolute;height:1060px;width:67%;opacity:1;z-index:-1000;"/>
+                        </div>
+
                         <div class="col-12">
                             <div>
                                 <div>
                                     <div class="col-12 text-left" id="o_image_name">
-                                        <img class="img rounded-circle" t-attf-src="data:image/*;base64,{{o.attentees_img}}" style="height: 200px; width: 200px; margin-left:-22px;" />
+                                        <img class="img rounded-circle" t-attf-src="data:image/*;base64,{{o.attentees_img}}" style="height: 200px; width: 200px;" />
                                     </div>
                                 </div>
                                 <t t-set="names" t-value="o.name.split(' ')" />
@@ -30,36 +39,26 @@
                         </div>
                     </div>
                     <!-- <div class="footer"> -->
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                        <div class="row">
-                            <div class="col-6">
-                                <img style="height:60px; margin-left: -55px;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s &amp;humanreadable=1' % ('Code128', o.barcode, 600, 100)" />
-                            </div>
-                            <div class="col-6 text-right">
-                                <br />
-                                <h5 style="font-size: 18px !important; font-weight: bold; text-transform: uppercase;" t-field="o.sale_order_id" />
-                            </div>
+                    <div class="row" style="margin-top:790px;">
+                        <div class="col-6">
+                            <img style="height:60px;max-width:400px;margin-left:-60px;"
+                                 t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' %
+                                 ('Code128', o.barcode, 500, 100)" alt="Barcode"/>
                         </div>
+                        <div class="col-6 text-right">
+                            <br />
+                            <h5 style="font-size: 18px !important; font-weight: bold; text-transform: uppercase;"
+                                t-field="o.sale_order_id" />
+                        </div>
+                    </div>
                     <!-- </div> -->
                     <div style="page-break-before: always;">
                     </div>
                     <div class="row">
+                        <div style="position: absolute;opacity: 1;width: 150%;">
+                            <img src="/event_attendee_image/static/src/img/badge_background_page2.jpg"
+                                 style="position:absolute;height:1170px;width:67%;opacity:1;z-index:-1000;"/>
+                        </div>
                         <div class="col-6">
                             <br />
                             <br />
